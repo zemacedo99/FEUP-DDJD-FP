@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] [Range(0.0f, 0.5f)] float mouseSmoothTime = 0.03f;
     [SerializeField] bool cursorLock = true;
     [SerializeField] float mouseSensitivity = 3.5f;
-    [SerializeField] float Speed = 6.0f;
+    [SerializeField] float moveSpeed = 6.0f;
     [SerializeField] [Range(0.0f, 0.5f)] float moveSmoothTime = 0.3f;
     [SerializeField] float gravity = -30f;
     [SerializeField] Transform groundCheck;
@@ -72,13 +72,12 @@ public class PlayerMovement : MonoBehaviour
 
         velocityY += gravity * 2f * Time.deltaTime;
 
-        Vector3 velocity = (transform.forward * currentDir.y + transform.right * currentDir.x) * Speed + Vector3.up * velocityY;
+        Vector3 velocity = (transform.forward * currentDir.y + transform.right * currentDir.x) * moveSpeed + Vector3.up * velocityY;
 
         controller.Move(velocity * Time.deltaTime);
 
         if (isGrounded && Input.GetButtonDown("Jump"))
         {
-            Debug.Log("Jumping");
             velocityY = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
