@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float mouseSensitivity = 3.5f;
     [SerializeField] float moveSpeed = 6.0f;
     [SerializeField] [Range(0.0f, 0.5f)] float moveSmoothTime = 0.3f;
-    [SerializeField] float gravity = -30f;
+    public float gravity = -30f;
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask ground;
 
@@ -24,14 +24,18 @@ public class PlayerMovement : MonoBehaviour
     Vector2 currentMouseDelta;
     Vector2 currentMouseDeltaVelocity;
 
-    CharacterController controller;
     Vector2 currentDir;
     Vector2 currentDirVelocity;
-    Vector3 velocity;
+
+    CharacterController controller;
+    Recorder recorder;
+    Cloning cloningScript;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        recorder = GetComponent<Recorder>();
+        cloningScript = GetComponent<Cloning>();
 
         if (cursorLock)
         {
@@ -42,7 +46,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        UpdateMouse();
+        if (!cloningScript.isClone)
+            UpdateMouse();
         UpdateMove();
     }
 
@@ -76,14 +81,31 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
 
+        if (recorder.isRecording)
+        {
+            //recorder.Push(Recorder.ActionType.Move, Time.time, velocity * Time.deltaTime);
+        }
+
         if (isGrounded && Input.GetButtonDown("Jump"))
         {
-            velocityY = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            velocityY = Jump(jumpHeight, gravity);
+
+            if (recorder.isRecording)
+            {
+                recorder.Push(Recorder.ActionType.Jump, Time.time);
+            }
         }
 
         if (isGrounded! && controller.velocity.y < -1f)
         {
             velocityY = -8f;
         }
+    }
+
+    public float Jump(float jumpHeight, float gravity)
+    {
+        float velocityY = Mathf.Sqrt(jumpHeight * -2f * gravity);
+
+        return velocityY;
     }
 }

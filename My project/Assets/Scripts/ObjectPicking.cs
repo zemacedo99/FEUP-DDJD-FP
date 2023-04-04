@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ObjectPicking : MonoBehaviour
 {
+    public GameObject playerPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,9 @@ public class ObjectPicking : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Debug.Log(gameObject);
+            GameObject playerClone = Instantiate(playerPrefab, transform.position, Quaternion.identity);
+
+            playerClone.GetComponent<Cloning>().InitClone();
         }
     }
 }
