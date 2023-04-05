@@ -108,4 +108,8 @@ public class PlayerMovement : MonoBehaviour
 
         return velocityY;
     }
+    public void SetVelocityY(float newValue)
+    {
+        velocityY = newValue;
+    }
 }

@@ -10,6 +10,10 @@ public class Cloning : MonoBehaviour
     {
         // Init Clone
         isClone = true;
+
+        PlayerActions playerActionsScript = GetComponent<PlayerActions>();
+        Destroy(playerActionsScript);
+
         // compare children of game object
         for (var i = gameObject.transform.childCount - 1; i >= 0; i--)
         {
