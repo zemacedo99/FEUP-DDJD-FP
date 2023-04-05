@@ -10,12 +10,13 @@ public class Recorder : MonoBehaviour
     public bool isRecording;
     bool isPlaying;
     Vector3 startingPosition;
+    GameObject startingCamera;
     float recordingStartTime;
     float playStartTime;
 
+    Cloning cloningScript;
     GameObject clone;
     CharacterController cloneController;
-    Cloning cloningScript;
     int playIndex;
     List<Tuple<ActionType, float, Vector3>> actionsArray;
 
@@ -66,6 +67,25 @@ public class Recorder : MonoBehaviour
 
         // Store starting position, and facing direction (XZ only) and gravity modifier (1 or -1)
         startingPosition = gameObject.transform.position;
+        // Find startingCamera
+        for (var i = gameObject.transform.childCount - 1; i >= 0; i--)
+        {
+            GameObject child = gameObject.transform.GetChild(i).gameObject;
+            if (child.layer == LayerMask.NameToLayer("Cameras"))
+            {
+                if (child.name == "Starting Camera")
+                {
+                    Destroy(child);
+                }
+                else {
+                    // child is Main Camera
+                    startingCamera = Instantiate(child, gameObject.transform);
+                    startingCamera.name = "Starting Camera";
+                    startingCamera.tag = "Untagged";
+                    startingCamera.GetComponent<Camera>().enabled = false;
+                }
+            }
+        }
         // More ToDo
 
         // Reset actionsArray
@@ -106,7 +126,7 @@ public class Recorder : MonoBehaviour
         playStartTime = Time.time;
 
         clone = Instantiate(gameObject, startingPosition, Quaternion.identity);
-        clone.GetComponent<Cloning>().InitClone();
+        clone.GetComponent<Cloning>().InitClone(startingCamera);
         cloneController = GetComponent<CharacterController>();
     }
 

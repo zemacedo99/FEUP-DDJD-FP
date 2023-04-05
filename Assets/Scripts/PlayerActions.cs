@@ -20,7 +20,8 @@ public class PlayerActions : MonoBehaviour
         if (Input.GetMouseButtonDown(1) && !cloningScript.isClone)
         {
             recorder.StartRecording();
-        }else if (Input.GetMouseButtonUp(1) && !cloningScript.isClone)
+        }
+        else if (Input.GetMouseButtonUp(1) && !cloningScript.isClone)
         {
             recorder.StopRecording();
         }
