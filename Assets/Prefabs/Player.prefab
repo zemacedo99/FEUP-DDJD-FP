@@ -200,6 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oxygenValue: 100
   oxygenSlider: {fileID: 0}
+  oxygenText: {fileID: 0}
 --- !u!1 &1010445595449364028
 GameObject:
   m_ObjectHideFlags: 0

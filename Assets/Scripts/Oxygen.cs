@@ -17,6 +17,7 @@ public class Oxygen : MonoBehaviour
     void Start()
     {
         lastPosition = transform.position;
+        oxygenSlider.maxValue = oxygenValue;
     }
 
     void Update()
@@ -32,8 +33,24 @@ public class Oxygen : MonoBehaviour
         }
        
         oxygenSlider.value = oxygenValue;
-        oxygenText.text = oxygenValue.ToString("F0");
+        oxygenText.text = "Oxygen: " + oxygenValue.ToString("F0");
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other);
+        if (other.gameObject.CompareTag("OxygenStation"))
+        {
+            RefillOxygen();
+        }
+    }
+
+    void RefillOxygen()
+    {
+        oxygenValue = oxygenSlider.maxValue;
+        Debug.Log("Oxygen refilled!");
+    } 
+
 
     void Die()
     {
