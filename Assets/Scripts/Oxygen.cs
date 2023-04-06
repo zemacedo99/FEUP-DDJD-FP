@@ -29,8 +29,11 @@ public class Oxygen : MonoBehaviour
     void Update()
     {
         float distanceMoved = Vector3.Distance(transform.position, lastPosition);
-        oxygenValue -= distanceMoved * oxygenLost;
         lastPosition = transform.position;
+        if (distanceMoved < 1)
+        {
+            oxygenValue -= distanceMoved * oxygenLost;
+        }
 
         if (oxygenValue <= 0)
         {
@@ -38,8 +41,7 @@ public class Oxygen : MonoBehaviour
             Die();
         }
        
-        oxygenSlider.value = oxygenValue;
-        oxygenText.text = "Oxygen: " + oxygenValue.ToString("F0");
+        UpdateSlider(oxygenValue);
     }
 
     void OnTriggerEnter(Collider other)
@@ -49,6 +51,12 @@ public class Oxygen : MonoBehaviour
         {
             RefillOxygen();
         }
+    }
+
+    void UpdateSlider(float value)
+    {
+        oxygenSlider.value = value;
+        oxygenText.text = "Oxygen: " + value.ToString("F0");
     }
 
     void RefillOxygen()
@@ -65,10 +73,8 @@ public class Oxygen : MonoBehaviour
         controller.enabled = false;
         transform.position = originalPosition;
         controller.enabled = true;
-        Debug.Log("Transform position: " + transform.position);
-        Debug.Log("Original position: " + originalPosition);
         oxygenValue = oxygenSlider.maxValue;
-
+        UpdateSlider(oxygenValue);
     }
 
 }
