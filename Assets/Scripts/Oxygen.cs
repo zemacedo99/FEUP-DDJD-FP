@@ -12,11 +12,17 @@ public class Oxygen : MonoBehaviour
     public TMP_Text oxygenText;
 
     private Vector3 lastPosition;
+    private Vector3 originalPosition;
     private float oxygenLost = 2f;
+
+    CharacterController controller;
 
     void Start()
     {
+        controller = GetComponent<CharacterController>();
         lastPosition = transform.position;
+        originalPosition = transform.position;
+        Debug.Log("Original position: " + originalPosition);
         oxygenSlider.maxValue = oxygenValue;
     }
 
@@ -54,8 +60,15 @@ public class Oxygen : MonoBehaviour
 
     void Die()
     {
-        // Implement restart the level
         Debug.Log("Player has run out of oxygen");
+        // Implement restart the level
+        controller.enabled = false;
+        transform.position = originalPosition;
+        controller.enabled = true;
+        Debug.Log("Transform position: " + transform.position);
+        Debug.Log("Original position: " + originalPosition);
+        oxygenValue = oxygenSlider.maxValue;
+
     }
 
 }
