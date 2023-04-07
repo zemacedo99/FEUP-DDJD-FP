@@ -15,6 +15,7 @@ public class Oxygen : MonoBehaviour
     private Vector3 originalPosition;
     private float oxygenLostSpeed = 2f;
     private float oxygenRefillSpeed = 2.5f;
+    private bool refilling = false;
 
     CharacterController controller;
 
@@ -30,7 +31,7 @@ public class Oxygen : MonoBehaviour
     {
         float distanceMoved = Vector3.Distance(transform.position, lastPosition);
         lastPosition = transform.position;
-        if (distanceMoved < 1)
+        if (distanceMoved < 1 && !refilling)
         {
             oxygenValue -= distanceMoved * oxygenLostSpeed;
         }
@@ -50,7 +51,7 @@ public class Oxygen : MonoBehaviour
         {
             // if (Input.GetKeyDown(KeyCode.E))
             // {
-                StartCoroutine("RefillOxygen");
+                RefillOxygen(); 
                 //Debug.Log("Start refilling oxygen.");
             // }
         }
@@ -60,7 +61,7 @@ public class Oxygen : MonoBehaviour
     {
         if (other.CompareTag("OxygenStation"))
         {
-            StopCoroutine("RefillOxygen");
+            refilling = false;
             //Debug.Log("Stopped refilling oxygen.");
         }
     }
@@ -72,15 +73,14 @@ public class Oxygen : MonoBehaviour
         oxygenText.text = "Oxygen: " + value.ToString("F0");
     }
 
-    IEnumerator RefillOxygen()
+    void RefillOxygen()
     {
-        while (oxygenValue < oxygenSlider.maxValue)
+        if(oxygenValue < oxygenSlider.maxValue)
         {
+            refilling = true;
             oxygenValue += oxygenRefillSpeed * Time.deltaTime;
             UpdateSlider(oxygenValue);
-            yield return null;
         }
-        //Debug.Log("Oxygen refilled!");
     }
 
 
