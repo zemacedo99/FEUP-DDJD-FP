@@ -12,9 +12,9 @@ public class Oxygen : MonoBehaviour
     public TMP_Text oxygenText;
 
     private Vector3 lastPosition;
-    private Vector3 originalPosition;
+    private Vector3 oxygenStationPosition;
     private float oxygenLostSpeed = 2f;
-    private float oxygenRefillSpeed = 2.5f;
+    private float oxygenRefillSpeed = 50f;
     private bool refilling = false;
 
     CharacterController controller;
@@ -23,7 +23,7 @@ public class Oxygen : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         lastPosition = transform.position;
-        originalPosition = transform.position;
+        oxygenStationPosition = transform.position;
         oxygenSlider.maxValue = oxygenValue;
     }
 
@@ -49,11 +49,8 @@ public class Oxygen : MonoBehaviour
     {
         if (other.CompareTag("OxygenStation"))
         {
-            // if (Input.GetKeyDown(KeyCode.E))
-            // {
-                RefillOxygen(); 
-                //Debug.Log("Start refilling oxygen.");
-            // }
+            oxygenStationPosition = other.transform.position;
+            RefillOxygen(); 
         }
     }
 
@@ -89,7 +86,7 @@ public class Oxygen : MonoBehaviour
         Debug.Log("Player has run out of oxygen");
         // Implement restart the level
         controller.enabled = false;
-        transform.position = originalPosition;
+        transform.position = oxygenStationPosition;
         controller.enabled = true;
         oxygenValue = oxygenSlider.maxValue;
         UpdateSlider(oxygenValue);
