@@ -7,7 +7,7 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField] private Vector3 targetA, targetB;
     [SerializeField] private float speed;
     private bool switching = false;
-    void Update()
+    void FixedUpdate()
     {
         if (!switching)
         {
@@ -26,5 +26,16 @@ public class MovingPlatform : MonoBehaviour
             switching = false;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        other.transform.SetParent(transform);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        other.transform.SetParent(null);
+    }
+
 
 }
