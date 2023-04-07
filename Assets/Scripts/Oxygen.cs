@@ -51,7 +51,7 @@ public class Oxygen : MonoBehaviour
             // if (Input.GetKeyDown(KeyCode.E))
             // {
                 StartCoroutine("RefillOxygen");
-                Debug.Log("Start refilling oxygen.");
+                //Debug.Log("Start refilling oxygen.");
             // }
         }
     }
@@ -61,7 +61,7 @@ public class Oxygen : MonoBehaviour
         if (other.CompareTag("OxygenStation"))
         {
             StopCoroutine("RefillOxygen");
-            Debug.Log("Stopped refilling oxygen.");
+            //Debug.Log("Stopped refilling oxygen.");
         }
     }
 
@@ -80,7 +80,7 @@ public class Oxygen : MonoBehaviour
             UpdateSlider(oxygenValue);
             yield return null;
         }
-        Debug.Log("Oxygen refilled!");
+        //Debug.Log("Oxygen refilled!");
     }
 
 
