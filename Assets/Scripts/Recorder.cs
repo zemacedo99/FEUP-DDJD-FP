@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Recorder : MonoBehaviour
 {
-    public enum ActionType { Move, Jump, StopRecording };
+    public enum ActionType { Move, MoveCamera, Jump, StopRecording };
 
     public bool isRecording;
     bool isPlaying;
@@ -16,6 +16,7 @@ public class Recorder : MonoBehaviour
 
     Cloning cloningScript;
     GameObject clone;
+    public GameObject cube;
     CharacterController cloneController;
     int playIndex;
     List<Tuple<ActionType, float, Vector3>> actionsArray;
@@ -36,14 +37,18 @@ public class Recorder : MonoBehaviour
         {
             Tuple<ActionType, float, Vector3> tuple = actionsArray[playIndex];
 
-            if (tuple.Item2 - recordingStartTime <= Time.time - playStartTime) {
+            if (tuple.Item2 - recordingStartTime <= Time.time - playStartTime)
+            {
+                PlayerMovement pm = clone.GetComponent<PlayerMovement>();
                 switch (tuple.Item1)
                 {
                     case ActionType.Move:
                         //cloneController.Move(tuple.Item3);
                         break;
+                    case ActionType.MoveCamera:
+                        pm.transform.Rotate(tuple.Item3);
+                        break;
                     case ActionType.Jump:
-                        PlayerMovement pm = clone.GetComponent<PlayerMovement>();
                         pm.SetVelocityY(pm.Jump(pm.jumpHeight, pm.gravity));
                         Debug.Log("Jumping");
                         break;
@@ -55,7 +60,23 @@ public class Recorder : MonoBehaviour
                 playIndex++;
                 if (playIndex > actionsArray.Count) isPlaying = false; // This shouldn't happen!
             }
-        }   
+        }
+        else
+        {
+            if (Input.GetMouseButtonDown(1) && !cloningScript.isClone)
+            {
+                StartRecording();
+            }
+            else if (Input.GetMouseButtonUp(1) && !cloningScript.isClone)
+            {
+                StopRecording();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Q) && !cloningScript.isClone)
+            {
+                Play();
+            }
+        }
     }
 
     public void StartRecording()
@@ -67,6 +88,7 @@ public class Recorder : MonoBehaviour
 
         // Store starting position, and facing direction (XZ only) and gravity modifier (1 or -1)
         startingPosition = gameObject.transform.position;
+
         // Find startingCamera
         for (var i = gameObject.transform.childCount - 1; i >= 0; i--)
         {
@@ -78,11 +100,15 @@ public class Recorder : MonoBehaviour
                     Destroy(child);
                 }
                 else {
-                    // child is Main Camera
+                    // child is startingCamera
+                    var oldStartingCamera = startingCamera;
+                    Destroy(oldStartingCamera);
+
                     startingCamera = Instantiate(child, gameObject.transform);
                     startingCamera.name = "Starting Camera";
                     startingCamera.tag = "Untagged";
                     startingCamera.GetComponent<Camera>().enabled = false;
+                    startingCamera.transform.parent = cube.transform;
                 }
             }
         }

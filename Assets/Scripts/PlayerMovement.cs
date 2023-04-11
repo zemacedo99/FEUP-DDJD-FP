@@ -37,13 +37,20 @@ public class PlayerMovement : MonoBehaviour
         recorder = GetComponent<Recorder>();
         cloningScript = GetComponent<Cloning>();
 
-        // Find Camera
-        for (var i = gameObject.transform.childCount - 1; i >= 0; i--)
+        if (cloningScript.isClone)
         {
-            GameObject child = gameObject.transform.GetChild(i).gameObject;
-            if (child.CompareTag("MainCamera"))
+            playerCamera = cloningScript.startingCamera.transform;
+        }
+        else
+        {
+            // Find Main Camera
+            for (var i = gameObject.transform.childCount - 1; i >= 0; i--)
             {
-                playerCamera = child.transform;
+                GameObject child = gameObject.transform.GetChild(i).gameObject;
+                if (child.CompareTag("MainCamera"))
+                {
+                    playerCamera = child.transform;
+                }
             }
         }
 
@@ -62,17 +69,24 @@ public class PlayerMovement : MonoBehaviour
 
     void UpdateMouse()
     {
-        Vector2 targetMouseDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+        if (!cloningScript.isClone)
+        {
+            Vector2 targetMouseDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
-        currentMouseDelta = Vector2.SmoothDamp(currentMouseDelta, targetMouseDelta, ref currentMouseDeltaVelocity, mouseSmoothTime);
+            currentMouseDelta = Vector2.SmoothDamp(currentMouseDelta, targetMouseDelta, ref currentMouseDeltaVelocity, mouseSmoothTime);
 
-        cameraCap -= currentMouseDelta.y * mouseSensitivity;
+            cameraCap -= currentMouseDelta.y * mouseSensitivity;
 
-        cameraCap = Mathf.Clamp(cameraCap, -90.0f, 90.0f);
+            cameraCap = Mathf.Clamp(cameraCap, -90.0f, 90.0f);
 
-        playerCamera.localEulerAngles = Vector3.right * cameraCap;
+            playerCamera.localEulerAngles = Vector3.right * cameraCap;
 
-        transform.Rotate(Vector3.up * currentMouseDelta.x * mouseSensitivity);
+            transform.Rotate(Vector3.up * currentMouseDelta.x * mouseSensitivity);
+            if (recorder.isRecording)
+            {
+                recorder.Push(Recorder.ActionType.MoveCamera, Time.time, Vector3.up * currentMouseDelta.x * mouseSensitivity);
+            }
+        }
     }
 
     void UpdateMove()

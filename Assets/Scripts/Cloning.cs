@@ -5,13 +5,11 @@ using UnityEngine;
 public class Cloning : MonoBehaviour
 {
     public bool isClone = false;
+    public GameObject startingCamera;
 
-    public void InitClone(GameObject startingCamera)
+    public void InitClone(GameObject newStartingCamera)
     {
         isClone = true;
-
-        PlayerActions playerActionsScript = GetComponent<PlayerActions>();
-        Destroy(playerActionsScript);
 
         // Replace clone Camera and deactivate it
         for (var i = gameObject.transform.childCount - 1; i >= 0; i--)
@@ -19,8 +17,7 @@ public class Cloning : MonoBehaviour
             if (gameObject.transform.GetChild(i).gameObject.layer == LayerMask.NameToLayer("Cameras"))
                 Destroy(gameObject.transform.GetChild(i).gameObject);
         }
-        GameObject camera = Instantiate(startingCamera, gameObject.transform);
-        camera.transform.parent = gameObject.transform;
-        camera.GetComponent<Camera>().enabled = false;
+        startingCamera = Instantiate(newStartingCamera, gameObject.transform);
+        startingCamera.GetComponent<Camera>().enabled = false;
     }
 }
