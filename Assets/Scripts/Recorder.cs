@@ -43,7 +43,7 @@ public class Recorder : MonoBehaviour
                 switch (tuple.Item1)
                 {
                     case ActionType.Move:
-                        //cloneController.Move(tuple.Item3);
+                        cloneController.Move(tuple.Item3);
                         break;
                     case ActionType.MoveCamera:
                         pm.transform.Rotate(tuple.Item3);
@@ -153,7 +153,7 @@ public class Recorder : MonoBehaviour
 
         clone = Instantiate(gameObject, startingPosition, Quaternion.identity);
         clone.GetComponent<Cloning>().InitClone(startingCamera);
-        cloneController = GetComponent<CharacterController>();
+        cloneController = clone.GetComponent<CharacterController>();
     }
 
     public void Push(ActionType actionType, float timestamp)

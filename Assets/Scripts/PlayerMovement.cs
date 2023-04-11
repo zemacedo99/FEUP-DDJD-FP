@@ -81,7 +81,9 @@ public class PlayerMovement : MonoBehaviour
 
             playerCamera.localEulerAngles = Vector3.right * cameraCap;
 
-            transform.Rotate(Vector3.up * currentMouseDelta.x * mouseSensitivity);
+            var rotationValue = Vector3.up * currentMouseDelta.x * mouseSensitivity;
+            transform.Rotate(rotationValue);
+
             if (recorder.isRecording)
             {
                 recorder.Push(Recorder.ActionType.MoveCamera, Time.time, Vector3.up * currentMouseDelta.x * mouseSensitivity);
@@ -94,32 +96,33 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = Physics.CheckSphere(groundCheck.position, 0.2f, ground);
 
         Vector2 targetDir;
-        //if (cloningScript.isClone)
-        //    targetDir = new Vector2(0, 0);
-        //else
+        if (!cloningScript.isClone)
+        {
+
             targetDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        targetDir.Normalize();
+            targetDir.Normalize();
 
-        currentDir = Vector2.SmoothDamp(currentDir, targetDir, ref currentDirVelocity, moveSmoothTime);
+            currentDir = Vector2.SmoothDamp(currentDir, targetDir, ref currentDirVelocity, moveSmoothTime);
 
-        velocityY += gravity * 2f * Time.deltaTime;
+            velocityY += gravity * 2f * Time.deltaTime;
 
-        Vector3 velocity = (transform.forward * currentDir.y + transform.right * currentDir.x) * moveSpeed + Vector3.up * velocityY;
+            Vector3 velocity = (transform.forward * currentDir.y + transform.right * currentDir.x) * moveSpeed + Vector3.up * velocityY;
 
-        controller.Move(velocity * Time.deltaTime);
-
-        if (recorder.isRecording)
-        {
-            //recorder.Push(Recorder.ActionType.Move, Time.time, velocity * Time.deltaTime);
-        }
-
-        if (isGrounded && Input.GetButtonDown("Jump"))
-        {
-            velocityY = Jump(jumpHeight, gravity);
+            controller.Move(velocity * Time.deltaTime);
 
             if (recorder.isRecording)
             {
-                recorder.Push(Recorder.ActionType.Jump, Time.time);
+                recorder.Push(Recorder.ActionType.Move, Time.time, velocity * Time.deltaTime);
+            }
+
+            if (isGrounded && Input.GetButtonDown("Jump"))
+            {
+                velocityY = Jump(jumpHeight, gravity);
+
+                if (recorder.isRecording)
+                {
+                    recorder.Push(Recorder.ActionType.Jump, Time.time);
+                }
             }
         }
 
