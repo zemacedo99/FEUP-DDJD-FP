@@ -37,7 +37,7 @@ public class Recorder : MonoBehaviour
         {
             Tuple<ActionType, float, Vector3> tuple = actionsArray[playIndex];
 
-            if (tuple.Item2 - recordingStartTime <= Time.time - playStartTime)
+            while (tuple.Item2 - recordingStartTime <= Time.time - playStartTime)
             {
                 PlayerMovement pm = clone.GetComponent<PlayerMovement>();
                 switch (tuple.Item1)
@@ -58,7 +58,9 @@ public class Recorder : MonoBehaviour
                         break;
                 }
                 playIndex++;
-                if (playIndex > actionsArray.Count) isPlaying = false; // This shouldn't happen!
+                if (playIndex < actionsArray.Count)
+                    tuple = actionsArray[playIndex];
+                else break;
             }
         }
         else
