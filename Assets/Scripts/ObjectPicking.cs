@@ -19,12 +19,12 @@ public class ObjectPicking : MonoBehaviour
 
     void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            GameObject playerClone = Instantiate(playerPrefab, transform.position, Quaternion.identity);
-            playerClone.GetComponent<Cloning>().InitClone();
-            Debug.Log(playerClone.GetComponent<Cloning>().isClone);
-        }
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    GameObject playerClone = Instantiate(playerPrefab, transform.position, Quaternion.identity);
+        //    playerClone.GetComponent<Cloning>().InitClone();
+        //    Debug.Log(playerClone.GetComponent<Cloning>().isClone);
+        //}
     }
 }
 

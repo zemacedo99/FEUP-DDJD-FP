@@ -2270,6 +2270,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4083617801040010, guid: c68b5d42961bd3a41a87f5d02a3af643, type: 3}
   m_PrefabInstance: {fileID: 923285705}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1275374404 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5488022430250837484, guid: 535f3a5e04e9c8345b8a3e6a5b1eea39, type: 3}
+  m_PrefabInstance: {fileID: 1984826227}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1310512308
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3901,9 +3906,13 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1374495037959286186, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
-      propertyPath: m_Enabled
-      value: 0
+    - target: {fileID: 5337838783731183409, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 7106066949501403723, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: cube
+      value: 
+      objectReference: {fileID: 1275374404}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}

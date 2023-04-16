@@ -13,11 +13,10 @@ GameObject:
   - component: {fileID: 1010445595383186405}
   - component: {fileID: 1010445595383186410}
   - component: {fileID: 1010445595383186406}
-  - component: {fileID: 1010445595383186401}
-  - component: {fileID: 2048356834007187094}
-  - component: {fileID: 7106066949501403723}
   - component: {fileID: 4903105926582290903}
-  - component: {fileID: 5287465918985573986}
+  - component: {fileID: 7106066949501403723}
+  - component: {fileID: 1010445595383186401}
+  - component: {fileID: 6484459017631928240}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -124,55 +123,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1010445595383186401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1010445595383186411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa0f3f56403e547b0a39d679dd545b60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCamera: {fileID: 4616699832579320999}
-  mouseSmoothTime: 0.03
-  cursorLock: 1
-  mouseSensitivity: 3.5
-  moveSpeed: 7.5
-  moveSmoothTime: 0.3
-  gravity: -5
-  groundCheck: {fileID: 1010445595449364031}
-  ground:
-    serializedVersion: 2
-    m_Bits: 8
-  jumpHeight: 0.7
---- !u!114 &2048356834007187094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1010445595383186411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10d9bf55a074d44dd8d94da2a35908ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7106066949501403723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1010445595383186411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eadec6605c0241b885b36b246d55a1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isRecording: 0
 --- !u!114 &4903105926582290903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClone: 0
---- !u!114 &5287465918985573986
+  startingCamera: {fileID: 0}
+--- !u!114 &7106066949501403723
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -194,6 +145,43 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1010445595383186411}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eadec6605c0241b885b36b246d55a1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRecording: 0
+  cube: {fileID: 0}
+--- !u!114 &1010445595383186401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010445595383186411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa0f3f56403e547b0a39d679dd545b60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSmoothTime: 0.03
+  cursorLock: 1
+  mouseSensitivity: 3.5
+  moveSpeed: 7.5
+  moveSmoothTime: 0.3
+  gravity: -5
+  groundCheck: {fileID: 1010445595449364031}
+  ground:
+    serializedVersion: 2
+    m_Bits: 8
+  jumpHeight: 0.7
+--- !u!114 &6484459017631928240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010445595383186411}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 897dc81d4c439be41902f78ca5098c78, type: 3}
   m_Name: 
@@ -244,9 +232,9 @@ GameObject:
   - component: {fileID: 5168168333977639510}
   - component: {fileID: 8716652218805654895}
   - component: {fileID: 1374495037959286186}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -324,4 +312,4 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5337838783731183409}
-  m_Enabled: 1
+  m_Enabled: 0

@@ -5,17 +5,19 @@ using UnityEngine;
 
 public class Recorder : MonoBehaviour
 {
-    public enum ActionType { Move, Jump, StopRecording };
+    public enum ActionType { Move, MoveCamera, Jump, StopRecording };
 
     public bool isRecording;
     bool isPlaying;
     Vector3 startingPosition;
+    GameObject startingCamera;
     float recordingStartTime;
     float playStartTime;
 
-    GameObject clone;
-    CharacterController cloneController;
     Cloning cloningScript;
+    GameObject clone;
+    public GameObject cube;
+    CharacterController cloneController;
     int playIndex;
     List<Tuple<ActionType, float, Vector3>> actionsArray;
 
@@ -35,14 +37,18 @@ public class Recorder : MonoBehaviour
         {
             Tuple<ActionType, float, Vector3> tuple = actionsArray[playIndex];
 
-            if (tuple.Item2 - recordingStartTime <= Time.time - playStartTime) {
+            while (tuple.Item2 - recordingStartTime <= Time.time - playStartTime)
+            {
+                PlayerMovement pm = clone.GetComponent<PlayerMovement>();
                 switch (tuple.Item1)
                 {
                     case ActionType.Move:
-                        //cloneController.Move(tuple.Item3);
+                        cloneController.Move(tuple.Item3);
+                        break;
+                    case ActionType.MoveCamera:
+                        pm.transform.Rotate(tuple.Item3);
                         break;
                     case ActionType.Jump:
-                        PlayerMovement pm = clone.GetComponent<PlayerMovement>();
                         pm.SetVelocityY(pm.Jump(pm.jumpHeight, pm.gravity));
                         Debug.Log("Jumping");
                         break;
@@ -52,9 +58,27 @@ public class Recorder : MonoBehaviour
                         break;
                 }
                 playIndex++;
-                if (playIndex > actionsArray.Count) isPlaying = false; // This shouldn't happen!
+                if (playIndex < actionsArray.Count)
+                    tuple = actionsArray[playIndex];
+                else break;
             }
-        }   
+        }
+        else
+        {
+            if (Input.GetMouseButtonDown(1) && !cloningScript.isClone)
+            {
+                StartRecording();
+            }
+            else if (Input.GetMouseButtonUp(1) && !cloningScript.isClone)
+            {
+                StopRecording();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Q) && !cloningScript.isClone)
+            {
+                Play();
+            }
+        }
     }
 
     public void StartRecording()
@@ -66,6 +90,30 @@ public class Recorder : MonoBehaviour
 
         // Store starting position, and facing direction (XZ only) and gravity modifier (1 or -1)
         startingPosition = gameObject.transform.position;
+
+        // Find startingCamera
+        for (var i = gameObject.transform.childCount - 1; i >= 0; i--)
+        {
+            GameObject child = gameObject.transform.GetChild(i).gameObject;
+            if (child.layer == LayerMask.NameToLayer("Cameras"))
+            {
+                if (child.name == "Starting Camera")
+                {
+                    Destroy(child);
+                }
+                else {
+                    // child is startingCamera
+                    var oldStartingCamera = startingCamera;
+                    Destroy(oldStartingCamera);
+
+                    startingCamera = Instantiate(child, gameObject.transform);
+                    startingCamera.name = "Starting Camera";
+                    startingCamera.tag = "Untagged";
+                    startingCamera.GetComponent<Camera>().enabled = false;
+                    startingCamera.transform.parent = cube.transform;
+                }
+            }
+        }
         // More ToDo
 
         // Reset actionsArray
@@ -106,8 +154,8 @@ public class Recorder : MonoBehaviour
         playStartTime = Time.time;
 
         clone = Instantiate(gameObject, startingPosition, Quaternion.identity);
-        clone.GetComponent<Cloning>().InitClone();
-        cloneController = GetComponent<CharacterController>();
+        clone.GetComponent<Cloning>().InitClone(startingCamera);
+        cloneController = clone.GetComponent<CharacterController>();
     }
 
     public void Push(ActionType actionType, float timestamp)
