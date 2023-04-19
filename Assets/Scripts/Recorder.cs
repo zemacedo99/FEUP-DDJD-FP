@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Recorder : MonoBehaviour
 {
-    public enum ActionType { Move, MoveCamera, Jump, StopRecording };
+    public enum ActionType { MoveUpdate, CameraUpdate, Jump, StopRecording };
 
     public bool isRecording;
     bool isPlaying;
@@ -17,9 +17,14 @@ public class Recorder : MonoBehaviour
     Cloning cloningScript;
     GameObject clone;
     public GameObject cube;
+
+    // Clone Playing
     CharacterController cloneController;
     int playIndex;
     List<Tuple<ActionType, float, Vector3>> actionsArray;
+    Vector3 moveVector = new();
+    Vector3 cameraVector = new();
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,11 +47,15 @@ public class Recorder : MonoBehaviour
                 PlayerMovement pm = clone.GetComponent<PlayerMovement>();
                 switch (tuple.Item1)
                 {
-                    case ActionType.Move:
-                        cloneController.Move(tuple.Item3);
+                    case ActionType.MoveUpdate:
+                        if (tuple.Item3 != moveVector)
+                            moveVector = tuple.Item3;
+                        cloneController.Move(moveVector);
                         break;
-                    case ActionType.MoveCamera:
-                        pm.transform.Rotate(tuple.Item3);
+                    case ActionType.CameraUpdate:
+                        if (tuple.Item3 != cameraVector)
+                            cameraVector = tuple.Item3;
+                        pm.transform.Rotate(cameraVector);
                         break;
                     case ActionType.Jump:
                         pm.SetVelocityY(pm.Jump(pm.jumpHeight, pm.gravity));

@@ -31,6 +31,9 @@ public class PlayerMovement : MonoBehaviour
     Recorder recorder;
     Cloning cloningScript;
 
+    Vector3 previousMoveVector = new();
+    Vector3 previousCameraVector = new();
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -86,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (recorder.isRecording)
             {
-                recorder.Push(Recorder.ActionType.MoveCamera, Time.time, Vector3.up * currentMouseDelta.x * mouseSensitivity);
+                recorder.Push(Recorder.ActionType.CameraUpdate, Time.time, Vector3.up * currentMouseDelta.x * mouseSensitivity);
             }
         }
     }
@@ -108,11 +111,14 @@ public class PlayerMovement : MonoBehaviour
 
             Vector3 velocity = (transform.forward * currentDir.y + transform.right * currentDir.x) * moveSpeed + Vector3.up * velocityY;
 
-            controller.Move(velocity * Time.deltaTime);
+            Vector3 moveVector = velocity * Time.deltaTime;
+            controller.Move(moveVector);
 
-            if (recorder.isRecording)
+            if (recorder.isRecording && !(previousMoveVector.x == moveVector.x && previousMoveVector.y == moveVector.y && previousMoveVector.z == moveVector.z))
             {
-                recorder.Push(Recorder.ActionType.Move, Time.time, velocity * Time.deltaTime);
+                recorder.Push(Recorder.ActionType.MoveUpdate, Time.time, moveVector);
+                Debug.Log("Previous: " + previousMoveVector);
+                Debug.Log("Current: " + moveVector);
             }
 
             if (isGrounded && Input.GetButtonDown("Jump"))
@@ -124,12 +130,16 @@ public class PlayerMovement : MonoBehaviour
                     recorder.Push(Recorder.ActionType.Jump, Time.time);
                 }
             }
+
+            if (isGrounded! && controller.velocity.y < -1f)
+            {
+                velocityY = -8f;
+            }
+
+            previousMoveVector = moveVector;
         }
 
-        if (isGrounded! && controller.velocity.y < -1f)
-        {
-            velocityY = -8f;
-        }
+
     }
 
     public float Jump(float jumpHeight, float gravity)
