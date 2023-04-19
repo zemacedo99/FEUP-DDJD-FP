@@ -55,7 +55,7 @@ public class Recorder : MonoBehaviour
                     case ActionType.CameraUpdate:
                         if (tuple.Item3 != cameraVector)
                             cameraVector = tuple.Item3;
-                        pm.transform.Rotate(cameraVector);
+                        //pm.transform.Rotate(cameraVector);
                         break;
                     case ActionType.Jump:
                         pm.SetVelocityY(pm.Jump(pm.jumpHeight, pm.gravity));

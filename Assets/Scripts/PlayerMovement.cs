@@ -107,18 +107,21 @@ public class PlayerMovement : MonoBehaviour
 
             currentDir = Vector2.SmoothDamp(currentDir, targetDir, ref currentDirVelocity, moveSmoothTime);
 
-            velocityY += gravity * 2f * Time.deltaTime;
+            if (!isGrounded)
+                velocityY += gravity * 2f * Time.deltaTime;
 
             Vector3 velocity = (transform.forward * currentDir.y + transform.right * currentDir.x) * moveSpeed + Vector3.up * velocityY;
+
 
             Vector3 moveVector = velocity * Time.deltaTime;
             controller.Move(moveVector);
 
-            if (recorder.isRecording && !(previousMoveVector.x == moveVector.x && previousMoveVector.y == moveVector.y && previousMoveVector.z == moveVector.z))
+            if (recorder.isRecording && Vector3.Distance(previousMoveVector/(2*Time.deltaTime), moveVector/(2*Time.deltaTime)) >= 0.1f)
             {
                 recorder.Push(Recorder.ActionType.MoveUpdate, Time.time, moveVector);
-                Debug.Log("Previous: " + previousMoveVector);
-                Debug.Log("Current: " + moveVector);
+                Debug.Log("Previous: " + previousMoveVector / (2 * Time.deltaTime));
+                Debug.Log("Current: " + moveVector / (2 * Time.deltaTime));
+                Debug.Log("Distance: " + Vector3.Distance(previousMoveVector / (2 * Time.deltaTime), moveVector / (2 * Time.deltaTime)));
             }
 
             if (isGrounded && Input.GetButtonDown("Jump"))
@@ -131,9 +134,14 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
 
-            if (isGrounded! && controller.velocity.y < -1f)
+            //if (isGrounded! && controller.velocity.y < -1f)
+            //{
+            //    velocityY = -8f;
+            //}
+
+            if (isGrounded && controller.velocity.y < -1f)
             {
-                velocityY = -8f;
+                velocityY = 0f;
             }
 
             previousMoveVector = moveVector;
