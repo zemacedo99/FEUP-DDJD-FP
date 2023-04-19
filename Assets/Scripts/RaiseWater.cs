@@ -9,11 +9,15 @@ public class RaiseWater : MonoBehaviour
     private float waterLevel;
     public float speed;
 
-    void Start()
+    public void Drop(bool raise)
     {
         waterLevel = water.transform.position.y;
         water.transform.position = new Vector3(water.transform.position.x, waterLevel - 10, water.transform.position.z);
-        this.enabled = false;
+        enabled = raise;
+        if(raise)
+        {
+            FindFirstObjectByType<PlayerMovement>().gameObject.transform.position = new Vector3(water.transform.position.x, waterLevel - 9, water.transform.position.z);
+        }
     }
 
     void Update()
