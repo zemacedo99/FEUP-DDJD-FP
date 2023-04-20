@@ -22,7 +22,7 @@ public class WorldSetup : SceneDict
             else if (state == 1) {
                 water.Drop(true); //drop but raise
                 GameObject.Find(holeDict[name]).GetComponentInChildren<LevelTrigger>().gameObject.SetActive(false);
-                PlayerPrefs.SetInt(scene.path, 2); //and set state to raised
+                PlayerPrefs.SetInt(name, 2); //and set state to raised
             }
         }
     }
