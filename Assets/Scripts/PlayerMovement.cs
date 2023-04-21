@@ -105,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
 
     void UpdateMove()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, 0.2f, ground);
+        isGrounded = Physics.CheckSphere(groundCheck.position, 0.35f, ground);
 
         Vector2 newTargetDir;
 
@@ -180,10 +180,10 @@ public class PlayerMovement : MonoBehaviour
         //    velocityY = -8f;
         //}
 
-        if (isGrounded && controller.velocity.y < -1f)
-        {
-            velocityY = 0f;
-        }
+        //if (isGrounded && controller.velocity.y < -1f)
+        //{
+        //    velocityY = 0f;
+        //}
     }
 
     public float Jump()
