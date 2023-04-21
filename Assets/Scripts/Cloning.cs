@@ -6,6 +6,7 @@ public class Cloning : MonoBehaviour
 {
     public bool isClone = false;
     public GameObject startingCamera;
+    public Recorder recorder;
 
     public void InitClone(GameObject newStartingCamera)
     {
@@ -19,5 +20,10 @@ public class Cloning : MonoBehaviour
         }
         startingCamera = Instantiate(newStartingCamera, gameObject.transform);
         startingCamera.GetComponent<Camera>().enabled = false;
+
+        // Get recorder script of the respective cube
+        // Atm gets from Player
+        GameObject playerGameObject = GameObject.FindGameObjectWithTag("Player");
+        recorder = playerGameObject.GetComponent<Recorder>();
     }
 }

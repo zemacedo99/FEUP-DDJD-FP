@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class Recorder : MonoBehaviour
 {
-    public enum ActionType { MoveUpdate, CameraUpdate, Jump, StopRecording };
+    public enum EventType { MoveDirUpdate, CameraEvent, Jump, StopRecording };
 
     public bool isRecording;
-    bool isPlaying;
+    public bool isPlaying;
     Vector3 startingPosition;
     GameObject startingCamera;
     float recordingStartTime;
@@ -21,16 +21,14 @@ public class Recorder : MonoBehaviour
     // Clone Playing
     CharacterController cloneController;
     int playIndex;
-    List<Tuple<ActionType, float, Vector3>> actionsArray;
-    Vector3 moveVector = new();
-    Vector3 cameraVector = new();
+    List<Tuple<EventType, float, Vector3>> eventArray;
 
 
     // Start is called before the first frame update
     void Start()
     {
         isRecording = false;
-        actionsArray = new List<Tuple<ActionType, float, Vector3>>();
+        eventArray = new List<Tuple<EventType, float, Vector3>>();
 
         cloningScript = GetComponent<Cloning>();
     }
@@ -38,37 +36,34 @@ public class Recorder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPlaying)
+        if (isPlaying && !cloningScript.isClone)
         {
-            Tuple<ActionType, float, Vector3> tuple = actionsArray[playIndex];
+            Tuple<EventType, float, Vector3> tuple = GetNextEvent();
 
-            while (tuple.Item2 - recordingStartTime <= Time.time - playStartTime)
+            while (tuple != null && tuple.Item2 <= Time.time - playStartTime)
             {
                 PlayerMovement pm = clone.GetComponent<PlayerMovement>();
                 switch (tuple.Item1)
                 {
-                    case ActionType.MoveUpdate:
-                        if (tuple.Item3 != moveVector)
-                            moveVector = tuple.Item3;
-                        cloneController.Move(moveVector);
+                    //case EventType.MoveDirUpdate:
+                    //    if (tuple.Item3 != moveDirVector)
+                    //        moveDirVector = tuple.Item3;
+                    //    cloneController.Move(moveDirVector);
+                    //    break;
+                    case EventType.CameraEvent:
+                        pm.transform.Rotate(tuple.Item3);
                         break;
-                    case ActionType.CameraUpdate:
-                        if (tuple.Item3 != cameraVector)
-                            cameraVector = tuple.Item3;
-                        //pm.transform.Rotate(cameraVector);
-                        break;
-                    case ActionType.Jump:
-                        pm.SetVelocityY(pm.Jump(pm.jumpHeight, pm.gravity));
-                        Debug.Log("Jumping");
-                        break;
-                    case ActionType.StopRecording:
+                    //case EventType.Jump:
+                    //    pm.SetVelocityY(pm.Jump(pm.jumpHeight, pm.gravity));
+                    //    Debug.Log("Jumping");
+                    //    break;
+                    case EventType.StopRecording:
                         isPlaying = false;
                         Destroy(clone);
                         break;
                 }
-                playIndex++;
-                if (playIndex < actionsArray.Count)
-                    tuple = actionsArray[playIndex];
+                if (IncrementEventIndex())
+                    tuple = GetNextEvent();
                 else break;
             }
         }
@@ -125,8 +120,8 @@ public class Recorder : MonoBehaviour
         }
         // More ToDo
 
-        // Reset actionsArray
-        actionsArray = new List<Tuple<ActionType, float, Vector3>>();
+        // Reset eventArray
+        eventArray = new List<Tuple<EventType, float, Vector3>>();
     }
 
     public void StopRecording()
@@ -136,43 +131,78 @@ public class Recorder : MonoBehaviour
 
         isRecording = false;
 
-        Push(ActionType.StopRecording, Time.time);
+        Push(EventType.StopRecording, Time.time - recordingStartTime);
 
         // Destroy Player and instantiate them again at the starting position
         //GameObject player = Instantiate(gameObject, startingPosition, Quaternion.identity);
         //player.GetComponent<Cloning>().isClone = false;
         //Destroy(gameObject);
 
-        Debug.Log(actionsArray.Count);
+        Debug.Log(eventArray.Count);
     }
 
     public void Play()
     {
-        if (isRecording || isPlaying) return;
-
-        Debug.Log("Size of array: " + actionsArray.Count);
-        if (actionsArray.Count < 1)
+        if (isRecording) return;
+        if (isPlaying)
         {
-            Debug.Log("No actions to play");
+            Destroy(clone);
+        }
+
+        Debug.Log("Size of array: " + eventArray.Count);
+        if (eventArray.Count < 1)
+        {
+            Debug.Log("No events to play");
             return;
         }
 
-        isPlaying = true;
         playIndex = 0;
+        ResetAllPlayIndexes();
 
         playStartTime = Time.time;
 
         clone = Instantiate(gameObject, startingPosition, Quaternion.identity);
         clone.GetComponent<Cloning>().InitClone(startingCamera);
         cloneController = clone.GetComponent<CharacterController>();
+
+        isPlaying = true;
     }
 
-    public void Push(ActionType actionType, float timestamp)
+    public void Push(EventType eventType, float timestamp)
     {
-        actionsArray.Add(new Tuple<ActionType, float, Vector3>(actionType, timestamp, new Vector3(0,0,0)) );
+        eventArray.Add(new Tuple<EventType, float, Vector3>(eventType, timestamp, new Vector3(0,0,0)) );
     }
-    public void Push(ActionType actionType, float timestamp, Vector3 motion)
+    public void Push(EventType eventType, float timestamp, Vector3 motion)
     {
-        actionsArray.Add(new Tuple<ActionType, float, Vector3>(actionType, timestamp, motion));
+        eventArray.Add(new Tuple<EventType, float, Vector3>(eventType, timestamp, motion));
+    }
+
+    public float GetRecordingStartTime()
+    {
+        return recordingStartTime;
+    }
+    public float GetPlayStartTime()
+    {
+        return playStartTime;
+    }
+
+    public Tuple<EventType, float, Vector3> GetNextEvent()
+    {
+        return playIndex < eventArray.Count ? eventArray[playIndex] : null;
+    }
+    public Tuple<EventType, float, Vector3> GetEvent(int index)
+    {
+        return index < eventArray.Count ? eventArray[index] : null;
+    }
+    public bool IncrementEventIndex()
+    {
+        playIndex++;
+        return true && playIndex < eventArray.Count;
+    }
+
+    // Resets Play Indexes in ALL scripts
+    void ResetAllPlayIndexes()
+    {
+        gameObject.GetComponent<PlayerMovement>().ResetPlayIndexes();
     }
 }

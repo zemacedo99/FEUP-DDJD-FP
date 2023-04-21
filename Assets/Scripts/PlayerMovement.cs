@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,8 +32,11 @@ public class PlayerMovement : MonoBehaviour
     Recorder recorder;
     Cloning cloningScript;
 
-    Vector3 previousMoveVector = new();
-    Vector3 previousCameraVector = new();
+    // Clone Playing
+    Vector2 targetDir;
+    int moveDirUpdateIndex;
+    int jumpIndex;
+
 
     void Start()
     {
@@ -62,6 +66,11 @@ public class PlayerMovement : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = true;
         }
+
+        // Clone Playing
+        targetDir = new();
+        moveDirUpdateIndex = 0;
+        jumpIndex = 0;
     }
 
     void Update()
@@ -89,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (recorder.isRecording)
             {
-                recorder.Push(Recorder.ActionType.CameraUpdate, Time.time, Vector3.up * currentMouseDelta.x * mouseSensitivity);
+                //recorder.Push(Recorder.EventType.CameraEvent, Time.time, Vector3.up * currentMouseDelta.x * mouseSensitivity);
             }
         }
     }
@@ -98,66 +107,96 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, 0.2f, ground);
 
-        Vector2 targetDir;
+        Vector2 newTargetDir;
+
         if (!cloningScript.isClone)
         {
+            newTargetDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            newTargetDir.Normalize();
 
-            targetDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            targetDir.Normalize();
-
-            currentDir = Vector2.SmoothDamp(currentDir, targetDir, ref currentDirVelocity, moveSmoothTime);
-
-            if (!isGrounded)
-                velocityY += gravity * 2f * Time.deltaTime;
-
-            Vector3 velocity = (transform.forward * currentDir.y + transform.right * currentDir.x) * moveSpeed + Vector3.up * velocityY;
-
-
-            Vector3 moveVector = velocity * Time.deltaTime;
-            controller.Move(moveVector);
-
-            if (recorder.isRecording && Vector3.Distance(previousMoveVector/(2*Time.deltaTime), moveVector/(2*Time.deltaTime)) >= 0.1f)
+            if (!newTargetDir.Equals(targetDir))
             {
-                recorder.Push(Recorder.ActionType.MoveUpdate, Time.time, moveVector);
-                Debug.Log("Previous: " + previousMoveVector / (2 * Time.deltaTime));
-                Debug.Log("Current: " + moveVector / (2 * Time.deltaTime));
-                Debug.Log("Distance: " + Vector3.Distance(previousMoveVector / (2 * Time.deltaTime), moveVector / (2 * Time.deltaTime)));
-            }
-
-            if (isGrounded && Input.GetButtonDown("Jump"))
-            {
-                velocityY = Jump(jumpHeight, gravity);
-
                 if (recorder.isRecording)
-                {
-                    recorder.Push(Recorder.ActionType.Jump, Time.time);
-                }
+                    recorder.Push(Recorder.EventType.MoveDirUpdate, Time.time - recorder.GetRecordingStartTime(), newTargetDir);
+                targetDir = newTargetDir;
             }
+        }
+        else
+        {      
+            Tuple<Recorder.EventType, float, Vector3> tuple = cloningScript.recorder.GetEvent(moveDirUpdateIndex);
 
-            //if (isGrounded! && controller.velocity.y < -1f)
-            //{
-            //    velocityY = -8f;
-            //}
-
-            if (isGrounded && controller.velocity.y < -1f)
+            while (tuple != null && tuple.Item2 <= Time.time - cloningScript.recorder.GetPlayStartTime())
             {
-                velocityY = 0f;
+                if (tuple.Item1 == Recorder.EventType.MoveDirUpdate)
+                {
+                    targetDir = tuple.Item3;
+                    moveDirUpdateIndex++;
+                    tuple = cloningScript.recorder.GetEvent(moveDirUpdateIndex);
+                }
+                else break;
             }
-
-            previousMoveVector = moveVector;
         }
 
+        currentDir = Vector2.SmoothDamp(currentDir, targetDir, ref currentDirVelocity, moveSmoothTime);
 
+        if (!isGrounded)
+            velocityY += gravity * 2f * Time.deltaTime;
+
+        Vector3 velocity = (transform.forward * currentDir.y + transform.right * currentDir.x) * moveSpeed + Vector3.up * velocityY;
+
+        controller.Move(velocity * Time.deltaTime);
+
+
+        // JUMP
+        if (isGrounded)
+        {
+            if (!cloningScript.isClone && Input.GetButtonDown("Jump"))
+            {
+                velocityY = Jump();
+                if (recorder.isRecording)
+                {
+                    recorder.Push(Recorder.EventType.Jump, Time.time - recorder.GetRecordingStartTime());
+                }
+            }
+            else if (cloningScript.isClone)
+            {
+                Tuple<Recorder.EventType, float, Vector3> tuple = cloningScript.recorder.GetEvent(jumpIndex);
+
+                while (tuple != null && tuple.Item2 <= Time.time - cloningScript.recorder.GetPlayStartTime())
+                {
+                    if (tuple.Item1 == Recorder.EventType.Jump)
+                    {
+                        Debug.Log(tuple);
+                        velocityY = Jump();
+                        jumpIndex++;
+                        tuple = cloningScript.recorder.GetEvent(jumpIndex);
+                    }
+                    else break;
+                }
+            }
+        }
+
+        //if (isGrounded! && controller.velocity.y < -1f)
+        //{
+        //    velocityY = -8f;
+        //}
+
+        if (isGrounded && controller.velocity.y < -1f)
+        {
+            velocityY = 0f;
+        }
     }
 
-    public float Jump(float jumpHeight, float gravity)
+    public float Jump()
     {
         float velocityY = Mathf.Sqrt(jumpHeight * -2f * gravity);
 
         return velocityY;
     }
-    public void SetVelocityY(float newValue)
+
+    public void ResetPlayIndexes()
     {
-        velocityY = newValue;
+        moveDirUpdateIndex = 0;
+        jumpIndex = 0;
     }
 }
