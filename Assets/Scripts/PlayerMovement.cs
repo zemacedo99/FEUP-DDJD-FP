@@ -124,16 +124,16 @@ public class PlayerMovement : MonoBehaviour
         else
         {      
             Tuple<Recorder.EventType, float, Vector3> tuple = cloningScript.recorder.GetEvent(moveDirUpdateIndex);
+            Debug.Log(tuple);
 
             while (tuple != null && tuple.Item2 <= Time.time - cloningScript.recorder.GetPlayStartTime())
             {
                 if (tuple.Item1 == Recorder.EventType.MoveDirUpdate)
                 {
                     targetDir = tuple.Item3;
-                    moveDirUpdateIndex++;
-                    tuple = cloningScript.recorder.GetEvent(moveDirUpdateIndex);
                 }
-                else break;
+                moveDirUpdateIndex++;
+                tuple = cloningScript.recorder.GetEvent(moveDirUpdateIndex);
             }
         }
 
@@ -160,18 +160,17 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (cloningScript.isClone)
             {
-                Tuple<Recorder.EventType, float, Vector3> tuple = cloningScript.recorder.GetEvent(jumpIndex);
+                Tuple<Recorder.EventType, float, Vector3> tuple2 = cloningScript.recorder.GetEvent(jumpIndex);
+                Debug.Log(tuple2);
 
-                while (tuple != null && tuple.Item2 <= Time.time - cloningScript.recorder.GetPlayStartTime())
+                while (tuple2 != null && tuple2.Item2 <= Time.time - cloningScript.recorder.GetPlayStartTime())
                 {
-                    if (tuple.Item1 == Recorder.EventType.Jump)
+                    if (tuple2.Item1 == Recorder.EventType.Jump)
                     {
-                        Debug.Log(tuple);
                         velocityY = Jump();
-                        jumpIndex++;
-                        tuple = cloningScript.recorder.GetEvent(jumpIndex);
                     }
-                    else break;
+                    jumpIndex++;
+                    tuple2 = cloningScript.recorder.GetEvent(jumpIndex);
                 }
             }
         }

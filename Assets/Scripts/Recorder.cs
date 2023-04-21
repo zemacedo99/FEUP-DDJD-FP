@@ -62,9 +62,8 @@ public class Recorder : MonoBehaviour
                         Destroy(clone);
                         break;
                 }
-                if (IncrementEventIndex())
-                    tuple = GetNextEvent();
-                else break;
+                playIndex++;
+                tuple = GetEvent(playIndex);
             }
         }
         else
