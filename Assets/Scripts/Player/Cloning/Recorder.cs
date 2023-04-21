@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Recorder : MonoBehaviour
 {
-    public enum EventType { MoveDirUpdate, CameraEvent, Jump, StopRecording };
+    public enum EventType { MoveDirUpdate, CameraUpdate, Jump, StopRecording };
 
     public bool isRecording;
     public bool isPlaying;
@@ -38,8 +38,8 @@ public class Recorder : MonoBehaviour
     {
         if (isPlaying && !cloningScript.isClone)
         {
+            // Get Playback Value
             Tuple<EventType, float, Vector3> tuple = GetNextEvent();
-
             while (tuple != null && tuple.Item2 <= Time.time - playStartTime)
             {
                 PlayerMovement pm = clone.GetComponent<PlayerMovement>();
@@ -50,9 +50,9 @@ public class Recorder : MonoBehaviour
                     //        moveDirVector = tuple.Item3;
                     //    cloneController.Move(moveDirVector);
                     //    break;
-                    case EventType.CameraEvent:
-                        pm.transform.Rotate(tuple.Item3);
-                        break;
+                    //case EventType.CameraEvent:
+                    //    pm.transform.Rotate(tuple.Item3);
+                    //    break;
                     //case EventType.Jump:
                     //    pm.SetVelocityY(pm.Jump(pm.jumpHeight, pm.gravity));
                     //    Debug.Log("Jumping");
@@ -66,22 +66,21 @@ public class Recorder : MonoBehaviour
                 tuple = GetEvent(playIndex);
             }
         }
-        else
+        
+        if (Input.GetMouseButtonDown(1) && !cloningScript.isClone)
         {
-            if (Input.GetMouseButtonDown(1) && !cloningScript.isClone)
-            {
-                StartRecording();
-            }
-            else if (Input.GetMouseButtonUp(1) && !cloningScript.isClone)
-            {
-                StopRecording();
-            }
-
-            if (Input.GetKeyDown(KeyCode.Q) && !cloningScript.isClone)
-            {
-                Play();
-            }
+            StartRecording();
         }
+        else if (Input.GetMouseButtonUp(1) && !cloningScript.isClone)
+        {
+            StopRecording();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q) && !cloningScript.isClone)
+        {
+            Play();
+        }
+        
     }
 
     public void StartRecording()
@@ -167,6 +166,8 @@ public class Recorder : MonoBehaviour
         isPlaying = true;
     }
 
+    // Pushes an event to the eventArray.
+    // timestamp is time elapsed from recordingStartTime.
     public void Push(EventType eventType, float timestamp)
     {
         eventArray.Add(new Tuple<EventType, float, Vector3>(eventType, timestamp, new Vector3(0,0,0)) );
