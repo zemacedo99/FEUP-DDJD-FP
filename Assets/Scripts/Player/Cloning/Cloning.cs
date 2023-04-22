@@ -32,7 +32,7 @@ public class Cloning : MonoBehaviour
         //      Make cloneCamera a child of this gameobject
         GameObject cloneCamera = Instantiate(recorder.startingCamera);
         cloneCamera.transform.parent = gameObject.transform;
-        cloneCamera.transform.SetPositionAndRotation(recorder.startingCamera.transform.localPosition, recorder.startingCamera.transform.localRotation);
+        cloneCamera.transform.SetPositionAndRotation(recorder.startingCamera.transform.position, recorder.startingCamera.transform.rotation);
 
         //      Set it in the PlayerMovement script
         pm.playerCamera = cloneCamera.transform;

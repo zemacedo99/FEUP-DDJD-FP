@@ -107,14 +107,15 @@ public class Recorder : MonoBehaviour
                 Destroy(oldStartingCamera);
 
                 // Create new startingCamera
-                startingCamera = Instantiate(child);
-                startingCamera.transform.parent = cube.transform;
-                cube.transform.position = startingPosition;
-                startingCamera.transform.SetPositionAndRotation(child.transform.localPosition, child.transform.localRotation);
+                startingCamera = Instantiate(child, child.transform.localPosition, child.transform.localRotation);
+                startingCamera.transform.SetParent(cube.transform, false);
+
                 startingCamera.name = "Starting Camera";
                 startingCamera.tag = "Untagged";
                 startingCamera.GetComponent<Camera>().enabled = false;
 
+                // Update cube position
+                cube.transform.position = startingPosition;
             }
         }
 
