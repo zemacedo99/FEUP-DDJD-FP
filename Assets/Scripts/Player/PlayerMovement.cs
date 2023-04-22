@@ -148,14 +148,14 @@ public class PlayerMovement : MonoBehaviour
         {
             // Get Playback Value
             Tuple<Recorder.EventType, float, Vector3> tuple = cloningScript.recorder.GetEvent(moveDirUpdateIndex);
-            while (tuple != null && tuple.Item2 <= Time.time - cloningScript.recorder.GetPlayStartTime())
+            if (tuple != null && tuple.Item2 <= Time.time - cloningScript.recorder.GetPlayStartTime())
             {
                 if (tuple.Item1 == Recorder.EventType.MoveDirUpdate)
                 {
                     targetDir = tuple.Item3;
                 }
                 moveDirUpdateIndex++;
-                tuple = cloningScript.recorder.GetEvent(moveDirUpdateIndex);
+                //tuple = cloningScript.recorder.GetEvent(moveDirUpdateIndex);
             }
         }
 
@@ -184,14 +184,14 @@ public class PlayerMovement : MonoBehaviour
             {
                 // Get Playback Value
                 Tuple<Recorder.EventType, float, Vector3> tuple2 = cloningScript.recorder.GetEvent(jumpIndex);
-                while (tuple2 != null && tuple2.Item2 <= Time.time - cloningScript.recorder.GetPlayStartTime())
+                if (tuple2 != null && tuple2.Item2 <= Time.time - cloningScript.recorder.GetPlayStartTime())
                 {
                     if (tuple2.Item1 == Recorder.EventType.Jump)
                     {
                         velocityY = Jump();
                     }
                     jumpIndex++;
-                    tuple2 = cloningScript.recorder.GetEvent(jumpIndex);
+                    //tuple2 = cloningScript.recorder.GetEvent(jumpIndex);
                 }
             }
         }

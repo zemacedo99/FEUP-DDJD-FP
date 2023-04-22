@@ -41,7 +41,7 @@ public class Recorder : MonoBehaviour
         {
             // Get Playback Value
             Tuple<EventType, float, Vector3> tuple = GetNextEvent();
-            while (tuple != null && tuple.Item2 <= Time.time - playStartTime)
+            if (tuple != null && tuple.Item2 <= Time.time - playStartTime)
             {
                 PlayerMovement pm = clone.GetComponent<PlayerMovement>();
                 switch (tuple.Item1)
@@ -64,7 +64,7 @@ public class Recorder : MonoBehaviour
                         break;
                 }
                 playIndex++;
-                tuple = GetEvent(playIndex);
+                //tuple = GetEvent(playIndex);
             }
         }
         
