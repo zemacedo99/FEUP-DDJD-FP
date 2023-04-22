@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Recorder : MonoBehaviour
 {
@@ -21,9 +22,14 @@ public class Recorder : MonoBehaviour
     int playIndex;
     List<Tuple<ActionType, float, Vector3>> actionsArray;
 
+    public InputActionAsset actions;
+    public InputAction clone_input;
+
     // Start is called before the first frame update
     void Start()
     {
+        clone_input = actions.FindActionMap("movement", true).FindAction("clone", true);
+        actions.FindActionMap("movement").Enable();
         isRecording = false;
         actionsArray = new List<Tuple<ActionType, float, Vector3>>();
 
@@ -65,11 +71,11 @@ public class Recorder : MonoBehaviour
         }
         else
         {
-            if (Input.GetMouseButtonDown(1) && !cloningScript.isClone)
+            if ((clone_input.ReadValue<float>() > 0) && !cloningScript.isClone)
             {
                 StartRecording();
             }
-            else if (Input.GetMouseButtonUp(1) && !cloningScript.isClone)
+            else if ((clone_input.ReadValue<float>() > 0) && !cloningScript.isClone)
             {
                 StopRecording();
             }
