@@ -23,12 +23,12 @@ public class Recorder : MonoBehaviour
     List<Tuple<ActionType, float, Vector3>> actionsArray;
 
     public InputActionAsset actions;
-    public InputAction clone_input;
+    public InputAction cloneInput;
 
     // Start is called before the first frame update
     void Start()
     {
-        clone_input = actions.FindActionMap("movement", true).FindAction("clone", true);
+        cloneInput = actions.FindActionMap("movement", true).FindAction("clone", true);
         actions.FindActionMap("movement").Enable();
         isRecording = false;
         actionsArray = new List<Tuple<ActionType, float, Vector3>>();
@@ -71,11 +71,11 @@ public class Recorder : MonoBehaviour
         }
         else
         {
-            if ((clone_input.ReadValue<float>() > 0) && !cloningScript.isClone)
+            if ((cloneInput.ReadValue<float>() > 0) && !cloningScript.isClone)
             {
                 StartRecording();
             }
-            else if ((clone_input.ReadValue<float>() > 0) && !cloningScript.isClone)
+            else if ((cloneInput.ReadValue<float>() > 0) && !cloningScript.isClone)
             {
                 StopRecording();
             }
