@@ -43,25 +43,10 @@ public class Recorder : MonoBehaviour
             Tuple<EventType, float, Vector3> tuple = GetNextEvent();
             if (tuple != null && tuple.Item2 <= Time.time - playStartTime)
             {
-                PlayerMovement pm = clone.GetComponent<PlayerMovement>();
-                switch (tuple.Item1)
+                if (tuple.Item1 == EventType.StopRecording)
                 {
-                    //case EventType.MoveDirUpdate:
-                    //    if (tuple.Item3 != moveDirVector)
-                    //        moveDirVector = tuple.Item3;
-                    //    cloneController.Move(moveDirVector);
-                    //    break;
-                    //case EventType.CameraEvent:
-                    //    pm.transform.Rotate(tuple.Item3);
-                    //    break;
-                    //case EventType.Jump:
-                    //    pm.SetVelocityY(pm.Jump(pm.jumpHeight, pm.gravity));
-                    //    Debug.Log("Jumping");
-                    //    break;
-                    case EventType.StopRecording:
-                        isPlaying = false;
-                        Destroy(clone);
-                        break;
+                    isPlaying = false;
+                    Destroy(clone);
                 }
                 playIndex++;
                 //tuple = GetEvent(playIndex);
@@ -86,6 +71,7 @@ public class Recorder : MonoBehaviour
 
     public void StartRecording()
     {
+        if (isRecording) return;
         Debug.Log("Recording Started");
 
         isRecording = true;
@@ -109,6 +95,8 @@ public class Recorder : MonoBehaviour
                 // Create new startingCamera
                 startingCamera = Instantiate(child, child.transform.localPosition, child.transform.localRotation);
                 startingCamera.transform.SetParent(cube.transform, false);
+                Debug.Log(child.transform.localRotation);
+                Debug.Log(startingCamera.transform.localRotation);
 
                 startingCamera.name = "Starting Camera";
                 startingCamera.tag = "Untagged";
@@ -155,15 +143,14 @@ public class Recorder : MonoBehaviour
             return;
         }
 
-        playIndex = 0;
-        ResetAllPlayIndexes();
-
-        playStartTime = Time.time;
-
         clone = Instantiate(gameObject, startingPosition, startingRotation);
         clone.GetComponent<Cloning>().InitClone();
         cloneController = clone.GetComponent<CharacterController>();
+        Debug.Log(clone.GetComponent<PlayerMovement>().playerCamera.transform.localRotation);
 
+        playIndex = 0;
+        ResetAllPlayIndexes();
+        playStartTime = Time.time;
         isPlaying = true;
     }
 

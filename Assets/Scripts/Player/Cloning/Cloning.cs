@@ -28,13 +28,17 @@ public class Cloning : MonoBehaviour
             if (child.CompareTag("MainCamera"))
                 Destroy(child);
         }
-        // Add the clone camera
-        //      Make cloneCamera a child of this gameobject
-        GameObject cloneCamera = Instantiate(recorder.startingCamera);
-        cloneCamera.transform.parent = gameObject.transform;
-        cloneCamera.transform.SetPositionAndRotation(recorder.startingCamera.transform.position, recorder.startingCamera.transform.rotation);
+        
 
-        //      Set it in the PlayerMovement script
-        pm.playerCamera = cloneCamera.transform;
+        //// Add the clone camera
+        ////      Make cloneCamera a child of this gameobject
+        //GameObject cloneCamera = Instantiate(recorder.startingCamera, recorder.startingCamera.transform.localPosition, recorder.startingCamera.transform.localRotation);
+        //cloneCamera.transform.SetParent(gameObject.transform, false);
+        //Debug.Log(cloneCamera.transform.localRotation);
+        ////      Set it in the PlayerMovement script
+        //pm.playerCamera = cloneCamera.transform;
+        //Debug.Log(pm.playerCamera.localRotation);
+        //cloneCamera.GetComponent<Camera>().enabled = true;
+
     }
 }

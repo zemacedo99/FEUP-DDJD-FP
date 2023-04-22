@@ -61,6 +61,15 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            playerCamera = Instantiate(recorder.startingCamera, recorder.startingCamera.transform.localPosition, recorder.startingCamera.transform.localRotation).transform;
+            playerCamera.localRotation = recorder.startingCamera.transform.localRotation;
+            playerCamera.SetParent(gameObject.transform, false);
+
+            // Helps with Debugging
+            playerCamera.GetComponent<Camera>().enabled = true;
+        }
 
         if (cursorLock)
         {
@@ -82,6 +91,9 @@ public class PlayerMovement : MonoBehaviour
     {
         UpdateMouse();
         UpdateMove();
+
+        if(cloningScript.isClone)
+            Debug.Log(playerCamera.localRotation);
     }
 
     void UpdateMouse()
@@ -105,14 +117,14 @@ public class PlayerMovement : MonoBehaviour
         {
             // Get Playback Value
             Tuple<Recorder.EventType, float, Vector3> tuple = cloningScript.recorder.GetEvent(cameraUpdateIndex);
-            while (tuple != null && tuple.Item2 <= Time.time - cloningScript.recorder.GetPlayStartTime())
+            if (tuple != null && tuple.Item2 <= Time.time - cloningScript.recorder.GetPlayStartTime())
             {
                 if (tuple.Item1 == Recorder.EventType.CameraUpdate)
                 {
                     targetMouseDelta = tuple.Item3;
                 }
                 cameraUpdateIndex++;
-                tuple = cloningScript.recorder.GetEvent(cameraUpdateIndex);
+                //tuple = cloningScript.recorder.GetEvent(cameraUpdateIndex);
             }
         }
 
