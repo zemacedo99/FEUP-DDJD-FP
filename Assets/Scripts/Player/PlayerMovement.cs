@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    Transform playerCamera;
+    public Transform playerCamera;
     [SerializeField] [Range(0.0f, 0.5f)] float mouseSmoothTime = 0.03f;
     [SerializeField] bool cursorLock = true;
     [SerializeField] float mouseSensitivity = 3.5f;
@@ -49,12 +49,8 @@ public class PlayerMovement : MonoBehaviour
         recorder = GetComponent<Recorder>();
         cloningScript = GetComponent<Cloning>();
 
-        if (cloningScript.isClone)
-        {
-            playerCamera = cloningScript.startingCamera.transform;
-        }
-        else
-        {
+
+        if (!cloningScript.isClone) {
             // Find Main Camera
             for (var i = gameObject.transform.childCount - 1; i >= 0; i--)
             {

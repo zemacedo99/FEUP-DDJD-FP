@@ -10,7 +10,8 @@ public class Recorder : MonoBehaviour
     public bool isRecording;
     public bool isPlaying;
     Vector3 startingPosition;
-    GameObject startingCamera;
+    Quaternion startingRotation;
+    public GameObject startingCamera;
     float recordingStartTime;
     float playStartTime;
 
@@ -90,33 +91,32 @@ public class Recorder : MonoBehaviour
         isRecording = true;
         recordingStartTime = Time.time;
 
-        // Store starting position, and facing direction (XZ only) and gravity modifier (1 or -1)
+        // Store starting position, starting camera and ToDo: gravity modifier (1 or -1)
         startingPosition = gameObject.transform.position;
+        startingRotation = gameObject.transform.rotation;
 
-        // Find startingCamera
+        // Re-Instantiate startingCamera
         for (var i = gameObject.transform.childCount - 1; i >= 0; i--)
         {
             GameObject child = gameObject.transform.GetChild(i).gameObject;
-            if (child.layer == LayerMask.NameToLayer("Cameras"))
+            if (child.CompareTag("MainCamera"))
             {
-                if (child.name == "Starting Camera")
-                {
-                    Destroy(child);
-                }
-                else {
-                    // child is startingCamera
-                    var oldStartingCamera = startingCamera;
-                    Destroy(oldStartingCamera);
+                // child is MainCamera
+                // Destroy old startingCamera
+                var oldStartingCamera = startingCamera;
+                Destroy(oldStartingCamera);
 
-                    startingCamera = Instantiate(child, gameObject.transform);
-                    startingCamera.name = "Starting Camera";
-                    startingCamera.tag = "Untagged";
-                    startingCamera.GetComponent<Camera>().enabled = false;
-                    startingCamera.transform.parent = cube.transform;
-                }
+                // Create new startingCamera
+                startingCamera = Instantiate(child);
+                startingCamera.transform.parent = cube.transform;
+                cube.transform.position = startingPosition;
+                startingCamera.transform.SetPositionAndRotation(child.transform.localPosition, child.transform.localRotation);
+                startingCamera.name = "Starting Camera";
+                startingCamera.tag = "Untagged";
+                startingCamera.GetComponent<Camera>().enabled = false;
+
             }
         }
-        // More ToDo
 
         // Reset eventArray
         eventArray = new List<Tuple<EventType, float, Vector3>>();
@@ -132,7 +132,7 @@ public class Recorder : MonoBehaviour
         Push(EventType.StopRecording, Time.time - recordingStartTime);
 
         // Destroy Player and instantiate them again at the starting position
-        //GameObject player = Instantiate(gameObject, startingPosition, Quaternion.identity);
+        //GameObject player = Instantiate(gameObject, startingTransform);
         //player.GetComponent<Cloning>().isClone = false;
         //Destroy(gameObject);
 
@@ -159,8 +159,8 @@ public class Recorder : MonoBehaviour
 
         playStartTime = Time.time;
 
-        clone = Instantiate(gameObject, startingPosition, Quaternion.identity);
-        clone.GetComponent<Cloning>().InitClone(startingCamera);
+        clone = Instantiate(gameObject, startingPosition, startingRotation);
+        clone.GetComponent<Cloning>().InitClone();
         cloneController = clone.GetComponent<CharacterController>();
 
         isPlaying = true;
@@ -177,6 +177,7 @@ public class Recorder : MonoBehaviour
         eventArray.Add(new Tuple<EventType, float, Vector3>(eventType, timestamp, motion));
     }
 
+    // Getters
     public float GetRecordingStartTime()
     {
         return recordingStartTime;
@@ -185,7 +186,6 @@ public class Recorder : MonoBehaviour
     {
         return playStartTime;
     }
-
     public Tuple<EventType, float, Vector3> GetNextEvent()
     {
         return playIndex < eventArray.Count ? eventArray[playIndex] : null;
@@ -194,10 +194,13 @@ public class Recorder : MonoBehaviour
     {
         return index < eventArray.Count ? eventArray[index] : null;
     }
-    public bool IncrementEventIndex()
+    public Vector3 GetStartingPosition()
     {
-        playIndex++;
-        return true && playIndex < eventArray.Count;
+        return startingPosition;
+    }
+    public Quaternion GetStartingRotation()
+    {
+        return startingRotation;
     }
 
     // Resets Play Indexes in ALL scripts
