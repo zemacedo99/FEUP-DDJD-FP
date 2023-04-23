@@ -23,13 +23,14 @@ public class Recorder : MonoBehaviour
     List<Tuple<ActionType, float, Vector3>> actionsArray;
 
     public InputActionAsset actions;
-    public InputAction cloneInput;
+    public InputAction cloneInput, play;
 
     // Start is called before the first frame update
     void Start()
     {
-        cloneInput = actions.FindActionMap("movement", true).FindAction("clone", true);
-        actions.FindActionMap("movement").Enable();
+        cloneInput = actions.FindActionMap("recorder", true).FindAction("clone", true);
+        play = actions.FindActionMap("recorder", true).FindAction("play", true);
+        actions.FindActionMap("recorder").Enable();
         isRecording = false;
         actionsArray = new List<Tuple<ActionType, float, Vector3>>();
 
@@ -80,7 +81,7 @@ public class Recorder : MonoBehaviour
                 StopRecording();
             }
 
-            if (Input.GetKeyDown(KeyCode.Q) && !cloningScript.isClone)
+            if ((play.ReadValue<float>() > 0) && !cloningScript.isClone)
             {
                 Play();
             }

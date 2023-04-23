@@ -33,10 +33,7 @@ public class PlayerMovement : MonoBehaviour
     Cloning cloningScript;
 
     public InputActionAsset actions;
-    public InputAction camera;
-    public InputAction jump;
-    public InputAction move;
-
+    public InputAction camera, jump, move;
 
     void Start()
     {

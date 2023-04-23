@@ -31,15 +31,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "clone",
-                    "type": "Button",
-                    "id": "7068c564-2939-41d1-9952-57a8c76ff075",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -155,6 +146,28 @@
                 },
                 {
                     "name": "",
+                    "id": "cb58b7a8-454b-46c0-ae8f-fb0c7a91ed45",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "472cb25a-ddca-4ec0-ac81-658146e9bc05",
+                    "path": "<Gamepad>/dpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "395dec1e-5863-4256-8e78-3e0f0c17c06c",
                     "path": "<Mouse>/delta",
                     "interactions": "",
@@ -166,8 +179,8 @@
                 },
                 {
                     "name": "",
-                    "id": "87ddd01e-c44c-4f68-be34-d9f8c0361b81",
-                    "path": "<Joystick>/stick",
+                    "id": "4361db08-0cb8-4207-ae5c-3a9ea5779b13",
+                    "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -188,12 +201,82 @@
                 },
                 {
                     "name": "",
-                    "id": "8c2132d1-8ef2-48fb-ac4b-bf93f7735146",
-                    "path": "<Keyboard>/e",
+                    "id": "f8ab4dfa-203d-4338-a900-5b7f10734f3d",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "recorder",
+            "id": "a74e9ec4-d959-44bf-9637-255180c60e39",
+            "actions": [
+                {
+                    "name": "play",
+                    "type": "Button",
+                    "id": "3d321527-a80d-4946-8559-ab9a58b6028f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "clone",
+                    "type": "Button",
+                    "id": "8891c561-21c1-4ca6-b0ff-31ab8322e414",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e8797597-d8ce-4a44-a2ca-36be3eb55d32",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "clone",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f8cdaeab-74ae-412d-aa6b-86b201c07459",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "clone",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "14f77313-b495-4ef7-93e4-1799818c145b",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "play",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bcd4922c-5155-4ecc-923a-cb6edb4f012d",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "play",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
