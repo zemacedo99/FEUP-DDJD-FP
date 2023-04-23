@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Clone Playing
     Vector2 targetDir;
-    Vector2 targetMouseDelta;
+    Vector2 cameraInputValue;
     int moveDirUpdateIndex;
     int cameraUpdateIndex;
     int jumpIndex;
@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Clone Playing
         targetDir = new();
-        targetMouseDelta = new();
+        cameraInputValue = new();
         moveDirUpdateIndex = 0;
         cameraUpdateIndex = 0;
         jumpIndex = 0;
@@ -98,20 +98,20 @@ public class PlayerMovement : MonoBehaviour
 
     void UpdateMouse()
     {
-        Vector2 newTargetMouseDelta;
+        Vector2 newCameraInputValue;
 
         if (!cloningScript.isClone)
         {
-            newTargetMouseDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+            newCameraInputValue = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
-            if (recorder.isRecording && (newTargetMouseDelta != targetMouseDelta || !hasRecordedCameraUpdate))  // is different OR is the first recording))
+            if (recorder.isRecording && (newCameraInputValue != cameraInputValue || !hasRecordedCameraUpdate))  // is different OR is the first recording))
             {
-                recorder.Push(Recorder.EventType.CameraUpdate, Time.time - recorder.GetRecordingStartTime(), newTargetMouseDelta);
+                recorder.Push(Recorder.EventType.CameraInputValueUpdate, Time.time - recorder.GetRecordingStartTime(), newCameraInputValue);
                 hasRecordedCameraUpdate = true;
             }
             else if (!recorder.isRecording) hasRecordedCameraUpdate = false;
 
-            targetMouseDelta = newTargetMouseDelta;
+            cameraInputValue = newCameraInputValue;
         }
         else
         {
@@ -119,19 +119,20 @@ public class PlayerMovement : MonoBehaviour
             Tuple<Recorder.EventType, float, Vector3> tuple = cloningScript.recorder.GetEvent(cameraUpdateIndex);
             if (tuple != null && tuple.Item2 <= Time.time - cloningScript.recorder.GetPlayStartTime())
             {
-                if (tuple.Item1 == Recorder.EventType.CameraUpdate)
+                if (tuple.Item1 == Recorder.EventType.CameraInputValueUpdate)
                 {
-                    targetMouseDelta = tuple.Item3;
+                    cameraInputValue = tuple.Item3;
                 }
                 cameraUpdateIndex++;
                 //tuple = cloningScript.recorder.GetEvent(cameraUpdateIndex);
             }
         }
 
-        currentMouseDelta = Vector2.SmoothDamp(currentMouseDelta, targetMouseDelta, ref currentMouseDeltaVelocity, mouseSmoothTime);
+        currentMouseDelta = Vector2.SmoothDamp(currentMouseDelta, cameraInputValue, ref currentMouseDeltaVelocity, mouseSmoothTime);
         cameraCap -= currentMouseDelta.y * mouseSensitivity;
         cameraCap = Mathf.Clamp(cameraCap, -90.0f, 90.0f);
-        playerCamera.localEulerAngles = Vector3.right * cameraCap;
+        if (!cloningScript.isClone)
+            playerCamera.localEulerAngles = Vector3.right * cameraCap;
         var rotationValue = Vector3.up * currentMouseDelta.x * mouseSensitivity;
         transform.Rotate(rotationValue);
     }

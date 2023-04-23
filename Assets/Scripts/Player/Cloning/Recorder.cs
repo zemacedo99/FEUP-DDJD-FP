@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Recorder : MonoBehaviour
 {
-    public enum EventType { MoveDirUpdate, CameraUpdate, Jump, StopRecording };
+    public enum EventType { MoveDirUpdate, CameraInputValueUpdate, Jump, StopRecording };
 
     public bool isRecording;
     public bool isPlaying;
