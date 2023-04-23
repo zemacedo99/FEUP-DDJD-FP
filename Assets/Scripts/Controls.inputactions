@@ -209,6 +209,17 @@
                     "action": "jump",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "412be83b-478c-4dd7-a1ed-31eae5e14f5e",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -226,7 +237,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "clone",
+                    "name": "record",
                     "type": "Button",
                     "id": "8891c561-21c1-4ca6-b0ff-31ab8322e414",
                     "expectedControlType": "Button",
@@ -238,23 +249,34 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "e8797597-d8ce-4a44-a2ca-36be3eb55d32",
-                    "path": "<Gamepad>/buttonNorth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "clone",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "f8cdaeab-74ae-412d-aa6b-86b201c07459",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "clone",
+                    "action": "record",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e8797597-d8ce-4a44-a2ca-36be3eb55d32",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "record",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aa7cfb6d-77d3-493a-a809-28f77c88f251",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "record",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -272,7 +294,18 @@
                 {
                     "name": "",
                     "id": "bcd4922c-5155-4ecc-923a-cb6edb4f012d",
-                    "path": "<Gamepad>/buttonEast",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "play",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "30208b13-a1a3-4779-b9bd-e60137569ea7",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

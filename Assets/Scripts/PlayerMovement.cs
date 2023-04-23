@@ -33,13 +33,13 @@ public class PlayerMovement : MonoBehaviour
     Cloning cloningScript;
 
     public InputActionAsset actions;
-    public InputAction camera, jump, move;
+    public InputAction cameraInput, jumpButton, moveInput;
 
     void Start()
     {
-        camera = actions.FindActionMap("movement", true).FindAction("camera", true);
-        jump = actions.FindActionMap("movement", true).FindAction("jump", true);
-        move = actions.FindActionMap("movement", true).FindAction("move", true);
+        cameraInput = actions.FindActionMap("movement", true).FindAction("camera", true);
+        jumpButton = actions.FindActionMap("movement", true).FindAction("jump", true);
+        moveInput = actions.FindActionMap("movement", true).FindAction("move", true);
         actions.FindActionMap("movement").Enable();
         controller = GetComponent<CharacterController>();
         recorder = GetComponent<Recorder>();
@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!cloningScript.isClone)
         {
-            Vector2 targetMouseDelta = camera.ReadValue<Vector2>();
+            Vector2 targetMouseDelta = cameraInput.ReadValue<Vector2>();
 
             currentMouseDelta = Vector2.SmoothDamp(currentMouseDelta, targetMouseDelta, ref currentMouseDeltaVelocity, mouseSmoothTime);
 
@@ -107,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
         if (!cloningScript.isClone)
         {
 
-            targetDir = move.ReadValue<Vector2>();
+            targetDir = moveInput.ReadValue<Vector2>();
             targetDir.Normalize();
 
             currentDir = Vector2.SmoothDamp(currentDir, targetDir, ref currentDirVelocity, moveSmoothTime);
@@ -123,7 +123,7 @@ public class PlayerMovement : MonoBehaviour
                 recorder.Push(Recorder.ActionType.Move, Time.time, velocity * Time.deltaTime);
             }
 
-            if (isGrounded && (jump.ReadValue<float>() > 0))
+            if (isGrounded && jumpButton.WasPressedThisFrame())
             {
                 velocityY = Jump(jumpHeight, gravity);
 

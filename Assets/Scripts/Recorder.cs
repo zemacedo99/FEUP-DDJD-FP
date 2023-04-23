@@ -23,13 +23,13 @@ public class Recorder : MonoBehaviour
     List<Tuple<ActionType, float, Vector3>> actionsArray;
 
     public InputActionAsset actions;
-    public InputAction cloneInput, play;
+    public InputAction recordButton, playButton;
 
     // Start is called before the first frame update
     void Start()
     {
-        cloneInput = actions.FindActionMap("recorder", true).FindAction("clone", true);
-        play = actions.FindActionMap("recorder", true).FindAction("play", true);
+        recordButton = actions.FindActionMap("recorder", true).FindAction("record", true);
+        playButton = actions.FindActionMap("recorder", true).FindAction("play", true);
         actions.FindActionMap("recorder").Enable();
         isRecording = false;
         actionsArray = new List<Tuple<ActionType, float, Vector3>>();
@@ -72,16 +72,16 @@ public class Recorder : MonoBehaviour
         }
         else
         {
-            if ((cloneInput.ReadValue<float>() > 0) && !cloningScript.isClone)
+            if ((recordButton.WasPressedThisFrame()) && !cloningScript.isClone)
             {
                 StartRecording();
             }
-            else if ((cloneInput.ReadValue<float>() > 0) && !cloningScript.isClone)
+            else if ((recordButton.WasReleasedThisFrame()) && !cloningScript.isClone)
             {
                 StopRecording();
             }
 
-            if ((play.ReadValue<float>() > 0) && !cloningScript.isClone)
+            if ((playButton.WasPressedThisFrame()) && !cloningScript.isClone)
             {
                 Play();
             }
