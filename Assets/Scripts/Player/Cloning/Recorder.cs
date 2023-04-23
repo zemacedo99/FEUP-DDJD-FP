@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Recorder : MonoBehaviour
 {
-    public enum EventType { MoveDirUpdate, CameraInputValueUpdate, Jump, StopRecording };
+    public enum EventType { MoveInputValueUpdate, CameraInputValueUpdate, Jump, StopRecording };
 
     public bool isRecording;
     public bool isPlaying;
@@ -95,8 +95,6 @@ public class Recorder : MonoBehaviour
                 // Create new startingCamera
                 startingCamera = Instantiate(child, child.transform.localPosition, child.transform.localRotation);
                 startingCamera.transform.SetParent(cube.transform, false);
-                Debug.Log(child.transform.localRotation);
-                Debug.Log(startingCamera.transform.localRotation);
 
                 startingCamera.name = "Starting Camera";
                 startingCamera.tag = "Untagged";
@@ -124,8 +122,6 @@ public class Recorder : MonoBehaviour
         //GameObject player = Instantiate(gameObject, startingTransform);
         //player.GetComponent<Cloning>().isClone = false;
         //Destroy(gameObject);
-
-        Debug.Log(eventArray.Count);
     }
 
     public void Play()
@@ -146,7 +142,6 @@ public class Recorder : MonoBehaviour
         clone = Instantiate(gameObject, startingPosition, startingRotation);
         clone.GetComponent<Cloning>().InitClone();
         cloneController = clone.GetComponent<CharacterController>();
-        Debug.Log(clone.GetComponent<PlayerMovement>().playerCamera.transform.localRotation);
 
         playIndex = 0;
         ResetAllPlayIndexes();
@@ -154,8 +149,10 @@ public class Recorder : MonoBehaviour
         isPlaying = true;
     }
 
-    // Pushes an event to the eventArray.
-    // timestamp is time elapsed from recordingStartTime.
+    /// <summary>
+    /// Pushes an event to the <c>eventArray</c>.
+    /// <c>timestamp</c>: is time elapsed from recordingStartTime.
+    /// </summary>
     public void Push(EventType eventType, float timestamp)
     {
         eventArray.Add(new Tuple<EventType, float, Vector3>(eventType, timestamp, new Vector3(0,0,0)) );

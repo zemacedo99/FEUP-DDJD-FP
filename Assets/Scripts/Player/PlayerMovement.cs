@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
     Recorder recorder;
 
     // Clone Playing
-    Vector2 targetDir;
+    Vector2 moveInputValue;
     Vector2 cameraInputValue;
     int moveDirUpdateIndex;
     int cameraUpdateIndex;
@@ -42,13 +42,11 @@ public class PlayerMovement : MonoBehaviour
     bool hasRecordedMoveDirUpdate;
     bool hasRecordedCameraUpdate;
 
-
     void Start()
     {
         controller = GetComponent<CharacterController>();
         recorder = GetComponent<Recorder>();
         cloningScript = GetComponent<Cloning>();
-
 
         if (!cloningScript.isClone) {
             // Find Main Camera
@@ -63,9 +61,14 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            // Instantiate clone camera
             playerCamera = Instantiate(recorder.startingCamera, recorder.startingCamera.transform.localPosition, recorder.startingCamera.transform.localRotation).transform;
             playerCamera.localRotation = recorder.startingCamera.transform.localRotation;
             playerCamera.SetParent(gameObject.transform, false);
+            // Initialize cameraCap
+            cameraCap = playerCamera.localEulerAngles.x;
+            if (cameraCap > 90)
+                cameraCap -= 360f;
 
             // Helps with Debugging
             playerCamera.GetComponent<Camera>().enabled = true;
@@ -77,9 +80,10 @@ public class PlayerMovement : MonoBehaviour
             Cursor.visible = true;
         }
 
-        // Clone Playing
-        targetDir = new();
+        moveInputValue = new();
         cameraInputValue = new();
+
+        // Clone Playing
         moveDirUpdateIndex = 0;
         cameraUpdateIndex = 0;
         jumpIndex = 0;
@@ -91,9 +95,6 @@ public class PlayerMovement : MonoBehaviour
     {
         UpdateMouse();
         UpdateMove();
-
-        if(cloningScript.isClone)
-            Debug.Log(playerCamera.localRotation);
     }
 
     void UpdateMouse()
@@ -126,13 +127,13 @@ public class PlayerMovement : MonoBehaviour
                 cameraUpdateIndex++;
                 //tuple = cloningScript.recorder.GetEvent(cameraUpdateIndex);
             }
-        }
 
+        }
         currentMouseDelta = Vector2.SmoothDamp(currentMouseDelta, cameraInputValue, ref currentMouseDeltaVelocity, mouseSmoothTime);
         cameraCap -= currentMouseDelta.y * mouseSensitivity;
         cameraCap = Mathf.Clamp(cameraCap, -90.0f, 90.0f);
-        if (!cloningScript.isClone)
-            playerCamera.localEulerAngles = Vector3.right * cameraCap;
+        playerCamera.localEulerAngles = Vector3.right * cameraCap;
+
         var rotationValue = Vector3.up * currentMouseDelta.x * mouseSensitivity;
         transform.Rotate(rotationValue);
     }
@@ -141,21 +142,21 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, 0.35f, ground);
 
-        Vector2 newTargetDir;
+        Vector2 newMoveInputValue;
 
         if (!cloningScript.isClone)
         {
-            newTargetDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            newTargetDir.Normalize();
+            newMoveInputValue = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            newMoveInputValue.Normalize();
 
-            if (recorder.isRecording && (!newTargetDir.Equals(targetDir) || !hasRecordedMoveDirUpdate))
+            if (recorder.isRecording && (!newMoveInputValue.Equals(moveInputValue) || !hasRecordedMoveDirUpdate))
             {
-                recorder.Push(Recorder.EventType.MoveDirUpdate, Time.time - recorder.GetRecordingStartTime(), newTargetDir);
+                recorder.Push(Recorder.EventType.MoveInputValueUpdate, Time.time - recorder.GetRecordingStartTime(), newMoveInputValue);
                 hasRecordedMoveDirUpdate = true;
             }
             else if (!recorder.isRecording) hasRecordedMoveDirUpdate = false;
 
-            targetDir = newTargetDir;
+            moveInputValue = newMoveInputValue;
         }
         else
         {
@@ -163,24 +164,19 @@ public class PlayerMovement : MonoBehaviour
             Tuple<Recorder.EventType, float, Vector3> tuple = cloningScript.recorder.GetEvent(moveDirUpdateIndex);
             if (tuple != null && tuple.Item2 <= Time.time - cloningScript.recorder.GetPlayStartTime())
             {
-                if (tuple.Item1 == Recorder.EventType.MoveDirUpdate)
+                if (tuple.Item1 == Recorder.EventType.MoveInputValueUpdate)
                 {
-                    targetDir = tuple.Item3;
+                    moveInputValue = tuple.Item3;
                 }
                 moveDirUpdateIndex++;
                 //tuple = cloningScript.recorder.GetEvent(moveDirUpdateIndex);
             }
         }
-
-        currentDir = Vector2.SmoothDamp(currentDir, targetDir, ref currentDirVelocity, moveSmoothTime);
-
+        currentDir = Vector2.SmoothDamp(currentDir, moveInputValue, ref currentDirVelocity, moveSmoothTime);
         if (!isGrounded)
             velocityY += gravity * 2f * Time.deltaTime;
-
         Vector3 velocity = (transform.forward * currentDir.y + transform.right * currentDir.x) * moveSpeed + Vector3.up * velocityY;
-
         controller.Move(velocity * Time.deltaTime);
-
 
         // JUMP
         if (isGrounded)
