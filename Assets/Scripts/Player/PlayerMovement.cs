@@ -82,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
 
         moveInputValue = new();
         cameraInputValue = new();
+        currentMouseDelta = new();
 
         // Clone Playing
         moveDirUpdateIndex = 0;
@@ -105,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
         {
             newCameraInputValue = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
-            if (recorder.isRecording && (newCameraInputValue != cameraInputValue || !hasRecordedCameraUpdate))  // is different OR is the first recording))
+            if (recorder.isRecording && (newCameraInputValue != cameraInputValue || !hasRecordedCameraUpdate))  // is different OR is the first recording
             {
                 recorder.Push(Recorder.EventType.CameraInputValueUpdate, Time.time - recorder.GetRecordingStartTime(), newCameraInputValue);
                 hasRecordedCameraUpdate = true;

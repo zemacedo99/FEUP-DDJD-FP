@@ -119,7 +119,8 @@ public class Recorder : MonoBehaviour
         Push(EventType.StopRecording, Time.time - recordingStartTime);
 
         // Destroy Player and instantiate them again at the starting position
-        //GameObject player = Instantiate(gameObject, startingTransform);
+        // (Will only work after associating the recording with the cubes rather than the player themself)
+        //GameObject player = Instantiate(gameObject, startingPosition, startingRotation);
         //player.GetComponent<Cloning>().isClone = false;
         //Destroy(gameObject);
     }
@@ -149,10 +150,8 @@ public class Recorder : MonoBehaviour
         isPlaying = true;
     }
 
-    /// <summary>
-    /// Pushes an event to the <c>eventArray</c>.
-    /// <c>timestamp</c>: is time elapsed from recordingStartTime.
-    /// </summary>
+    /// Pushes an event to eventArray.
+    /// timestamp: time elapsed from recordingStartTime.
     public void Push(EventType eventType, float timestamp)
     {
         eventArray.Add(new Tuple<EventType, float, Vector3>(eventType, timestamp, new Vector3(0,0,0)) );
