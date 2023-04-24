@@ -35,12 +35,12 @@ public class PlayerMovement : MonoBehaviour
     // Clone Playing
     Vector2 moveInputValue;
     Vector2 cameraInputValue;
-    int moveDirUpdateIndex;
-    int cameraUpdateIndex;
+    int moveInputValueUpdateIndex;
+    int cameraInputValueUpdateIndex;
     int jumpIndex;
     // Clone Recording
-    bool hasRecordedMoveDirUpdate;
-    bool hasRecordedCameraUpdate;
+    bool hasRecordedMoveInputValueUpdate;
+    bool hasRecordedCameraInputValueUpdate;
 
     void Start()
     {
@@ -85,11 +85,12 @@ public class PlayerMovement : MonoBehaviour
         currentMouseDelta = new();
 
         // Clone Playing
-        moveDirUpdateIndex = 0;
-        cameraUpdateIndex = 0;
+        moveInputValueUpdateIndex = 0;
+        cameraInputValueUpdateIndex = 0;
         jumpIndex = 0;
         // Clone Recording
-        hasRecordedMoveDirUpdate = false;
+        hasRecordedMoveInputValueUpdate = false;
+        hasRecordedCameraInputValueUpdate = false;
     }
 
     void Update()
@@ -106,26 +107,26 @@ public class PlayerMovement : MonoBehaviour
         {
             newCameraInputValue = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
-            if (recorder.isRecording && (newCameraInputValue != cameraInputValue || !hasRecordedCameraUpdate))  // is different OR is the first recording
+            if (recorder.isRecording && (newCameraInputValue != cameraInputValue || !hasRecordedCameraInputValueUpdate))  // is different OR is the first recording
             {
                 recorder.Push(Recorder.EventType.CameraInputValueUpdate, Time.time - recorder.GetRecordingStartTime(), newCameraInputValue);
-                hasRecordedCameraUpdate = true;
+                hasRecordedCameraInputValueUpdate = true;
             }
-            else if (!recorder.isRecording) hasRecordedCameraUpdate = false;
+            else if (!recorder.isRecording) hasRecordedCameraInputValueUpdate = false;
 
             cameraInputValue = newCameraInputValue;
         }
         else
         {
             // Get Playback Value
-            Tuple<Recorder.EventType, float, Vector3> tuple = cloningScript.recorder.GetEvent(cameraUpdateIndex);
+            Tuple<Recorder.EventType, float, Vector3> tuple = cloningScript.recorder.GetEvent(cameraInputValueUpdateIndex);
             if (tuple != null && tuple.Item2 <= Time.time - cloningScript.recorder.GetPlayStartTime())
             {
                 if (tuple.Item1 == Recorder.EventType.CameraInputValueUpdate)
                 {
                     cameraInputValue = tuple.Item3;
                 }
-                cameraUpdateIndex++;
+                cameraInputValueUpdateIndex++;
                 //tuple = cloningScript.recorder.GetEvent(cameraUpdateIndex);
             }
 
@@ -150,26 +151,26 @@ public class PlayerMovement : MonoBehaviour
             newMoveInputValue = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             newMoveInputValue.Normalize();
 
-            if (recorder.isRecording && (!newMoveInputValue.Equals(moveInputValue) || !hasRecordedMoveDirUpdate))
+            if (recorder.isRecording && (!newMoveInputValue.Equals(moveInputValue) || !hasRecordedMoveInputValueUpdate)) // is different OR is the first recording
             {
                 recorder.Push(Recorder.EventType.MoveInputValueUpdate, Time.time - recorder.GetRecordingStartTime(), newMoveInputValue);
-                hasRecordedMoveDirUpdate = true;
+                hasRecordedMoveInputValueUpdate = true;
             }
-            else if (!recorder.isRecording) hasRecordedMoveDirUpdate = false;
+            else if (!recorder.isRecording) hasRecordedMoveInputValueUpdate = false;
 
             moveInputValue = newMoveInputValue;
         }
         else
         {
             // Get Playback Value
-            Tuple<Recorder.EventType, float, Vector3> tuple = cloningScript.recorder.GetEvent(moveDirUpdateIndex);
+            Tuple<Recorder.EventType, float, Vector3> tuple = cloningScript.recorder.GetEvent(moveInputValueUpdateIndex);
             if (tuple != null && tuple.Item2 <= Time.time - cloningScript.recorder.GetPlayStartTime())
             {
                 if (tuple.Item1 == Recorder.EventType.MoveInputValueUpdate)
                 {
                     moveInputValue = tuple.Item3;
                 }
-                moveDirUpdateIndex++;
+                moveInputValueUpdateIndex++;
                 //tuple = cloningScript.recorder.GetEvent(moveDirUpdateIndex);
             }
         }
@@ -226,8 +227,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void ResetPlayIndexes()
     {
-        moveDirUpdateIndex = 0;
-        cameraUpdateIndex = 0;
+        moveInputValueUpdateIndex = 0;
+        cameraInputValueUpdateIndex = 0;
         jumpIndex = 0;
     }
 }

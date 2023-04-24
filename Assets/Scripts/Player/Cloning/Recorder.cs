@@ -71,7 +71,7 @@ public class Recorder : MonoBehaviour
 
     public void StartRecording()
     {
-        if (isRecording) return;
+        if (isPlaying) Destroy(clone);
         Debug.Log("Recording Started");
 
         isRecording = true;
