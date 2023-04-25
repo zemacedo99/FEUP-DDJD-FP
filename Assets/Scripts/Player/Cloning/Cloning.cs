@@ -4,41 +4,28 @@ using UnityEngine;
 
 public class Cloning : MonoBehaviour
 {
-    public bool isClone = false;
     public Recorder recorder;
+    
+    public GameObject clonePrefab;
 
-    PlayerMovement pm;
-
-    public void InitClone()
+    void Update()
     {
-        isClone = true;
-
-        // Get PlayerMovement script
-        pm = gameObject.GetComponent<PlayerMovement>();
-
-        // Get recorder script of the respective cube
-        // Atm gets from Player
-        GameObject playerGameObject = GameObject.FindGameObjectWithTag("Player");
-        recorder = playerGameObject.GetComponent<Recorder>();
-
-        // Remove MainCamera (the Player camera)
-        for (var i = gameObject.transform.childCount - 1; i >= 0; i--)
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            GameObject child = gameObject.transform.GetChild(i).gameObject;
-            if (child.CompareTag("MainCamera"))
-                Destroy(child);
+            SpawnClone();
         }
-        
+    }
 
-        //// Add the clone camera
-        ////      Make cloneCamera a child of this gameobject
-        //GameObject cloneCamera = Instantiate(recorder.startingCamera, recorder.startingCamera.transform.localPosition, recorder.startingCamera.transform.localRotation);
-        //cloneCamera.transform.SetParent(gameObject.transform, false);
-        //Debug.Log(cloneCamera.transform.localRotation);
-        ////      Set it in the PlayerMovement script
-        //pm.playerCamera = cloneCamera.transform;
-        //Debug.Log(pm.playerCamera.localRotation);
-        //cloneCamera.GetComponent<Camera>().enabled = true;
+    void SpawnClone()
+    {
+        // get first position
+        Vector3 firstPosition = recorder.eventArray[0].position;
 
+        GameObject clone = Instantiate(clonePrefab, firstPosition, Quaternion.identity);
+
+        Clone cloneScript = clone.GetComponent<Clone>();
+
+        cloneScript.actions = new List<PlayerAction>(recorder.eventArray);
+        cloneScript.StartPlayback();
     }
 }
