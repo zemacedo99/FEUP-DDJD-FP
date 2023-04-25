@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
     // Clone Recording
     bool hasRecordedMoveInputValueUpdate;
     bool hasRecordedCameraInputValueUpdate;
+    
 
     void Start()
     {
@@ -58,6 +59,11 @@ public class PlayerMovement : MonoBehaviour
                     playerCamera = child.transform;
                 }
             }
+            if (cursorLock)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = true;
+            }
         }
         else
         {
@@ -72,12 +78,6 @@ public class PlayerMovement : MonoBehaviour
 
             // Helps with Debugging
             playerCamera.GetComponent<Camera>().enabled = true;
-        }
-
-        if (cursorLock)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = true;
         }
 
         moveInputValue = new();
