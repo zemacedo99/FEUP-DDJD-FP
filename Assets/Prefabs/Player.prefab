@@ -151,6 +151,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isRecording: 0
   cube: {fileID: 0}
+  actions: {fileID: -944628639613478452, guid: 107b800f03e150f4fb8e489f0f4a80b4, type: 3}
+  clone_input:
+    m_Name: Clone_input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: a731d8e4-7c00-40d4-a4dd-79b8bce8f230
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!114 &1010445595383186401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSmoothTime: 0.03
   cursorLock: 1
-  mouseSensitivity: 3.5
+  mouseSensitivity: 0.3
   moveSpeed: 7.5
   moveSmoothTime: 0.3
   gravity: -5
@@ -174,6 +184,34 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   jumpHeight: 0.7
+  actions: {fileID: -944628639613478452, guid: 107b800f03e150f4fb8e489f0f4a80b4, type: 3}
+  camera:
+    m_Name: Camera
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 89b358e6-5164-4848-b3fc-2cfd194c4b8e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  jump:
+    m_Name: Jump
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 9b082255-b102-4ef4-b024-18ec6d3e8edf
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  move:
+    m_Name: Move
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 8c3cfd28-6073-4146-98b2-dc3d182e58e7
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!114 &6484459017631928240
 MonoBehaviour:
   m_ObjectHideFlags: 0
