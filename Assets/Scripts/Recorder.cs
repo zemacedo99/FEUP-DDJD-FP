@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Recorder : MonoBehaviour
 {
@@ -21,9 +22,15 @@ public class Recorder : MonoBehaviour
     int playIndex;
     List<Tuple<ActionType, float, Vector3>> actionsArray;
 
+    public InputActionAsset actions;
+    public InputAction recordButton, playButton;
+
     // Start is called before the first frame update
     void Start()
     {
+        recordButton = actions.FindActionMap("recorder", true).FindAction("record", true);
+        playButton = actions.FindActionMap("recorder", true).FindAction("play", true);
+        actions.FindActionMap("recorder").Enable();
         isRecording = false;
         actionsArray = new List<Tuple<ActionType, float, Vector3>>();
 
@@ -65,16 +72,16 @@ public class Recorder : MonoBehaviour
         }
         else
         {
-            if (Input.GetMouseButtonDown(1) && !cloningScript.isClone)
+            if ((recordButton.WasPressedThisFrame()) && !cloningScript.isClone)
             {
                 StartRecording();
             }
-            else if (Input.GetMouseButtonUp(1) && !cloningScript.isClone)
+            else if ((recordButton.WasReleasedThisFrame()) && !cloningScript.isClone)
             {
                 StopRecording();
             }
 
-            if (Input.GetKeyDown(KeyCode.Q) && !cloningScript.isClone)
+            if ((playButton.WasPressedThisFrame()) && !cloningScript.isClone)
             {
                 Play();
             }

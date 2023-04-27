@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 // These videos take long to make so I hope this helps you out and if you want to help me out you can by leaving a like and subscribe, thanks!
 
@@ -9,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     Transform playerCamera;
     [SerializeField] [Range(0.0f, 0.5f)] float mouseSmoothTime = 0.03f;
     [SerializeField] bool cursorLock = true;
-    [SerializeField] float mouseSensitivity = 3.5f;
+    [SerializeField] float mouseSensitivity;
     [SerializeField] float moveSpeed = 6.0f;
     [SerializeField] [Range(0.0f, 0.5f)] float moveSmoothTime = 0.3f;
     public float gravity = -30f;
@@ -31,8 +32,15 @@ public class PlayerMovement : MonoBehaviour
     Recorder recorder;
     Cloning cloningScript;
 
+    public InputActionAsset actions;
+    public InputAction cameraInput, jumpButton, moveInput;
+
     void Start()
     {
+        cameraInput = actions.FindActionMap("movement", true).FindAction("camera", true);
+        jumpButton = actions.FindActionMap("movement", true).FindAction("jump", true);
+        moveInput = actions.FindActionMap("movement", true).FindAction("move", true);
+        actions.FindActionMap("movement").Enable();
         controller = GetComponent<CharacterController>();
         recorder = GetComponent<Recorder>();
         cloningScript = GetComponent<Cloning>();
@@ -71,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!cloningScript.isClone)
         {
-            Vector2 targetMouseDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+            Vector2 targetMouseDelta = cameraInput.ReadValue<Vector2>();
 
             currentMouseDelta = Vector2.SmoothDamp(currentMouseDelta, targetMouseDelta, ref currentMouseDeltaVelocity, mouseSmoothTime);
 
@@ -99,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
         if (!cloningScript.isClone)
         {
 
-            targetDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            targetDir = moveInput.ReadValue<Vector2>();
             targetDir.Normalize();
 
             currentDir = Vector2.SmoothDamp(currentDir, targetDir, ref currentDirVelocity, moveSmoothTime);
@@ -115,7 +123,7 @@ public class PlayerMovement : MonoBehaviour
                 recorder.Push(Recorder.ActionType.Move, Time.time, velocity * Time.deltaTime);
             }
 
-            if (isGrounded && Input.GetButtonDown("Jump"))
+            if (isGrounded && jumpButton.WasPressedThisFrame())
             {
                 velocityY = Jump(jumpHeight, gravity);
 
