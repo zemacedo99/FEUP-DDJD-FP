@@ -371,10 +371,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 3840, y: 2160}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -4082,7 +4082,7 @@ Transform:
   m_Children:
   - {fileID: 2142326963}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &699220161
 PrefabInstance:
@@ -6035,8 +6035,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -335.59998, y: 0.099975586}
-  m_SizeDelta: {x: 160, y: 20}
+  m_AnchoredPosition: {x: -536, y: 0}
+  m_SizeDelta: {x: 1600, y: 200}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1121388978
 MonoBehaviour:
@@ -6085,10 +6085,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
+  m_fontSize: 72
   m_fontSizeBase: 20
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -6121,7 +6121,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 42.84134, y: 0, z: -2.2125854, w: 0}
+  m_margin: {x: 1016.93384, y: 0, z: -2.2125854, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -7831,7 +7831,7 @@ Transform:
   m_Children:
   - {fileID: 930663171}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1389528393
 GameObject:
@@ -7871,7 +7871,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 20}
+  m_SizeDelta: {x: 1600, y: 200}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1389528396
 MonoBehaviour:
@@ -10466,7 +10466,7 @@ Transform:
   m_Children:
   - {fileID: 1846123426}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1991846847
 PrefabInstance:
