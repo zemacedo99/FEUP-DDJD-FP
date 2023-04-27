@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 2800000, guid: 6138b4e8283d34848b43127b3db86782, type: 3}
     - target: {fileID: 7541761315286362221, guid: e7a8d918503044307b8e1f03a50faa8d, type: 3}
       propertyPath: m_Name
-      value: ItemSlot
+      value: GravityBoot
       objectReference: {fileID: 0}
     - target: {fileID: 8936656664895495593, guid: e7a8d918503044307b8e1f03a50faa8d, type: 3}
       propertyPath: m_Pivot.x
@@ -53,15 +53,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8936656664895495593, guid: e7a8d918503044307b8e1f03a50faa8d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8936656664895495593, guid: e7a8d918503044307b8e1f03a50faa8d, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8936656664895495593, guid: e7a8d918503044307b8e1f03a50faa8d, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8936656664895495593, guid: e7a8d918503044307b8e1f03a50faa8d, type: 3}
       propertyPath: m_LocalPosition.x
