@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6818,12 +6818,52 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1010445595383186401, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: gravity
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010445595383186401, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: jumpHeight
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010445595383186401, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: moveInput.m_Id
+      value: 58f3da98-9b9a-42f0-841b-906122dfb827
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010445595383186401, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: gravButton.m_Id
+      value: d4014413-b981-4b1d-a0f5-13b35aa43eef
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010445595383186401, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: jumpButton.m_Id
+      value: c1d46fa1-e95e-4e20-b9dd-661b4d7b3f87
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010445595383186401, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: cameraInput.m_Id
+      value: 6f75c4c8-435d-45a7-aee5-ab2a206041e7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010445595383186401, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: moveInput.m_Name
+      value: Move Input
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010445595383186401, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: gravButton.m_Name
+      value: Grav Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010445595383186401, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: jumpButton.m_Name
+      value: Jump Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010445595383186401, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: cameraInput.m_Name
+      value: Camera Input
       objectReference: {fileID: 0}
     - target: {fileID: 1010445595383186407, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010445595383186407, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1010445595383186407, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6948,6 +6988,22 @@ PrefabInstance:
     - target: {fileID: 7106066949501403723, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106066949501403723, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: playButton.m_Id
+      value: c19ef946-be5e-4c90-8571-01fe5d1d3016
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106066949501403723, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: playButton.m_Name
+      value: Play Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106066949501403723, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: recordButton.m_Id
+      value: d372b2b8-6075-43b2-8d47-4acf88250302
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106066949501403723, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: recordButton.m_Name
+      value: Record Button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}

@@ -33,12 +33,15 @@ public class PlayerMovement : MonoBehaviour
     Cloning cloningScript;
 
     public InputActionAsset actions;
-    public InputAction cameraInput, jumpButton, moveInput;
+    public InputAction cameraInput, jumpButton, moveInput, gravButton;
+
+    public bool canGravJump;
 
     void Start()
     {
         cameraInput = actions.FindActionMap("movement", true).FindAction("camera", true);
         jumpButton = actions.FindActionMap("movement", true).FindAction("jump", true);
+        gravButton = actions.FindActionMap("movement", true).FindAction("gravity", true);
         moveInput = actions.FindActionMap("movement", true).FindAction("move", true);
         actions.FindActionMap("movement").Enable();
         controller = GetComponent<CharacterController>();
@@ -131,6 +134,13 @@ public class PlayerMovement : MonoBehaviour
                 {
                     recorder.Push(Recorder.ActionType.Jump, Time.time);
                 }
+            }
+
+            if (isGrounded && canGravJump && gravButton.WasPressedThisFrame())
+            {
+                gravity *= -1;
+                this.transform.localScale = new Vector3(1, this.transform.localScale.y * -1, 1);
+                velocityY = 0f;
             }
         }
 
