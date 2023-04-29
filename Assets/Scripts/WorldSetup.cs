@@ -13,7 +13,7 @@ public class WorldSetup : SceneDict
             var name = NameFromPath(scene.path);
             if (name == "World")
                 continue;
-            if (!PlayerPrefs.HasKey(name) || true) //check if scene hasnt been set yet
+            if (!PlayerPrefs.HasKey(name)) //check if scene hasnt been set yet
                 PlayerPrefs.SetInt(name, 0); //set state 0 (dropped)
             int state = PlayerPrefs.GetInt(name);
             var water = GameObject.Find(holeDict[name]).GetComponent<RaiseWater>(); //get associated water script
