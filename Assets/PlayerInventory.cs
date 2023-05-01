@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerInventory : MonoBehaviour
 {
@@ -9,15 +10,29 @@ public class PlayerInventory : MonoBehaviour
     public bool isDisplay = false;
     public InputActionAsset actions;
     public InputAction inventoryInput;
+    public InputAction pickupInput;
     public GameObject InventoryScreen;
+    public GameObject PickUpMessage;
+    private Item currentTouched = null;
+
     public void OnTriggerEnter(Collider other)
     {
         var item = other.GetComponent<Item>();
         if(item)
         {
-            print("captured!");
-            inventory.AddItem(item.item, 1);
-            Destroy(other.gameObject);
+            PickUpMessage.SetActive(true);
+
+            currentTouched = item;
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        var item = other.GetComponent<Item>();
+        if (item)
+        {
+            PickUpMessage.SetActive(false);
+            currentTouched = null;
         }
     }
 
@@ -25,6 +40,7 @@ public class PlayerInventory : MonoBehaviour
     {
         actions.FindActionMap("interactions").Enable();
         inventoryInput = actions.FindActionMap("interactions", true).FindAction("inventory", true);
+        pickupInput = actions.FindActionMap("interactions", true).FindAction("pickup", true);
     }
 
     private void Update()
@@ -34,6 +50,17 @@ public class PlayerInventory : MonoBehaviour
             isDisplay = !isDisplay;
             InventoryScreen.SetActive(isDisplay);
         }
+        if (currentTouched && pickupInput.WasPressedThisFrame())
+        {
+            print("captured!");
+            PickUpMessage.SetActive(false);
+            inventory.AddItem(currentTouched.item, 1);
+            Destroy(currentTouched.gameObject);
+            currentTouched = null;
+        }
+        
+
+        
 
         return;
     }
