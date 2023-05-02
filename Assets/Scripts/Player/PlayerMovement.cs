@@ -78,13 +78,14 @@ public class PlayerMovement : MonoBehaviour
 
         currentMouseDelta = Vector2.SmoothDamp(currentMouseDelta, cameraInputValue, ref currentMouseDeltaVelocity, mouseSmoothTime);
 
-        cameraRotY += cameraInputValue.y * mouseSensitivity;
-        cameraRotX += cameraInputValue.x * mouseSensitivity;
-        cameraRotX = Mathf.Clamp(cameraRotX, -cameraCap, cameraCap);
+        //cameraRotX = Mathf.Clamp(cameraRotX, -cameraCap, cameraCap);
 
-        transform.Rotate(Vector3.up * currentMouseDelta.x * mouseSensitivity);
-        float cappedRotY = Mathf.Clamp(currentMouseDelta.y * mouseSensitivity, -cameraCap, cameraCap);
-        playerCamera.Rotate(-Vector3.right * cappedRotY);
+        cameraRotX += currentMouseDelta.x * mouseSensitivity;
+        transform.rotation = Quaternion.Euler(Vector3.up * cameraRotX); 
+
+        cameraRotY += currentMouseDelta.y * mouseSensitivity;
+        cameraRotY = Mathf.Clamp(cameraRotY, -cameraCap, cameraCap);
+        playerCamera.localEulerAngles = (-Vector3.right * cameraRotY);
     }
 
     void UpdateMove()
