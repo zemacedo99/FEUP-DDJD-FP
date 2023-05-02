@@ -126,22 +126,26 @@ public class PlayerMovement : MonoBehaviour
                 recorder.Push(Recorder.ActionType.Move, Time.time, velocity * Time.deltaTime);
             }
 
-            if (isGrounded && jumpButton.WasPressedThisFrame())
+            if (isGrounded )
             {
-                velocityY = Jump(jumpHeight, gravity);
-
-                if (recorder.isRecording)
+                if (jumpButton.WasPressedThisFrame())
                 {
-                    recorder.Push(Recorder.ActionType.Jump, Time.time);
+                    velocityY = Jump(jumpHeight, gravity);
+
+                    if (recorder.isRecording)
+                    {
+                        recorder.Push(Recorder.ActionType.Jump, Time.time);
+                    }
+                }
+                if (canGravJump && gravButton.WasPressedThisFrame())
+                {
+                    gravity *= -1;
+                    transform.localScale = new Vector3(1, transform.localScale.y * -1, 1);
+                    transform.Rotate(Vector3.right, 180f);
+                    velocityY = 0f;
                 }
             }
 
-            if (isGrounded && canGravJump && gravButton.WasPressedThisFrame())
-            {
-                gravity *= -1;
-                this.transform.localScale = new Vector3(1, this.transform.localScale.y * -1, 1);
-                velocityY = 0f;
-            }
         }
 
         if (isGrounded! && controller.velocity.y < -1f)
