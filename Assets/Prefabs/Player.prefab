@@ -139,7 +139,26 @@ MonoBehaviour:
   isPlaying: 0
   startingCamera: {fileID: 5337838783731183409}
   cube: {fileID: 0}
-  eventArray: []
+  snapshotArray: []
+  actions: {fileID: -944628639613478452, guid: 107b800f03e150f4fb8e489f0f4a80b4, type: 3}
+  recordButton:
+    m_Name: Record Button
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 63f17896-f45c-468b-87df-ba53436b9247
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  playButton:
+    m_Name: Play Button
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 39ec99bd-79dd-4ec2-b1c1-9d388f63e40c
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!114 &1010445595383186401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,7 +174,7 @@ MonoBehaviour:
   playerCamera: {fileID: 4616699832579320999}
   cursorLock: 1
   mouseSmoothTime: 0.03
-  mouseSensitivity: 3.5
+  mouseSensitivity: 0.3
   moveSpeed: 7.5
   moveSmoothTime: 0.3
   gravity: -5
@@ -165,6 +184,34 @@ MonoBehaviour:
     m_Bits: 8
   jumpHeight: 0.7
   cameraCap: 90
+  actions: {fileID: -944628639613478452, guid: 107b800f03e150f4fb8e489f0f4a80b4, type: 3}
+  cameraInput:
+    m_Name: Camera Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 3111189c-26a7-4c6e-8eda-e6dec3924b6e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  jumpButton:
+    m_Name: Jump Button
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 2c7e175e-7a05-40ee-bdae-d57425968ca5
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  moveInput:
+    m_Name: Move Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: c7c6a1e4-1b27-4e42-8e18-2140c044d2f4
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!114 &3634680667164554001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,6 +226,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recorder: {fileID: 7106066949501403723}
   clonePrefab: {fileID: 5832263356523625835, guid: 64611c239405d6845a421df576d967d2, type: 3}
+  actions: {fileID: -944628639613478452, guid: 107b800f03e150f4fb8e489f0f4a80b4, type: 3}
+  recordButton:
+    m_Name: Record Button
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 92d90566-150d-4108-bb19-eb9a37a123c1
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  playButton:
+    m_Name: Play Button
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: b17812f7-be2b-428a-923a-329f374e63cf
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!114 &6484459017631928240
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [System.Serializable]
 public class PlayerSnapshot
@@ -37,10 +38,16 @@ public class Recorder : MonoBehaviour
 
     public List<PlayerSnapshot> snapshotArray;
 
+    public InputActionAsset actions;
+    public InputAction recordButton, playButton;
 
     // Start is called before the first frame update
     void Start()
     {
+        recordButton = actions.FindActionMap("recorder", true).FindAction("record", true);
+        playButton = actions.FindActionMap("recorder", true).FindAction("play", true);
+        actions.FindActionMap("recorder").Enable();
+
         isRecording = false;
         snapshotArray = new List<PlayerSnapshot>();
 
@@ -56,7 +63,7 @@ public class Recorder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if ((recordButton.WasPressedThisFrame()))
         {
             // Record
             if (!isRecording)
@@ -70,7 +77,7 @@ public class Recorder : MonoBehaviour
                 // Instantiate cube here
             }
         }
-        else if (Input.GetMouseButtonUp(1))
+        else if ((recordButton.WasReleasedThisFrame()))
         {
             // Stop Recording
             if (isRecording)

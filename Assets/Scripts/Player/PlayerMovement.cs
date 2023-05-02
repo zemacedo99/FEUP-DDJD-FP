@@ -2,15 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
     public Transform playerCamera;
     [SerializeField] bool cursorLock = true;
     [SerializeField] [Range(0.0f, 0.5f)] float mouseSmoothTime = 0.03f;
-    [SerializeField] float mouseSensitivity = 100;
+    [SerializeField] float mouseSensitivity;
     [SerializeField] float moveSpeed = 6.0f;
-    [SerializeField][Range(0.0f, 0.5f)] float moveSmoothTime = 0.3f;
+    [SerializeField] [Range(0.0f, 0.5f)] float moveSmoothTime = 0.3f;
     public float gravity = -30f;
     [SerializeField] Transform groundCheck; 
     [SerializeField] LayerMask ground;
@@ -23,8 +24,8 @@ public class PlayerMovement : MonoBehaviour
     Vector2 currentMouseDelta;
     Vector2 currentMouseDeltaVelocity;
 
-    Vector2 currentDir;
-    Vector2 currentDirVelocity;
+    Vector2 targetDir;
+    Vector2 targetDirVelocity;
 
     CharacterController controller;
     Cloning cloningScript;
@@ -36,9 +37,17 @@ public class PlayerMovement : MonoBehaviour
     float cameraRotY;
     float cameraRotX;
 
+    public InputActionAsset actions;
+    public InputAction cameraInput, jumpButton, moveInput;
+
     void Start()
     {
         Application.targetFrameRate = 200;
+
+        cameraInput = actions.FindActionMap("movement", true).FindAction("camera", true);
+        jumpButton = actions.FindActionMap("movement", true).FindAction("jump", true);
+        moveInput = actions.FindActionMap("movement", true).FindAction("move", true);
+        actions.FindActionMap("movement").Enable();
 
         controller = GetComponent<CharacterController>();
         recorder = GetComponent<Recorder>();
@@ -65,20 +74,17 @@ public class PlayerMovement : MonoBehaviour
 
     void UpdateMouse()
     {
-        float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = -Input.GetAxis("Mouse Y");
-        cameraInputValue = new Vector2(mouseX, mouseY);
+        cameraInputValue = cameraInput.ReadValue<Vector2>();
 
         currentMouseDelta = Vector2.SmoothDamp(currentMouseDelta, cameraInputValue, ref currentMouseDeltaVelocity, mouseSmoothTime);
 
-        cameraRotY += mouseX * mouseSensitivity;
-        cameraRotX += mouseY * mouseSensitivity;
+        cameraRotY += cameraInputValue.y * mouseSensitivity;
+        cameraRotX += cameraInputValue.x * mouseSensitivity;
         cameraRotX = Mathf.Clamp(cameraRotX, -cameraCap, cameraCap);
 
-        // Don't rotate player pitch
         transform.Rotate(Vector3.up * currentMouseDelta.x * mouseSensitivity);
-        float cappedRotX = Mathf.Clamp(currentMouseDelta.y * mouseSensitivity, -cameraCap, cameraCap);
-        playerCamera.Rotate(Vector3.right * cappedRotX);
+        float cappedRotY = Mathf.Clamp(currentMouseDelta.y * mouseSensitivity, -cameraCap, cameraCap);
+        playerCamera.Rotate(-Vector3.right * cappedRotY);
     }
 
     void UpdateMove()
@@ -87,21 +93,21 @@ public class PlayerMovement : MonoBehaviour
 
         Vector2 newMoveInputValue;
 
-        newMoveInputValue = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        newMoveInputValue = moveInput.ReadValue<Vector2>();
         newMoveInputValue.Normalize();
 
         moveInputValue = newMoveInputValue;
 
-        currentDir = Vector2.SmoothDamp(currentDir, moveInputValue, ref currentDirVelocity, moveSmoothTime);
+        targetDir = Vector2.SmoothDamp(targetDir, moveInputValue, ref targetDirVelocity, moveSmoothTime);
         if (!isGrounded)
             velocityY += gravity * 2f * Time.deltaTime;
-        Vector3 velocity = (transform.forward * currentDir.y + transform.right * currentDir.x) * moveSpeed + Vector3.up * velocityY;
+        Vector3 velocity = (transform.forward * targetDir.y + transform.right * targetDir.x) * moveSpeed + Vector3.up * velocityY;
         controller.Move(velocity * Time.deltaTime);
 
         // JUMP
         if (isGrounded)
         {
-            if (Input.GetButtonDown("Jump"))
+            if (jumpButton.WasPressedThisFrame())
             {
                 velocityY = Jump();
             }
