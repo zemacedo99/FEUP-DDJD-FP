@@ -35,10 +35,11 @@ public class Cloning : MonoBehaviour
 
     void SpawnClone()
     {
-        // get first position
-        Vector3 firstPosition = recorder.snapshotArray[0].position;
+        // Get first position and rotation
+        Vector3 initialPosition = recorder.snapshotArray[0].position;
+        Quaternion initialRotation = recorder.snapshotArray[0].rotation;
 
-        GameObject clone = Instantiate(clonePrefab, firstPosition, Quaternion.identity);
+        GameObject clone = Instantiate(clonePrefab, initialPosition, initialRotation);
 
         Clone cloneScript = clone.GetComponent<Clone>();
 

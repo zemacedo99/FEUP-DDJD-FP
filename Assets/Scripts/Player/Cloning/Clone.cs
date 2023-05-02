@@ -41,7 +41,6 @@ public class Clone : MonoBehaviour
                 yield return null;
                 time += Time.deltaTime;
             }
-
             i++;
         }
 
