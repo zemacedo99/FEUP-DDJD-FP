@@ -7,8 +7,12 @@ public class Clone : MonoBehaviour
     public List<PlayerSnapshot> snapshotArray;
     public Camera cloneCamera;
 
+    Recorder recorder;
+    float playbackStartTime;
+
     void Start()
     {
+        recorder = GameObject.FindGameObjectWithTag("Player").GetComponent<Recorder>();
         StartCoroutine(Playback());
     }
 
@@ -22,6 +26,7 @@ public class Clone : MonoBehaviour
 
         int i = 0;
         float time = 0;
+        playbackStartTime = Time.time;
         while (i < snapshotArray.Count - 1) {
             var currentSnapshot = snapshotArray[i];
             var nextSnapshot = snapshotArray[i + 1];
@@ -40,6 +45,8 @@ public class Clone : MonoBehaviour
             i++;
         }
 
+        // Log playback time
+        Debug.Log(Time.time - playbackStartTime);
         // Destroy clone
         Destroy(gameObject);
     }

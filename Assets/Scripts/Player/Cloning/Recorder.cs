@@ -87,8 +87,13 @@ public class Recorder : MonoBehaviour
                 isRecording = false;
                 Debug.Log("Recording Stopped");
                 Debug.Log("Recording snapshots: " + snapshotArray.Count);
+                Debug.Log("Recording duration: " + (Time.time - recordingStartTime));
             }
         }
     }
 
+    public float GetRecordingStartTime()
+    {
+        return recordingStartTime;
+    }
 }
