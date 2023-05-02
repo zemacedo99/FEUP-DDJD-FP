@@ -22,6 +22,8 @@ public class PlayerInventory : MonoBehaviour
         {
             PickUpMessage.SetActive(true);
 
+            PickUpMessage.GetComponent<PickupMessageScript>().UpdateMessage(item);
+
             currentTouched = item;
         }
     }
@@ -52,16 +54,12 @@ public class PlayerInventory : MonoBehaviour
         }
         if (currentTouched && pickupInput.WasPressedThisFrame())
         {
-            print("captured!");
             PickUpMessage.SetActive(false);
             inventory.AddItem(currentTouched.item, 1);
             Destroy(currentTouched.gameObject);
             currentTouched = null;
         }
         
-
-        
-
         return;
     }
 
