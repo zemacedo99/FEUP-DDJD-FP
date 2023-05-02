@@ -10,22 +10,26 @@ public class Cloning : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && !recorder.isRecording)
         {
-            SpawnClone();
+            if (recorder.snapshotArray.Count > 0)
+                SpawnClone();
+            else
+            {
+                Debug.Log("No snapshots to play");
+            }
         }
     }
 
     void SpawnClone()
     {
         // get first position
-        Vector3 firstPosition = recorder.eventArray[0].position;
+        Vector3 firstPosition = recorder.snapshotArray[0].position;
 
         GameObject clone = Instantiate(clonePrefab, firstPosition, Quaternion.identity);
 
         Clone cloneScript = clone.GetComponent<Clone>();
 
-        cloneScript.actions = new List<PlayerAction>(recorder.eventArray);
-        cloneScript.StartPlayback();
+        cloneScript.snapshotArray = new List<PlayerSnapshot>(recorder.snapshotArray);
     }
 }

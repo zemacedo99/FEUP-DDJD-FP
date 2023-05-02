@@ -33,7 +33,6 @@ public class PlayerMovement : MonoBehaviour
     Vector2 cameraInputValue;
     Vector2 moveInputValue;
 
-
     float cameraRotY;
     float cameraRotX;
 

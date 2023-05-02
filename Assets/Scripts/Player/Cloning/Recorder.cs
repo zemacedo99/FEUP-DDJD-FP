@@ -4,46 +4,45 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class PlayerAction
+public class PlayerSnapshot
 {
     public Vector3 position;
     public Quaternion rotation;
     public Quaternion cameraRotation; // debug
-    public float delay;
+    public float timestamp;
 
-    public PlayerAction(Vector3 position, Quaternion rotation, Quaternion cameraRotation, float delay)
+    public PlayerSnapshot(Vector3 position, Quaternion rotation, Quaternion cameraRotation, float timestamp)
     {
         this.position = position;
         this.rotation = rotation;
         this.cameraRotation = cameraRotation;
-        this.delay = delay;
+        this.timestamp = timestamp;
     }
 }
-
+public class PlayerEvent
+{
+    public enum EventType { MoveInputValueUpdate, CameraInputValueUpdate, Jump, StopRecording };
+    public float timestamp;
+}
 
 public class Recorder : MonoBehaviour
 {
-    public enum EventType { MoveInputValueUpdate, CameraInputValueUpdate, Jump, StopRecording };
-
     public bool isRecording;
     public bool isPlaying;
-    Vector3 startingPosition;
-    Quaternion startingRotation;
     public GameObject startingCamera;
-    float lastFrame;
+    float recordingStartTime;
 
     Cloning cloningScript;
     public GameObject cube;
 
-
-    public List<PlayerAction> eventArray;
+    public List<PlayerSnapshot> snapshotArray;
 
 
     // Start is called before the first frame update
     void Start()
     {
         isRecording = false;
-        eventArray = new List<PlayerAction>();
+        snapshotArray = new List<PlayerSnapshot>();
 
         cloningScript = GetComponent<Cloning>();
     }
@@ -51,7 +50,7 @@ public class Recorder : MonoBehaviour
     void FixedUpdate()
     {
         if (isRecording)
-            eventArray.Add(new PlayerAction(transform.position, transform.rotation, startingCamera.transform.localRotation, Time.deltaTime));
+            snapshotArray.Add(new PlayerSnapshot(transform.position, transform.rotation, startingCamera.transform.localRotation, Time.time - recordingStartTime));
     }
 
     // Update is called once per frame
@@ -64,8 +63,11 @@ public class Recorder : MonoBehaviour
             {
                 Debug.Log("Recording Started");
 
-                eventArray.Clear();
+                snapshotArray.Clear();
+                recordingStartTime = Time.time;
                 isRecording = true;
+
+                // Instantiate cube here
             }
         }
         else if (Input.GetMouseButtonUp(1))
@@ -73,9 +75,11 @@ public class Recorder : MonoBehaviour
             // Stop Recording
             if (isRecording)
             {
-                Debug.Log("Recording Stopped");
-                Debug.Log("Recording actions: " + eventArray.Count);
+                snapshotArray.Add(new PlayerSnapshot(transform.position, transform.rotation, startingCamera.transform.localRotation, Time.time - recordingStartTime));
+
                 isRecording = false;
+                Debug.Log("Recording Stopped");
+                Debug.Log("Recording snapshots: " + snapshotArray.Count);
             }
         }
     }

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Clone : MonoBehaviour
 {
-    public List<PlayerAction> actions;
+    public List<PlayerSnapshot> snapshotArray;
     public Camera cloneCamera;
 
-    public void StartPlayback()
+    void Start()
     {
         StartCoroutine(Playback());
     }
@@ -15,27 +15,26 @@ public class Clone : MonoBehaviour
     IEnumerator Playback()
     {
         Debug.Log("Playback started");
-        Debug.Log("Playback actions: " + actions.Count);
+        Debug.Log("Playback snapshots: " + snapshotArray.Count);
 
         // Enable camera
         cloneCamera.enabled = true;
 
         int i = 0;
-        while (i < actions.Count - 1) {
-            var currentAction = actions[i];
-            var nextAction = actions[i + 1];
+        float time = 0;
+        while (i < snapshotArray.Count - 1) {
+            var currentSnapshot = snapshotArray[i];
+            var nextSnapshot = snapshotArray[i + 1];
 
             // while waiting for next action interpolate everything in the time between the two actions
-            float time = 0;
-            while (time < currentAction.delay) {
-                time += Time.deltaTime;
+            while (time < currentSnapshot.timestamp) {
 
-                transform.position = Vector3.Lerp(currentAction.position, nextAction.position, time / nextAction.delay);
-                transform.rotation = Quaternion.Lerp(currentAction.rotation, nextAction.rotation, time / nextAction.delay);
+                transform.SetPositionAndRotation(Vector3.Lerp(currentSnapshot.position, nextSnapshot.position, time / nextSnapshot.timestamp), Quaternion.Lerp(currentSnapshot.rotation, nextSnapshot.rotation, time / nextSnapshot.timestamp));
 
-                cloneCamera.transform.localRotation = Quaternion.Lerp(currentAction.cameraRotation, nextAction.cameraRotation, time / nextAction.delay);
+                cloneCamera.transform.localRotation = Quaternion.Lerp(currentSnapshot.cameraRotation, nextSnapshot.cameraRotation, time / nextSnapshot.timestamp);
 
                 yield return null;
+                time += Time.deltaTime;
             }
 
             i++;
