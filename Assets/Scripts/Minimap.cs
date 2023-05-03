@@ -17,7 +17,7 @@ public class Minimap : MonoBehaviour
 
     public GameObject fogOfWarPlane;
 	public LayerMask fogLayer;
-	public float radius = 5f;
+	public float radius = 7.5f;
 	private float radiusSqr { get { return radius*radius; }}
 	
 	private Mesh mesh;
