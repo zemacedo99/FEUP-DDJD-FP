@@ -37,7 +37,7 @@ public class PlayerHealth : MonoBehaviour
 
     void DoDamage()
     {
-        health -= 75 * Time.deltaTime;
+        health -= 0.33f;
         //Debug.Log(Time.deltaTime);
         if (health <= 0)
         {
