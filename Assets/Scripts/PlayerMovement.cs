@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     public InputAction cameraInput, jumpButton, moveInput, gravButton;
 
     public bool canGravJump;
+    bool isGravityInverted;
 
     void Start()
     {
@@ -83,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
         if (!cloningScript.isClone)
         {
             Vector2 targetMouseDelta = cameraInput.ReadValue<Vector2>();
+            if (isGravityInverted) targetMouseDelta.y *= -1;
 
             currentMouseDelta = Vector2.SmoothDamp(currentMouseDelta, targetMouseDelta, ref currentMouseDeltaVelocity, mouseSmoothTime);
 
@@ -140,6 +142,9 @@ public class PlayerMovement : MonoBehaviour
                 if (canGravJump && gravButton.WasPressedThisFrame())
                 {
                     gravity *= -1;
+                    if (isGravityInverted) isGravityInverted = false;
+                    else isGravityInverted = true;
+                    
                     transform.localScale = new Vector3(1, transform.localScale.y * -1, 1);
                     transform.Rotate(Vector3.right, 180f);
                     velocityY = 0f;
