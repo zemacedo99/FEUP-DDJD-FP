@@ -22,6 +22,7 @@ public class CanvasScript : MonoBehaviour
         if (pauseInput.WasPressedThisFrame())
         {
             pauseMenuDisplay = !pauseMenuDisplay;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().stopMove = pauseMenuDisplay;
             PauseMenu.SetActive(pauseMenuDisplay);
         }
 

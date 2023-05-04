@@ -35,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
     public InputActionAsset actions;
     public InputAction cameraInput, jumpButton, moveInput;
 
+    public bool stopMove;
+
     void Start()
     {
         cameraInput = actions.FindActionMap("movement", true).FindAction("camera", true);
@@ -44,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
         controller = GetComponent<CharacterController>();
         recorder = GetComponent<Recorder>();
         cloningScript = GetComponent<Cloning>();
+        stopMove = false;
 
         if (cloningScript.isClone)
         {
@@ -71,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (stopMove) return;
         UpdateMouse();
         UpdateMove();
     }
