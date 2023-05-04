@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-// These videos take long to make so I hope this helps you out and if you want to help me out you can by leaving a like and subscribe, thanks!
-
 public class PlayerMovement : MonoBehaviour
 {
     Transform playerCamera;
@@ -35,8 +33,14 @@ public class PlayerMovement : MonoBehaviour
     public InputActionAsset actions;
     public InputAction cameraInput, jumpButton, moveInput;
 
+    public bool canJetpack;
+    private Oxygen oxy;
+    public float jetCost;
+    public GameObject waterParticle;
+
     void Start()
     {
+        oxy = GetComponent<Oxygen>();
         cameraInput = actions.FindActionMap("movement", true).FindAction("camera", true);
         jumpButton = actions.FindActionMap("movement", true).FindAction("jump", true);
         moveInput = actions.FindActionMap("movement", true).FindAction("move", true);
@@ -123,13 +127,23 @@ public class PlayerMovement : MonoBehaviour
                 recorder.Push(Recorder.ActionType.Move, Time.time, velocity * Time.deltaTime);
             }
 
-            if (isGrounded && jumpButton.WasPressedThisFrame())
+            if (jumpButton.WasPressedThisFrame())
             {
-                velocityY = Jump(jumpHeight, gravity);
-
-                if (recorder.isRecording)
+                if (isGrounded || (!isGrounded && canJetpack))
                 {
-                    recorder.Push(Recorder.ActionType.Jump, Time.time);
+                    int mul = 1;
+                    if(!isGrounded)
+                    {
+                        mul = 3;
+                        oxy.oxygenValue -= jetCost;
+                        JetPackParticles();
+                    }
+                    velocityY = Jump(jumpHeight*mul, gravity);
+
+                    if (recorder.isRecording)
+                    {
+                        recorder.Push(Recorder.ActionType.Jump, Time.time);
+                    }
                 }
             }
         }
@@ -149,5 +163,13 @@ public class PlayerMovement : MonoBehaviour
     public void SetVelocityY(float newValue)
     {
         velocityY = newValue;
+    }
+
+    private void JetPackParticles()
+    {
+        for(int i = 0; i < 30; i++)
+        {
+            Instantiate(waterParticle, this.transform.position, Quaternion.identity);
+        }
     }
 }
