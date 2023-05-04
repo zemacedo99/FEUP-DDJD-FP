@@ -7,9 +7,7 @@ using UnityEngine.UI;
 public class PlayerInventory : MonoBehaviour
 {
     public InventoryObject inventory;
-    public bool isDisplay = false;
     public InputActionAsset actions;
-    public InputAction inventoryInput;
     public InputAction pickupInput;
     public GameObject InventoryScreen;
     public GameObject PickUpMessage;
@@ -41,17 +39,11 @@ public class PlayerInventory : MonoBehaviour
     private void Start()
     {
         actions.FindActionMap("interactions").Enable();
-        inventoryInput = actions.FindActionMap("interactions", true).FindAction("inventory", true);
         pickupInput = actions.FindActionMap("interactions", true).FindAction("pickup", true);
     }
 
     private void Update()
     {
-        if (inventoryInput.WasPressedThisFrame())
-        {
-            isDisplay = !isDisplay;
-            InventoryScreen.SetActive(isDisplay);
-        }
         if (currentTouched && pickupInput.WasPressedThisFrame())
         {
             PickUpMessage.SetActive(false);
