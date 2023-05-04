@@ -27,7 +27,10 @@ public class PlayerHealth : MonoBehaviour
     {
         if(hit.gameObject.CompareTag("Hurt"))
         {
-            impact = new Vector3(-hit.moveDirection.x, -hit.moveDirection.y, -hit.moveDirection.z)*10;
+            impact = (this.gameObject.transform.position - hit.point)*30;
+
+            //impact = new Vector3(-hit.moveDirection.x, -hit.moveDirection.y+1, -hit.moveDirection.z)*10;
+            //Debug.Log(impact);
             DoDamage();
         }
     }
@@ -35,6 +38,7 @@ public class PlayerHealth : MonoBehaviour
     void DoDamage()
     {
         health -= 75 * Time.deltaTime;
+        //Debug.Log(Time.deltaTime);
         if (health <= 0)
         {
             //Debug.Log("ded");
