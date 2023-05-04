@@ -28,6 +28,20 @@ public class CanvasScript : MonoBehaviour
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().stopMove = pauseMenuIsDisplay;
     }
 
+    public void ActivatePauseMenu(bool _isActivate)
+    {   
+        pauseMenuIsDisplay = _isActivate;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().stopMove = pauseMenuIsDisplay;
+        this.GetChildByName("PauseMenu").SetActive(pauseMenuIsDisplay);
+    }
+
+    public void ActivateInventory(bool _isActivate)
+    {
+        inventoryIsDisplay = _isActivate;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().stopMove = inventoryIsDisplay;
+        this.GetChildByName("InventoryScreen").SetActive(inventoryIsDisplay);
+    }
+
     void Update()
     {
         if (pauseInput.WasPressedThisFrame())
@@ -36,15 +50,11 @@ public class CanvasScript : MonoBehaviour
             inventoryIsDisplay = false;
             this.GetChildByName("InventoryScreen").SetActive(inventoryIsDisplay);
 
-            pauseMenuIsDisplay = !pauseMenuIsDisplay;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().stopMove = pauseMenuIsDisplay;
-            this.GetChildByName("PauseMenu").SetActive(pauseMenuIsDisplay);
+            ActivatePauseMenu(!pauseMenuIsDisplay);
         }
         if (inventoryInput.WasPressedThisFrame() && !pauseMenuIsDisplay)
         {
-            inventoryIsDisplay = !inventoryIsDisplay;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().stopMove = inventoryIsDisplay;
-            this.GetChildByName("InventoryScreen").SetActive(inventoryIsDisplay);
+            ActivateInventory(!inventoryIsDisplay);
         }
 
     }
