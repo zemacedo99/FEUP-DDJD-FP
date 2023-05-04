@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-// These videos take long to make so I hope this helps you out and if you want to help me out you can by leaving a like and subscribe, thanks!
-
 public class PlayerMovement : MonoBehaviour
 {
     Transform playerCamera;
@@ -38,8 +36,14 @@ public class PlayerMovement : MonoBehaviour
     public bool canGravJump;
     bool isGravityInverted;
 
+    public bool canJetpack;
+    private Oxygen oxy;
+    public float jetCost;
+    public GameObject waterParticle;
+
     void Start()
     {
+        oxy = GetComponent<Oxygen>();
         cameraInput = actions.FindActionMap("movement", true).FindAction("camera", true);
         jumpButton = actions.FindActionMap("movement", true).FindAction("jump", true);
         gravButton = actions.FindActionMap("movement", true).FindAction("gravity", true);
@@ -128,19 +132,23 @@ public class PlayerMovement : MonoBehaviour
                 recorder.Push(Recorder.ActionType.Move, Time.time, velocity * Time.deltaTime);
             }
 
-            if (isGrounded )
+            if (jumpButton.WasPressedThisFrame() && (isGrounded || (!isGrounded && canJetpack)))
             {
-                if (jumpButton.WasPressedThisFrame())
+                int mul = 1;
+                if(!isGrounded)
                 {
-                    velocityY = Jump(jumpHeight, gravity);
-
-                    if (recorder.isRecording)
-                    {
-                        recorder.Push(Recorder.ActionType.Jump, Time.time);
-                    }
+                    mul = 3;
+                    oxy.oxygenValue -= jetCost;
+                    JetPackParticles();
                 }
-                if (canGravJump && gravButton.WasPressedThisFrame())
+                velocityY = Jump(jumpHeight*mul, gravity);
+
+                if (recorder.isRecording)
                 {
+                    recorder.Push(Recorder.ActionType.Jump, Time.time);
+                }
+            }
+            if(gravButton.WasPressedThisFrame() && canGravJump && isGrounded) {
                     gravity *= -1;
                     if (isGravityInverted) isGravityInverted = false;
                     else isGravityInverted = true;
@@ -148,7 +156,6 @@ public class PlayerMovement : MonoBehaviour
                     transform.localScale = new Vector3(1, transform.localScale.y * -1, 1);
                     transform.Rotate(Vector3.right, 180f);
                     velocityY = 0f;
-                }
             }
 
         }
@@ -168,5 +175,13 @@ public class PlayerMovement : MonoBehaviour
     public void SetVelocityY(float newValue)
     {
         velocityY = newValue;
+    }
+
+    private void JetPackParticles()
+    {
+        for(int i = 0; i < 30; i++)
+        {
+            Instantiate(waterParticle, this.transform.position, Quaternion.identity);
+        }
     }
 }
