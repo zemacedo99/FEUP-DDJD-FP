@@ -31,7 +31,10 @@ public class PlayerMovement : MonoBehaviour
     Cloning cloningScript;
 
     public InputActionAsset actions;
-    public InputAction cameraInput, jumpButton, moveInput;
+    public InputAction cameraInput, jumpButton, moveInput, gravButton;
+
+    public bool canGravJump;
+    bool isGravityInverted;
 
     public bool canJetpack;
     private Oxygen oxy;
@@ -43,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
         oxy = GetComponent<Oxygen>();
         cameraInput = actions.FindActionMap("movement", true).FindAction("camera", true);
         jumpButton = actions.FindActionMap("movement", true).FindAction("jump", true);
+        gravButton = actions.FindActionMap("movement", true).FindAction("gravity", true);
         moveInput = actions.FindActionMap("movement", true).FindAction("move", true);
         actions.FindActionMap("movement").Enable();
         controller = GetComponent<CharacterController>();
@@ -84,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
         if (!cloningScript.isClone)
         {
             Vector2 targetMouseDelta = cameraInput.ReadValue<Vector2>();
+            if (isGravityInverted) targetMouseDelta.y *= -1;
 
             currentMouseDelta = Vector2.SmoothDamp(currentMouseDelta, targetMouseDelta, ref currentMouseDeltaVelocity, mouseSmoothTime);
 
@@ -127,25 +132,32 @@ public class PlayerMovement : MonoBehaviour
                 recorder.Push(Recorder.ActionType.Move, Time.time, velocity * Time.deltaTime);
             }
 
-            if (jumpButton.WasPressedThisFrame())
+            if (jumpButton.WasPressedThisFrame() && (isGrounded || (!isGrounded && canJetpack)))
             {
-                if (isGrounded || (!isGrounded && canJetpack))
+                int mul = 1;
+                if(!isGrounded)
                 {
-                    int mul = 1;
-                    if(!isGrounded)
-                    {
-                        mul = 3;
-                        oxy.oxygenValue -= jetCost;
-                        JetPackParticles();
-                    }
-                    velocityY = Jump(jumpHeight*mul, gravity);
+                    mul = 3;
+                    oxy.oxygenValue -= jetCost;
+                    JetPackParticles();
+                }
+                velocityY = Jump(jumpHeight*mul, gravity);
 
-                    if (recorder.isRecording)
-                    {
-                        recorder.Push(Recorder.ActionType.Jump, Time.time);
-                    }
+                if (recorder.isRecording)
+                {
+                    recorder.Push(Recorder.ActionType.Jump, Time.time);
                 }
             }
+            if(gravButton.WasPressedThisFrame() && canGravJump && isGrounded) {
+                    gravity *= -1;
+                    if (isGravityInverted) isGravityInverted = false;
+                    else isGravityInverted = true;
+                    
+                    transform.localScale = new Vector3(1, transform.localScale.y * -1, 1);
+                    transform.Rotate(Vector3.right, 180f);
+                    velocityY = 0f;
+            }
+
         }
 
         if (isGrounded! && controller.velocity.y < -1f)
