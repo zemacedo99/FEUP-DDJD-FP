@@ -38,14 +38,24 @@ public class PlayerMovement : MonoBehaviour
     float cameraRotX;
 
     public InputActionAsset actions;
-    public InputAction cameraInput, jumpButton, moveInput;
+    public InputAction cameraInput, jumpButton, moveInput, gravButton;
+
+    public bool canGravJump;
+    bool isGravityInverted;
+
+    public bool canJetpack;
+    private Oxygen oxy;
+    public float jetCost;
+    public GameObject waterParticle;
 
     void Start()
     {
         Application.targetFrameRate = 200;
 
+        oxy = GetComponent<Oxygen>();
         cameraInput = actions.FindActionMap("movement", true).FindAction("camera", true);
         jumpButton = actions.FindActionMap("movement", true).FindAction("jump", true);
+        gravButton = actions.FindActionMap("movement", true).FindAction("gravity", true);
         moveInput = actions.FindActionMap("movement", true).FindAction("move", true);
         actions.FindActionMap("movement").Enable();
 
@@ -77,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
         cameraInputValue = cameraInput.ReadValue<Vector2>();
 
         currentMouseDelta = Vector2.SmoothDamp(currentMouseDelta, cameraInputValue, ref currentMouseDeltaVelocity, mouseSmoothTime);
+        if (isGravityInverted) currentMouseDelta.y *= -1;
 
         //cameraRotX = Mathf.Clamp(cameraRotX, -cameraCap, cameraCap);
 
@@ -100,27 +111,48 @@ public class PlayerMovement : MonoBehaviour
         moveInputValue = newMoveInputValue;
 
         targetDir = Vector2.SmoothDamp(targetDir, moveInputValue, ref targetDirVelocity, moveSmoothTime);
+
+        // JUMP
+        if (jumpButton.WasPressedThisFrame() && (isGrounded || (!isGrounded && canJetpack)))
+            {
+                int mul = 1;
+                if(!isGrounded)
+                {
+                    mul = 3;
+                    oxy.oxygenValue -= jetCost;
+                    JetPackParticles();
+                }
+                velocityY = Jump(jumpHeight*mul);
+            }
+        // GRAVITY Switch
+        if(gravButton.WasPressedThisFrame() && canGravJump && isGrounded) {
+                gravity *= -1;
+                if (isGravityInverted) isGravityInverted = false;
+                else isGravityInverted = true;
+                
+                transform.localScale = new Vector3(1, transform.localScale.y * -1, 1);
+                transform.Rotate(Vector3.right, 180f);
+                velocityY = 0f;
+        }
+        
         if (!isGrounded)
             velocityY += gravity * 2f * Time.deltaTime;
         Vector3 velocity = (transform.forward * targetDir.y + transform.right * targetDir.x) * moveSpeed + Vector3.up * velocityY;
         controller.Move(velocity * Time.deltaTime);
-
-        // JUMP
-        if (isGrounded)
-        {
-            if (jumpButton.WasPressedThisFrame())
-            {
-                velocityY = Jump();
-            }
-
-        }
     }
 
-    public float Jump()
+    public float Jump(float height)
     {
-        float velocityY = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        float velocityY = Mathf.Sqrt(height * -2f * gravity);
 
         return velocityY;
     }
 
+    private void JetPackParticles()
+    {
+        for (int i = 0; i < 30; i++)
+        {
+            Instantiate(waterParticle, this.transform.position, Quaternion.identity);
+        }
+    }
 }

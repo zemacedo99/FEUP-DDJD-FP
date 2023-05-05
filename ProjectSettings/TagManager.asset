@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - OxygenStation
+  - Hurt
+  - WaterParticle
   layers:
   - Default
   - TransparentFX
@@ -16,8 +18,8 @@ TagManager:
   - Cameras
   - Clones
   - 
-  - 
-  - 
+  - Water Particles
+  - Player
   - 
   - 
   - 

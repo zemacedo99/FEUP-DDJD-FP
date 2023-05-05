@@ -3945,13 +3945,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1010445595383186411, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5337838783731183409, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
-      propertyPath: m_TagString
-      value: MainCamera
+    - target: {fileID: 4065998409489094499, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7106066949501403723, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: cube
