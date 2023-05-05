@@ -112,6 +112,11 @@ public class PlayerMovement : MonoBehaviour
 
         targetDir = Vector2.SmoothDamp(targetDir, moveInputValue, ref targetDirVelocity, moveSmoothTime);
 
+        if (!isGrounded)
+            velocityY += gravity * 2f * Time.deltaTime;
+        Vector3 velocity = (transform.forward * targetDir.y + transform.right * targetDir.x) * moveSpeed + Vector3.up * velocityY;
+        controller.Move(velocity * Time.deltaTime);
+
         // JUMP
         if (jumpButton.WasPressedThisFrame() && (isGrounded || (!isGrounded && canJetpack)))
             {
@@ -134,11 +139,6 @@ public class PlayerMovement : MonoBehaviour
                 transform.Rotate(Vector3.right, 180f);
                 velocityY = 0f;
         }
-        
-        if (!isGrounded)
-            velocityY += gravity * 2f * Time.deltaTime;
-        Vector3 velocity = (transform.forward * targetDir.y + transform.right * targetDir.x) * moveSpeed + Vector3.up * velocityY;
-        controller.Move(velocity * Time.deltaTime);
     }
 
     public float Jump(float height)
