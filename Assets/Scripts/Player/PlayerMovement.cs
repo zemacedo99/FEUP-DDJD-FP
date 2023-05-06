@@ -127,6 +127,10 @@ public class PlayerMovement : MonoBehaviour
             gravity *= -1;
 
             transform.Rotate(Vector3.right, 180f);
+            transform.Rotate(Vector3.up, 180f);
+            cameraRotY *= -1;
+            playerCamera.localEulerAngles = (-Vector3.right * cameraRotY);
+
             velocityY = 0f;
         }
     }
