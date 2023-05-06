@@ -35,13 +35,11 @@ public class PlayerMovement : MonoBehaviour
     Vector2 moveInputValue;
 
     float cameraRotY;
-    float cameraRotX;
 
     public InputActionAsset actions;
     public InputAction cameraInput, jumpButton, moveInput, gravButton;
 
     public bool canGravJump;
-    bool isGravityInverted;
 
     public bool canJetpack;
     private Oxygen oxy;
@@ -73,7 +71,6 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 rot = transform.rotation.eulerAngles;
         cameraRotY = rot.y;
-        cameraRotX = rot.x;
     }
 
     void Update()
@@ -85,14 +82,10 @@ public class PlayerMovement : MonoBehaviour
     void UpdateMouse()
     {
         cameraInputValue = cameraInput.ReadValue<Vector2>();
-        if (isGravityInverted) cameraInputValue.y *= -1;
 
         currentMouseDelta = Vector2.SmoothDamp(currentMouseDelta, cameraInputValue, ref currentMouseDeltaVelocity, mouseSmoothTime);
 
-        //cameraRotX = Mathf.Clamp(cameraRotX, -cameraCap, cameraCap);
-
-        cameraRotX += currentMouseDelta.x * mouseSensitivity;
-        transform.rotation = Quaternion.Euler(Vector3.up * cameraRotX); 
+        transform.Rotate(Vector3.up, currentMouseDelta.x * mouseSensitivity);
 
         cameraRotY += currentMouseDelta.y * mouseSensitivity;
         cameraRotY = Mathf.Clamp(cameraRotY, -cameraCap, cameraCap);
@@ -132,10 +125,7 @@ public class PlayerMovement : MonoBehaviour
         if (gravButton.WasPressedThisFrame() && canGravJump && isGrounded)
         {
             gravity *= -1;
-            if (isGravityInverted) isGravityInverted = false;
-            else isGravityInverted = true;
 
-            //transform.localScale = new Vector3(1, transform.localScale.y * -1, 1);
             transform.Rotate(Vector3.right, 180f);
             velocityY = 0f;
         }
@@ -143,8 +133,8 @@ public class PlayerMovement : MonoBehaviour
 
     public float Jump(float height)
     {
-        float velocityY = Mathf.Sqrt(height * -2f * gravity);
-
+        float velocityY = Mathf.Sqrt(height * 2f * Mathf.Abs(gravity)) * -Mathf.Sign(gravity);
+        Debug.Log(velocityY);
         return velocityY;
     }
 
