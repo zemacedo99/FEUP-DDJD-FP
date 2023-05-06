@@ -85,9 +85,9 @@ public class PlayerMovement : MonoBehaviour
     void UpdateMouse()
     {
         cameraInputValue = cameraInput.ReadValue<Vector2>();
+        if (isGravityInverted) cameraInputValue.y *= -1;
 
         currentMouseDelta = Vector2.SmoothDamp(currentMouseDelta, cameraInputValue, ref currentMouseDeltaVelocity, mouseSmoothTime);
-        if (isGravityInverted) currentMouseDelta.y *= -1;
 
         //cameraRotX = Mathf.Clamp(cameraRotX, -cameraCap, cameraCap);
 
@@ -112,32 +112,32 @@ public class PlayerMovement : MonoBehaviour
 
         targetDir = Vector2.SmoothDamp(targetDir, moveInputValue, ref targetDirVelocity, moveSmoothTime);
 
-        if (!isGrounded)
-            velocityY += gravity * 2f * Time.deltaTime;
+        velocityY += gravity * 2f * Time.deltaTime;
         Vector3 velocity = (transform.forward * targetDir.y + transform.right * targetDir.x) * moveSpeed + Vector3.up * velocityY;
         controller.Move(velocity * Time.deltaTime);
 
         // JUMP
         if (jumpButton.WasPressedThisFrame() && (isGrounded || (!isGrounded && canJetpack)))
+        {
+            int mul = 1;
+            if (!isGrounded)
             {
-                int mul = 1;
-                if(!isGrounded)
-                {
-                    mul = 3;
-                    oxy.oxygenValue -= jetCost;
-                    JetPackParticles();
-                }
-                velocityY = Jump(jumpHeight*mul);
+                mul = 3;
+                oxy.oxygenValue -= jetCost;
+                JetPackParticles();
             }
+            velocityY = Jump(jumpHeight * mul);
+        }
         // GRAVITY Switch
-        if(gravButton.WasPressedThisFrame() && canGravJump && isGrounded) {
-                gravity *= -1;
-                if (isGravityInverted) isGravityInverted = false;
-                else isGravityInverted = true;
-                
-                transform.localScale = new Vector3(1, transform.localScale.y * -1, 1);
-                transform.Rotate(Vector3.right, 180f);
-                velocityY = 0f;
+        if (gravButton.WasPressedThisFrame() && canGravJump && isGrounded)
+        {
+            gravity *= -1;
+            if (isGravityInverted) isGravityInverted = false;
+            else isGravityInverted = true;
+
+            //transform.localScale = new Vector3(1, transform.localScale.y * -1, 1);
+            transform.Rotate(Vector3.right, 180f);
+            velocityY = 0f;
         }
     }
 
