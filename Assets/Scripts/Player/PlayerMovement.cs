@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float mouseSensitivity;
     [SerializeField] float moveSpeed = 6.0f;
     [SerializeField] [Range(0.0f, 0.5f)] float moveSmoothTime = 0.3f;
-    public float gravity = -30f;
+    public float gravity = -10f;
     [SerializeField] Transform groundCheck; 
     [SerializeField] LayerMask ground;
 
@@ -105,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
 
         targetDir = Vector2.SmoothDamp(targetDir, moveInputValue, ref targetDirVelocity, moveSmoothTime);
 
-        velocityY += gravity * 2f * Time.deltaTime;
+        velocityY += gravity * Time.deltaTime;
         Vector3 velocity = (transform.forward * targetDir.y + transform.right * targetDir.x) * moveSpeed + Vector3.up * velocityY;
         controller.Move(velocity * Time.deltaTime);
 
@@ -133,8 +133,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float Jump(float height)
     {
-        float velocityY = Mathf.Sqrt(height * 2f * Mathf.Abs(gravity)) * -Mathf.Sign(gravity);
-        Debug.Log(velocityY);
+        float velocityY = Mathf.Sqrt(height * Mathf.Abs(gravity)) * -Mathf.Sign(gravity);
         return velocityY;
     }
 
@@ -142,7 +141,7 @@ public class PlayerMovement : MonoBehaviour
     {
         for (int i = 0; i < 30; i++)
         {
-            Instantiate(waterParticle, this.transform.position, Quaternion.identity);
+            Instantiate(waterParticle, transform.position, Quaternion.identity);
         }
     }
 }

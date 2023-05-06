@@ -178,7 +178,7 @@ MonoBehaviour:
   mouseSensitivity: 0.3
   moveSpeed: 7.5
   moveSmoothTime: 0.3
-  gravity: -5
+  gravity: -10
   groundCheck: {fileID: 5406114706914868571}
   ground:
     serializedVersion: 2
