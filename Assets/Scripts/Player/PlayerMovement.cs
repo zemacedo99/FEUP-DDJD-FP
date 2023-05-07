@@ -74,8 +74,8 @@ public class PlayerMovement : MonoBehaviour
 
         moveInputValue = new();
 
-        Vector3 rot = transform.rotation.eulerAngles;
-        cameraRotY = rot.y;
+        //Vector3 rot = transform.rotation.eulerAngles;
+        //cameraRotY = rot.y;
     }
 
     void Update()

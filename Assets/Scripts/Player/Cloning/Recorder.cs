@@ -50,8 +50,7 @@ public class Recorder : MonoBehaviour
         isRecording = false;
         snapshotArray = new List<PlayerSnapshot>();
 
-        playerCamera = GameObject.FindGameObjectWithTag("MainCamera");
-        Debug.Log(playerCamera);
+        //playerCamera = GameObject.FindGameObjectWithTag("MainCamera");
     }
 
     void FixedUpdate()
@@ -93,6 +92,9 @@ public class Recorder : MonoBehaviour
                 Debug.Log("Recording duration: " + (Time.time - recordingStartTime));
 
                 newCube.GetComponent<Cloning>().SetSnapshotArray(snapshotArray);
+
+                Instantiate(gameObject, newCube.transform.position + Vector3.up, gameObject.transform.rotation);
+                Destroy(gameObject);
             }
         }
     }
