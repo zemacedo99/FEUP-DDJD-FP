@@ -1,4 +1,4 @@
-<REAPER_PROJECT 0.1 "6.79/macOS-arm64" 1683477599
+<REAPER_PROJECT 0.1 "6.79/macOS-arm64" 1683477980
   <NOTES 0 2
   >
   RIPPLE 0
@@ -30,7 +30,7 @@
   >
   <APPLYFX_CFG
   >
-  RENDER_FILE "/Users/lmrg2000/Documents/Unity Projects/FEUP-DDJD-FP/FMOD project/Assets"
+  RENDER_FILE "/Users/lmrg2000/Documents/Unity Projects/FEUP-DDJD-FP/FMOD project/Assets/FS_Player"
   RENDER_PATTERN $track
   RENDER_FMT 0 2 48000
   RENDER_1X 0
