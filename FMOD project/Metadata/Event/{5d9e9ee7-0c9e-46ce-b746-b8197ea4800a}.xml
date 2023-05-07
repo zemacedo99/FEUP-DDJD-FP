@@ -129,7 +129,7 @@
 			<value>pitch</value>
 		</property>
 		<property name="amount">
-			<value>2.5</value>
+			<value>3.5</value>
 		</property>
 	</object>
 	<object class="SingleSound" id="{3e03f963-b3f0-4834-8acb-a54c6ea20822}">
