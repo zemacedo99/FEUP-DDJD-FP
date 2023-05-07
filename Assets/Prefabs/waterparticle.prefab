@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5042082143303038774}
   - component: {fileID: 5042082143303038775}
   - component: {fileID: 5042082143303038768}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: waterparticle
   m_TagString: WaterParticle
   m_Icon: {fileID: 0}
