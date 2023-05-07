@@ -4318,10 +4318,6 @@ PrefabInstance:
       value: event:/FS_Player
       objectReference: {fileID: 0}
     - target: {fileID: 1010445595383186401, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
-      propertyPath: footstepsEvent.Path
-      value: event:/FS_Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 1010445595383186401, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: eventReference.Guid.Data1
       value: 1570676455
       objectReference: {fileID: 0}
@@ -4335,22 +4331,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1010445595383186401, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: eventReference.Guid.Data4
-      value: 176202878
-      objectReference: {fileID: 0}
-    - target: {fileID: 1010445595383186401, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
-      propertyPath: footstepsEvent.Guid.Data1
-      value: 1570676455
-      objectReference: {fileID: 0}
-    - target: {fileID: 1010445595383186401, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
-      propertyPath: footstepsEvent.Guid.Data2
-      value: 1187908766
-      objectReference: {fileID: 0}
-    - target: {fileID: 1010445595383186401, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
-      propertyPath: footstepsEvent.Guid.Data3
-      value: 431507127
-      objectReference: {fileID: 0}
-    - target: {fileID: 1010445595383186401, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
-      propertyPath: footstepsEvent.Guid.Data4
       value: 176202878
       objectReference: {fileID: 0}
     - target: {fileID: 1010445595383186407, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}

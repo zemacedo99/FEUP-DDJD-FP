@@ -226,6 +226,13 @@ MonoBehaviour:
   canJetpack: 0
   jetCost: 30
   waterParticle: {fileID: 5042082143303038769, guid: f2d1b0ec878b0b54f8691363bdc37622, type: 3}
+  footstepsEvent:
+    Guid:
+      Data1: 1570676455
+      Data2: 1187908766
+      Data3: 431507127
+      Data4: 176202878
+    Path: event:/FS_Player
 --- !u!114 &3634680667164554001
 MonoBehaviour:
   m_ObjectHideFlags: 0

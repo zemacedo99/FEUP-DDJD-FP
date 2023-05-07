@@ -117,7 +117,7 @@ public class PlayerMovement : MonoBehaviour
         if (footstepTimer > 2)
         {
             CallFootsteps();
-            footstepTimer %= 2;
+            footstepTimer = 0;
         }
         else footstepTimer += Time.deltaTime * (float)currentHVelMag;
 
