@@ -99,14 +99,7 @@ public class PlayerMovement : MonoBehaviour
 
     void UpdateMove()
     {
-        bool wasGrounded = isGrounded;
         isGrounded = Physics.CheckSphere(groundCheck.position, 0.35f, ground);
-        if (isGrounded && !wasGrounded)
-        {
-            Debug.Log("Now grounded");
-            //StopCoroutine(nameof(PlayFootstepsSound));
-            //StartCoroutine(nameof(PlayFootstepsSound));
-        }
 
         Vector2 newMoveInputValue;
 
@@ -117,31 +110,16 @@ public class PlayerMovement : MonoBehaviour
 
         targetDir = Vector2.SmoothDamp(targetDir, moveInputValue, ref targetDirVelocity, moveSmoothTime);
 
-        Vector3 previousVelocity = velocity;
         velocityY += gravity * Time.deltaTime;
         velocity = (transform.forward * targetDir.y + transform.right * targetDir.x) * moveSpeed + Vector3.up * velocityY;
-
         controller.Move(velocity * Time.deltaTime);
         double currentHVelMag = Math.Sqrt(Math.Pow(velocity.x, 2) + Math.Pow(velocity.z, 2));
-        double previousHVelMag = Math.Sqrt(Math.Pow(previousVelocity.x, 2) + Math.Pow(previousVelocity.z, 2));
-        if (currentHVelMag > DOUBLE_MINIMUM_VALUE && previousHVelMag < DOUBLE_MINIMUM_VALUE)
-        {
-            Debug.Log("Now moving");
-            Debug.Log(currentHVelMag);
-            Debug.Log(previousHVelMag);
-            //StopCoroutine(nameof(PlayFootstepsSound));
-            //StartCoroutine(nameof(PlayFootstepsSound));
-        }
-        //Debug.Log(currentHVelMag);
-        //Debug.Log(previousHVelMag);
-
         if (footstepTimer > 2)
         {
             CallFootsteps();
             footstepTimer %= 2;
         }
         else footstepTimer += Time.deltaTime * (float)currentHVelMag;
-        Debug.Log(footstepTimer);
 
         // JUMP
         if (jumpButton.WasPressedThisFrame() && (isGrounded || (!isGrounded && canJetpack)))
@@ -180,20 +158,6 @@ public class PlayerMovement : MonoBehaviour
         for (int i = 0; i < 30; i++)
         {
             Instantiate(waterParticle, transform.position, Quaternion.identity);
-        }
-    }
-
-    IEnumerator PlayFootstepsSound()
-    {
-        double currentHVelMag = Math.Sqrt(Math.Pow(velocity.x, 2) + Math.Pow(velocity.z, 2));
-        while (isGrounded && currentHVelMag > DOUBLE_MINIMUM_VALUE)
-        {
-            FMODUnity.RuntimeManager.PlayOneShot(footstepsEvent);
-
-            yield return new WaitForSeconds(1);
-            currentHVelMag = Math.Sqrt(Math.Pow(velocity.x, 2) + Math.Pow(velocity.z, 2));
-            Debug.Log(currentHVelMag);
-            Debug.Log(isGrounded);
         }
     }
 
