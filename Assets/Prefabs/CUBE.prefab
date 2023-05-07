@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 24189850991649996}
+  - component: {fileID: 2366533190038113335}
   m_Layer: 6
   m_Name: CUBE
   m_TagString: Untagged
@@ -25,13 +26,46 @@ Transform:
   m_GameObject: {fileID: 24189850991649997}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 24189851336136837}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2366533190038113335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24189850991649997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abe4a24a2e9e4482abc59a2535bf7c21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recorder: {fileID: 0}
+  clonePrefab: {fileID: 5832263356523625835, guid: 64611c239405d6845a421df576d967d2, type: 3}
+  actions: {fileID: -944628639613478452, guid: 107b800f03e150f4fb8e489f0f4a80b4, type: 3}
+  recordButton:
+    m_Name: Record Button
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d74aeb1b-cd06-4dd2-a97c-162e982ea84f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  playButton:
+    m_Name: Play Button
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: c34f0545-27e2-436c-a56f-e5c4f5f1bc4c
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!1 &24189851312700563
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,7 +178,7 @@ Transform:
   m_GameObject: {fileID: 24189851336136834}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 2.4, y: 2.4, z: 2.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 24189851312700562}

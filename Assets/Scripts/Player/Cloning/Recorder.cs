@@ -30,13 +30,12 @@ public class Recorder : MonoBehaviour
 {
     public bool isRecording;
     public bool isPlaying;
-    public GameObject startingCamera;
+    public GameObject playerCamera;
     float recordingStartTime;
 
-    Cloning cloningScript;
-    public GameObject cube;
-
     public List<PlayerSnapshot> snapshotArray;
+    public GameObject cube;
+    GameObject newCube;
 
     public InputActionAsset actions;
     public InputAction recordButton, playButton;
@@ -51,19 +50,20 @@ public class Recorder : MonoBehaviour
         isRecording = false;
         snapshotArray = new List<PlayerSnapshot>();
 
-        cloningScript = GetComponent<Cloning>();
+        playerCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        Debug.Log(playerCamera);
     }
 
     void FixedUpdate()
     {
         if (isRecording)
-            snapshotArray.Add(new PlayerSnapshot(transform.position, transform.rotation, startingCamera.transform.localRotation, Time.time - recordingStartTime));
+            snapshotArray.Add(new PlayerSnapshot(transform.position, transform.rotation, playerCamera.transform.localRotation, Time.time - recordingStartTime));
     }
 
     // Update is called once per frame
     void Update()
     {
-        if ((recordButton.WasPressedThisFrame()))
+        if (recordButton.WasPressedThisFrame())
         {
             // Record
             if (!isRecording)
@@ -75,19 +75,24 @@ public class Recorder : MonoBehaviour
                 isRecording = true;
 
                 // Instantiate cube here
+                Destroy(newCube);
+                newCube = Instantiate(cube, transform.position - Vector3.up, Quaternion.identity);
+                
             }
         }
-        else if ((recordButton.WasReleasedThisFrame()))
+        else if (recordButton.WasReleasedThisFrame())
         {
             // Stop Recording
             if (isRecording)
             {
-                snapshotArray.Add(new PlayerSnapshot(transform.position, transform.rotation, startingCamera.transform.localRotation, Time.time - recordingStartTime));
+                snapshotArray.Add(new PlayerSnapshot(transform.position, transform.rotation, playerCamera.transform.localRotation, Time.time - recordingStartTime));
 
                 isRecording = false;
                 Debug.Log("Recording Stopped");
                 Debug.Log("Recording snapshots: " + snapshotArray.Count);
                 Debug.Log("Recording duration: " + (Time.time - recordingStartTime));
+
+                newCube.GetComponent<Cloning>().SetSnapshotArray(snapshotArray);
             }
         }
     }
