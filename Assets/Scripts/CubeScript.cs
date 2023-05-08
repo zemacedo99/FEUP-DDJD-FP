@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class CubeScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        Debug.Log("CUBE SCRIPT RUNNING");
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnMouseOver()
     {
-        
+        // Glow...
+        Debug.Log("Mouse Over");
+
+        if (Input.GetMouseButtonDown(0))
+            Destroy(gameObject);
     }
 }
