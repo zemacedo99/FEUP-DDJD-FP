@@ -9681,7 +9681,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   pickupInput:
-    m_Name: 
+    m_Name: Pickup Input
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: e72d6b6c-eb8c-42cf-af8c-0ac047086122
@@ -36366,8 +36366,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1010445595383186401, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: jetCost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010445595383186401, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: jumpHeight
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010445595383186401, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: jetStrength
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1010445595383186401, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: moveInput.m_Id
@@ -36390,6 +36398,10 @@ PrefabInstance:
       value: Move Input
       objectReference: {fileID: 0}
     - target: {fileID: 1010445595383186401, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: gravButton.m_Name
+      value: Grav Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010445595383186401, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: jumpButton.m_Name
       value: Jump Button
       objectReference: {fileID: 0}
@@ -36403,15 +36415,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1010445595383186407, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 105.5
+      value: 28.5
       objectReference: {fileID: 0}
     - target: {fileID: 1010445595383186407, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 16.9
+      value: 2.36
       objectReference: {fileID: 0}
     - target: {fileID: 1010445595383186407, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 18.7
+      value: 17.4
       objectReference: {fileID: 0}
     - target: {fileID: 1010445595383186407, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_LocalRotation.w

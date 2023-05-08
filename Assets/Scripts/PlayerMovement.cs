@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     public bool canJetpack;
     private Oxygen oxy;
     public float jetCost;
+    public int jetStrength;
     public GameObject waterParticle;
 
     void Start()
@@ -137,9 +138,9 @@ public class PlayerMovement : MonoBehaviour
                 int mul = 1;
                 if(!isGrounded)
                 {
-                    mul = 3;
+                    mul = jetStrength;
                     oxy.oxygenValue -= jetCost;
-                    JetPackParticles();
+                    InvokeRepeating(nameof(JetPackParticles), 0f, 0.1f);
                 }
                 velocityY = Jump(jumpHeight*mul, gravity);
 
@@ -179,7 +180,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void JetPackParticles()
     {
-        for(int i = 0; i < 30; i++)
+        if (velocityY < jetStrength / 10)
+        {
+            CancelInvoke(nameof(JetPackParticles));
+            return;
+        }
+        for (int i = 0; i < 5; i++)
         {
             Instantiate(waterParticle, this.transform.position, Quaternion.identity);
         }
