@@ -180,7 +180,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void JetPackParticles()
     {
-        if (velocityY < jetStrength / 10)
+        if (velocityY < jetStrength)
         {
             CancelInvoke(nameof(JetPackParticles));
             return;
