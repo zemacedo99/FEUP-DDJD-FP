@@ -33,8 +33,11 @@ public class Recorder : MonoBehaviour
     public GameObject playerCamera;
     float recordingStartTime;
 
+    PlayerMovement playerMovement;
+
     public List<PlayerSnapshot> snapshotArray;
     public GameObject cube;
+    Vector3 cubeOffset = Vector3.up;
     GameObject newCube;
 
     public InputActionAsset actions;
@@ -50,7 +53,7 @@ public class Recorder : MonoBehaviour
         isRecording = false;
         snapshotArray = new List<PlayerSnapshot>();
 
-        //playerCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
     }
 
     void FixedUpdate()
@@ -62,6 +65,7 @@ public class Recorder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if (playerMovement.)
         if (recordButton.WasPressedThisFrame())
         {
             // Record
@@ -75,7 +79,7 @@ public class Recorder : MonoBehaviour
 
                 // Instantiate cube here
                 Destroy(newCube);
-                newCube = Instantiate(cube, transform.position - Vector3.up, Quaternion.identity);
+                newCube = Instantiate(cube, transform.position - cubeOffset, transform.rotation);
                 
             }
         }
@@ -93,7 +97,8 @@ public class Recorder : MonoBehaviour
 
                 newCube.GetComponent<Cloning>().SetSnapshotArray(snapshotArray);
 
-                Instantiate(gameObject, newCube.transform.position + Vector3.up, gameObject.transform.rotation);
+                GameObject newPlayer = Instantiate(gameObject, newCube.transform.position + cubeOffset, newCube.transform.rotation);
+                newPlayer.name = "Player";
                 Destroy(gameObject);
             }
         }
