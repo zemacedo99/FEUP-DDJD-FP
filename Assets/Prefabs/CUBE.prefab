@@ -93,6 +93,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2715a69234d6b4cc1a92937dd563955d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actions: {fileID: -944628639613478452, guid: 107b800f03e150f4fb8e489f0f4a80b4, type: 3}
+  destroyCube:
+    m_Name: Destroy Cube
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f0cafb92-f950-4de2-8e6b-bc597a18236f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!1 &24189851312700563
 GameObject:
   m_ObjectHideFlags: 0
