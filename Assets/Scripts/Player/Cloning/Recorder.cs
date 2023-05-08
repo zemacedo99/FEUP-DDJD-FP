@@ -31,9 +31,10 @@ public class Recorder : MonoBehaviour
     public bool isRecording;
     public bool isPlaying;
     public GameObject playerCamera;
-    float recordingStartTime;
-
     PlayerMovement playerMovement;
+
+    int playerGravitySignOnRecordStart;
+    float recordingStartTime;
 
     public List<PlayerSnapshot> snapshotArray;
     public GameObject cube;
@@ -53,7 +54,7 @@ public class Recorder : MonoBehaviour
         isRecording = false;
         snapshotArray = new List<PlayerSnapshot>();
 
-        playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        playerMovement = gameObject.GetComponent<PlayerMovement>();
     }
 
     void FixedUpdate()
@@ -65,7 +66,6 @@ public class Recorder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (playerMovement.)
         if (recordButton.WasPressedThisFrame())
         {
             // Record
@@ -77,10 +77,11 @@ public class Recorder : MonoBehaviour
                 recordingStartTime = Time.time;
                 isRecording = true;
 
-                // Instantiate cube here
-                Destroy(newCube);
-                newCube = Instantiate(cube, transform.position - cubeOffset, transform.rotation);
-                
+                // Store playerGravitySign
+                playerGravitySignOnRecordStart = Math.Sign(playerMovement.gravity);
+
+                // Instantiate cube
+                newCube = Instantiate(cube, transform.position, transform.rotation);
             }
         }
         else if (recordButton.WasReleasedThisFrame())
@@ -97,8 +98,18 @@ public class Recorder : MonoBehaviour
 
                 newCube.GetComponent<Cloning>().SetSnapshotArray(snapshotArray);
 
-                GameObject newPlayer = Instantiate(gameObject, newCube.transform.position + cubeOffset, newCube.transform.rotation);
+                // Get first position and rotation
+                Vector3 initialPosition = snapshotArray[0].position;
+                Quaternion initialRotation = snapshotArray[0].rotation;
+
+                GameObject newPlayer = Instantiate(gameObject, initialPosition, initialRotation);
+                Debug.Log(playerGravitySignOnRecordStart);
+                Debug.Log(newPlayer.GetComponent<PlayerMovement>().gravity);
                 newPlayer.name = "Player";
+                if ((playerGravitySignOnRecordStart < 0 && newPlayer.GetComponent<PlayerMovement>().gravity > 0) ||
+                    (playerGravitySignOnRecordStart > 0 && newPlayer.GetComponent<PlayerMovement>().gravity < 0))
+                    newPlayer.GetComponent<PlayerMovement>().gravity *= -1f;
+
                 Destroy(gameObject);
             }
         }

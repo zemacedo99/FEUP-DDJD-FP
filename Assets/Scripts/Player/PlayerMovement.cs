@@ -80,6 +80,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (gravity == 0)
+            Debug.Log("GRAVITY IS ZEROOO");
         UpdateMouse();
         UpdateMove();
     }
@@ -138,8 +140,7 @@ public class PlayerMovement : MonoBehaviour
         {
             gravity *= -1;
 
-            transform.Rotate(Vector3.right, 180f);
-            transform.Rotate(Vector3.up, 180f);
+            transform.Rotate(Vector3.forward, 180f);
             cameraRotY *= -1;
             playerCamera.localEulerAngles = (-Vector3.right * cameraRotY);
 
