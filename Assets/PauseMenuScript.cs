@@ -16,6 +16,7 @@ public class PauseMenuScript : MonoBehaviour
 
     void Start()
     {
+
         selectedOption = options.CONTINUE;
         actions.FindActionMap("menu interactions").Enable();
         downInput = actions.FindActionMap("menu interactions", true).FindAction("moveDown", true);

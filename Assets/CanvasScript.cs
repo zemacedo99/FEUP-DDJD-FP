@@ -46,6 +46,11 @@ public class CanvasScript : MonoBehaviour
     {
         if (pauseInput.WasPressedThisFrame())
         {
+            if (this.transform.Find("PauseMenu").GetComponent<PuzzlePauseMenuScript>().isWarningScreen)
+            {
+                this.transform.Find("PauseMenu").GetComponent<PuzzlePauseMenuScript>().DisableWarningScreen();
+                return;
+            }
             // Force close the inventory
             inventoryIsDisplay = false;
             this.GetChildByName("InventoryScreen").SetActive(inventoryIsDisplay);
