@@ -21,11 +21,13 @@ public class DoorsScript : MonoBehaviour
 
     public void Open()
     {
-        door.SetActive(false);
+        if (door.activeInHierarchy)
+            door.SetActive(false);
     }
     public void Close()
     {
-        door.SetActive(true);
+        if (!door.activeInHierarchy)
+            door.SetActive(true);
     }
 
 }
