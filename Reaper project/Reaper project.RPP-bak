@@ -1,4 +1,4 @@
-<REAPER_PROJECT 0.1 "6.79/macOS-arm64" 1683670744
+<REAPER_PROJECT 0.1 "6.79/macOS-arm64" 1683671001
   <NOTES 0 2
   >
   RIPPLE 0
@@ -16,7 +16,7 @@
   TIMEMODE 1 5 -1 30 0 0 -1
   VIDEO_CONFIG 0 0 256
   PANMODE 3
-  CURSOR 2.03389830508475
+  CURSOR 11.1864406779661
   ZOOM 56.31522104074581 0 0
   VZOOMEX 3.53310394 0
   USE_REC_CFG 0
@@ -378,7 +378,7 @@
     ISBUS 0 0
     BUSCOMP 0 0 0 0 0
     SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
-    SEL 0
+    SEL 1
     REC 0 5088 1 0 0 0 0 0
     VU 2
     TRACKHEIGHT 0 0 0 0 0 0
@@ -5202,7 +5202,7 @@
       FADEIN 1 0 0 1 0 0 0
       FADEOUT 1 0 0 1 0 0 0
       MUTE 0 0
-      SEL 1
+      SEL 0
       IGUID {1F2E60A6-0E8E-064F-9E6F-B4333365A29A}
       IID 4
       NAME 02-Footsteps-MIDI
@@ -5241,7 +5241,7 @@
       FADEIN 1 0 0 1 0 0 0
       FADEOUT 1 0 0 1 0 0 0
       MUTE 0 0
-      SEL 1
+      SEL 0
       IGUID {821F502E-9E23-BC4B-8288-EF4EBCF54EC6}
       IID 4
       NAME 02-Footsteps-MIDI
@@ -5277,7 +5277,7 @@
       FADEIN 1 0 0 1 0 0 0
       FADEOUT 1 0 0 1 0 0 0
       MUTE 0 0
-      SEL 1
+      SEL 0
       IGUID {C5226745-6E3C-FB45-929C-0577DCF83284}
       IID 6
       NAME 02-Footsteps-MIDI
@@ -5316,7 +5316,7 @@
       FADEIN 1 0 0 1 0 0 0
       FADEOUT 1 0 0 1 0 0 0
       MUTE 0 0
-      SEL 1
+      SEL 0
       IGUID {229B2B9F-1A9D-ED49-8BA3-93D7FA0F5E81}
       IID 6
       NAME 02-Footsteps-MIDI
@@ -5352,7 +5352,7 @@
       FADEIN 1 0 0 1 0 0 0
       FADEOUT 1 0 0 1 0 0 0
       MUTE 0 0
-      SEL 1
+      SEL 0
       IGUID {FC20CFCD-BD71-0844-B984-54B44174D16F}
       IID 7
       NAME 02-Footsteps-MIDI
@@ -5391,7 +5391,7 @@
       FADEIN 1 0 0 1 0 0 0
       FADEOUT 1 0 0 1 0 0 0
       MUTE 0 0
-      SEL 1
+      SEL 0
       IGUID {E7A70760-1C30-0045-8BE6-583233722839}
       IID 7
       NAME 02-Footsteps-MIDI
@@ -5502,7 +5502,7 @@
       FADEIN 1 0 0 1 0 0 0
       FADEOUT 1 0 0 1 0 0 0
       MUTE 0 0
-      SEL 1
+      SEL 0
       IGUID {335E2797-33FC-5444-BF79-F9EFFEEBF184}
       IID 32
       NAME 02-Footsteps-MIDI
@@ -5541,7 +5541,7 @@
       FADEIN 1 0 0 1 0 0 0
       FADEOUT 1 0 0 1 0 0 0
       MUTE 0 0
-      SEL 1
+      SEL 0
       IGUID {EA4C89B2-B7B7-3B46-81FB-4920E420B943}
       IID 32
       NAME 02-Footsteps-MIDI

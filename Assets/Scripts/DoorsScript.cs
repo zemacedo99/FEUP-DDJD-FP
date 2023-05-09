@@ -19,11 +19,11 @@ public class DoorsScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C)) Close();
     }
 
-    private void Open()
+    public void Open()
     {
         door.SetActive(false);
     }
-    private void Close()
+    public void Close()
     {
         door.SetActive(true);
     }
