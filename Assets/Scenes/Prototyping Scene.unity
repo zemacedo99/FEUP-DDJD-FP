@@ -2464,7 +2464,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &847642928
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2558,6 +2558,24 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  leftInput:
+    m_Name: Left Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 070f145d-cc0e-4e03-a93f-a0f895587e50
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  rightInput:
+    m_Name: Right Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 0bd4fa26-a6f1-4dbb-9091-f658b0272ea8
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   selectInput:
     m_Name: Select Input
     m_Type: 0
@@ -2567,6 +2585,7 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  isWarningScreen: 0
   actions: {fileID: -944628639613478452, guid: 107b800f03e150f4fb8e489f0f4a80b4, type: 3}
 --- !u!1 &866489591
 GameObject:
@@ -3894,6 +3913,7 @@ GameObject:
   - component: {fileID: 1110419424}
   - component: {fileID: 1110419426}
   - component: {fileID: 1110419425}
+  - component: {fileID: 1110419427}
   m_Layer: 5
   m_Name: WarningScreen
   m_TagString: Untagged
@@ -3960,6 +3980,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1110419423}
   m_CullTransparentMesh: 1
+--- !u!114 &1110419427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110419423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 147d1af9cd5284438a5450325531a85a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actions: {fileID: -944628639613478452, guid: 107b800f03e150f4fb8e489f0f4a80b4, type: 3}
+  leftInput:
+    m_Name: Left Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: fdec967a-fe76-4a3d-a43e-0fdf8024e03f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  rightInput:
+    m_Name: Right Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 9990b503-2dcc-4a30-b861-a93f33ae6ddf
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  selectInput:
+    m_Name: Select Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 42b338d9-44d8-4a45-9308-f7e65c65228e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!1 &1140357159
 GameObject:
   m_ObjectHideFlags: 0

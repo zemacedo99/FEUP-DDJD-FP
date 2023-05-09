@@ -5,10 +5,12 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PuzzlePauseMenuScript : MonoBehaviour
 {
     enum options { CONTINUE, RESET_QUEST, ABANDON_QUEST, SETTINGS, LEAVE }
+    enum warningType { RESET, ADANDON }
     private options selectedOption;
     public string missionDescription;
     public InputAction upInput, downInput, leftInput, rightInput, selectInput;
@@ -42,12 +44,12 @@ public class PuzzlePauseMenuScript : MonoBehaviour
         }
     }
 
-    public void EnableWarningScreen(string message)
+    public void EnableWarningScreen(int _warningType)
     {
         isWarningScreen = true;
         GameObject warningScreen = this.transform.Find("WarningScreen").gameObject;
         warningScreen.SetActive(true);
-        warningScreen.GetComponent<WarningScreenScript>().SetWarningText(message);
+        warningScreen.GetComponent<WarningScreenScript>().SetWarningText(_warningType);
     }
 
     public void DisableWarningScreen() {
@@ -56,6 +58,14 @@ public class PuzzlePauseMenuScript : MonoBehaviour
         warningScreen.SetActive(false);
     }
 
+    public void ResetQuest()
+    {
+        SceneManager.LoadScene("Prototyping Scene");
+    }
+    public void AbandonQuest()
+    {
+        SceneManager.LoadScene("World");
+    }
 
     void ExecuteSelectedOption()
     {
@@ -65,16 +75,10 @@ public class PuzzlePauseMenuScript : MonoBehaviour
                 this.GetComponentInParent<CanvasScript>().ActivatePauseMenu(false);
                 break;
             case options.RESET_QUEST:
-                //this.GetComponentInParent<CanvasScript>().ActivatePauseMenu(false);
-                EnableWarningScreen("Are you sure you want to reset the quest?");
-
-                print("RESET WAS PRESSED");
+                EnableWarningScreen((int)warningType.RESET);
                 break;
             case options.ABANDON_QUEST:
-                EnableWarningScreen("Are you sure you want to abandon the quest?");
-
-                //this.GetComponentInParent<CanvasScript>().ActivatePauseMenu(false);
-                print("ABANDON_QUEST WAS PRESSED");
+                EnableWarningScreen((int)warningType.ADANDON);
                 break;
 
             case options.SETTINGS:

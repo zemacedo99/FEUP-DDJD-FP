@@ -46,8 +46,9 @@ public class CanvasScript : MonoBehaviour
     {
         if (pauseInput.WasPressedThisFrame())
         {
-            if (this.transform.Find("PauseMenu").GetComponent<PuzzlePauseMenuScript>().isWarningScreen)
+            if (this.transform.Find("PauseMenu").GetComponent<PuzzlePauseMenuScript>() != null && this.transform.Find("PauseMenu").GetComponent<PuzzlePauseMenuScript>().isWarningScreen)
             {
+                print("yes");
                 this.transform.Find("PauseMenu").GetComponent<PuzzlePauseMenuScript>().DisableWarningScreen();
                 return;
             }

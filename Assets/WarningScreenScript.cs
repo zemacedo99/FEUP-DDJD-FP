@@ -10,9 +10,11 @@ using UnityEngine.UI;
 public class WarningScreenScript : MonoBehaviour
 {
     enum options { NO, YES }
+    enum warningType { RESET, ADANDON }
+    private warningType type = warningType.RESET;
     private options selectedOption;
     public InputActionAsset actions;
-
+    
     public InputAction leftInput, rightInput, selectInput;
 
     // Start is called before the first frame update
@@ -24,8 +26,9 @@ public class WarningScreenScript : MonoBehaviour
         selectInput = actions.FindActionMap("menu interactions", true).FindAction("select", true);
 
         selectedOption = options.NO;
-
     }
+
+    
 
     void PaintSelectedOption()
     {
@@ -37,15 +40,24 @@ public class WarningScreenScript : MonoBehaviour
             {
                 this.transform.Find("Panel").GetChild(i).GetComponent<Image>().color = new Color(1, 1, 1, 1);
                 this.transform.Find("Panel").GetChild(i).GetChild(0).GetComponent<TextMeshProUGUI>().color = new Color(0, 0, 0, 1);
-
             }
         }
 
     }
 
-    public void SetWarningText(string _text)
+    public void SetWarningText(int _type)
     {
-        this.transform.GetChild(0).Find("WarningText").GetComponent<TextMeshProUGUI>().text = _text;
+        if(_type == (int)warningType.RESET)
+        {
+            this.transform.GetChild(0).Find("WarningText").GetComponent<TextMeshProUGUI>().text = "Are you sure you want to reset the quest?";
+            this.type = warningType.RESET;
+
+        }
+        if (_type == (int)warningType.ADANDON)
+        {
+            this.transform.GetChild(0).Find("WarningText").GetComponent<TextMeshProUGUI>().text = "Are you sure you want to abandon the quest?";
+            this.type = warningType.ADANDON;
+        }
     }
 
     void ExecuteSelectedOption()
@@ -53,13 +65,22 @@ public class WarningScreenScript : MonoBehaviour
         switch (selectedOption)
         {
             case options.NO:
-                print("No WAS PRESSED");
-
+                this.GetComponentInParent<PuzzlePauseMenuScript>().DisableWarningScreen();
                 break;
             case options.YES:
+                this.GetComponentInParent<PuzzlePauseMenuScript>().DisableWarningScreen();
+                if (this.type == warningType.RESET)
+                {
+                    this.GetComponentInParent<PuzzlePauseMenuScript>().ResetQuest();
+                    break;
+                }
+                else
+                {
+                    this.GetComponentInParent<PuzzlePauseMenuScript>().AbandonQuest();
+                    break;
 
-                print("Yes WAS PRESSED");
-                break;
+                }
+
         }
     }
 
