@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class DoorsScript : MonoBehaviour
 {
-    public GameObject door;
+    public GameObject doorFront;
+    public GameObject doorBack;
 
     // Start is called before the first frame update
     void Start()
@@ -21,13 +22,17 @@ public class DoorsScript : MonoBehaviour
 
     public void Open()
     {
-        if (door.activeInHierarchy)
-            door.SetActive(false);
+        if (doorFront.activeInHierarchy)
+            doorFront.SetActive(false);
+        if (doorBack.activeInHierarchy)
+            doorBack.SetActive(false);
     }
     public void Close()
     {
-        if (!door.activeInHierarchy)
-            door.SetActive(true);
+        if (!doorFront.activeInHierarchy)
+            doorFront.SetActive(true);
+        if (!doorBack.activeInHierarchy)
+            doorBack.SetActive(true);
     }
 
 }
