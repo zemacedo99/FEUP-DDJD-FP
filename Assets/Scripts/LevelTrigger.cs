@@ -16,9 +16,20 @@ public class LevelTrigger : SceneDict
     private void OnTriggerEnter(Collider other)
     {
         if (scene != "World")
+        {
             EnterPuzzle();
+        }
         else
             LeavePuzzle();
+    }
+
+    private void PlayerCurrentStatus()
+    {
+        GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerInventory>().inventory.Save(); // Saves Player Current 
+
+        // TODO: Get player's current spawning point
+        int currentSpawnPoint = 0;
+        PlayerPrefs.SetInt("SPAWN_POINT", currentSpawnPoint);
     }
 
     private void EnterPuzzle()

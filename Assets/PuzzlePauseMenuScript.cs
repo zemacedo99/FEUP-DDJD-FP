@@ -65,6 +65,12 @@ public class PuzzlePauseMenuScript : MonoBehaviour
     public void AbandonQuest()
     {
         SceneManager.LoadScene("World");
+        GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerInventory>().inventory.Load(); // Load Player Current 
+
+        // TODO: Spawn Player to to corresponding spawning state
+        int currentSpawnPoint = PlayerPrefs.GetInt("SPAWN_POINT");
+
+        print("Spawn point = " + currentSpawnPoint);
     }
 
     void ExecuteSelectedOption()
