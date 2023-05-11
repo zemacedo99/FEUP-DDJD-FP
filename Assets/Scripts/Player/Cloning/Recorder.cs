@@ -103,8 +103,6 @@ public class Recorder : MonoBehaviour
                 Quaternion initialRotation = snapshotArray[0].rotation;
 
                 GameObject newPlayer = Instantiate(gameObject, initialPosition, initialRotation);
-                Debug.Log(playerGravitySignOnRecordStart);
-                Debug.Log(newPlayer.GetComponent<PlayerMovement>().gravity);
                 newPlayer.name = "Player";
                 if ((playerGravitySignOnRecordStart < 0 && newPlayer.GetComponent<PlayerMovement>().gravity > 0) ||
                     (playerGravitySignOnRecordStart > 0 && newPlayer.GetComponent<PlayerMovement>().gravity < 0))
