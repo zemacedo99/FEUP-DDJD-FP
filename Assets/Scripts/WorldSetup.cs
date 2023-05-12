@@ -8,6 +8,7 @@ public class WorldSetup : SceneDict
 {
     void Start()
     {
+        bool resetToPoint = true;
         foreach (EditorBuildSettingsScene scene in EditorBuildSettings.scenes)
         {
             var name = NameFromPath(scene.path);
@@ -23,8 +24,11 @@ public class WorldSetup : SceneDict
                 water.Drop(true); //drop but raise
                 GameObject.Find(holeDict[name]).GetComponentInChildren<LevelTrigger>().gameObject.SetActive(false);
                 PlayerPrefs.SetInt(name, 2); //and set state to raised
+                resetToPoint = false;
             }
         }
+        if(resetToPoint)
+            FindFirstObjectByType<Oxygen>().LoadCheckpoint();
     }
 
     string NameFromPath(string path)

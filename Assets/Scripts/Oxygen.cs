@@ -50,6 +50,7 @@ public class Oxygen : MonoBehaviour
         if (other.CompareTag("OxygenStation"))
         {
             oxygenStationPosition = other.transform.position;
+            StoreCheckpoint();
             RefillOxygen(); 
         }
     }
@@ -90,6 +91,21 @@ public class Oxygen : MonoBehaviour
         controller.enabled = true;
         oxygenValue = oxygenSlider.maxValue;
         UpdateSlider(oxygenValue);
+    }
+
+    void StoreCheckpoint()
+    {
+        PlayerPrefs.SetFloat("CheckpointX", oxygenStationPosition.x);
+        PlayerPrefs.SetFloat("CheckpointY", oxygenStationPosition.y);
+        PlayerPrefs.SetFloat("CheckpointZ", oxygenStationPosition.z);
+    }
+
+    public void LoadCheckpoint()
+    {
+        if (!PlayerPrefs.HasKey("CheckpointX"))
+            return;
+        oxygenStationPosition = new Vector3(PlayerPrefs.GetFloat("CheckpointX"), PlayerPrefs.GetFloat("CheckpointY"), PlayerPrefs.GetFloat("CheckpointZ"));
+        Die();
     }
 
 }
