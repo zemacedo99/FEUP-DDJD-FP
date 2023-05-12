@@ -153,6 +153,8 @@ public class PlayerMovement : MonoBehaviour
     public float Jump(float height)
     {
         FMODUnity.RuntimeManager.PlayOneShotAttached(jumpEvent, gameObject);
+        if (recorder.isRecording) recorder.eventArray.Add(new PlayerEvent(PlayerEvent.EventType.Jump, Time.time - recorder.GetRecordingStartTime()));
+
         float velocityY = Mathf.Sqrt(height * Mathf.Abs(gravity)) * -Mathf.Sign(gravity);
         return velocityY;
     }
@@ -170,6 +172,9 @@ public class PlayerMovement : MonoBehaviour
         double currentHVelMag = Math.Sqrt(Math.Pow(controller.velocity.x, 2) + Math.Pow(controller.velocity.z, 2));
 
         if (isGrounded && currentHVelMag > DOUBLE_MINIMUM_VALUE)
+        {
             FMODUnity.RuntimeManager.PlayOneShotAttached(footstepsEvent, gameObject);
+            if (recorder.isRecording) recorder.eventArray.Add(new PlayerEvent(PlayerEvent.EventType.FootstepsSound, Time.time - recorder.GetRecordingStartTime()));
+        }
     }
 }
