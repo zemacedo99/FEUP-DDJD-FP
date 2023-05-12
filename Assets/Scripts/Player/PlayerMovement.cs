@@ -50,6 +50,8 @@ public class PlayerMovement : MonoBehaviour
 
     public FMODUnity.EventReference footstepsEvent;
     private float footstepTimer = 0f;
+    public FMODUnity.EventReference jumpEvent;
+
 
     void Start()
     {
@@ -115,7 +117,7 @@ public class PlayerMovement : MonoBehaviour
         velocityY += gravity * Time.deltaTime;
         velocity = (transform.forward * targetDir.y + transform.right * targetDir.x) * moveSpeed + Vector3.up * velocityY;
         controller.Move(velocity * Time.deltaTime);
-        double currentHVelMag = Math.Sqrt(Math.Pow(velocity.x, 2) + Math.Pow(velocity.z, 2));
+        double currentHVelMag = Math.Sqrt(Math.Pow(controller.velocity.x, 2) + Math.Pow(controller.velocity.z, 2));
         if (footstepTimer > 2)
         {
             CallFootsteps();
@@ -150,6 +152,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float Jump(float height)
     {
+        FMODUnity.RuntimeManager.PlayOneShot(jumpEvent);
         float velocityY = Mathf.Sqrt(height * Mathf.Abs(gravity)) * -Mathf.Sign(gravity);
         return velocityY;
     }
@@ -164,7 +167,7 @@ public class PlayerMovement : MonoBehaviour
 
     void CallFootsteps()
     {
-        double currentHVelMag = Math.Sqrt(Math.Pow(velocity.x, 2) + Math.Pow(velocity.z, 2));
+        double currentHVelMag = Math.Sqrt(Math.Pow(controller.velocity.x, 2) + Math.Pow(controller.velocity.z, 2));
 
         if (isGrounded && currentHVelMag > DOUBLE_MINIMUM_VALUE)
             FMODUnity.RuntimeManager.PlayOneShot(footstepsEvent);
