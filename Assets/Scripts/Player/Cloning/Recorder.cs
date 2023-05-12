@@ -22,7 +22,7 @@ public class PlayerSnapshot
 }
 public class PlayerEvent
 {
-    public enum EventType { MoveInputValueUpdate, CameraInputValueUpdate, Jump, StopRecording };
+    public enum EventType { Jump, FootstepsSound };
     public float timestamp;
 }
 
