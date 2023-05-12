@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 1010445595383186406}
   - component: {fileID: 7106066949501403723}
   - component: {fileID: 1010445595383186401}
-  - component: {fileID: 3634680667164554001}
   - component: {fileID: 6484459017631928240}
   - component: {fileID: 1041068118347096609}
   m_Layer: 11
@@ -138,9 +137,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isRecording: 0
   isPlaying: 0
-  startingCamera: {fileID: 5337838783731183409}
-  cube: {fileID: 0}
+  playerCamera: {fileID: 5337838783731183409}
+  playerPrefab: {fileID: 1010445595383186411}
   snapshotArray: []
+  cube: {fileID: 24189850991649997, guid: d27e2ecc029814369a9a4d07cb60758b, type: 3}
   actions: {fileID: -944628639613478452, guid: 107b800f03e150f4fb8e489f0f4a80b4, type: 3}
   recordButton:
     m_Name: Record Button
@@ -183,7 +183,7 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 8
-  jumpHeight: 0.7
+  jumpHeight: 1.3
   cameraCap: 90
   actions: {fileID: -944628639613478452, guid: 107b800f03e150f4fb8e489f0f4a80b4, type: 3}
   cameraInput:
@@ -222,43 +222,17 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
-  canGravJump: 0
+  canGravJump: 1
   canJetpack: 0
   jetCost: 30
   waterParticle: {fileID: 5042082143303038769, guid: f2d1b0ec878b0b54f8691363bdc37622, type: 3}
---- !u!114 &3634680667164554001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1010445595383186411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abe4a24a2e9e4482abc59a2535bf7c21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  recorder: {fileID: 7106066949501403723}
-  clonePrefab: {fileID: 5832263356523625835, guid: 64611c239405d6845a421df576d967d2, type: 3}
-  actions: {fileID: -944628639613478452, guid: 107b800f03e150f4fb8e489f0f4a80b4, type: 3}
-  recordButton:
-    m_Name: Record Button
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 92d90566-150d-4108-bb19-eb9a37a123c1
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  playButton:
-    m_Name: Play Button
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: b17812f7-be2b-428a-923a-329f374e63cf
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
+  footstepsEvent:
+    Guid:
+      Data1: 1570676455
+      Data2: 1187908766
+      Data3: 431507127
+      Data4: 176202878
+    Path: event:/FS_Player
 --- !u!114 &6484459017631928240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -506,7 +480,7 @@ GameObject:
   - component: {fileID: 4616699832579320999}
   - component: {fileID: 5168168333977639510}
   - component: {fileID: 8716652218805654895}
-  - component: {fileID: 1374495037959286186}
+  - component: {fileID: 6496272385044396830}
   m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -581,11 +555,16 @@ Behaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5337838783731183409}
   m_Enabled: 1
---- !u!81 &1374495037959286186
-AudioListener:
+--- !u!114 &6496272385044396830
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5337838783731183409}
-  m_Enabled: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
