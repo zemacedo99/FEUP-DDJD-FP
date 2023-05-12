@@ -1,4 +1,4 @@
-<REAPER_PROJECT 0.1 "6.79/macOS-arm64" 1683892867
+<REAPER_PROJECT 0.1 "6.79/win64" 1683900629
   <NOTES 0 2
   >
   RIPPLE 0
@@ -16,15 +16,15 @@
   TIMEMODE 1 5 -1 30 0 0 -1
   VIDEO_CONFIG 0 0 256
   PANMODE 3
-  CURSOR 19.32203389830508
-  ZOOM 270.98511542897938 5063 0
-  VZOOMEX 3.53310394 0
+  CURSOR 32.54237288135593
+  ZOOM 192.52210451142489 5996 0
+  VZOOMEX 3.75 393
   USE_REC_CFG 0
   RECMODE 1
   SMPTESYNC 0 30 100 40 1000 300 0 0 1 0 0
-  LOOP 1
+  LOOP 0
   LOOPGRAN 0 4
-  RECORD_PATH "" ""
+  RECORD_PATH "./audio" ""
   <RECORD_CFG
     ZXZhdxgAAQ==
   >
@@ -61,8 +61,8 @@
   GLOBAL_AUTO -1
   TEMPO 118 4 4
   PLAYRATE 1 0 0.25 4
-  SELECTION 18.8135593220339 18.8135593220339
-  SELECTION2 18.8135593220339 18.8135593220339
+  SELECTION 33.5593220338983 33.5593220338983
+  SELECTION2 33.5593220338983 33.5593220338983
   MASTERAUTOMODE 0
   MASTERTRACKHEIGHT 0 0
   MASTERPEAKCOL 16576
@@ -95,10 +95,10 @@
     ARM 0
     DEFSHAPE 1 -1 -1
   >
-  MARKER 1 2.03389830508475 "" 1 0 1 B {8B297699-5497-E244-8619-B5D07AC82FEA}
-  MARKER 1 17.28813559322034 "" 1 0 1 B
-  MARKER 2 18.30508474576271 "" 1 0 1 B {5E1C3C60-6878-7546-9753-B7EA5FC13FB3}
-  MARKER 2 30 "" 1 0 1 B
+  MARKER 1 2.03389830508475 "" 1 0 1 R {8B297699-5497-E244-8619-B5D07AC82FEA}
+  MARKER 1 17.28813559322034 "" 1 0 1 R
+  MARKER 2 18.30508474576271 "" 1 0 1 R {5E1C3C60-6878-7546-9753-B7EA5FC13FB3}
+  MARKER 2 30 "" 1 0 1 R
   <PROJBAY
   >
   <TRACK {A350E3A4-C243-644C-9D1C-C0604480496F}
@@ -131,13 +131,13 @@
     BEAT -1
     AUTOMODE 0
     VOLPAN 0.10414416318588 0 -1 -1 1
-    MUTESOLO 0 2 0
+    MUTESOLO 0 0 0
     IPHASE 0
     PLAYOFFS 0 1
     ISBUS 0 0
     BUSCOMP 0 0 0 0 0
     SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
-    SEL 1
+    SEL 0
     REC 0 5088 1 0 0 0 0 0
     VU 2
     TRACKHEIGHT 0 0 0 0 0 0
@@ -302,7 +302,7 @@
         STARTPOS 0
         OVERLAP 0.01
         <SOURCE WAVE
-          FILE "SFX_CLOTH_Foley_Jacket_Synthetic_Soft_Shell_Whoosh_Flutter-glued-02.wav"
+          FILE "./audio\SFX_CLOTH_Foley_Jacket_Synthetic_Soft_Shell_Whoosh_Flutter-glued-02.wav"
         >
       >
     >
@@ -334,7 +334,7 @@
     PEAKCOL 16576
     BEAT -1
     AUTOMODE 0
-    VOLPAN 1 0 -1 -1 1
+    VOLPAN 0.10063061733643 0 -1 -1 1
     MUTESOLO 0 0 0
     IPHASE 0
     PLAYOFFS 0 1
@@ -376,7 +376,7 @@
         STARTPOS 0
         OVERLAP 0.01
         <SOURCE WAVE
-          FILE "SFX_CLOTH_Foley_Jacket_Synthetic_Soft_Shell_Whoosh_Flutter-glued-01.wav"
+          FILE "./audio\SFX_CLOTH_Foley_Jacket_Synthetic_Soft_Shell_Whoosh_Flutter-glued-01.wav"
         >
       >
     >
@@ -5247,7 +5247,7 @@
       SOFFS 0 0
       PLAYRATE 1 0 0 -1 0 0.0025
       CHANMODE 0
-      POOLCOLOR 24047043 B
+      POOLCOLOR 29617518 R
       GUID {3E0EB54B-3BE1-4349-B1A2-063C2CD7A981}
       <SOURCE MIDIPOOL
         HASDATA 1 960 QN
@@ -5286,7 +5286,7 @@
       SOFFS 0 0
       PLAYRATE 1 0 0 -1 0 0.0025
       CHANMODE 0
-      POOLCOLOR 24047043 B
+      POOLCOLOR 29617518 R
       GUID {C3FEAC7D-918F-F547-9B19-14622B486A66}
       <SOURCE MIDIPOOL
         HASDATA 1 960 QN
@@ -5322,7 +5322,7 @@
       SOFFS 0 0
       PLAYRATE 1 0 0 -1 0 0.0025
       CHANMODE 0
-      POOLCOLOR 23828659 B
+      POOLCOLOR 28547179 R
       GUID {A85D8F4C-8185-7E47-8653-847CEC3D0D20}
       <SOURCE MIDIPOOL
         HASDATA 1 960 QN
@@ -5361,7 +5361,7 @@
       SOFFS 0 0
       PLAYRATE 1 0 0 -1 0 0.0025
       CHANMODE 0
-      POOLCOLOR 23828659 B
+      POOLCOLOR 28547179 R
       GUID {48D2E5F7-FE5F-4C42-AD93-DCEAD68F45FD}
       <SOURCE MIDIPOOL
         HASDATA 1 960 QN
@@ -5397,7 +5397,7 @@
       SOFFS 0 0
       PLAYRATE 1 0 0 -1 0 0.0025
       CHANMODE 0
-      POOLCOLOR 22726621 B
+      POOLCOLOR 31311706 R
       GUID {78EA261C-2481-EC4B-B4C1-AB8D54664DBE}
       <SOURCE MIDIPOOL
         HASDATA 1 960 QN
@@ -5436,7 +5436,7 @@
       SOFFS 0 0
       PLAYRATE 1 0 0 -1 0 0.0025
       CHANMODE 0
-      POOLCOLOR 22726621 B
+      POOLCOLOR 31311706 R
       GUID {B0216BED-7C7B-734B-815D-D9C13835577F}
       <SOURCE MIDIPOOL
         HASDATA 1 960 QN
@@ -5472,7 +5472,7 @@
       SOFFS 0 0
       PLAYRATE 1 0 0 -1 0 0.0025
       CHANMODE 0
-      POOLCOLOR 30889155 B
+      POOLCOLOR 29578455 R
       GUID {97EC3509-CE74-8644-B8BE-2FFBAE8E9E7C}
       <SOURCE MIDIPOOL
         HASDATA 1 960 QN
@@ -5511,7 +5511,7 @@
       SOFFS 0 0
       PLAYRATE 1 0 0 -1 0 0.0025
       CHANMODE 0
-      POOLCOLOR 30889155 B
+      POOLCOLOR 29578455 R
       GUID {101BFCB3-FF23-1F45-998D-72E516B0CB34}
       <SOURCE MIDIPOOL
         HASDATA 1 960 QN
@@ -5547,7 +5547,7 @@
       SOFFS 0 0
       PLAYRATE 1 0 0 -1 0 0.0025
       CHANMODE 0
-      POOLCOLOR 20965017 B
+      POOLCOLOR 26863167 R
       GUID {F0E26D60-80B7-B547-9A83-FA84954BB822}
       <SOURCE MIDIPOOL
         HASDATA 1 960 QN
@@ -5586,7 +5586,7 @@
       SOFFS 0 0
       PLAYRATE 1 0 0 -1 0 0.0025
       CHANMODE 0
-      POOLCOLOR 20965017 B
+      POOLCOLOR 26863167 R
       GUID {E400BCAA-F134-B747-8A57-564E8C8AF392}
       <SOURCE MIDIPOOL
         HASDATA 1 960 QN
@@ -5603,6 +5603,615 @@
         TRACKSEL -286
         EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
         CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.25 669 32 1372 919 0 0 0 0 0 0 0 1 0 0.5 0 0 1 64
+      >
+    >
+  >
+  <TRACK {5C7913D6-D77C-4065-9F39-DCE2E1E3F906}
+    NAME Door
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 1 1
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    SEL 0
+    REC 0 5088 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {5C7913D6-D77C-4065-9F39-DCE2E1E3F906}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+  >
+  <TRACK {43C91283-1BA0-46FA-81B6-719F733CEF2C}
+    NAME Opening
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 1 1
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    SEL 0
+    REC 0 5088 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {43C91283-1BA0-46FA-81B6-719F733CEF2C}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+  >
+  <TRACK {840B8CF1-A244-462C-AF29-FBFC5E6A4986}
+    NAME clutch_pedal_release
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 0.08356671717176 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    SEL 0
+    REC 0 5088 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {840B8CF1-A244-462C-AF29-FBFC5E6A4986}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      WNDRECT 24 52 655 408
+      SHOW 0
+      LASTSEL 0
+      DOCKED 0
+      BYPASS 0 0 0
+      <JS loser/4BandEQ ""
+        -24 200 -6 2000 11 5000 6 0 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      >
+      FLOATPOS 0 0 0 0
+      FXID {35537730-793C-4C28-B1AC-F4D4DDCC7E6C}
+      WAK 0 0
+    >
+    <ITEM
+      POSITION 33.6929819513493
+      SNAPOFFS 0
+      LENGTH 0.16127600476461
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 1 0.03324 0 1 0 0 0
+      FADEOUT 1 0.02629 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {20FCB8AC-F5BC-4097-95FC-56D557C361E8}
+      IID 62
+      NAME clutch_pedal_release.WAV
+      VOLPAN 1 0 1 -1
+      SOFFS 0.80699989736507
+      PLAYRATE 1.34075991372764 0 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {7E0BA170-42AB-4BF9-9AB2-30181312B27C}
+      <SOURCE SECTION
+        LENGTH 1.21198958333335
+        MODE 3
+        STARTPOS 0
+        OVERLAP 0.01
+        <SOURCE WAVE
+          FILE "D:\Music and Sounds\Soundbanks and Sample Packs\Sonniss.com - GDC 2020 - Game Audio Bundle\Sounds Great - Car Interiors\clutch_pedal_release.WAV"
+        >
+      >
+    >
+  >
+  <TRACK {C4FFBF70-68EC-4FEF-A5E7-0A1B94F6C47E}
+    NAME PM_FSSF2_AIR_HISS_RELEASE_DISTANT_3
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 0.30302350576016 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    SEL 0
+    REC 0 5088 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {C4FFBF70-68EC-4FEF-A5E7-0A1B94F6C47E}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      WNDRECT 527 530 716 222
+      SHOW 0
+      LASTSEL 0
+      DOCKED 0
+      BYPASS 0 0 0
+      <JS loser/StereoField ""
+        0 0 0 0 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      >
+      FLOATPOS 0 0 0 0
+      FXID {2697CD19-C44C-4A5C-9A6E-1C215E8BCB94}
+      WAK 0 0
+    >
+    <ITEM
+      POSITION 33.66658566841547
+      SNAPOFFS 0
+      LENGTH 1.03466255413581
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 1 0.082326 0 1 0 0 0
+      FADEOUT 1 0.360178 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {08A93C0F-33D4-4EC9-96E3-097156CC847A}
+      IID 61
+      NAME PM_FSSF2_AIR_HISS_RELEASE_DISTANT_3.wav
+      VOLPAN 1 0 1 -1
+      SOFFS 0
+      PLAYRATE 3.12604227430553 0 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {A26C0A04-DE27-4B7C-A941-52CD745723B5}
+      <SOURCE WAVE
+        FILE "D:\Music and Sounds\Soundbanks and Sample Packs\Sonniss.com - GDC 2020 - Game Audio Bundle\PMSFX - Foundation Series SCI-FI vol 2\PM_FSSF2_AIR_HISS_RELEASE_DISTANT_3.wav"
+      >
+    >
+  >
+  <TRACK {C13C88E5-2FC9-4C22-A284-6E3C67DEB8D9}
+    NAME "BUTTON Generic Metal Medium High Mechanics 02"
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 0.16829929582119 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    SEL 0
+    REC 0 5088 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {C13C88E5-2FC9-4C22-A284-6E3C67DEB8D9}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      WNDRECT 463 466 716 222
+      SHOW 0
+      LASTSEL 0
+      DOCKED 0
+      BYPASS 0 0 0
+      <JS loser/StereoField ""
+        0 0 0 0 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      >
+      FLOATPOS 0 0 0 0
+      FXID {55B2BA0C-0345-48DA-B649-ABF4307742DA}
+      WAK 0 0
+    >
+    <ITEM
+      POSITION 33.67924954100643
+      SNAPOFFS 0
+      LENGTH 0.32166396302925
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 1 0.01 0 1 0 0 0
+      FADEOUT 1 0.01 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {C3D86D78-6D78-4F3F-8074-BBFC79B53B23}
+      IID 58
+      NAME "BUTTON Generic Metal Medium High Mechanics 02.wav"
+      VOLPAN 1 0 1 -1
+      SOFFS 0.14766937030425
+      PLAYRATE 1 0 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {DE344A88-71FC-4E09-8367-B614A92C71E2}
+      <SOURCE WAVE
+        FILE "D:\Music and Sounds\Soundbanks and Sample Packs\Sonniss.com - GDC 2020 - Game Audio Bundle\SmartSoundFX - User Interaction\BUTTON Generic Metal Medium High Mechanics 02.wav"
+      >
+    >
+  >
+  <TRACK {4932F830-2841-4F87-B59A-466672CF93B5}
+    NAME "GEARBOX - DESIGNED - LARGE - Original Helmsworth Cylinder Press 01"
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 0.11521806013581 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 2 -1
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    SEL 1
+    REC 0 5088 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {4932F830-2841-4F87-B59A-466672CF93B5}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      WNDRECT 495 498 716 302
+      SHOW 0
+      LASTSEL 1
+      DOCKED 0
+      BYPASS 0 0 0
+      <JS loser/StereoField ""
+        0 0 0 0 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      >
+      FLOATPOS 0 0 0 0
+      FXID {1E267FBE-8CA6-45F3-AAA0-F66F1E90D01D}
+      WAK 0 0
+      BYPASS 0 0 0
+      <JS loser/4BandEQ ""
+        6 200 3 2000 -7 5000 -4 0 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      >
+      FLOATPOS 0 0 0 0
+      FXID {8B54D61C-A9F8-4818-BD66-6B32D34AE313}
+      WAK 0 0
+    >
+    <ITEM
+      POSITION 33.5593220338983
+      SNAPOFFS 0
+      LENGTH 0.13365991745098
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 1 0.084592 0 1 0 0 0
+      FADEOUT 1 0.01 0 1 0 0 0
+      MUTE 1 0
+      SEL 0
+      IGUID {238F6704-902A-4053-B054-EB23A9A5C8C3}
+      IID 63
+      NAME "GEARBOX - DESIGNED - LARGE - Original Helmsworth Cylinder Press 01.wav"
+      VOLPAN 1 0 1 -1
+      SOFFS 12.31255024704448
+      PLAYRATE 1.80040930306087 0 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {FF200036-64F8-4E7F-9A5F-25F8D9EC8D35}
+      <SOURCE WAVE
+        FILE "D:\Music and Sounds\Soundbanks and Sample Packs\Sonniss.com - GDC 2020 - Game Audio Bundle\Rock The Speakerbox - Gearbox\GEARBOX - DESIGNED - LARGE - Original Helmsworth Cylinder Press 01.wav"
+      >
+    >
+    <ITEM
+      POSITION 33.69298195134929
+      SNAPOFFS 0
+      LENGTH 0.534572713806
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 1 0.01 0 1 0 0 0
+      FADEOUT 1 0.229103 0 1 0 0 0
+      MUTE 0 0
+      SEL 1
+      IGUID {708EA88C-36A8-4BF3-A8E1-9DA616CBB7CF}
+      IID 63
+      NAME "GEARBOX - DESIGNED - LARGE - Original Helmsworth Cylinder Press 01.wav"
+      VOLPAN 0.615385 0 1 -1
+      SOFFS 12.70039940261119
+      PLAYRATE 1 0 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {04FE9E33-8C4C-4BA7-B394-9069B7E0CB18}
+      <SOURCE WAVE
+        FILE "D:\Music and Sounds\Soundbanks and Sample Packs\Sonniss.com - GDC 2020 - Game Audio Bundle\Rock The Speakerbox - Gearbox\GEARBOX - DESIGNED - LARGE - Original Helmsworth Cylinder Press 01.wav"
+      >
+    >
+  >
+  <TRACK {AD8B64C7-0D1E-443F-81B4-0621DC4233A1}
+    NAME Closing
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 1 1
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    SEL 0
+    REC 0 5088 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {AD8B64C7-0D1E-443F-81B4-0621DC4233A1}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+  >
+  <TRACK {6FD07258-7AFE-41BE-B553-46E0B4AFD12C}
+    NAME Mechanimal_096
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 0.18672692101373 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    SEL 0
+    REC 0 5088 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {6FD07258-7AFE-41BE-B553-46E0B4AFD12C}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      WNDRECT 1068 274 716 302
+      SHOW 0
+      LASTSEL 0
+      DOCKED 0
+      BYPASS 0 0 0
+      <JS loser/4BandEQ ""
+        -24 200 -7 2000 3 5000 0 0 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      >
+      FLOATPOS 0 0 0 0
+      FXID {E917A642-6E50-4652-B342-24D8898F618D}
+      WAK 0 0
+      BYPASS 1 0 0
+      <VST "VST: ReaTune (Cockos)" reatune.dll 0 "" 1919251566<5653547265746E72656174756E650000> ""
+        bnRlcu5e7f4EAAAAAQAAAAAAAAACAAAAAAAAAAQAAAAAAAAACAAAAAAAAAACAAAAAQAAAAAAAAACAAAAAAAAAGgAAAABAAAAAAAQAA==
+        AQAAAAAAAAAeAAAAuAEAAAAAAAD/DwAA+gAAADIAAAAyAAAAAAAAAAAAAAABAAAAAAC2QgAAQEERNOpBAAAgQgEAAAABAAAAAAALAAEAAAAAAAAAAAAAAAAAAAB4AgAA
+        vwEAABAAAAA=
+        AAAQAAAA
+      >
+      FLOATPOS 0 0 0 0
+      FXID {501CB0A9-1A4D-4CF3-8091-21C2816356C2}
+      WAK 0 0
+      BYPASS 0 0 0
+      <JS loser/StereoField ""
+        0 0 0 0 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      >
+      FLOATPOS 0 0 0 0
+      FXID {04EB1137-2F38-46C8-906C-AE39777DE8E7}
+      WAK 0 0
+    >
+    <ITEM
+      POSITION 31.66909075439794
+      SNAPOFFS 0
+      LENGTH 0.64408188511486
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 1 0.052714 0 1 0 0 0
+      FADEOUT 1 0.254516 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {0F3A8C2B-FBF0-4F3D-AD5F-248087126CE7}
+      IID 55
+      NAME Mechanimal_096.wav
+      VOLPAN 1 0 1 -1
+      SOFFS 0.1791540120008
+      PLAYRATE 1.19808059001803 0 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {88582E37-6CDA-43C8-B7CF-9661FA7B98A8}
+      <SOURCE WAVE
+        FILE "D:\Music and Sounds\Soundbanks and Sample Packs\Sonniss.com - GDC 2020 - Game Audio Bundle\Fox Audio Post-Production - Mechanimal – Vocalization\Mechanimal_096.wav"
+      >
+    >
+  >
+  <TRACK {5F14F606-CBEB-4FEF-A54B-3FCC599EE0CC}
+    NAME "GEARBOX - BUILDING BLOCK - LARGE - Original Helmsworth Cylinder Press 13"
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 0.30302350576016 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    SEL 0
+    REC 0 5088 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {5F14F606-CBEB-4FEF-A54B-3FCC599EE0CC}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      WNDRECT 495 498 716 222
+      SHOW 0
+      LASTSEL 0
+      DOCKED 0
+      BYPASS 0 0 0
+      <JS loser/StereoField ""
+        0 0 0 0 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      >
+      FLOATPOS 0 0 0 0
+      FXID {BA00DFD1-9608-4561-8449-F6D73507770C}
+      WAK 0 0
+    >
+    <ITEM
+      POSITION 31.52542372881356
+      SNAPOFFS 0
+      LENGTH 0.53483509144084
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 1 0.135437 0 1 0 0 0
+      FADEOUT 1 0.238578 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {53A28E66-E7E9-4EC9-992D-1CA34BC1B943}
+      IID 56
+      NAME "GEARBOX - BUILDING BLOCK - LARGE - Original Helmsworth Cylinder Press 13.wav"
+      VOLPAN 1 0 1 -1
+      SOFFS 0.65105609014143
+      PLAYRATE 1 0 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {FC6D163B-C4E6-434C-A404-69DBAFD15048}
+      <SOURCE WAVE
+        FILE "D:\Music and Sounds\Soundbanks and Sample Packs\Sonniss.com - GDC 2020 - Game Audio Bundle\Rock The Speakerbox - Gearbox\GEARBOX - BUILDING BLOCK - LARGE - Original Helmsworth Cylinder Press 13.wav"
+      >
+    >
+  >
+  <TRACK {2AB05657-6CE0-4524-9DFD-1C5F783BA61A}
+    NAME ""
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 0.22495074449391 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    SEL 0
+    REC 0 5088 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {2AB05657-6CE0-4524-9DFD-1C5F783BA61A}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      WNDRECT 24 52 716 222
+      SHOW 0
+      LASTSEL 1
+      DOCKED 0
+      BYPASS 0 0 0
+      <JS loser/4BandEQ ""
+        -24 200 0 2000 0 5000 -12 0 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      >
+      FLOATPOS 0 0 0 0
+      FXID {4DC7BC06-EA43-42C6-923B-3DA6FD7874BE}
+      WAK 0 0
+      BYPASS 0 0 0
+      <JS loser/StereoField ""
+        0 0 0 0 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      >
+      FLOATPOS 0 0 0 0
+      FXID {6F6D9C28-D088-43B8-98D7-7CBE3C45231C}
+      WAK 0 0
+    >
+    <ITEM
+      POSITION 31.58410954209721
+      SNAPOFFS 0
+      LENGTH 0.68703563189633
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 1 0.1206 0 1 0 0 0
+      FADEOUT 1 0.385396 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {525B2738-573F-4149-AF39-0FEB7FCB49E8}
+      IID 57
+      NAME "GEARBOX - BUILDING BLOCK - LARGE - Original Helmsworth Cylinder Press 13.wav"
+      VOLPAN 0.538462 0 1 -1
+      SOFFS 0.78519418921265
+      PLAYRATE 1 0 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {094911B4-20C5-4136-8D57-4A53A1EF1D83}
+      <SOURCE SECTION
+        LENGTH 0.53483509144085
+        MODE 3
+        STARTPOS 0.65105609014143
+        OVERLAP 0.01
+        <SOURCE WAVE
+          FILE "D:\Music and Sounds\Soundbanks and Sample Packs\Sonniss.com - GDC 2020 - Game Audio Bundle\Rock The Speakerbox - Gearbox\GEARBOX - BUILDING BLOCK - LARGE - Original Helmsworth Cylinder Press 13.wav"
+        >
+      >
+    >
+  >
+  <TRACK {928A14FA-EE1A-4821-BB25-B6C354ADBB11}
+    NAME "BUTTON Generic Metal Medium High Mechanics 02"
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 0.16829929582119 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 2 -2
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    SEL 0
+    REC 0 5088 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {928A14FA-EE1A-4821-BB25-B6C354ADBB11}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      WNDRECT 463 466 716 222
+      SHOW 0
+      LASTSEL 0
+      DOCKED 0
+      BYPASS 0 0 0
+      <JS loser/StereoField ""
+        0 0 0 0 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      >
+      FLOATPOS 0 0 0 0
+      FXID {D538B153-9733-4211-BE47-86D9E3363A95}
+      WAK 0 0
+    >
+    <ITEM
+      POSITION 31.5369415867438
+      SNAPOFFS 0
+      LENGTH 0.44159147013724
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 1 0.01 0 1 0 0 0
+      FADEOUT 1 0.01 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {7AD96E6E-E99A-4E3E-B94D-8975DEB7EDF9}
+      IID 58
+      NAME "BUTTON Generic Metal Medium High Mechanics 02.wav"
+      VOLPAN 1 0 1 -1
+      SOFFS 0.02774186319612
+      PLAYRATE 1 0 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {3705D20F-1181-4236-B7BC-ECB2A651F490}
+      <SOURCE WAVE
+        FILE "D:\Music and Sounds\Soundbanks and Sample Packs\Sonniss.com - GDC 2020 - Game Audio Bundle\SmartSoundFX - User Interaction\BUTTON Generic Metal Medium High Mechanics 02.wav"
       >
     >
   >
