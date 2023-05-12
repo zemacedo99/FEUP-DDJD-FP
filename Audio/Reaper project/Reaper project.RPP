@@ -1,4 +1,4 @@
-<REAPER_PROJECT 0.1 "6.79/win64" 1683900643
+<REAPER_PROJECT 0.1 "6.79/win64" 1683901628
   <NOTES 0 2
   >
   RIPPLE 0
@@ -187,7 +187,7 @@
       CHANMODE 0
       GUID {068FAF9C-37D9-CF42-97D2-E71F5364E16F}
       <SOURCE WAVE
-        FILE "audio/SFX_CLOTH_Foley_Jacket_Synthetic_Soft_Shell_Whoosh_Flutter.wav"
+        FILE "./audio\SFX_CLOTH_Foley_Jacket_Synthetic_Soft_Shell_Whoosh_Flutter.wav"
       >
     >
     <ITEM
@@ -209,7 +209,7 @@
       CHANMODE 0
       GUID {458ED4ED-E2B6-C44A-B571-7CEF1BE47DBC}
       <SOURCE WAVE
-        FILE "audio/SFX_CLOTH_Foley_Jacket_Synthetic_Soft_Shell_Whoosh_Flutter.wav"
+        FILE "./audio\SFX_CLOTH_Foley_Jacket_Synthetic_Soft_Shell_Whoosh_Flutter.wav"
       >
     >
     <ITEM
@@ -231,7 +231,7 @@
       CHANMODE 0
       GUID {0825367F-9551-4F43-8B88-23E1AC04AF3D}
       <SOURCE WAVE
-        FILE "audio/SFX_CLOTH_Foley_Jacket_Synthetic_Soft_Shell_Whoosh_Flutter.wav"
+        FILE "./audio\SFX_CLOTH_Foley_Jacket_Synthetic_Soft_Shell_Whoosh_Flutter.wav"
       >
     >
     <ITEM
@@ -253,7 +253,7 @@
       CHANMODE 0
       GUID {586D18BF-3D7C-6046-91C0-DC6009DABB0A}
       <SOURCE WAVE
-        FILE "audio/SFX_CLOTH_Foley_Jacket_Synthetic_Soft_Shell_Whoosh_Flutter.wav"
+        FILE "./audio\SFX_CLOTH_Foley_Jacket_Synthetic_Soft_Shell_Whoosh_Flutter.wav"
       >
     >
     <ITEM
@@ -275,7 +275,7 @@
       CHANMODE 0
       GUID {18F90398-B19B-9A46-8DE0-A59B3061C7AB}
       <SOURCE WAVE
-        FILE "audio/SFX_CLOTH_Foley_Jacket_Synthetic_Soft_Shell_Whoosh_Flutter.wav"
+        FILE "./audio\SFX_CLOTH_Foley_Jacket_Synthetic_Soft_Shell_Whoosh_Flutter.wav"
       >
     >
     <ITEM
@@ -325,7 +325,7 @@
       CHANMODE 0
       GUID {3AAE475C-F915-E745-AC77-6C91C974847B}
       <SOURCE WAVE
-        FILE "audio/SFX_CLOTH_Foley_Jacket_Synthetic_Soft_Shell_Whoosh_Flutter.wav"
+        FILE "./audio\SFX_CLOTH_Foley_Jacket_Synthetic_Soft_Shell_Whoosh_Flutter.wav"
       >
     >
   >
@@ -399,7 +399,7 @@
       CHANMODE 0
       GUID {5E8CC987-4FAF-6449-860C-AC04DA6905F0}
       <SOURCE WAVE
-        FILE "audio/SFX_CLOTH_Foley_Jacket_Synthetic_Soft_Shell_Whoosh_Flutter.wav"
+        FILE "./audio\SFX_CLOTH_Foley_Jacket_Synthetic_Soft_Shell_Whoosh_Flutter.wav"
       >
     >
   >
@@ -5714,7 +5714,7 @@
         STARTPOS 0
         OVERLAP 0.01
         <SOURCE WAVE
-          FILE "D:\Music and Sounds\Soundbanks and Sample Packs\Sonniss.com - GDC 2020 - Game Audio Bundle\Sounds Great - Car Interiors\clutch_pedal_release.WAV"
+          FILE "./audio\clutch_pedal_release.WAV"
         >
       >
     >
@@ -5774,7 +5774,7 @@
       CHANMODE 0
       GUID {A26C0A04-DE27-4B7C-A941-52CD745723B5}
       <SOURCE WAVE
-        FILE "D:\Music and Sounds\Soundbanks and Sample Packs\Sonniss.com - GDC 2020 - Game Audio Bundle\PMSFX - Foundation Series SCI-FI vol 2\PM_FSSF2_AIR_HISS_RELEASE_DISTANT_3.wav"
+        FILE "./audio\PM_FSSF2_AIR_HISS_RELEASE_DISTANT_3.wav"
       >
     >
   >
@@ -5833,7 +5833,7 @@
       CHANMODE 0
       GUID {DE344A88-71FC-4E09-8367-B614A92C71E2}
       <SOURCE WAVE
-        FILE "D:\Music and Sounds\Soundbanks and Sample Packs\Sonniss.com - GDC 2020 - Game Audio Bundle\SmartSoundFX - User Interaction\BUTTON Generic Metal Medium High Mechanics 02.wav"
+        FILE "./audio\BUTTON Generic Metal Medium High Mechanics 02.wav"
       >
     >
   >
@@ -5899,7 +5899,7 @@
       CHANMODE 0
       GUID {FF200036-64F8-4E7F-9A5F-25F8D9EC8D35}
       <SOURCE WAVE
-        FILE "D:\Music and Sounds\Soundbanks and Sample Packs\Sonniss.com - GDC 2020 - Game Audio Bundle\Rock The Speakerbox - Gearbox\GEARBOX - DESIGNED - LARGE - Original Helmsworth Cylinder Press 01.wav"
+        FILE "./audio\GEARBOX - DESIGNED - LARGE - Original Helmsworth Cylinder Press 01.wav"
       >
     >
     <ITEM
@@ -5921,7 +5921,7 @@
       CHANMODE 0
       GUID {04FE9E33-8C4C-4BA7-B394-9069B7E0CB18}
       <SOURCE WAVE
-        FILE "D:\Music and Sounds\Soundbanks and Sample Packs\Sonniss.com - GDC 2020 - Game Audio Bundle\Rock The Speakerbox - Gearbox\GEARBOX - DESIGNED - LARGE - Original Helmsworth Cylinder Press 01.wav"
+        FILE "./audio\GEARBOX - DESIGNED - LARGE - Original Helmsworth Cylinder Press 01.wav"
       >
     >
   >
@@ -5989,7 +5989,7 @@
         bnRlcu5e7f4EAAAAAQAAAAAAAAACAAAAAAAAAAQAAAAAAAAACAAAAAAAAAACAAAAAQAAAAAAAAACAAAAAAAAAGgAAAABAAAAAAAQAA==
         AQAAAAAAAAAeAAAAuAEAAAAAAAD/DwAA+gAAADIAAAAyAAAAAAAAAAAAAAABAAAAAAC2QgAAQEERNOpBAAAgQgEAAAABAAAAAAALAAEAAAAAAAAAAAAAAAAAAAB4AgAA
         vwEAABAAAAA=
-        AAAQAAAA
+        AFByb2dyYW0gMQAQAAAA
       >
       FLOATPOS 0 0 0 0
       FXID {501CB0A9-1A4D-4CF3-8091-21C2816356C2}
@@ -6021,7 +6021,7 @@
       CHANMODE 0
       GUID {88582E37-6CDA-43C8-B7CF-9661FA7B98A8}
       <SOURCE WAVE
-        FILE "D:\Music and Sounds\Soundbanks and Sample Packs\Sonniss.com - GDC 2020 - Game Audio Bundle\Fox Audio Post-Production - Mechanimal – Vocalization\Mechanimal_096.wav"
+        FILE "./audio\Mechanimal_096.wav"
       >
     >
   >
@@ -6080,7 +6080,7 @@
       CHANMODE 0
       GUID {FC6D163B-C4E6-434C-A404-69DBAFD15048}
       <SOURCE WAVE
-        FILE "D:\Music and Sounds\Soundbanks and Sample Packs\Sonniss.com - GDC 2020 - Game Audio Bundle\Rock The Speakerbox - Gearbox\GEARBOX - BUILDING BLOCK - LARGE - Original Helmsworth Cylinder Press 13.wav"
+        FILE "./audio\GEARBOX - BUILDING BLOCK - LARGE - Original Helmsworth Cylinder Press 13.wav"
       >
     >
   >
@@ -6151,7 +6151,7 @@
         STARTPOS 0.65105609014143
         OVERLAP 0.01
         <SOURCE WAVE
-          FILE "D:\Music and Sounds\Soundbanks and Sample Packs\Sonniss.com - GDC 2020 - Game Audio Bundle\Rock The Speakerbox - Gearbox\GEARBOX - BUILDING BLOCK - LARGE - Original Helmsworth Cylinder Press 13.wav"
+          FILE "./audio\GEARBOX - BUILDING BLOCK - LARGE - Original Helmsworth Cylinder Press 13.wav"
         >
       >
     >
@@ -6211,7 +6211,7 @@
       CHANMODE 0
       GUID {3705D20F-1181-4236-B7BC-ECB2A651F490}
       <SOURCE WAVE
-        FILE "D:\Music and Sounds\Soundbanks and Sample Packs\Sonniss.com - GDC 2020 - Game Audio Bundle\SmartSoundFX - User Interaction\BUTTON Generic Metal Medium High Mechanics 02.wav"
+        FILE "./audio\BUTTON Generic Metal Medium High Mechanics 02.wav"
       >
     >
   >
