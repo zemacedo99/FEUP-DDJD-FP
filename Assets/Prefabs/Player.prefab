@@ -231,7 +231,7 @@ MonoBehaviour:
       Data2: 1187908766
       Data3: 431507127
       Data4: 176202878
-    Path: event:/FS_Player/Base
+    Path: event:/Player/Footsteps/Base
 --- !u!114 &6484459017631928240
 MonoBehaviour:
   m_ObjectHideFlags: 0
