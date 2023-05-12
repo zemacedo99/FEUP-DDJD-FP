@@ -75,14 +75,11 @@ public class Clone : MonoBehaviour
         while (nextEventIndex < eventArray.Count)
         {
             var nextEvent = eventArray[nextEventIndex];
-            Debug.Log(playTime);
-            Debug.Log(nextEvent.timestamp);
             if (playTime >= nextEvent.timestamp)
             {
                 switch (nextEvent.type)
                 {
                     case PlayerEvent.EventType.Jump:
-                        Debug.Log("Jump Event");
                         FMODUnity.RuntimeManager.PlayOneShotAttached(jumpEvent, gameObject);
                         break;
                     case PlayerEvent.EventType.FootstepsSound:
