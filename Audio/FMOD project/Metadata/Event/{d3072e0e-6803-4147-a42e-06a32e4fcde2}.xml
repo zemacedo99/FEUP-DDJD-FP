@@ -5,7 +5,7 @@
 			<value>Presence Detector Hum</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{27354323-df2c-4993-b86e-33e50958286a}</destination>
@@ -95,7 +95,6 @@
 	<object class="MixerBusEffectChain" id="{45c91e26-0940-46f5-bac9-9f32e15481c0}">
 		<relationship name="effects">
 			<destination>{907001fe-39c7-45f8-a7b3-fd80c80161ed}</destination>
-			<destination>{da799a4a-6e6d-42c3-97a5-ec41f2d8fc72}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{5ab6d8e0-eb71-4813-b0b5-475d83aafc4a}" />
@@ -107,6 +106,5 @@
 	</object>
 	<object class="MixerBusPanner" id="{c30dd6ac-1cbf-4c67-a04f-a26168d672f7}" />
 	<object class="MixerBusFader" id="{907001fe-39c7-45f8-a7b3-fd80c80161ed}" />
-	<object class="SpatialiserEffect" id="{da799a4a-6e6d-42c3-97a5-ec41f2d8fc72}" />
 	<object class="MixerBusFader" id="{ce02b745-bc5d-4bdd-ad19-5e22270200ab}" />
 </objects>

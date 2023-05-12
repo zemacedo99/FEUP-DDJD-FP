@@ -5,7 +5,7 @@
 			<value>Record_Start</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{18adc45b-ff62-454b-9335-5e4c13889fd4}</destination>
@@ -95,7 +95,6 @@
 	<object class="MixerBusEffectChain" id="{3bd81bee-2a77-44ab-a202-0dae697b68ef}">
 		<relationship name="effects">
 			<destination>{df9f5160-fa8f-4d84-a72b-84ee48d660ad}</destination>
-			<destination>{dbe742b9-ffb1-4903-a2d3-21f8ca650d51}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{d0910206-d1b5-4c98-9a4e-25952ad7e183}" />
@@ -107,6 +106,5 @@
 	</object>
 	<object class="MixerBusPanner" id="{4897d158-7af1-4e6f-92f8-ba6ee74949b8}" />
 	<object class="MixerBusFader" id="{df9f5160-fa8f-4d84-a72b-84ee48d660ad}" />
-	<object class="SpatialiserEffect" id="{dbe742b9-ffb1-4903-a2d3-21f8ca650d51}" />
 	<object class="MixerBusFader" id="{16a9f1b6-936c-4bdc-9562-4625e12e60e6}" />
 </objects>

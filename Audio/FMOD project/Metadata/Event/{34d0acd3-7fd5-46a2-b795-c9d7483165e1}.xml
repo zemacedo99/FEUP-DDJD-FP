@@ -5,7 +5,7 @@
 			<value>Record_Stop</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{18adc45b-ff62-454b-9335-5e4c13889fd4}</destination>
@@ -95,7 +95,6 @@
 	<object class="MixerBusEffectChain" id="{bbaaf59d-71f6-488c-b889-061ac8d5c051}">
 		<relationship name="effects">
 			<destination>{92ae0049-739a-4483-a7f3-3c9b73203a2f}</destination>
-			<destination>{319e6063-4b88-4ebf-b508-5745e186c26e}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{2e951701-bc66-4545-9207-8cda6cb45540}" />
@@ -107,6 +106,5 @@
 	</object>
 	<object class="MixerBusPanner" id="{3d45b67a-1093-4c24-9666-65f8037216bf}" />
 	<object class="MixerBusFader" id="{92ae0049-739a-4483-a7f3-3c9b73203a2f}" />
-	<object class="SpatialiserEffect" id="{319e6063-4b88-4ebf-b508-5745e186c26e}" />
 	<object class="MixerBusFader" id="{9934ce43-57e6-4e34-a7b9-7dd7e02db248}" />
 </objects>
