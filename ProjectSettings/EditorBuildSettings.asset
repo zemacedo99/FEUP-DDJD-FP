@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/World.unity
     guid: 396a0ee9280367243a17edd596bfb02b
   - enabled: 1
-    path: Assets/Scenes/Prototyping Scene.unity
+    path: Assets/Scenes/Puzzle.unity
     guid: a558956bd398d4aeabcbfb40be9e850c
   m_configObjects: {}
