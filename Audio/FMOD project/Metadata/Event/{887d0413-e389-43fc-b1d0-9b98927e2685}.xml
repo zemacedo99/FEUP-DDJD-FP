@@ -157,6 +157,7 @@
 			<destination>{2b7526a3-2021-4eae-b1f7-fb0087e8d1f8}</destination>
 			<destination>{022db1bc-2d62-4554-86bb-77e40eda610b}</destination>
 			<destination>{993bc120-f56f-48ae-8f59-423c4e86da9b}</destination>
+			<destination>{ab8510e0-95c2-4004-9ed9-29bb33588294}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{09218f33-937c-41e8-8f52-82c86fdde360}" />
@@ -184,6 +185,11 @@
 		</property>
 		<property name="highCrossover">
 			<value>5000</value>
+		</property>
+	</object>
+	<object class="ChannelMixEffect" id="{ab8510e0-95c2-4004-9ed9-29bb33588294}">
+		<property name="outputGrouping">
+			<value>1</value>
 		</property>
 	</object>
 </objects>

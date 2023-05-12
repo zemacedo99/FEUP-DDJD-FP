@@ -133,6 +133,7 @@ Transform:
   m_Children:
   - {fileID: 290478868264557420}
   - {fileID: 2070883223028694789}
+  - {fileID: 5435196886887410486}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -218,6 +219,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorFront: {fileID: 293203104536845364}
   doorBack: {fileID: 7287863915495799308}
+  audioSourceTransform: {fileID: 5435196886887410486}
+  doorClosingEvent:
+    Guid:
+      Data1: 2015096204
+      Data2: 1167757444
+      Data3: -793538629
+      Data4: 172318021
+    Path: event:/Puzzle Levels/Door/Door_Closing
+  doorOpeningEvent:
+    Guid:
+      Data1: -1658661774
+      Data2: 1152028698
+      Data3: -381730675
+      Data4: -608120351
+    Path: event:/Puzzle Levels/Door/Door_Opening
+--- !u!1 &5402825323971496542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5435196886887410486}
+  m_Layer: 0
+  m_Name: AudioSourceTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5435196886887410486
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5402825323971496542}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 290043640707525046}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7287863915495799308
 GameObject:
   m_ObjectHideFlags: 0

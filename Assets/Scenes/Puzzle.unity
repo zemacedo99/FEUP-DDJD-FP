@@ -6528,6 +6528,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door to Puzzle
       objectReference: {fileID: 0}
+    - target: {fileID: 293670722862035524, guid: ce25a77698b0e4fc5bc16db5b1b2e932, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce25a77698b0e4fc5bc16db5b1b2e932, type: 3}
 --- !u!1001 &1877293676133987137

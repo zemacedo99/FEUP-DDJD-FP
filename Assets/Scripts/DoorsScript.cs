@@ -7,10 +7,13 @@ public class DoorsScript : MonoBehaviour
     public GameObject doorFront;
     public GameObject doorBack;
 
+    public Transform audioSourceTransform;
+    public FMODUnity.EventReference doorClosingEvent;
+    public FMODUnity.EventReference doorOpeningEvent;
+
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -22,6 +25,8 @@ public class DoorsScript : MonoBehaviour
 
     public void Open()
     {
+        if (doorFront.activeInHierarchy || doorBack.activeInHierarchy)
+            FMODUnity.RuntimeManager.PlayOneShot(doorOpeningEvent, audioSourceTransform.position);
         if (doorFront.activeInHierarchy)
             doorFront.SetActive(false);
         if (doorBack.activeInHierarchy)
@@ -29,6 +34,8 @@ public class DoorsScript : MonoBehaviour
     }
     public void Close()
     {
+        if (!doorFront.activeInHierarchy || !doorBack.activeInHierarchy)
+            FMODUnity.RuntimeManager.PlayOneShot(doorClosingEvent, audioSourceTransform.position);
         if (!doorFront.activeInHierarchy)
             doorFront.SetActive(true);
         if (!doorBack.activeInHierarchy)
