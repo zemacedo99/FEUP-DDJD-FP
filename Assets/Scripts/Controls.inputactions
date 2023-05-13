@@ -412,7 +412,7 @@
                 },
                 {
                     "name": "",
-                    "id": "d92e65c3-cca6-49c6-95a2-cee6523cac77",
+                    "id": "015c42ff-aaf9-4c59-9ff6-7f450d58f328",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
@@ -609,7 +609,7 @@
                 {
                     "name": "",
                     "id": "e1ab943a-38ba-4aab-ae45-c37144a10c70",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
