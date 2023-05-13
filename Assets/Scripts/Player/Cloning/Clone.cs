@@ -22,7 +22,7 @@ public class Clone : MonoBehaviour
         Debug.Log("Playback snapshots: " + snapshotArray.Count);
 
         // Enable camera
-        cloneCamera.enabled = true;
+        //cloneCamera.enabled = true;
 
         int i = 0;
         float time = 0;
