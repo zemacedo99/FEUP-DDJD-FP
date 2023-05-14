@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    const double DOUBLE_MINIMUM_VALUE = 0.01;
+
     public Transform playerCamera;
     [SerializeField] bool cursorLock = true;
     [SerializeField] [Range(0.0f, 0.5f)] float mouseSmoothTime = 0.03f;
@@ -17,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] LayerMask ground;
 
     public float jumpHeight = 6f;
+    Vector3 velocity;
     float velocityY;
     bool isGrounded;
 
@@ -40,17 +43,19 @@ public class PlayerMovement : MonoBehaviour
     public InputAction cameraInput, jumpButton, moveInput, gravButton;
 
     public bool canGravJump;
-
     public bool canJetpack;
     private Oxygen oxy;
     public float jetCost;
     public GameObject waterParticle;
 
+    public FMODUnity.EventReference footstepsEvent;
+    private float footstepTimer = 0f;
+
     public bool stopMove;
 
     void Start()
     {
-        Application.targetFrameRate = 200;
+        Application.targetFrameRate = 90;
 
         oxy = GetComponent<Oxygen>();
         cameraInput = actions.FindActionMap("movement", true).FindAction("camera", true);
@@ -71,15 +76,17 @@ public class PlayerMovement : MonoBehaviour
 
         moveInputValue = new();
 
-        Vector3 rot = transform.rotation.eulerAngles;
-        cameraRotY = rot.y;
-
+        //Vector3 rot = transform.rotation.eulerAngles;
+        //cameraRotY = rot.y;
         stopMove = false;
+
     }
 
     void Update()
     {
         if (stopMove) return;
+        if (gravity == 0)
+            Debug.Log("GRAVITY IS ZEROOO");
         UpdateMouse();
         UpdateMove();
     }
@@ -111,8 +118,15 @@ public class PlayerMovement : MonoBehaviour
         targetDir = Vector2.SmoothDamp(targetDir, moveInputValue, ref targetDirVelocity, moveSmoothTime);
 
         velocityY += gravity * Time.deltaTime;
-        Vector3 velocity = (transform.forward * targetDir.y + transform.right * targetDir.x) * moveSpeed + Vector3.up * velocityY;
+        velocity = (transform.forward * targetDir.y + transform.right * targetDir.x) * moveSpeed + Vector3.up * velocityY;
         controller.Move(velocity * Time.deltaTime);
+        double currentHVelMag = Math.Sqrt(Math.Pow(velocity.x, 2) + Math.Pow(velocity.z, 2));
+        if (footstepTimer > 2)
+        {
+            CallFootsteps();
+            footstepTimer = 0;
+        }
+        else footstepTimer += Time.deltaTime * (float)currentHVelMag;
 
         // JUMP
         if (jumpButton.WasPressedThisFrame() && (isGrounded || (!isGrounded && canJetpack)))
@@ -131,8 +145,7 @@ public class PlayerMovement : MonoBehaviour
         {
             gravity *= -1;
 
-            transform.Rotate(Vector3.right, 180f);
-            transform.Rotate(Vector3.up, 180f);
+            transform.Rotate(Vector3.forward, 180f);
             cameraRotY *= -1;
             playerCamera.localEulerAngles = (-Vector3.right * cameraRotY);
 
@@ -152,5 +165,13 @@ public class PlayerMovement : MonoBehaviour
         {
             Instantiate(waterParticle, transform.position, Quaternion.identity);
         }
+    }
+
+    void CallFootsteps()
+    {
+        double currentHVelMag = Math.Sqrt(Math.Pow(velocity.x, 2) + Math.Pow(velocity.z, 2));
+
+        if (isGrounded && currentHVelMag > DOUBLE_MINIMUM_VALUE)
+            FMODUnity.RuntimeManager.PlayOneShot(footstepsEvent);
     }
 }

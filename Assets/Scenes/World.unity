@@ -9655,10 +9655,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1374495037959286186, guid: 33bf61c95c9ce443298626d420570a0f,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4616699832579320999, guid: 33bf61c95c9ce443298626d420570a0f,
         type: 3}
@@ -9704,11 +9703,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5168168333977639510, guid: 33bf61c95c9ce443298626d420570a0f,
-        type: 3}
-      propertyPath: m_projectionMatrixMode
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5287465918985573986, guid: 33bf61c95c9ce443298626d420570a0f,
         type: 3}

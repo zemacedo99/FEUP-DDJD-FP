@@ -12,12 +12,16 @@ public class Cloning : MonoBehaviour
     public InputActionAsset actions;
     public InputAction recordButton, playButton;
 
+    List<PlayerSnapshot> snapshotArray;
+    List<PlayerEvent> eventArray;
+
     private void Start()
     {
         recordButton = actions.FindActionMap("recorder", true).FindAction("record", true);
         playButton = actions.FindActionMap("recorder", true).FindAction("play", true);
         actions.FindActionMap("recorder").Enable();
 
+        recorder = GameObject.FindGameObjectWithTag("Player").GetComponent<Recorder>();
     }
 
     void Update()
@@ -36,13 +40,23 @@ public class Cloning : MonoBehaviour
     void SpawnClone()
     {
         // Get first position and rotation
-        Vector3 initialPosition = recorder.snapshotArray[0].position;
-        Quaternion initialRotation = recorder.snapshotArray[0].rotation;
+        Vector3 initialPosition = snapshotArray[0].position;
+        Quaternion initialRotation = snapshotArray[0].rotation;
 
         GameObject clone = Instantiate(clonePrefab, initialPosition, initialRotation);
 
         Clone cloneScript = clone.GetComponent<Clone>();
 
-        cloneScript.snapshotArray = new List<PlayerSnapshot>(recorder.snapshotArray);
+        cloneScript.snapshotArray = new List<PlayerSnapshot>(snapshotArray);
+        cloneScript.eventArray = new List<PlayerEvent>(eventArray);
+    }
+
+    public void SetSnapshotArray(List<PlayerSnapshot> newSnapshotArray)
+    {
+        snapshotArray = new List<PlayerSnapshot>(newSnapshotArray);
+    }
+    public void SetEventArray(List<PlayerEvent> newEventArray)
+    {
+        eventArray = new List<PlayerEvent>(newEventArray);
     }
 }

@@ -369,6 +369,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "destroyCube",
+                    "type": "Button",
+                    "id": "0e68f8e3-ae3c-4664-b710-0eb1bd8c0eeb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "pause",
                     "type": "Button",
                     "id": "7b2d898b-2656-4533-95d8-1e23456460b3",
@@ -398,6 +407,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "pickup",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d92e65c3-cca6-49c6-95a2-cee6523cac77",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "destroyCube",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cb55ccc1-f35a-4c69-9466-37e265d833d3",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "destroyCube",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

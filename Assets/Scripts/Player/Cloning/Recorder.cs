@@ -22,21 +22,32 @@ public class PlayerSnapshot
 }
 public class PlayerEvent
 {
-    public enum EventType { MoveInputValueUpdate, CameraInputValueUpdate, Jump, StopRecording };
+    public enum EventType { Jump, FootstepsSound };
+    public EventType type;
     public float timestamp;
+
+    public PlayerEvent(EventType eventType, float timestamp)
+    {
+        this.type = eventType;
+        this.timestamp = timestamp;
+    }
 }
 
 public class Recorder : MonoBehaviour
 {
     public bool isRecording;
     public bool isPlaying;
-    public GameObject startingCamera;
+    public GameObject playerCamera;
+    PlayerMovement playerMovement;
+
+    int playerGravitySignOnRecordStart;
     float recordingStartTime;
 
-    Cloning cloningScript;
-    public GameObject cube;
-
     public List<PlayerSnapshot> snapshotArray;
+    public List<PlayerEvent> eventArray;
+    public GameObject cube;
+    Vector3 cubeOffset = Vector3.up;
+    GameObject newCube;
 
     public InputActionAsset actions;
     public InputAction recordButton, playButton;
@@ -50,20 +61,21 @@ public class Recorder : MonoBehaviour
 
         isRecording = false;
         snapshotArray = new List<PlayerSnapshot>();
+        eventArray = new List<PlayerEvent>();
 
-        cloningScript = GetComponent<Cloning>();
+        playerMovement = gameObject.GetComponent<PlayerMovement>();
     }
 
     void FixedUpdate()
     {
         if (isRecording)
-            snapshotArray.Add(new PlayerSnapshot(transform.position, transform.rotation, startingCamera.transform.localRotation, Time.time - recordingStartTime));
+            snapshotArray.Add(new PlayerSnapshot(transform.position, transform.rotation, playerCamera.transform.localRotation, Time.time - recordingStartTime));
     }
 
     // Update is called once per frame
     void Update()
     {
-        if ((recordButton.WasPressedThisFrame()))
+        if (recordButton.WasPressedThisFrame())
         {
             // Record
             if (!isRecording)
@@ -74,20 +86,40 @@ public class Recorder : MonoBehaviour
                 recordingStartTime = Time.time;
                 isRecording = true;
 
-                // Instantiate cube here
+                // Store playerGravitySign
+                playerGravitySignOnRecordStart = Math.Sign(playerMovement.gravity);
+
+                // Instantiate cube
+                newCube = Instantiate(cube, transform.position, transform.rotation);
             }
         }
-        else if ((recordButton.WasReleasedThisFrame()))
+        else if (recordButton.WasReleasedThisFrame())
         {
             // Stop Recording
             if (isRecording)
             {
-                snapshotArray.Add(new PlayerSnapshot(transform.position, transform.rotation, startingCamera.transform.localRotation, Time.time - recordingStartTime));
+                snapshotArray.Add(new PlayerSnapshot(transform.position, transform.rotation, playerCamera.transform.localRotation, Time.time - recordingStartTime));
 
                 isRecording = false;
                 Debug.Log("Recording Stopped");
-                Debug.Log("Recording snapshots: " + snapshotArray.Count);
+                Debug.Log("Recorded snapshots: " + snapshotArray.Count);
+                Debug.Log("Recorded events: " + eventArray.Count);
                 Debug.Log("Recording duration: " + (Time.time - recordingStartTime));
+
+                newCube.GetComponent<Cloning>().SetSnapshotArray(snapshotArray);
+                newCube.GetComponent<Cloning>().SetEventArray(eventArray);
+
+                // Get first position and rotation
+                Vector3 initialPosition = snapshotArray[0].position;
+                Quaternion initialRotation = snapshotArray[0].rotation;
+
+                GameObject newPlayer = Instantiate(gameObject, initialPosition, initialRotation);
+                newPlayer.name = "Player";
+                if ((playerGravitySignOnRecordStart < 0 && newPlayer.GetComponent<PlayerMovement>().gravity > 0) ||
+                    (playerGravitySignOnRecordStart > 0 && newPlayer.GetComponent<PlayerMovement>().gravity < 0))
+                    newPlayer.GetComponent<PlayerMovement>().gravity *= -1f;
+
+                Destroy(gameObject);
             }
         }
     }
