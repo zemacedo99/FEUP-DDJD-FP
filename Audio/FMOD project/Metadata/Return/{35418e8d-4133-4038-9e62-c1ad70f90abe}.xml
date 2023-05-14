@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
 	<object class="MixerReturn" id="{35418e8d-4133-4038-9e62-c1ad70f90abe}">
+		<property name="volume">
+			<value>-5.5</value>
+		</property>
 		<property name="overridingInputFormat">
 			<value>2</value>
 		</property>
@@ -31,6 +34,42 @@
 		<property name="dryLevel">
 			<value>-80</value>
 		</property>
+		<relationship name="automators">
+			<destination>{86b04fc2-d30e-46aa-bb97-428f6699353b}</destination>
+		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{817250b7-66d7-4fd9-aa32-6e39fab9417f}" />
+	<object class="Automator" id="{86b04fc2-d30e-46aa-bb97-428f6699353b}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>wetLevel</value>
+		</property>
+		<relationship name="automationCurves">
+			<destination>{e525b2a5-e8b3-489f-92ce-a50a79421c85}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationCurve" id="{e525b2a5-e8b3-489f-92ce-a50a79421c85}">
+		<relationship name="parameter">
+			<destination>{e83d4597-f3c2-4cbb-aa40-420ff1ab16ed}</destination>
+		</relationship>
+		<relationship name="automationPoints">
+			<destination>{1888bb33-f026-45aa-ae37-71de4df104b1}</destination>
+			<destination>{e1c9ffa1-9dc6-4a71-9a38-f639d0bd9788}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationPoint" id="{1888bb33-f026-45aa-ae37-71de4df104b1}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>-80</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{e1c9ffa1-9dc6-4a71-9a38-f639d0bd9788}">
+		<property name="position">
+			<value>1</value>
+		</property>
+		<property name="value">
+			<value>0</value>
+		</property>
+	</object>
 </objects>
