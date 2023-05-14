@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float moveSpeed = 6.0f;
     [SerializeField] [Range(0.0f, 0.5f)] float moveSmoothTime = 0.3f;
     public float gravity = -10f;
-    [SerializeField] Transform groundCheck; 
+    [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask ground;
 
     public float jumpHeight = 6f;
@@ -50,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
 
     public FMODUnity.EventReference footstepsEvent;
     private float footstepTimer = 0f;
+    public FMODUnity.EventReference jumpEvent;
 
     public bool stopMove;
 
@@ -78,15 +79,16 @@ public class PlayerMovement : MonoBehaviour
 
         //Vector3 rot = transform.rotation.eulerAngles;
         //cameraRotY = rot.y;
-        stopMove = false;
 
+        stopMove = false;
     }
 
     void Update()
     {
-        if (stopMove) return;
         if (gravity == 0)
             Debug.Log("GRAVITY IS ZEROOO");
+        if (stopMove) return;
+
         UpdateMouse();
         UpdateMove();
     }
@@ -120,7 +122,7 @@ public class PlayerMovement : MonoBehaviour
         velocityY += gravity * Time.deltaTime;
         velocity = (transform.forward * targetDir.y + transform.right * targetDir.x) * moveSpeed + Vector3.up * velocityY;
         controller.Move(velocity * Time.deltaTime);
-        double currentHVelMag = Math.Sqrt(Math.Pow(velocity.x, 2) + Math.Pow(velocity.z, 2));
+        double currentHVelMag = Math.Sqrt(Math.Pow(controller.velocity.x, 2) + Math.Pow(controller.velocity.z, 2));
         if (footstepTimer > 2)
         {
             CallFootsteps();
@@ -155,6 +157,9 @@ public class PlayerMovement : MonoBehaviour
 
     public float Jump(float height)
     {
+        FMODUnity.RuntimeManager.PlayOneShotAttached(jumpEvent, gameObject);
+        if (recorder.isRecording) recorder.eventArray.Add(new PlayerEvent(PlayerEvent.EventType.Jump, Time.time - recorder.GetRecordingStartTime()));
+
         float velocityY = Mathf.Sqrt(height * Mathf.Abs(gravity)) * -Mathf.Sign(gravity);
         return velocityY;
     }
@@ -169,9 +174,12 @@ public class PlayerMovement : MonoBehaviour
 
     void CallFootsteps()
     {
-        double currentHVelMag = Math.Sqrt(Math.Pow(velocity.x, 2) + Math.Pow(velocity.z, 2));
+        double currentHVelMag = Math.Sqrt(Math.Pow(controller.velocity.x, 2) + Math.Pow(controller.velocity.z, 2));
 
         if (isGrounded && currentHVelMag > DOUBLE_MINIMUM_VALUE)
-            FMODUnity.RuntimeManager.PlayOneShot(footstepsEvent);
+        {
+            FMODUnity.RuntimeManager.PlayOneShotAttached(footstepsEvent, gameObject);
+            if (recorder.isRecording) recorder.eventArray.Add(new PlayerEvent(PlayerEvent.EventType.FootstepsSound, Time.time - recorder.GetRecordingStartTime()));
+        }
     }
 }

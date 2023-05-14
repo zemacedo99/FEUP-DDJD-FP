@@ -233,6 +233,13 @@ MonoBehaviour:
       Data3: 431507127
       Data4: 176202878
     Path: event:/Player/Footsteps/Base
+  jumpEvent:
+    Guid:
+      Data1: -2005072877
+      Data2: 1140646793
+      Data3: -1734618959
+      Data4: -2061074798
+    Path: event:/Player/Jump
   stopMove: 0
 --- !u!114 &6484459017631928240
 MonoBehaviour:
