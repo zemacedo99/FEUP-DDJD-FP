@@ -13,7 +13,7 @@ public class PuzzlePauseMenuScript : MonoBehaviour
     enum warningType { RESET, ADANDON }
     private options selectedOption;
     public string missionDescription;
-    public InputAction upInput, downInput, leftInput, rightInput, selectInput;
+    public InputAction upInput, downInput, selectInput;
     public bool isWarningScreen;
     public InputActionAsset actions;
 
