@@ -46,10 +46,10 @@ public class PauseMenuScript : MonoBehaviour
         switch (selectedOption)
         {
             case options.CONTINUE:
-                this.GetComponentInParent<CanvasScript>().ActivatePauseMenu(false);
+                this.GetComponentInParent<CanvasScript>().PauseMenuSetActive(false);
                 break;
             case options.SETTINGS:
-                this.GetComponentInParent<CanvasScript>().ActivatePauseMenu(false);
+                this.GetComponentInParent<CanvasScript>().PauseMenuSetActive(false);
                 print("SETTINGS WAS PRESSED");
                 break;
             case options.LEAVE:

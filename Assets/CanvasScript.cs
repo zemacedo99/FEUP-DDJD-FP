@@ -18,28 +18,27 @@ public class CanvasScript : MonoBehaviour
         inventoryInput = actions.FindActionMap("interactions", true).FindAction("inventory", true);
     }
 
-    public GameObject GetChildByName(string _name)
+    public GameObject GetChildByName(string name)
     {
-        return this.transform.Find(_name).gameObject;
+        return this.transform.Find(name).gameObject;
     }
 
-    public void StopPlayerMovement()
-    {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().stopMove = pauseMenuIsDisplay;
-    }
-
-    public void ActivatePauseMenu(bool _isActivate)
+    public void PauseMenuSetActive(bool isActive)
     {   
-        pauseMenuIsDisplay = _isActivate;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().stopMove = pauseMenuIsDisplay;
-        this.GetChildByName("PauseMenu").SetActive(pauseMenuIsDisplay);
+        pauseMenuIsDisplay = isActive;
+        if (isActive) Time.timeScale = 0;
+        else Time.timeScale = 1;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().stopMove = isActive;
+        this.GetChildByName("PauseMenu").SetActive(isActive);
     }
 
-    public void ActivateInventory(bool _isActivate)
+    public void InventorySetActive(bool isActive)
     {
-        inventoryIsDisplay = _isActivate;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().stopMove = inventoryIsDisplay;
-        this.GetChildByName("InventoryScreen").SetActive(inventoryIsDisplay);
+        inventoryIsDisplay = isActive;
+        if (isActive) Time.timeScale = 0;
+        else Time.timeScale = 1;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().stopMove = isActive;
+        this.GetChildByName("InventoryScreen").SetActive(isActive);
     }
 
     void Update()
@@ -56,11 +55,11 @@ public class CanvasScript : MonoBehaviour
             inventoryIsDisplay = false;
             this.GetChildByName("InventoryScreen").SetActive(inventoryIsDisplay);
 
-            ActivatePauseMenu(!pauseMenuIsDisplay);
+            PauseMenuSetActive(!pauseMenuIsDisplay);
         }
         if (inventoryInput.WasPressedThisFrame() && !pauseMenuIsDisplay)
         {
-            ActivateInventory(!inventoryIsDisplay);
+            InventorySetActive(!inventoryIsDisplay);
         }
 
     }

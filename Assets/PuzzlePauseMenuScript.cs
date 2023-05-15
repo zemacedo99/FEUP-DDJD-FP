@@ -78,7 +78,7 @@ public class PuzzlePauseMenuScript : MonoBehaviour
         switch (selectedOption)
         {
             case options.CONTINUE:
-                this.GetComponentInParent<CanvasScript>().ActivatePauseMenu(false);
+                this.GetComponentInParent<CanvasScript>().PauseMenuSetActive(false);
                 break;
             case options.RESET_QUEST:
                 EnableWarningScreen((int)warningType.RESET);
@@ -88,7 +88,7 @@ public class PuzzlePauseMenuScript : MonoBehaviour
                 break;
 
             case options.SETTINGS:
-                this.GetComponentInParent<CanvasScript>().ActivatePauseMenu(false);
+                this.GetComponentInParent<CanvasScript>().PauseMenuSetActive(false);
                 print("SETTINGS WAS PRESSED");
                 break;
             case options.LEAVE:
