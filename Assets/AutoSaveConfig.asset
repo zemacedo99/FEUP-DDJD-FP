@@ -1,17 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c2eaa45590e249878438e252fcc3424, type: 3}
-  m_Name: AutoSaveConfig
-  m_EditorClassIdentifier: 
-  Enabled: 0
-  Frequency: 1
-  Logging: 1
+version https://git-lfs.github.com/spec/v1
+oid sha256:3e8be8e032c8c55342fc958df64aac4064ad65c29fd43a1b68cfa7ef76e60bde
+size 444

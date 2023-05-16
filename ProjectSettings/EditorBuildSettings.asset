@@ -1,14 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!1045 &1
-EditorBuildSettings:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/World.unity
-    guid: 396a0ee9280367243a17edd596bfb02b
-  - enabled: 1
-    path: Assets/Scenes/Puzzle.unity
-    guid: a558956bd398d4aeabcbfb40be9e850c
-  m_configObjects: {}
+version https://git-lfs.github.com/spec/v1
+oid sha256:4d4fc2c979de334aa8591e2ba1d20849b7396f61486f60a98d5cf393bc53d7b0
+size 346

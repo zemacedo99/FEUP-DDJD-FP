@@ -1,26 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
-
-public class PickupMessageScript : MonoBehaviour
-{
-    public RawImage itemImage;
-    public TextMeshProUGUI pickupText;
-
-    public void UpdateMessage(Item item)
-    {
-        SetItemImage(item);
-        SetText(item);
-    }
-
-    private void SetText(Item item)
-    {
-        pickupText.text = item.item.name;
-    }
-    private void SetItemImage(Item item)
-    {
-        itemImage.texture = item.item.prefab.GetComponent<RawImage>().texture;
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:ba3a7a741ea781fca9d1c073ef5bd5f65791b3d8ee3c6a5a4f810591a02a6e84
+size 566

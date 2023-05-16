@@ -1,10 +1,3 @@
-fileFormatVersion: 2
-guid: 39cf68574afc7f248bd78a99c3800e00
-ShaderImporter:
-  externalObjects: {}
-  defaultTextures:
-  - _NormalMapTexture: {fileID: 2800000, guid: a78adb8868cccbe4a92d9d81db916e6e, type: 3}
-  nonModifiableTextures: []
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+version https://git-lfs.github.com/spec/v1
+oid sha256:e78e6f4b5dede89edb29b22dbe29a4629dbac8d939693ec876793f15e801a03a
+size 291

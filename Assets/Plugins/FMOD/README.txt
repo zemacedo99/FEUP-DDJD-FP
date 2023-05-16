@@ -1,14 +1,3 @@
-Welcome to FMOD for Unity
-
-This package allows you to easily play back audio events created in FMOD Studio
-within your Unity project.
-
-The best place to start is with our online documentation:
-https://fmod.com/docs/2.02/unity
-
-If you prefer a more step-by-step guide, try our integration tutorial that
-builds on the familiar Karting Microgame:
-https://fmod.com/unity-integrate
-
-For support, join the conversation on our Unity forums:
-https://qa.fmod.com/c/unity
+version https://git-lfs.github.com/spec/v1
+oid sha256:8ca22a2a70e13862afa26a7bf1e4009d35a12b35b81d3a450d0b6eb4cd7fe34a
+size 476

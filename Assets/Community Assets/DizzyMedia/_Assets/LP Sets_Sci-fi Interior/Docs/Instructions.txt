@@ -1,1 +1,3 @@
-In order to get the same look as the product page images/videos you need to change your Color Space to Linear and import post processing from the package manager.
+version https://git-lfs.github.com/spec/v1
+oid sha256:0f9cd97f4f63ce16754a70c9baa776c41e3fc95e5213b75b516e6601542d3db6
+size 162

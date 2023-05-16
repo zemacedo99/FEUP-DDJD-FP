@@ -1,17 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
-	<object class="EncodingSetting" id="{65a769dc-2f5c-4b37-8614-a9c1cbddf0c8}">
-		<property name="encodingFormat">
-			<value>3</value>
-		</property>
-		<property name="quality">
-			<value>37</value>
-		</property>
-		<relationship name="platform">
-			<destination>{2edb91f7-5039-4b71-af92-f215e76af992}</destination>
-		</relationship>
-		<relationship name="encodable">
-			<destination>{2edb91f7-5039-4b71-af92-f215e76af992}</destination>
-		</relationship>
-	</object>
-</objects>
+version https://git-lfs.github.com/spec/v1
+oid sha256:e07f6f2baf78841db4fd2ca3d417f29ed1328820cc741d751953319afa3ad4a5
+size 559

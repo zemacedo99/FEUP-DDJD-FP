@@ -1,27 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-[CreateAssetMenu(fileName = "New Item Database", menuName = "Inventory System/Items/Database")]
-public class ItemDatabaseObject : ScriptableObject, ISerializationCallbackReceiver
-{
-    public ItemObject[] Items;
-    public Dictionary<ItemObject, int> GetId = new Dictionary<ItemObject, int>();
-    public Dictionary<int, ItemObject> GetItem = new Dictionary<int, ItemObject>();
-
-
-    public void OnAfterDeserialize()
-    {
-        GetId = new Dictionary<ItemObject, int>();
-        for (int i = 0; i < Items.Length; i++)
-        {
-            GetId.Add(Items[i], i);
-            GetItem.Add(i, Items[i]);
-        }
-    }
-
-    public void OnBeforeSerialize()
-    {
-        //throw new System.NotImplementedException();
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:2885c3ac4373e38240693264b97501cd4c64fe9474e83a457dcc15fcc99919d0
+size 806

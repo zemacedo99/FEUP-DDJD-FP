@@ -1,36 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-public class LevelTrigger : SceneDict
-{
-    public string scene;
-
-    private void Start()
-    {
-        if(scene != "World" && !holeDict.ContainsKey(scene))
-            holeDict.Add(scene, this.gameObject.transform.parent.gameObject.name);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (!other.CompareTag("Player"))
-            return;
-        if (scene != "World")
-            EnterPuzzle();
-        else
-            LeavePuzzle();
-    }
-
-    private void EnterPuzzle()
-    {
-        SceneManager.LoadScene(scene);
-    }
-
-    private void LeavePuzzle()
-    {
-        PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, 1);
-        SceneManager.LoadScene("World");
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:1bdba93e5fd2d8eb81cacd0b8a07ca8ce17b79a180282dba372032ff8145b084
+size 818

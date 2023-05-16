@@ -1,11 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
-	<object class="EncodableAsset" id="{cf616520-261d-4bd4-8dfd-fd62d39ade83}">
-		<property name="assetPath">
-			<value>Player/</value>
-		</property>
-		<relationship name="masterAssetFolder">
-			<destination>{a1d0acbe-636d-4a2a-9860-056e3465eb10}</destination>
-		</relationship>
-	</object>
-</objects>
+version https://git-lfs.github.com/spec/v1
+oid sha256:6ba7c0fd9eab9021062eb68a5f33d4044de04bce3abb4ea07e3a4c7c2b271bda
+size 384

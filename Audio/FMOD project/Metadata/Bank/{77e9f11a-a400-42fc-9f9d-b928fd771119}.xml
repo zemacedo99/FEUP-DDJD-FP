@@ -1,14 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
-	<object class="Bank" id="{77e9f11a-a400-42fc-9f9d-b928fd771119}">
-		<property name="name">
-			<value>Master</value>
-		</property>
-		<property name="isMasterBank">
-			<value>true</value>
-		</property>
-		<relationship name="folder">
-			<destination>{50041849-46da-421a-94b4-fbedfd3b6a62}</destination>
-		</relationship>
-	</object>
-</objects>
+version https://git-lfs.github.com/spec/v1
+oid sha256:e5becb73b2e2119ce9f94f74c6b038c5b69f7f5c0fc395e93ed777ab61c7958e
+size 427

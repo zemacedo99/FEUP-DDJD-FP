@@ -1,17 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
-	<object class="Platform" id="{2edb91f7-5039-4b71-af92-f215e76af992}">
-		<property name="hardwareType">
-			<value>0</value>
-		</property>
-		<property name="name">
-			<value>Desktop</value>
-		</property>
-		<property name="subDirectory">
-			<value>Desktop</value>
-		</property>
-		<property name="speakerFormat">
-			<value>5</value>
-		</property>
-	</object>
-</objects>
+version https://git-lfs.github.com/spec/v1
+oid sha256:be2c62f655a4d39382aeb2a03c0f5f760c47f99a4afe5646202f60279d33114a
+size 452
