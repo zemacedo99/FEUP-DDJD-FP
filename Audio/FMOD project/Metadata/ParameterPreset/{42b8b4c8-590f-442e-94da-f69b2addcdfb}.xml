@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="ParameterPreset" id="{a2a0b32f-d938-441c-88e3-7b0265d9abd1}">
+	<object class="ParameterPreset" id="{42b8b4c8-590f-442e-94da-f69b2addcdfb}">
 		<property name="name">
-			<value>Wet</value>
+			<value>Surface</value>
 		</property>
 		<relationship name="folder">
 			<destination>{894b797d-4847-4bce-bfd4-e84168c37854}</destination>
 		</relationship>
 		<relationship name="parameter">
-			<destination>{e83d4597-f3c2-4cbb-aa40-420ff1ab16ed}</destination>
+			<destination>{d145e675-1b26-42f3-923c-6eee19142a29}</destination>
 		</relationship>
 	</object>
-	<object class="GameParameter" id="{e83d4597-f3c2-4cbb-aa40-420ff1ab16ed}">
+	<object class="GameParameter" id="{d145e675-1b26-42f3-923c-6eee19142a29}">
 		<property name="parameterType">
-			<value>1</value>
-		</property>
-		<property name="maximum">
 			<value>2</value>
 		</property>
-		<property name="isGlobal">
-			<value>true</value>
+		<property name="maximum">
+			<value>4</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>Concrete</value>
+			<value>Grass</value>
+			<value>Water</value>
+			<value>Rock</value>
 		</property>
 		<property name="initialValue">
 			<value>0</value>
-		</property>
-		<property name="isExposedRecursively">
-			<value>false</value>
 		</property>
 	</object>
 </objects>

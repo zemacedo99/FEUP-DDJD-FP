@@ -101,16 +101,12 @@
 		<property name="length">
 			<value>4</value>
 		</property>
-		<property name="name" />
 		<property name="commandType">
 			<value>4</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{52a1fe28-3fbb-4ee3-8ff8-8865f0cafd76}</destination>
 			<destination>{62b8bde3-0d3c-4dfd-b07b-527fec85060f}</destination>
-		</relationship>
-		<relationship name="commandTarget">
-			<destination>{e83d4597-f3c2-4cbb-aa40-420ff1ab16ed}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{c372f7dc-5985-4153-ad98-5d598847ff5b}">

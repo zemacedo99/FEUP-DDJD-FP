@@ -6404,9 +6404,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2093597668}
-  - component: {fileID: 2093597670}
-  - component: {fileID: 2093597669}
   - component: {fileID: 2093597671}
+  - component: {fileID: 2093597672}
   m_Layer: 0
   m_Name: Puzzle Room
   m_TagString: Untagged
@@ -6429,38 +6428,6 @@ Transform:
   m_Father: {fileID: 1234387791}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2093597669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2093597667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b0e04e2572f9a940a47465f6f3c2f00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: Player
-  Parameter: Wet
-  TriggerEvent: 4
-  Value: 0
---- !u!114 &2093597670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2093597667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b0e04e2572f9a940a47465f6f3c2f00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: Player
-  Parameter: Wet
-  TriggerEvent: 3
-  Value: 1
 --- !u!65 &2093597671
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6474,6 +6441,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 20.514761, y: 6.062893, z: 19.657213}
   m_Center: {x: 9.757382, y: -0.049161077, z: -9.328607}
+--- !u!114 &2093597672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093597667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Player
+  EventReference:
+    Guid:
+      Data1: 823893878
+      Data2: 1235370557
+      Data3: 394252732
+      Data4: -2056245310
+    Path: snapshot:/Puzzle Room
+  Event: 
+  PlayEvent: 3
+  StopEvent: 4
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!4 &2093997957 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4803463093519170, guid: 0150c0006494bd84198ac13cd4d0d7f5, type: 3}

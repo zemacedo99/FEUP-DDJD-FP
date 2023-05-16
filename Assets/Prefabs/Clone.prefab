@@ -201,7 +201,7 @@ MonoBehaviour:
       Data2: 1187908766
       Data3: 431507127
       Data4: 176202878
-    Path: event:/Player/Footsteps/Base
+    Path: event:/Player/Footsteps/FS_Base
   jumpEvent:
     Guid:
       Data1: -2005072877
