@@ -15,6 +15,7 @@ public class MainMenuScript : MonoBehaviour
     private warningType type = warningType.RESET;
     private options selectedOption;
     public InputActionAsset actions;
+    public GameObject player;
 
     public InputAction upInput, downInput, selectInput;
 
@@ -69,6 +70,7 @@ public class MainMenuScript : MonoBehaviour
                 SceneManager.LoadScene("World");
                 break;
             case options.NEWGAME:
+                PlayerSaveSystem.ResetData();
                 SceneManager.LoadScene("World");
                 break;
             case options.OPTIONS:
@@ -87,12 +89,15 @@ public class MainMenuScript : MonoBehaviour
     {
         if (downInput.WasPressedThisFrame() && selectedOption < options.EXIT)
         {
+            print("down");
             selectedOption += 1;
             PaintSelectedOption();
             return;
         }
         if (upInput.WasPressedThisFrame() && selectedOption > 0)
         {
+            print("up");
+
             selectedOption -= 1;
             PaintSelectedOption();
             return;

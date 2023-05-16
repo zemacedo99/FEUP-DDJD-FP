@@ -24,7 +24,7 @@ public class Oxygen : MonoBehaviour
         controller = GetComponent<CharacterController>();
         lastPosition = transform.position;
         oxygenStationPosition = transform.position;
-        oxygenSlider.maxValue = oxygenValue;
+        oxygenSlider.maxValue = 300;
     }
 
     void Update()
@@ -69,6 +69,12 @@ public class Oxygen : MonoBehaviour
         value = Mathf.Clamp(value, 0f, oxygenSlider.maxValue);
         oxygenSlider.value = value;
         oxygenText.text = "Oxygen: " + value.ToString("F0");
+    }
+
+    public void SetOxygenValue(float oxygenValue)
+    {
+        this.oxygenValue = oxygenValue;
+        this.UpdateSlider(oxygenValue);
     }
 
     void RefillOxygen()

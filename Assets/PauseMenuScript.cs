@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PauseMenuScript : MonoBehaviour
 {
@@ -53,7 +54,8 @@ public class PauseMenuScript : MonoBehaviour
                 print("SETTINGS WAS PRESSED");
                 break;
             case options.LEAVE:
-                Application.Quit();
+                PlayerSaveSystem.Save();
+                SceneManager.LoadScene("MainMenu");
                 break;
         }
     }
