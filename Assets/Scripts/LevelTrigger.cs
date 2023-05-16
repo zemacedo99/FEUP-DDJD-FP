@@ -9,7 +9,7 @@ public class LevelTrigger : SceneDict
 
     private void Start()
     {
-        if(scene != "World" && !holeDict.ContainsKey(scene))
+        if (scene != "World" && !holeDict.ContainsKey(scene))
             holeDict.Add(scene, this.gameObject.transform.parent.gameObject.name);
     }
 
@@ -19,6 +19,7 @@ public class LevelTrigger : SceneDict
             return;
         if (scene != "World")
         {
+            print("joining");
             EnterPuzzle();
         }
         else
@@ -41,6 +42,7 @@ public class LevelTrigger : SceneDict
 
     private void LeavePuzzle()
     {
+        print("leave puzzle");
         PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, 1);
         SceneManager.LoadScene("World");
     }

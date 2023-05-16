@@ -76,6 +76,7 @@ public class WarningScreenScript : MonoBehaviour
                 }
                 else
                 {
+                    print("abandon");
                     this.GetComponentInParent<PuzzlePauseMenuScript>().AbandonQuest();
                     break;
 

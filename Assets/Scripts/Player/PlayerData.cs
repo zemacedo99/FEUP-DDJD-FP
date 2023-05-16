@@ -3,6 +3,7 @@ using System.IO;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public static class PlayerSaveSystem
 {
@@ -59,41 +60,51 @@ public static class PlayerSaveSystem
 [System.Serializable]
 public class PlayerData
 {
-    public float[] position;
+    public float[] positionWorld;
     public float oxygenLevel;
     public int completedPuzzles;
+    public string currentScene;
+    public float[] positionPuzzle;
 
     public PlayerData()
     {
-        position = new float[3];
+        positionWorld = new float[3];
+        positionPuzzle = new float[3];
 
-        position[0] = 0f;
-        position[1] = 0f;
-        position[2] = 0f;
+        positionWorld[0] = 0f;
+        positionWorld[1] = 1.50f;
+        positionWorld[2] = 0f;
+
+        positionPuzzle[0] = 0f;
+        positionPuzzle[1] = 0f;
+        positionPuzzle[2] = 0f;
 
         oxygenLevel = 300;
+
+        currentScene = SceneManager.GetActiveScene().name;
 
         completedPuzzles = 0;
     }
 
     public void Load()
     {
-        position = new float[3];
-
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
         if (player.GetComponent<Oxygen>() != null)
         {
             oxygenLevel = player.GetComponent<Oxygen>().oxygenValue;
         }
-        else
+
+        if (currentScene != "World")
         {
-            oxygenLevel = 300;
+            positionPuzzle[0] = GameObject.FindGameObjectWithTag("Player").transform.position.x;
+            positionPuzzle[1] = GameObject.FindGameObjectWithTag("Player").transform.position.y;
+            positionPuzzle[2] = GameObject.FindGameObjectWithTag("Player").transform.position.z;
         }
 
-        position[0] = GameObject.FindGameObjectWithTag("Player").transform.position.x;
-        position[1] = GameObject.FindGameObjectWithTag("Player").transform.position.y;
-        position[2] = GameObject.FindGameObjectWithTag("Player").transform.position.z;
+        positionWorld[0] = GameObject.FindGameObjectWithTag("Player").transform.position.x;
+        positionWorld[1] = GameObject.FindGameObjectWithTag("Player").transform.position.y;
+        positionWorld[2] = GameObject.FindGameObjectWithTag("Player").transform.position.z;
     }
 } 
 

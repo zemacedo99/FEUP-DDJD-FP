@@ -27,8 +27,12 @@ public class WorldSetup : SceneDict
                 resetToPoint = false;
             }
         }
-        if(resetToPoint)
+        if (resetToPoint)
+        {
+            print("loading checkpoint");
             FindFirstObjectByType<Oxygen>().LoadCheckpoint();
+
+        }
     }
 
     string NameFromPath(string path)

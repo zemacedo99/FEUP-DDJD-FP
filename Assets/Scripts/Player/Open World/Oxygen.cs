@@ -101,6 +101,7 @@ public class Oxygen : MonoBehaviour
 
     void StoreCheckpoint()
     {
+        print("Storing");
         PlayerPrefs.SetFloat("CheckpointX", oxygenStationPosition.x);
         PlayerPrefs.SetFloat("CheckpointY", oxygenStationPosition.y);
         PlayerPrefs.SetFloat("CheckpointZ", oxygenStationPosition.z);

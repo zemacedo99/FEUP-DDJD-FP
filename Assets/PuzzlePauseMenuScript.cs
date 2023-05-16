@@ -64,13 +64,14 @@ public class PuzzlePauseMenuScript : MonoBehaviour
     }
     public void AbandonQuest()
     {
+        print("Leaving");
         SceneManager.LoadScene("World");
-        GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerInventory>().inventory.Load(); // Load Player Current 
+        //GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerInventory>().inventory.Load(); // Load Player Current 
 
-        // TODO: Spawn Player to to corresponding spawning state
-        int currentSpawnPoint = PlayerPrefs.GetInt("SPAWN_POINT");
+        //// TODO: Spawn Player to to corresponding spawning state
+        //int currentSpawnPoint = PlayerPrefs.GetInt("SPAWN_POINT");
 
-        print("Spawn point = " + currentSpawnPoint);
+        //print("Spawn point = " + currentSpawnPoint);
     }
 
     void ExecuteSelectedOption()

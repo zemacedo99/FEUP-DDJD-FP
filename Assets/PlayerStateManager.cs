@@ -1,20 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStateManager : MonoBehaviour
 {
     public GameObject player;
 
-    // Start is called before the first frame update
-
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-    }
 
-    void Awake()
-    {
         LoadPlayerData();
     }
 
@@ -22,9 +18,19 @@ public class PlayerStateManager : MonoBehaviour
     {
         PlayerData playerData = PlayerSaveSystem.Load();
 
-        print(playerData.position[0] + " " + playerData.position[1] + " " + playerData.position[2]);
+        if(SceneManager.GetActiveScene().name == "World")
+        {
+            print("wolrd");
+            player.transform.position = new Vector3(playerData.positionWorld[0], playerData.positionWorld[1], playerData.positionWorld[2]);
+        }
+        else
+        {
+            print("here");
+            player.transform.position = new Vector3(playerData.positionPuzzle[0], playerData.positionPuzzle[1], playerData.positionPuzzle[2]);
+        }
 
-        player.transform.position = new Vector3(playerData.position[0], playerData.position[1], playerData.position[2]);
+        print(player.transform.position.x + " " + player.transform.position.y + " " + player.transform.position.z);
+
 
         if (player.GetComponent<Oxygen>() != null)
         {
