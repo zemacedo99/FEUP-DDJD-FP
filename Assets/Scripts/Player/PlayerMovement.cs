@@ -21,7 +21,9 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight = 6f;
     Vector3 velocity;
     float velocityY;
+    float hVelMagMax = 7.5f;
     bool isGrounded;
+
 
     [SerializeField] float cameraCap;
     Vector2 currentMouseDelta;
@@ -51,7 +53,8 @@ public class PlayerMovement : MonoBehaviour
     public FMODUnity.EventReference footstepsEvent;
     private FMOD.Studio.EventInstance footstepsEventInstance;
     private float footstepTimer = 0f;
-    private float hVelMagMax = 7.5f;
+    enum SurfaceType { Concrete, Grass, Water, Rock }
+
     public FMODUnity.EventReference jumpEvent;
 
     void Start()
@@ -119,7 +122,7 @@ public class PlayerMovement : MonoBehaviour
         velocity = (transform.forward * targetDir.y + transform.right * targetDir.x) * moveSpeed + Vector3.up * velocityY;
         controller.Move(velocity * Time.deltaTime);
         double currentHVelMag = Math.Sqrt(Math.Pow(controller.velocity.x, 2) + Math.Pow(controller.velocity.z, 2));
-        if (footstepTimer > 1/4f)
+        if (footstepTimer > 1/3f)
         {
             CallFootsteps();
             footstepTimer = 0;
@@ -176,10 +179,11 @@ public class PlayerMovement : MonoBehaviour
         {
             footstepsEventInstance = FMODUnity.RuntimeManager.CreateInstance(footstepsEvent);
             FMODUnity.RuntimeManager.AttachInstanceToGameObject(footstepsEventInstance, GetComponent<Transform>(), GetComponent<Rigidbody>());
-            footstepsEventInstance.setParameterByName("MoveSpeed",(float)currentHVelMag/hVelMagMax);
+            footstepsEventInstance.setParameterByName("MoveSpeed", (float)currentHVelMag/hVelMagMax);
+            footstepsEventInstance.setParameterByName("Surface", (float)SurfaceType.Rock);
+
             Debug.Log(currentHVelMag);
             footstepsEventInstance.start();
-            //FMODUnity.RuntimeManager.PlayOneShotAttached(footstepsEvent, gameObject);
 
             if (recorder.isRecording) recorder.eventArray.Add(new PlayerEvent(PlayerEvent.EventType.FootstepsSound, Time.time - recorder.GetRecordingStartTime()));
             // ToDo: save footsteps parameters (maybe using a dictionary is the best choice for this)
