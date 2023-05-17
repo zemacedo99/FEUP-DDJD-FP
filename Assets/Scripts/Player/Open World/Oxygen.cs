@@ -45,12 +45,23 @@ public class Oxygen : MonoBehaviour
         UpdateSlider(oxygenValue);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("OxygenStation"))
+        {
+            oxygenStationPosition = other.transform.parent.transform.position;
+            oxygenStationPosition += new Vector3(0, 1, 0);
+            StoreCheckpoint();
+            Debug.Log("saving checkpoint");
+            Debug.Log(oxygenStationPosition);
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("OxygenStation"))
         {
             oxygenStationPosition = other.transform.position;
-            StoreCheckpoint();
             RefillOxygen(); 
         }
     }

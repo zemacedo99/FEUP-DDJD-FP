@@ -70,7 +70,8 @@ public class MainMenuScript : MonoBehaviour
                 SceneManager.LoadScene("World");
                 break;
             case options.NEWGAME:
-                PlayerSaveSystem.ResetData();
+                //PlayerSaveSystem.ResetData();
+                PlayerPrefs.DeleteAll();
                 SceneManager.LoadScene("World");
                 break;
             case options.OPTIONS:

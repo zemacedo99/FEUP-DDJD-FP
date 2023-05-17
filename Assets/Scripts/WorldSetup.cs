@@ -12,7 +12,7 @@ public class WorldSetup : SceneDict
         foreach (EditorBuildSettingsScene scene in EditorBuildSettings.scenes)
         {
             var name = NameFromPath(scene.path);
-            if (name == "World")
+            if (name == "World" || name == "MainMenu")
                 continue;
             if (!PlayerPrefs.HasKey(name)) //check if scene hasnt been set yet
                 PlayerPrefs.SetInt(name, 0); //set state 0 (dropped)

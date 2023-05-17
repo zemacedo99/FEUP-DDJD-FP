@@ -54,7 +54,8 @@ public class PauseMenuScript : MonoBehaviour
                 print("SETTINGS WAS PRESSED");
                 break;
             case options.LEAVE:
-                PlayerSaveSystem.Save();
+                //PlayerSaveSystem.Save();
+                //PlayerPrefs.DeleteAll();
                 SceneManager.LoadScene("MainMenu");
                 break;
         }
