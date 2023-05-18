@@ -15,13 +15,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float moveSpeed = 6.0f;
     [SerializeField] [Range(0.0f, 0.5f)] float moveSmoothTime = 0.3f;
     public float gravity = -10f;
-    [SerializeField] Transform groundCheck;
+    [SerializeField] Transform groundCheck; 
     [SerializeField] LayerMask ground;
 
     public float jumpHeight = 6f;
     Vector3 velocity;
     float velocityY;
+    float hVelMagMax = 7.5f;
     bool isGrounded;
+
 
     [SerializeField] float cameraCap;
     Vector2 currentMouseDelta;
@@ -49,7 +51,10 @@ public class PlayerMovement : MonoBehaviour
     public GameObject waterParticle;
 
     public FMODUnity.EventReference footstepsEvent;
+    private FMOD.Studio.EventInstance footstepsEventInstance;
     private float footstepTimer = 0f;
+    enum SurfaceType { Concrete, Grass, Water, Rock }
+
     public FMODUnity.EventReference jumpEvent;
 
     public bool stopMove;
@@ -79,16 +84,12 @@ public class PlayerMovement : MonoBehaviour
 
         //Vector3 rot = transform.rotation.eulerAngles;
         //cameraRotY = rot.y;
-
-        stopMove = false;
     }
 
     void Update()
     {
         if (gravity == 0)
             Debug.Log("GRAVITY IS ZEROOO");
-        if (stopMove) return;
-
         UpdateMouse();
         UpdateMove();
     }
@@ -123,12 +124,12 @@ public class PlayerMovement : MonoBehaviour
         velocity = (transform.forward * targetDir.y + transform.right * targetDir.x) * moveSpeed + Vector3.up * velocityY;
         controller.Move(velocity * Time.deltaTime);
         double currentHVelMag = Math.Sqrt(Math.Pow(controller.velocity.x, 2) + Math.Pow(controller.velocity.z, 2));
-        if (footstepTimer > 2)
+        if (footstepTimer > 1/3f)
         {
             CallFootsteps();
             footstepTimer = 0;
         }
-        else footstepTimer += Time.deltaTime * (float)currentHVelMag;
+        else footstepTimer += Time.deltaTime * (((float)currentHVelMag)/hVelMagMax);
 
         // JUMP
         if (jumpButton.WasPressedThisFrame() && (isGrounded || (!isGrounded && canJetpack)))
@@ -178,8 +179,16 @@ public class PlayerMovement : MonoBehaviour
 
         if (isGrounded && currentHVelMag > DOUBLE_MINIMUM_VALUE)
         {
-            FMODUnity.RuntimeManager.PlayOneShotAttached(footstepsEvent, gameObject);
+            footstepsEventInstance = FMODUnity.RuntimeManager.CreateInstance(footstepsEvent);
+            FMODUnity.RuntimeManager.AttachInstanceToGameObject(footstepsEventInstance, GetComponent<Transform>(), GetComponent<Rigidbody>());
+            footstepsEventInstance.setParameterByName("MoveSpeed", (float)currentHVelMag/hVelMagMax);
+            footstepsEventInstance.setParameterByName("Surface", (float)SurfaceType.Rock);
+
+            Debug.Log(currentHVelMag);
+            footstepsEventInstance.start();
+
             if (recorder.isRecording) recorder.eventArray.Add(new PlayerEvent(PlayerEvent.EventType.FootstepsSound, Time.time - recorder.GetRecordingStartTime()));
+            // ToDo: save footsteps parameters (maybe using a dictionary is the best choice for this)
         }
     }
 }
