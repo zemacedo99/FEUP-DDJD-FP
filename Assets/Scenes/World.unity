@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
@@ -14879,7 +14879,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh31568
+  m_Name: pb_Mesh26708
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -34679,7 +34679,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1208849740}
   m_Layer: 0
-  m_Name: Desert
+  m_Name: Desert/Rocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36196,7 +36196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5128303587087096746, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_Shadows.m_Type
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5168168333977639510, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_ClearFlags
@@ -36204,15 +36204,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5168168333977639510, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_BackGroundColor.b
-      value: 0.1981132
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5168168333977639510, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_BackGroundColor.g
-      value: 0.09120682
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5168168333977639510, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_BackGroundColor.r
-      value: 0.023175498
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5168168333977639510, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_projectionMatrixMode
@@ -45261,7 +45261,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28656
+  m_Name: pb_Mesh24256
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -48891,7 +48891,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.45041272, g: 0.25266996, b: 0.8018868, a: 1}
+  m_Color: {r: 0.85351783, g: 0.8236383, b: 0.9056604, a: 1}
   m_Intensity: 0.33
   m_Range: 10
   m_SpotAngle: 30
@@ -48929,7 +48929,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 512
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -55597,37 +55597,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8903058273634951509, guid: f1fc5bb90ac285e4486771552d63bcb8, type: 3}
   m_PrefabInstance: {fileID: 1969366978}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1971447662
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1971447663}
-  m_Layer: 0
-  m_Name: OuterRocks
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1971447663
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1971447662}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1972859448 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 108507113624698413, guid: eebb56c82efbd8d4bb0eb6bd925a0e9d, type: 3}
