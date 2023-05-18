@@ -22,8 +22,15 @@ public class PlayerSnapshot
 }
 public class PlayerEvent
 {
-    public enum EventType { MoveInputValueUpdate, CameraInputValueUpdate, Jump, StopRecording };
+    public enum EventType { Jump, FootstepsSound };
+    public EventType type;
     public float timestamp;
+
+    public PlayerEvent(EventType eventType, float timestamp)
+    {
+        this.type = eventType;
+        this.timestamp = timestamp;
+    }
 }
 
 public class Recorder : MonoBehaviour
@@ -37,6 +44,7 @@ public class Recorder : MonoBehaviour
     float recordingStartTime;
 
     public List<PlayerSnapshot> snapshotArray;
+    public List<PlayerEvent> eventArray;
     public GameObject cube;
     Vector3 cubeOffset = Vector3.up;
     GameObject newCube;
@@ -53,6 +61,7 @@ public class Recorder : MonoBehaviour
 
         isRecording = false;
         snapshotArray = new List<PlayerSnapshot>();
+        eventArray = new List<PlayerEvent>();
 
         playerMovement = gameObject.GetComponent<PlayerMovement>();
     }
@@ -93,18 +102,18 @@ public class Recorder : MonoBehaviour
 
                 isRecording = false;
                 Debug.Log("Recording Stopped");
-                Debug.Log("Recording snapshots: " + snapshotArray.Count);
+                Debug.Log("Recorded snapshots: " + snapshotArray.Count);
+                Debug.Log("Recorded events: " + eventArray.Count);
                 Debug.Log("Recording duration: " + (Time.time - recordingStartTime));
 
                 newCube.GetComponent<Cloning>().SetSnapshotArray(snapshotArray);
+                newCube.GetComponent<Cloning>().SetEventArray(eventArray);
 
                 // Get first position and rotation
                 Vector3 initialPosition = snapshotArray[0].position;
                 Quaternion initialRotation = snapshotArray[0].rotation;
 
                 GameObject newPlayer = Instantiate(gameObject, initialPosition, initialRotation);
-                Debug.Log(playerGravitySignOnRecordStart);
-                Debug.Log(newPlayer.GetComponent<PlayerMovement>().gravity);
                 newPlayer.name = "Player";
                 if ((playerGravitySignOnRecordStart < 0 && newPlayer.GetComponent<PlayerMovement>().gravity > 0) ||
                     (playerGravitySignOnRecordStart > 0 && newPlayer.GetComponent<PlayerMovement>().gravity < 0))

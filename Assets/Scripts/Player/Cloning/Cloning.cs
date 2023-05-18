@@ -13,6 +13,7 @@ public class Cloning : MonoBehaviour
     public InputAction recordButton, playButton;
 
     List<PlayerSnapshot> snapshotArray;
+    List<PlayerEvent> eventArray;
 
     private void Start()
     {
@@ -47,10 +48,15 @@ public class Cloning : MonoBehaviour
         Clone cloneScript = clone.GetComponent<Clone>();
 
         cloneScript.snapshotArray = new List<PlayerSnapshot>(snapshotArray);
+        cloneScript.eventArray = new List<PlayerEvent>(eventArray);
     }
 
     public void SetSnapshotArray(List<PlayerSnapshot> newSnapshotArray)
     {
         snapshotArray = new List<PlayerSnapshot>(newSnapshotArray);
+    }
+    public void SetEventArray(List<PlayerEvent> newEventArray)
+    {
+        eventArray = new List<PlayerEvent>(newEventArray);
     }
 }

@@ -21,7 +21,9 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight = 6f;
     Vector3 velocity;
     float velocityY;
+    float hVelMagMax = 7.5f;
     bool isGrounded;
+
 
     [SerializeField] float cameraCap;
     Vector2 currentMouseDelta;
@@ -49,7 +51,11 @@ public class PlayerMovement : MonoBehaviour
     public GameObject waterParticle;
 
     public FMODUnity.EventReference footstepsEvent;
+    private FMOD.Studio.EventInstance footstepsEventInstance;
     private float footstepTimer = 0f;
+    enum SurfaceType { Concrete, Grass, Water, Rock }
+
+    public FMODUnity.EventReference jumpEvent;
 
     void Start()
     {
@@ -115,13 +121,13 @@ public class PlayerMovement : MonoBehaviour
         velocityY += gravity * Time.deltaTime;
         velocity = (transform.forward * targetDir.y + transform.right * targetDir.x) * moveSpeed + Vector3.up * velocityY;
         controller.Move(velocity * Time.deltaTime);
-        double currentHVelMag = Math.Sqrt(Math.Pow(velocity.x, 2) + Math.Pow(velocity.z, 2));
-        if (footstepTimer > 2)
+        double currentHVelMag = Math.Sqrt(Math.Pow(controller.velocity.x, 2) + Math.Pow(controller.velocity.z, 2));
+        if (footstepTimer > 1/3f)
         {
             CallFootsteps();
             footstepTimer = 0;
         }
-        else footstepTimer += Time.deltaTime * (float)currentHVelMag;
+        else footstepTimer += Time.deltaTime * (((float)currentHVelMag)/hVelMagMax);
 
         // JUMP
         if (jumpButton.WasPressedThisFrame() && (isGrounded || (!isGrounded && canJetpack)))
@@ -150,6 +156,9 @@ public class PlayerMovement : MonoBehaviour
 
     public float Jump(float height)
     {
+        FMODUnity.RuntimeManager.PlayOneShotAttached(jumpEvent, gameObject);
+        if (recorder.isRecording) recorder.eventArray.Add(new PlayerEvent(PlayerEvent.EventType.Jump, Time.time - recorder.GetRecordingStartTime()));
+
         float velocityY = Mathf.Sqrt(height * Mathf.Abs(gravity)) * -Mathf.Sign(gravity);
         return velocityY;
     }
@@ -164,9 +173,20 @@ public class PlayerMovement : MonoBehaviour
 
     void CallFootsteps()
     {
-        double currentHVelMag = Math.Sqrt(Math.Pow(velocity.x, 2) + Math.Pow(velocity.z, 2));
+        double currentHVelMag = Math.Sqrt(Math.Pow(controller.velocity.x, 2) + Math.Pow(controller.velocity.z, 2));
 
         if (isGrounded && currentHVelMag > DOUBLE_MINIMUM_VALUE)
-            FMODUnity.RuntimeManager.PlayOneShot(footstepsEvent);
+        {
+            footstepsEventInstance = FMODUnity.RuntimeManager.CreateInstance(footstepsEvent);
+            FMODUnity.RuntimeManager.AttachInstanceToGameObject(footstepsEventInstance, GetComponent<Transform>(), GetComponent<Rigidbody>());
+            footstepsEventInstance.setParameterByName("MoveSpeed", (float)currentHVelMag/hVelMagMax);
+            footstepsEventInstance.setParameterByName("Surface", (float)SurfaceType.Rock);
+
+            Debug.Log(currentHVelMag);
+            footstepsEventInstance.start();
+
+            if (recorder.isRecording) recorder.eventArray.Add(new PlayerEvent(PlayerEvent.EventType.FootstepsSound, Time.time - recorder.GetRecordingStartTime()));
+            // ToDo: save footsteps parameters (maybe using a dictionary is the best choice for this)
+        }
     }
 }
