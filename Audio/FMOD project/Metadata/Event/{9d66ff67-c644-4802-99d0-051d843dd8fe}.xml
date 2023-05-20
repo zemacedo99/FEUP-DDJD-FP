@@ -34,6 +34,9 @@
 		<relationship name="parameters">
 			<destination>{785cc55e-1e68-46d2-8005-d66c169bdc5c}</destination>
 		</relationship>
+		<relationship name="banks">
+			<destination>{77e9f11a-a400-42fc-9f9d-b928fd771119}</destination>
+		</relationship>
 	</object>
 	<object class="EventMixer" id="{b7d1242e-09ca-462c-b779-525a9e95dbc0}">
 		<relationship name="masterBus">
@@ -286,6 +289,7 @@
 		</property>
 		<relationship name="modulators">
 			<destination>{42e63632-fa50-411f-b9cc-7622284d13f5}</destination>
+			<destination>{dbae5e94-9638-4561-88e8-348b35fcfc04}</destination>
 		</relationship>
 	</object>
 	<object class="MultibandEqEffect" id="{91a3e7f3-a996-433f-a0b6-7c9784c4f549}">
@@ -314,7 +318,7 @@
 			<value>1</value>
 		</property>
 		<property name="value">
-			<value>3</value>
+			<value>0</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{107f64fc-3755-4020-84df-f4b3dfcc3950}">
@@ -322,7 +326,7 @@
 			<value>0</value>
 		</property>
 		<property name="value">
-			<value>0</value>
+			<value>3</value>
 		</property>
 	</object>
 	<object class="LFOModulator" id="{42e63632-fa50-411f-b9cc-7622284d13f5}">
@@ -338,6 +342,14 @@
 		<relationship name="automators">
 			<destination>{fca1de33-6ed4-418c-9cd5-ece17e51490d}</destination>
 		</relationship>
+	</object>
+	<object class="RandomizerModulator" id="{dbae5e94-9638-4561-88e8-348b35fcfc04}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>frequencyC</value>
+		</property>
+		<property name="amount">
+			<value>9.5</value>
+		</property>
 	</object>
 	<object class="Automator" id="{defdf463-1580-4214-b7e9-ae9e9fa5f8be}">
 		<property name="nameOfPropertyBeingAutomated">
@@ -421,7 +433,7 @@
 			<value>1</value>
 		</property>
 		<property name="value">
-			<value>800</value>
+			<value>22000</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{570e003a-67c5-423a-b63e-2e4b39fca2f1}">
@@ -429,7 +441,10 @@
 			<value>0.0041425020712510356</value>
 		</property>
 		<property name="value">
-			<value>22000</value>
+			<value>320</value>
+		</property>
+		<property name="curveShape">
+			<value>-0.125831828</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{1e89e6d5-a943-4c9a-8ddb-63000ef4f568}">
