@@ -19,6 +19,8 @@ public class Oxygen : MonoBehaviour
 
     CharacterController controller;
 
+    public FMODUnity.EventReference outOfOxygenEvent;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -88,6 +90,10 @@ public class Oxygen : MonoBehaviour
     void Die()
     {
         Debug.Log("Player has run out of oxygen");
+
+        // Play FMOD event
+        FMODUnity.RuntimeManager.PlayOneShotAttached(outOfOxygenEvent, gameObject);
+
         // Implement restart the level
         controller.enabled = false;
         transform.position = oxygenStationPosition;

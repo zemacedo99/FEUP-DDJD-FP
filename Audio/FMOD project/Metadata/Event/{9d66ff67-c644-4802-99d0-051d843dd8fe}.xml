@@ -296,9 +296,6 @@
 		<property name="filterTypeA">
 			<value>5</value>
 		</property>
-		<property name="filterTypeE">
-			<value>1</value>
-		</property>
 		<property name="frequencyA">
 			<value>620</value>
 		</property>
@@ -468,7 +465,7 @@
 			<value>7.950086590038314</value>
 		</property>
 		<property name="value">
-			<value>0.0899999961</value>
+			<value>0</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{590895c9-36ea-4ecd-a35f-118b191c4914}">
@@ -497,10 +494,10 @@
 	</object>
 	<object class="AutomationPoint" id="{fd8ccd07-e400-4cfa-a31a-d6d418a8e20d}">
 		<property name="position">
-			<value>22.091715270935961</value>
+			<value>23</value>
 		</property>
 		<property name="value">
-			<value>0.090000011</value>
+			<value>0</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{a5a8d945-59af-4a82-b458-d514f49351b4}">

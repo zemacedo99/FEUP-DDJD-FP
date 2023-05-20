@@ -90,9 +90,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Surface", surfaceType);
-        float fmodOutput;
-        FMODUnity.RuntimeManager.StudioSystem.getParameterByName("Surface", out fmodOutput);
-        print(fmodOutput);
 
         if (gravity == 0)
             Debug.Log("GRAVITY IS ZEROOO");
