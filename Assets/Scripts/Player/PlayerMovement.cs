@@ -59,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
     private float footstepTimer = 0f;
 
     public FMODUnity.EventReference jumpEvent;
+    public FMODUnity.EventReference landingEvent;
 
     void Start()
     {
@@ -112,7 +113,14 @@ public class PlayerMovement : MonoBehaviour
 
     void UpdateMove()
     {
+        var previousIsGrounded = isGrounded;
         isGrounded = Physics.CheckSphere(groundCheck.position, 0.35f, ground);
+
+        if (isGrounded && !previousIsGrounded)
+        {
+            // Play landing sound
+            FMODUnity.RuntimeManager.PlayOneShotAttached(landingEvent, gameObject);
+        }
 
         Vector2 newMoveInputValue;
 

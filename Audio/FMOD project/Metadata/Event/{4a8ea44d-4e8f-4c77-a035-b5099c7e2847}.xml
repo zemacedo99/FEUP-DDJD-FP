@@ -115,8 +115,11 @@
 		<property name="start">
 			<value>2</value>
 		</property>
-		<property name="pitch">
+		<property name="volume">
 			<value>-3</value>
+		</property>
+		<property name="pitch">
+			<value>-8</value>
 		</property>
 		<relationship name="event">
 			<destination>{d19132cd-621e-4f2e-9a77-e30fa27ea7e6}</destination>

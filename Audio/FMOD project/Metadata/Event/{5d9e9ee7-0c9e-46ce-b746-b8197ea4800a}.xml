@@ -208,6 +208,9 @@
 		<property name="start">
 			<value>2</value>
 		</property>
+		<property name="volume">
+			<value>3</value>
+		</property>
 		<relationship name="event">
 			<destination>{3f78b30c-55da-49fd-94f6-85d13f63493a}</destination>
 		</relationship>
