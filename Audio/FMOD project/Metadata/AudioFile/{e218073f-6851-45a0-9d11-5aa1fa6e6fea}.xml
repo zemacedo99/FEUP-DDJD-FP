@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{e218073f-6851-45a0-9d11-5aa1fa6e6fea}">
+		<property name="assetPath">
+			<value>Player/FS_Player/Rock/FS_Rock-017.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.434</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a1d0acbe-636d-4a2a-9860-056e3465eb10}</destination>
+		</relationship>
+	</object>
+</objects>
