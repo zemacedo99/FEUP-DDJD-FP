@@ -108,6 +108,9 @@
 		<property name="start">
 			<value>2</value>
 		</property>
+		<property name="pitch">
+			<value>-3</value>
+		</property>
 		<relationship name="event">
 			<destination>{d19132cd-621e-4f2e-9a77-e30fa27ea7e6}</destination>
 		</relationship>
@@ -142,6 +145,7 @@
 	<object class="MixerBusEffectChain" id="{7097e16a-e0b9-4421-b755-0717f2adf3d8}">
 		<relationship name="effects">
 			<destination>{a3befe09-5420-4cfc-8679-f2fce363ffe0}</destination>
+			<destination>{bff4a8ec-41cd-4d76-aba3-5d90bfb34b55}</destination>
 			<destination>{33ea7ed4-8420-413c-b183-b2df00625c82}</destination>
 		</relationship>
 	</object>
@@ -157,6 +161,14 @@
 	</object>
 	<object class="MixerBusPanner" id="{09f06466-051d-4e5a-b7ec-1ac8002bfae6}" />
 	<object class="MixerBusFader" id="{a3befe09-5420-4cfc-8679-f2fce363ffe0}" />
+	<object class="ProxyEffect" id="{bff4a8ec-41cd-4d76-aba3-5d90bfb34b55}">
+		<property name="inputFormat">
+			<value>0</value>
+		</property>
+		<relationship name="preset">
+			<destination>{b7bb6703-665e-47fe-bd35-9449986a203e}</destination>
+		</relationship>
+	</object>
 	<object class="ProxyEffect" id="{33ea7ed4-8420-413c-b183-b2df00625c82}">
 		<property name="inputFormat">
 			<value>0</value>
