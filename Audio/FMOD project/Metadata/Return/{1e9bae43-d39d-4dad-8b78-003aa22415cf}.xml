@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="MixerReturn" id="{1e9bae43-d39d-4dad-8b78-003aa22415cf}">
 		<property name="volume">
-			<value>-80</value>
+			<value>-6</value>
 		</property>
 		<property name="name">
 			<value>Reverb (Open World)</value>
@@ -20,8 +20,14 @@
 	<object class="MixerBusEffectChain" id="{e11fb48c-2ee5-4790-9677-8e6c8e8cee9e}">
 		<relationship name="effects">
 			<destination>{5c2e8ad7-d200-4be6-9fd7-62b7f8c09321}</destination>
+			<destination>{d4aa2339-7278-4960-aafb-18bb41331e88}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{6a4b0380-25ba-4ee9-b634-6feb85c776df}" />
 	<object class="MixerBusFader" id="{5c2e8ad7-d200-4be6-9fd7-62b7f8c09321}" />
+	<object class="GainEffect" id="{d4aa2339-7278-4960-aafb-18bb41331e88}">
+		<property name="gain">
+			<value>-80</value>
+		</property>
+	</object>
 </objects>
