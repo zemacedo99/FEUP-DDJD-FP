@@ -24,7 +24,7 @@ public class Oxygen : MonoBehaviour
         controller = GetComponent<CharacterController>();
         lastPosition = transform.position;
         oxygenStationPosition = transform.position;
-        oxygenSlider.maxValue = oxygenValue;
+        oxygenSlider.maxValue = 300;
     }
 
     void Update()
@@ -45,12 +45,24 @@ public class Oxygen : MonoBehaviour
         UpdateSlider(oxygenValue);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("OxygenStation"))
+        {
+            oxygenStationPosition = other.transform.parent.transform.position;
+            oxygenStationPosition += new Vector3(0, 1, 0);
+            StoreCheckpoint();
+            Debug.Log("saving checkpoint");
+            //GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerInventory>().inventory.Save();
+            Debug.Log(oxygenStationPosition);
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("OxygenStation"))
         {
             oxygenStationPosition = other.transform.position;
-            StoreCheckpoint();
             RefillOxygen(); 
         }
     }
@@ -69,6 +81,12 @@ public class Oxygen : MonoBehaviour
         value = Mathf.Clamp(value, 0f, oxygenSlider.maxValue);
         oxygenSlider.value = value;
         oxygenText.text = "Oxygen: " + value.ToString("F0");
+    }
+
+    public void SetOxygenValue(float oxygenValue)
+    {
+        this.oxygenValue = oxygenValue;
+        this.UpdateSlider(oxygenValue);
     }
 
     void RefillOxygen()
@@ -95,6 +113,7 @@ public class Oxygen : MonoBehaviour
 
     void StoreCheckpoint()
     {
+        print("Storing");
         PlayerPrefs.SetFloat("CheckpointX", oxygenStationPosition.x);
         PlayerPrefs.SetFloat("CheckpointY", oxygenStationPosition.y);
         PlayerPrefs.SetFloat("CheckpointZ", oxygenStationPosition.z);
