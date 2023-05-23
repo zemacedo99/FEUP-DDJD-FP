@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class PlayerInventory : MonoBehaviour
 {
-    public InventoryObject inventory;
+    //public InventoryObject inventory;
+    public InventoryScript inventory;
     public InputActionAsset actions;
     public InputAction pickupInput;
     public GameObject InventoryScreen;
@@ -38,8 +39,10 @@ public class PlayerInventory : MonoBehaviour
 
     private void Start()
     {
+        print("started");
         actions.FindActionMap("interactions").Enable();
         pickupInput = actions.FindActionMap("interactions", true).FindAction("pickup", true);
+        //inventory.Load();
     }
 
     private void Update()
@@ -57,6 +60,6 @@ public class PlayerInventory : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        inventory.Container.Clear();
+        inventory.Clear();
     }
 }

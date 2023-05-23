@@ -28,15 +28,6 @@ public class LevelTrigger : SceneDict
             LeavePuzzle();
     }
 
-    private void PlayerCurrentStatus()
-    {
-        GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerInventory>().inventory.Save(); // Saves Player Current 
-
-        // TODO: Get player's current spawning point
-        int currentSpawnPoint = 0;
-        PlayerPrefs.SetInt("SPAWN_POINT", currentSpawnPoint);
-    }
-
     private void EnterPuzzle()
     {
         SceneManager.LoadScene(scene);
@@ -44,10 +35,11 @@ public class LevelTrigger : SceneDict
 
     private void LeavePuzzle()
     {
-        var pl = GameObject.Find("Player");
+        var pl = GameObject.FindGameObjectWithTag("Player");
         fade = pl.GetComponentInChildren<Camera>().gameObject.GetComponentInChildren<Canvas>().gameObject.GetComponentsInChildren<Image>()[1];
         PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, 1);
         InvokeRepeating(nameof(FadeOut), 0f, 0.05f);
+        pl.GetComponent<PlayerInventory>().inventory.Save(); // Saves Player Current 
     }
 
     private void FadeOut()

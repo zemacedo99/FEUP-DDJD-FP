@@ -6,6 +6,7 @@ using UnityEngine.Windows;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 
 public class MainMenuScript : MonoBehaviour
@@ -62,6 +63,15 @@ public class MainMenuScript : MonoBehaviour
     //    }
     //}
 
+    void DeleteInventoryFile()
+    {
+        string filename = ((InventoryObject)AssetDatabase.LoadAssetAtPath("Assets/Scripts/Inventory/PlayerInventory.asset", typeof(InventoryObject))).savePath;
+        if (File.Exists(string.Concat(Application.persistentDataPath, filename)))
+        {
+            File.Delete(string.Concat(Application.persistentDataPath, filename));
+        }
+    }
+
     void ExecuteSelectedOption()
     {
         switch (selectedOption)
@@ -71,6 +81,7 @@ public class MainMenuScript : MonoBehaviour
                 break;
             case options.NEWGAME:
                 //PlayerSaveSystem.ResetData();
+                DeleteInventoryFile();
                 PlayerPrefs.DeleteAll();
                 SceneManager.LoadScene("World");
                 break;
