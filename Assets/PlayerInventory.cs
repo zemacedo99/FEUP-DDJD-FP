@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class PlayerInventory : MonoBehaviour
 {
-    //public InventoryObject inventory;
     public InventoryScript inventory;
     public InputActionAsset actions;
     public InputAction pickupInput;

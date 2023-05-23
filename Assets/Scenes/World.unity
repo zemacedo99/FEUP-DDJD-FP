@@ -1453,6 +1453,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -28.5542
       objectReference: {fileID: 0}
+    - target: {fileID: 3374016118599475657, guid: 3badafbb5378041dd9a2b2f3672fba9f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7868094856919957222, guid: 3badafbb5378041dd9a2b2f3672fba9f, type: 3}
       propertyPath: m_Name
       value: Player(World)
@@ -1504,6 +1508,10 @@ PrefabInstance:
     - target: {fileID: 8136247095964963007, guid: 3badafbb5378041dd9a2b2f3672fba9f, type: 3}
       propertyPath: m_Value
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431933055175883868, guid: 3badafbb5378041dd9a2b2f3672fba9f, type: 3}
+      propertyPath: m_text
+      value: Go to Main Menu
       objectReference: {fileID: 0}
     - target: {fileID: 8536385081844589147, guid: 3badafbb5378041dd9a2b2f3672fba9f, type: 3}
       propertyPath: m_AnchorMax.x

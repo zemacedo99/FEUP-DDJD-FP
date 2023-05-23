@@ -1911,6 +1911,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 591597648120810149, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
+      propertyPath: m_text
+      value: Go to Main Menu
+      objectReference: {fileID: 0}
     - target: {fileID: 1150872012408776425, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
       propertyPath: inventory
       value: 
@@ -1918,6 +1922,10 @@ PrefabInstance:
     - target: {fileID: 1150872012408776425, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5604573091237753291, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7856395204743844951, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
       propertyPath: m_Name

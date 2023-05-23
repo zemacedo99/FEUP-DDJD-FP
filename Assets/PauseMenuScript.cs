@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuScript : MonoBehaviour
 {
-    enum options { CONTINUE, SETTINGS, LEAVE }
+    enum options { CONTINUE, SETTINGS, GO_TO_MAINMENU }
     private options selectedOption;
     public string missionDescription;
     public InputAction upInput, downInput, selectInput;
@@ -29,7 +29,7 @@ public class PauseMenuScript : MonoBehaviour
 
     void PaintSelectedOption()
     {
-        for (int i = 0; i < (int)options.LEAVE + 1; i++)
+        for (int i = 0; i < (int)options.GO_TO_MAINMENU + 1; i++)
         {
             this.transform.Find("Buttons").GetChild(i).GetComponent<Image>().color = new Color(0, 0, 0, 100f / 255f);
             this.transform.Find("Buttons").GetChild(i).GetChild(0).GetComponent<TextMeshProUGUI>().color = new Color(1, 1, 1, 1);
@@ -53,9 +53,7 @@ public class PauseMenuScript : MonoBehaviour
                 this.GetComponentInParent<CanvasScript>().ActivatePauseMenu(false);
                 print("SETTINGS WAS PRESSED");
                 break;
-            case options.LEAVE:
-                //PlayerSaveSystem.Save();
-                //PlayerPrefs.DeleteAll();
+            case options.GO_TO_MAINMENU:
                 SceneManager.LoadScene("MainMenu");
                 break;
         }
@@ -64,7 +62,7 @@ public class PauseMenuScript : MonoBehaviour
     private void Update()
     {
    
-        if (downInput.WasPressedThisFrame() && selectedOption < options.LEAVE)
+        if (downInput.WasPressedThisFrame() && selectedOption < options.GO_TO_MAINMENU)
         {
             selectedOption += 1;
             PaintSelectedOption();

@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class PuzzlePauseMenuScript : MonoBehaviour
 {
-    enum options { CONTINUE, RESET_QUEST, ABANDON_QUEST, SETTINGS, LEAVE }
+    enum options { CONTINUE, RESET_QUEST, ABANDON_QUEST, SETTINGS, GO_TO_MAINMENU }
     enum warningType { RESET, ADANDON }
     private options selectedOption;
     public string missionDescription;
@@ -31,7 +31,7 @@ public class PuzzlePauseMenuScript : MonoBehaviour
 
     void PaintSelectedOption()
     {
-        for (int i = 0; i < (int)options.LEAVE + 1; i++)
+        for (int i = 0; i < (int)options.GO_TO_MAINMENU + 1; i++)
         {
             this.transform.Find("Buttons").GetChild(i).GetComponent<Image>().color = new Color(0, 0, 0, 100f / 255f);
             this.transform.Find("Buttons").GetChild(i).GetChild(0).GetComponent<TextMeshProUGUI>().color = new Color(1, 1, 1, 1);
@@ -92,8 +92,8 @@ public class PuzzlePauseMenuScript : MonoBehaviour
                 this.GetComponentInParent<CanvasScript>().ActivatePauseMenu(false);
                 print("SETTINGS WAS PRESSED");
                 break;
-            case options.LEAVE:
-                Application.Quit();
+            case options.GO_TO_MAINMENU:
+                SceneManager.LoadScene("MainMenu");
                 break;
         }
     }
@@ -104,7 +104,7 @@ public class PuzzlePauseMenuScript : MonoBehaviour
         {
             return;
         }
-        if (downInput.WasPressedThisFrame() && selectedOption < options.LEAVE)
+        if (downInput.WasPressedThisFrame() && selectedOption < options.GO_TO_MAINMENU)
         {
             selectedOption += 1;
             PaintSelectedOption();
