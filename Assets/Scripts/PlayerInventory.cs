@@ -12,6 +12,8 @@ public class PlayerInventory : MonoBehaviour
     public GameObject InventoryScreen;
     public GameObject PickUpMessage;
     private Item currentTouched = null;
+    
+    public FMODUnity.EventReference itemPickup; 
 
     public void OnTriggerEnter(Collider other)
     {
@@ -52,8 +54,10 @@ public class PlayerInventory : MonoBehaviour
             inventory.AddItem(currentTouched.item, 1);
             Destroy(currentTouched.gameObject);
             currentTouched = null;
+
+            FMODUnity.RuntimeManager.PlayOneShot(itemPickup);
         }
-        
+
         return;
     }
 }

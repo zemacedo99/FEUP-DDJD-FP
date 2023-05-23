@@ -17,6 +17,9 @@ public class PuzzlePauseMenuScript : MonoBehaviour
     public bool isWarningScreen;
     public InputActionAsset actions;
 
+    public FMODUnity.EventReference moveUpDown;
+    public FMODUnity.EventReference select;
+
     void Start()
     {
         isWarningScreen = false;
@@ -42,6 +45,8 @@ public class PuzzlePauseMenuScript : MonoBehaviour
 
             }
         }
+
+        FMODUnity.RuntimeManager.PlayOneShot(moveUpDown);
     }
 
     public void EnableWarningScreen(int _warningType)
@@ -76,6 +81,8 @@ public class PuzzlePauseMenuScript : MonoBehaviour
 
     void ExecuteSelectedOption()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(select);
+
         switch (selectedOption)
         {
             case options.CONTINUE:

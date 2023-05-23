@@ -387,6 +387,13 @@ MonoBehaviour:
     m_Flags: 0
   pauseMenuIsDisplay: 0
   inventoryIsDisplay: 0
+  goBack:
+    Guid:
+      Data1: -2005726049
+      Data2: 1210993593
+      Data3: 2060084670
+      Data4: -914757006
+    Path: event:/UI/Back
 --- !u!1 &3041147600040268838
 GameObject:
   m_ObjectHideFlags: 0
@@ -730,6 +737,20 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   actions: {fileID: -944628639613478452, guid: 107b800f03e150f4fb8e489f0f4a80b4, type: 3}
+  moveUpDown:
+    Guid:
+      Data1: 511404234
+      Data2: 1238536830
+      Data3: 593168514
+      Data4: -1102552173
+    Path: event:/UI/Move
+  select:
+    Guid:
+      Data1: -461254604
+      Data2: 1107750989
+      Data3: 134260381
+      Data4: 1238721926
+    Path: event:/UI/Select
 --- !u!1 &4182954620580207320
 GameObject:
   m_ObjectHideFlags: 0

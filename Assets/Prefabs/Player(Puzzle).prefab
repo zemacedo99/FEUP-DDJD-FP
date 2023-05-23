@@ -1961,24 +1961,6 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
-  leftInput:
-    m_Name: Left Input
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 070f145d-cc0e-4e03-a93f-a0f895587e50
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  rightInput:
-    m_Name: Right Input
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 0bd4fa26-a6f1-4dbb-9091-f658b0272ea8
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
   selectInput:
     m_Name: Select Input
     m_Type: 0
@@ -1990,6 +1972,20 @@ MonoBehaviour:
     m_Flags: 0
   isWarningScreen: 0
   actions: {fileID: -944628639613478452, guid: 107b800f03e150f4fb8e489f0f4a80b4, type: 3}
+  moveUpDown:
+    Guid:
+      Data1: 511404234
+      Data2: 1238536830
+      Data3: 593168514
+      Data4: -1102552173
+    Path: event:/UI/Move
+  select:
+    Guid:
+      Data1: -461254604
+      Data2: 1107750989
+      Data3: 134260381
+      Data4: 1238721926
+    Path: event:/UI/Select
 --- !u!1 &5726725883017274208
 GameObject:
   m_ObjectHideFlags: 0
@@ -3412,6 +3408,13 @@ MonoBehaviour:
     m_Flags: 0
   pauseMenuIsDisplay: 0
   inventoryIsDisplay: 0
+  goBack:
+    Guid:
+      Data1: -2005726049
+      Data2: 1210993593
+      Data3: 2060084670
+      Data4: -914757006
+    Path: event:/UI/Back
 --- !u!1 &9160824450729310094
 GameObject:
   m_ObjectHideFlags: 0

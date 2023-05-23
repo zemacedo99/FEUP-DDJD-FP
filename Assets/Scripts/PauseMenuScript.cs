@@ -15,6 +15,9 @@ public class PauseMenuScript : MonoBehaviour
     public InputAction upInput, downInput, selectInput;
     public InputActionAsset actions;
 
+    public FMODUnity.EventReference moveUpDown;
+    public FMODUnity.EventReference select;
+
     void Start()
     {
 
@@ -40,10 +43,14 @@ public class PauseMenuScript : MonoBehaviour
 
             }
         }
+
+        FMODUnity.RuntimeManager.PlayOneShot(moveUpDown);
     }
 
     void ExecuteSelectedOption()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(select);
+
         switch (selectedOption)
         {
             case options.CONTINUE:
