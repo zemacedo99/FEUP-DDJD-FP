@@ -56,9 +56,4 @@ public class PlayerInventory : MonoBehaviour
         
         return;
     }
-
-    private void OnApplicationQuit()
-    {
-        inventory.Clear();
-    }
 }

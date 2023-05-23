@@ -21,7 +21,7 @@ public class InventoryScript : MonoBehaviour
         inventory.AddItem(item, amount);
     }
 
-    public void Clear()
+    private void OnApplicationQuit()
     {
         inventory.Container.Clear();
     }
