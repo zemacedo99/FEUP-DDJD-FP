@@ -1678,6 +1678,20 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  moveUpDown:
+    Guid:
+      Data1: 511404234
+      Data2: 1238536830
+      Data3: 593168514
+      Data4: -1102552173
+    Path: event:/UI/Move
+  select:
+    Guid:
+      Data1: -461254604
+      Data2: 1107750989
+      Data3: 134260381
+      Data4: 1238721926
+    Path: event:/UI/Select
 --- !u!1 &1231840474
 GameObject:
   m_ObjectHideFlags: 0

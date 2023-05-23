@@ -32,7 +32,6 @@ public class CanvasScript : MonoBehaviour
         else
         {
             Time.timeScale = 1;
-            FMODUnity.RuntimeManager.PlayOneShot(goBack);
         }
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().stopMove = isActive;
         this.GetChildByName("PauseMenu").SetActive(isActive);
@@ -65,6 +64,11 @@ public class CanvasScript : MonoBehaviour
             this.GetChildByName("InventoryScreen").SetActive(inventoryIsDisplay);
 
             PauseMenuSetActive(!pauseMenuIsDisplay);
+
+            if (!pauseMenuIsDisplay)
+            {
+                FMODUnity.RuntimeManager.PlayOneShot(goBack);
+            }
         }
         if (inventoryInput.WasPressedThisFrame() && !pauseMenuIsDisplay)
         {

@@ -608,6 +608,17 @@
                 },
                 {
                     "name": "",
+                    "id": "3cfeca31-1d28-4c23-9153-ddca4fb01266",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "7c57c8f4-8968-496b-a8a7-556c69586f7f",
                     "path": "<Keyboard>/d",
                     "interactions": "",

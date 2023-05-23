@@ -20,6 +20,9 @@ public class MainMenuScript : MonoBehaviour
 
     public InputAction upInput, downInput, selectInput;
 
+    public FMODUnity.EventReference moveUpDown;
+    public FMODUnity.EventReference select;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +49,7 @@ public class MainMenuScript : MonoBehaviour
             }
         }
 
+        FMODUnity.RuntimeManager.PlayOneShot(moveUpDown);
     }
 
     //public void SetWarningText(int _type)
@@ -74,6 +78,8 @@ public class MainMenuScript : MonoBehaviour
 
     void ExecuteSelectedOption()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(select);
+
         switch (selectedOption)
         {
             case options.CONTINUE:
