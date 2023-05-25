@@ -65,7 +65,9 @@ public class PuzzlePauseMenuScript : MonoBehaviour
 
     public void ResetQuest()
     {
+        
         SceneManager.LoadScene("Puzzle");
+
     }
     public void AbandonQuest()
     {

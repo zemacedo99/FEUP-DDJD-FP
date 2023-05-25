@@ -19,6 +19,7 @@ public class MainMenuScript : MonoBehaviour
     public GameObject player;
 
     public InputAction upInput, downInput, selectInput;
+    private bool isWarningScreen = false;
 
     public FMODUnity.EventReference moveUpDown;
     public FMODUnity.EventReference select;
@@ -76,6 +77,28 @@ public class MainMenuScript : MonoBehaviour
         }
     }
 
+    public void EnableWarningScreen(int _warningType)
+    {
+        isWarningScreen = true;
+        GameObject warningScreen = this.transform.Find("WarningScreen").gameObject;
+        warningScreen.SetActive(true);
+        warningScreen.GetComponent<WarningScreenScript>().SetWarningText(_warningType);
+    }
+
+    public void DisableWarningScreen()
+    {
+        isWarningScreen = false;
+        GameObject warningScreen = this.transform.Find("WarningScreen").gameObject;
+        warningScreen.SetActive(false);
+    }
+
+    public void RestartNewGame()
+    {
+        DeleteInventoryFile();
+        PlayerPrefs.DeleteAll();
+        SceneManager.LoadScene("World");
+    }
+
     void ExecuteSelectedOption()
     {
         FMODUnity.RuntimeManager.PlayOneShot(select);
@@ -86,10 +109,7 @@ public class MainMenuScript : MonoBehaviour
                 SceneManager.LoadScene("World");
                 break;
             case options.NEWGAME:
-                //PlayerSaveSystem.ResetData();
-                DeleteInventoryFile();
-                PlayerPrefs.DeleteAll();
-                SceneManager.LoadScene("World");
+                EnableWarningScreen(2);
                 break;
             case options.OPTIONS:
                 SceneManager.LoadScene("World");
@@ -105,17 +125,18 @@ public class MainMenuScript : MonoBehaviour
 
     void Update()
     {
+        if (isWarningScreen)
+        {
+            return;
+        }
         if (downInput.WasPressedThisFrame() && selectedOption < options.EXIT)
         {
-            print("down");
             selectedOption += 1;
             PaintSelectedOption();
             return;
         }
         if (upInput.WasPressedThisFrame() && selectedOption > 0)
         {
-            print("up");
-
             selectedOption -= 1;
             PaintSelectedOption();
             return;
