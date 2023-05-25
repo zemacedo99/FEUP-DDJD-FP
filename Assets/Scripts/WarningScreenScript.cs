@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class WarningScreenScript : MonoBehaviour
 {
     enum options { NO, YES }
-    enum warningType { RESET, ADANDON }
+    enum warningType { RESET, ADANDON, NEW_GAME }
     private warningType type = warningType.RESET;
     private options selectedOption;
     public InputActionAsset actions;
@@ -58,30 +58,46 @@ public class WarningScreenScript : MonoBehaviour
             this.transform.GetChild(0).Find("WarningText").GetComponent<TextMeshProUGUI>().text = "Are you sure you want to abandon the quest?";
             this.type = warningType.ADANDON;
         }
+        if (_type == (int)warningType.NEW_GAME)
+        {
+            this.transform.GetChild(0).Find("WarningText").GetComponent<TextMeshProUGUI>().text = "Are you sure you want to start new game? \nThis will overwrite your existing saved game";
+            this.type = warningType.NEW_GAME;
+        }
     }
 
     void ExecuteSelectedOption()
     {
+        if (this.type != warningType.NEW_GAME)
+        {
+            this.GetComponentInParent<PuzzlePauseMenuScript>().DisableWarningScreen();
+        }else
+        {
+            this.GetComponentInParent<MainMenuScript>().DisableWarningScreen();
+        }
         switch (selectedOption)
         {
             case options.NO:
-                this.GetComponentInParent<PuzzlePauseMenuScript>().DisableWarningScreen();
                 break;
             case options.YES:
-                this.GetComponentInParent<PuzzlePauseMenuScript>().DisableWarningScreen();
                 if (this.type == warningType.RESET)
                 {
                     this.GetComponentInParent<PuzzlePauseMenuScript>().ResetQuest();
-                    break;
+                    return;
                 }
-                else
+                if (this.type == warningType.ADANDON)
                 {
-                    print("abandon");
                     this.GetComponentInParent<PuzzlePauseMenuScript>().AbandonQuest();
-                    break;
+                    return;
 
                 }
-
+                if (this.type == warningType.NEW_GAME)
+                {
+                    this.GetComponentInParent<MainMenuScript>().RestartNewGame();
+                    return;
+                }
+                return;
+            default:
+                return;
         }
     }
 
