@@ -195,4 +195,11 @@ public class PlayerMovement : MonoBehaviour
             // ToDo: save footsteps parameters (maybe using a dictionary is the best choice for this)
         }
     }
+
+    public void ResetMovement()
+    {
+        velocity = Vector3.zero;
+        targetDir = Vector3.zero;
+        velocityY = 0f;
+    }
 }

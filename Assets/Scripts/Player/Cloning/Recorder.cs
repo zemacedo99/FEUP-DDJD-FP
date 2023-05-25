@@ -117,13 +117,19 @@ public class Recorder : MonoBehaviour
                 Vector3 initialPosition = snapshotArray[0].position;
                 Quaternion initialRotation = snapshotArray[0].rotation;
 
-                GameObject newPlayer = Instantiate(gameObject, initialPosition, initialRotation);
-                newPlayer.name = "Player(Puzzle)";
-                if ((playerGravitySignOnRecordStart < 0 && newPlayer.GetComponent<PlayerMovement>().gravity > 0) ||
-                    (playerGravitySignOnRecordStart > 0 && newPlayer.GetComponent<PlayerMovement>().gravity < 0))
-                    newPlayer.GetComponent<PlayerMovement>().gravity *= -1f;
+                //GameObject newPlayer = Instantiate(gameObject, initialPosition, initialRotation);
+                //newPlayer.name = "Player(Puzzle)";
+                //if ((playerGravitySignOnRecordStart < 0 && newPlayer.GetComponent<PlayerMovement>().gravity > 0) ||
+                //    (playerGravitySignOnRecordStart > 0 && newPlayer.GetComponent<PlayerMovement>().gravity < 0))
+                //    newPlayer.GetComponent<PlayerMovement>().gravity *= -1f;
 
-                Destroy(gameObject);
+                gameObject.transform.SetPositionAndRotation(initialPosition, initialRotation);
+                playerMovement.ResetMovement();
+                if ((playerGravitySignOnRecordStart < 0 && playerMovement.gravity > 0) ||
+                    (playerGravitySignOnRecordStart > 0 && playerMovement.gravity < 0))
+                    GetComponent<PlayerMovement>().gravity *= -1f;
+
+                //Destroy(gameObject);
             }
         }
     }
