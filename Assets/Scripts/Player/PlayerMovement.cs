@@ -158,6 +158,9 @@ public class PlayerMovement : MonoBehaviour
 
             velocityY = 0f;
         }
+
+        print(gravity);
+        print(velocityY);
     }
 
     public float Jump(float height)

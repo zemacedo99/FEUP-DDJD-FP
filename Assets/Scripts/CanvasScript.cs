@@ -58,6 +58,11 @@ public class CanvasScript : MonoBehaviour
         this.GetChildByName("InventoryScreen").SetActive(isActive);
     }
 
+    private void OnDestroy()
+    {
+        Time.timeScale = 1;
+    }
+
     void Update()
     {
         if (pauseInput.WasPressedThisFrame())
