@@ -50,6 +50,8 @@ public class PlayerMovement : MonoBehaviour
     public float jetCost;
     public GameObject waterParticle;
 
+    CanvasScript canvasScript;
+
     public FMODUnity.EventReference footstepsEvent;
     private FMOD.Studio.EventInstance footstepsEventInstance;
     private float footstepTimer = 0f;
@@ -72,6 +74,8 @@ public class PlayerMovement : MonoBehaviour
         recorder = GetComponent<Recorder>();
         cloningScript = GetComponent<Cloning>();
 
+        canvasScript = GameObject.FindGameObjectWithTag("UI Canvas").GetComponent<CanvasScript>();
+
         if (cursorLock)
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -88,6 +92,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (gravity == 0)
             Debug.Log("GRAVITY IS ZEROOO");
+
+        if (canvasScript.isPaused) return;
         UpdateMouse();
         UpdateMove();
     }
@@ -188,5 +194,12 @@ public class PlayerMovement : MonoBehaviour
             if (recorder.isRecording) recorder.eventArray.Add(new PlayerEvent(PlayerEvent.EventType.FootstepsSound, Time.time - recorder.GetRecordingStartTime()));
             // ToDo: save footsteps parameters (maybe using a dictionary is the best choice for this)
         }
+    }
+
+    public void ResetMovement()
+    {
+        velocity = Vector3.zero;
+        targetDir = Vector3.zero;
+        velocityY = 0f;
     }
 }

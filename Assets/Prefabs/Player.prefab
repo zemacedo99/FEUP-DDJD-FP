@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1010445595383186401}
   - component: {fileID: 6484459017631928240}
   - component: {fileID: 1041068118347096609}
+  - component: {fileID: 7852836038629847381}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -225,6 +226,7 @@ MonoBehaviour:
   canJetpack: 0
   jetCost: 30
   waterParticle: {fileID: 5042082143303038769, guid: f2d1b0ec878b0b54f8691363bdc37622, type: 3}
+  canvas: {fileID: 0}
   footstepsEvent:
     Guid:
       Data1: 1570676455
@@ -267,6 +269,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img: {fileID: 2030141653023575008}
+--- !u!114 &7852836038629847381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010445595383186411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a217e89c2ba2c41d39b9dcfb85eddba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 579830500328470634, guid: 5d6b346a0b47a4eab85c5574560d9c8a, type: 3}
+  actions: {fileID: -944628639613478452, guid: 107b800f03e150f4fb8e489f0f4a80b4, type: 3}
+  pickupInput:
+    m_Name: Pickup Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 9799b823-3f35-46f8-99f3-f872be4d6d98
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  InventoryScreen: {fileID: 0}
+  PickUpMessage: {fileID: 0}
+  itemPickup:
+    Guid:
+      Data1: 782640647
+      Data2: 1160938323
+      Data3: 1137325199
+      Data4: -441023308
+    Path: event:/UI/Item picked
 --- !u!1 &1561321445208504883
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,7 +576,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 15871
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

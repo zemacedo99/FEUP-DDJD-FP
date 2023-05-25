@@ -64,6 +64,10 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
             JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), this);
             file.Close();
         }
+        else
+        {
+            Container = new List<InventorySlot>();
+        }
     }
 }
 

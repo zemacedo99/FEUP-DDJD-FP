@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class MapToggle : MonoBehaviour
 {
     public GameObject mapCanvas;
+    public InputActionAsset actions;
     private InputAction toggleMapAction;
     private bool isMapActive = false;
 
@@ -22,11 +23,19 @@ public class MapToggle : MonoBehaviour
 
     private void Awake()
     {
-        toggleMapAction = new InputAction("interactions/map", binding: "<Keyboard>/m");
-        toggleMapAction.performed += ToggleMap;
+        actions.FindActionMap("interactions").Enable();
+        toggleMapAction = actions.FindActionMap("interactions", true).FindAction("map", true);
     }
 
-    private void ToggleMap(InputAction.CallbackContext context)
+    private void Update()
+    {
+        if (toggleMapAction.WasPressedThisFrame())
+        {
+            ToggleMap();
+        }
+    }
+
+    private void ToggleMap()
     {
         isMapActive = !isMapActive;
         mapCanvas.SetActive(isMapActive);
