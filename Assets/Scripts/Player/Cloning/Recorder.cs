@@ -65,7 +65,7 @@ public class Recorder : MonoBehaviour
         eventArray = new List<PlayerEvent>();
 
         playerMovement = gameObject.GetComponent<PlayerMovement>();
-        canvasScript = canvasScript = GameObject.FindGameObjectWithTag("UI Canvas").GetComponent<CanvasScript>();
+        canvasScript = GameObject.FindGameObjectWithTag("UI Canvas").GetComponent<CanvasScript>();
     }
 
     void FixedUpdate()
@@ -118,7 +118,7 @@ public class Recorder : MonoBehaviour
                 Quaternion initialRotation = snapshotArray[0].rotation;
 
                 GameObject newPlayer = Instantiate(gameObject, initialPosition, initialRotation);
-                newPlayer.name = "Player";
+                newPlayer.name = "Player(Puzzle)";
                 if ((playerGravitySignOnRecordStart < 0 && newPlayer.GetComponent<PlayerMovement>().gravity > 0) ||
                     (playerGravitySignOnRecordStart > 0 && newPlayer.GetComponent<PlayerMovement>().gravity < 0))
                     newPlayer.GetComponent<PlayerMovement>().gravity *= -1f;

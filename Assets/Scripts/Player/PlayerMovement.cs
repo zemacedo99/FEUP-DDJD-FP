@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
         recorder = GetComponent<Recorder>();
         cloningScript = GetComponent<Cloning>();
 
-        canvasScript = canvasScript = GameObject.FindGameObjectWithTag("UI Canvas").GetComponent<CanvasScript>();
+        canvasScript = GameObject.FindGameObjectWithTag("UI Canvas").GetComponent<CanvasScript>();
 
         if (cursorLock)
         {
