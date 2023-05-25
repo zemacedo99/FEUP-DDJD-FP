@@ -112,13 +112,16 @@ public class MainMenuScript : MonoBehaviour
                 EnableWarningScreen(2);
                 break;
             case options.OPTIONS:
+                print("OPTIONS SELECTED");
                 SceneManager.LoadScene("World");
                 break;
             case options.CREDITS:
+                print("OPTIONS SELECTED");
                 SceneManager.LoadScene("World");
                 break;
             case options.EXIT:
-                SceneManager.LoadScene("World");
+                print("QUIT GAME SELECTED");
+                Application.Quit();
                 break;
         }
     }
