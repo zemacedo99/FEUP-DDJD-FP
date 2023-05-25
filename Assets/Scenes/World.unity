@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -53068,7 +53068,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1010445595383186407, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 125.6
+      value: 21.2
       objectReference: {fileID: 0}
     - target: {fileID: 1010445595383186407, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -53076,7 +53076,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1010445595383186407, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 89.7
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 1010445595383186407, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -53161,6 +53161,18 @@ PrefabInstance:
     - target: {fileID: 5128303587087096746, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_Range
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128303587087096746, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7490566
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128303587087096746, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9190505
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128303587087096746, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5128303587087096746, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_Intensity
