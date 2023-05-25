@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 2514963534893373591}
   m_Layer: 5
   m_Name: UI Canvas
-  m_TagString: Untagged
+  m_TagString: UI Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -387,6 +387,7 @@ MonoBehaviour:
     m_Flags: 0
   pauseMenuIsDisplay: 0
   inventoryIsDisplay: 0
+  isPaused: 0
   goBack:
     Guid:
       Data1: -2005726049
@@ -2935,6 +2936,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1010445595383186401, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 2724276225778712674}
+    - target: {fileID: 1010445595383186401, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: jumpHeight
       value: 3
       objectReference: {fileID: 0}
@@ -2998,6 +3003,10 @@ PrefabInstance:
       propertyPath: oxygenSlider
       value: 
       objectReference: {fileID: 8136247095964963007}
+    - target: {fileID: 7106066949501403723, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 2724276225778712674}
     - target: {fileID: 7106066949501403723, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_Enabled
       value: 0

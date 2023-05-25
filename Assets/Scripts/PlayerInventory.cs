@@ -40,7 +40,6 @@ public class PlayerInventory : MonoBehaviour
 
     private void Start()
     {
-        print("started");
         actions.FindActionMap("interactions").Enable();
         pickupInput = actions.FindActionMap("interactions", true).FindAction("pickup", true);
         //inventory.Load();

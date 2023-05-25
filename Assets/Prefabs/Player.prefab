@@ -226,6 +226,7 @@ MonoBehaviour:
   canJetpack: 0
   jetCost: 30
   waterParticle: {fileID: 5042082143303038769, guid: f2d1b0ec878b0b54f8691363bdc37622, type: 3}
+  canvas: {fileID: 0}
   footstepsEvent:
     Guid:
       Data1: 1570676455
@@ -240,7 +241,6 @@ MonoBehaviour:
       Data3: -1734618959
       Data4: -2061074798
     Path: event:/Player/Jump
-  stopMove: 0
 --- !u!114 &6484459017631928240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a217e89c2ba2c41d39b9dcfb85eddba3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
+  inventory: {fileID: 579830500328470634, guid: 5d6b346a0b47a4eab85c5574560d9c8a, type: 3}
   actions: {fileID: -944628639613478452, guid: 107b800f03e150f4fb8e489f0f4a80b4, type: 3}
   pickupInput:
     m_Name: Pickup Input

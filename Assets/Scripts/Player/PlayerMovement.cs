@@ -50,14 +50,14 @@ public class PlayerMovement : MonoBehaviour
     public float jetCost;
     public GameObject waterParticle;
 
+    CanvasScript canvasScript;
+
     public FMODUnity.EventReference footstepsEvent;
     private FMOD.Studio.EventInstance footstepsEventInstance;
     private float footstepTimer = 0f;
     enum SurfaceType { Concrete, Grass, Water, Rock }
 
     public FMODUnity.EventReference jumpEvent;
-
-    public bool stopMove;
 
     void Start()
     {
@@ -73,6 +73,8 @@ public class PlayerMovement : MonoBehaviour
         controller = GetComponent<CharacterController>();
         recorder = GetComponent<Recorder>();
         cloningScript = GetComponent<Cloning>();
+
+        canvasScript = canvasScript = GameObject.FindGameObjectWithTag("UI Canvas").GetComponent<CanvasScript>();
 
         if (cursorLock)
         {
@@ -90,6 +92,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (gravity == 0)
             Debug.Log("GRAVITY IS ZEROOO");
+
+        if (canvasScript.isPaused) return;
         UpdateMouse();
         UpdateMove();
     }

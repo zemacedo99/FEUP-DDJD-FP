@@ -50,13 +50,14 @@ public class Recorder : MonoBehaviour
     GameObject newCube;
 
     public InputActionAsset actions;
-    public InputAction recordButton, playButton;
+    public InputAction recordButton;
+
+    CanvasScript canvasScript;
 
     // Start is called before the first frame update
     void Start()
     {
         recordButton = actions.FindActionMap("recorder", true).FindAction("record", true);
-        playButton = actions.FindActionMap("recorder", true).FindAction("play", true);
         actions.FindActionMap("recorder").Enable();
 
         isRecording = false;
@@ -64,6 +65,7 @@ public class Recorder : MonoBehaviour
         eventArray = new List<PlayerEvent>();
 
         playerMovement = gameObject.GetComponent<PlayerMovement>();
+        canvasScript = canvasScript = GameObject.FindGameObjectWithTag("UI Canvas").GetComponent<CanvasScript>();
     }
 
     void FixedUpdate()
@@ -75,6 +77,8 @@ public class Recorder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (canvasScript.isPaused) return;
+
         if (recordButton.WasPressedThisFrame())
         {
             // Record
