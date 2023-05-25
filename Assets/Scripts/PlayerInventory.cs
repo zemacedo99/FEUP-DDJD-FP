@@ -6,14 +6,14 @@ using UnityEngine.UI;
 
 public class PlayerInventory : MonoBehaviour
 {
-    public InventoryObject inventory;
-    public bool isDisplay = false;
+    public InventoryScript inventory;
     public InputActionAsset actions;
-    public InputAction inventoryInput;
     public InputAction pickupInput;
     public GameObject InventoryScreen;
     public GameObject PickUpMessage;
     private Item currentTouched = null;
+    
+    public FMODUnity.EventReference itemPickup; 
 
     public void OnTriggerEnter(Collider other)
     {
@@ -41,30 +41,22 @@ public class PlayerInventory : MonoBehaviour
     private void Start()
     {
         actions.FindActionMap("interactions").Enable();
-        inventoryInput = actions.FindActionMap("interactions", true).FindAction("inventory", true);
         pickupInput = actions.FindActionMap("interactions", true).FindAction("pickup", true);
+        //inventory.Load();
     }
 
     private void Update()
     {
-        if (inventoryInput.WasPressedThisFrame())
-        {
-            isDisplay = !isDisplay;
-            InventoryScreen.SetActive(isDisplay);
-        }
         if (currentTouched && pickupInput.WasPressedThisFrame())
         {
             PickUpMessage.SetActive(false);
             inventory.AddItem(currentTouched.item, 1);
             Destroy(currentTouched.gameObject);
             currentTouched = null;
-        }
-        
-        return;
-    }
 
-    private void OnApplicationQuit()
-    {
-        inventory.Container.Clear();
+            FMODUnity.RuntimeManager.PlayOneShot(itemPickup);
+        }
+
+        return;
     }
 }
