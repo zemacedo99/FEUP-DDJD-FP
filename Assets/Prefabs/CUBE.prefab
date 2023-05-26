@@ -50,15 +50,6 @@ MonoBehaviour:
   recorder: {fileID: 0}
   clonePrefab: {fileID: 5832263356523625835, guid: 64611c239405d6845a421df576d967d2, type: 3}
   actions: {fileID: -944628639613478452, guid: 107b800f03e150f4fb8e489f0f4a80b4, type: 3}
-  recordButton:
-    m_Name: Record Button
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: d74aeb1b-cd06-4dd2-a97c-162e982ea84f
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
   playButton:
     m_Name: Play Button
     m_Type: 0
@@ -68,6 +59,7 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  canvas: {fileID: 0}
 --- !u!65 &1437711932952817809
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -94,11 +86,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actions: {fileID: -944628639613478452, guid: 107b800f03e150f4fb8e489f0f4a80b4, type: 3}
-  destroyCube:
-    m_Name: Destroy Cube
+  destroyCubeButton:
+    m_Name: Destroy Cube Button
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: f0cafb92-f950-4de2-8e6b-bc597a18236f
+    m_Id: 2bb1a568-cc95-4e75-90f5-1145509c267f
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []

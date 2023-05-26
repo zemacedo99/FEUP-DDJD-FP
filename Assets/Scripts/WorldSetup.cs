@@ -11,10 +11,11 @@ public class WorldSetup : SceneDict
 
     void Start()
     {
+        bool resetToPoint = true;
         foreach (EditorBuildSettingsScene scene in EditorBuildSettings.scenes)
         {
             var name = NameFromPath(scene.path);
-            if (name == "World")
+            if (name == "World" || name == "MainMenu")
                 continue;
             if (!PlayerPrefs.HasKey(name)) //check if scene hasnt been set yet
                 PlayerPrefs.SetInt(name, 0); //set state 0 (dropped)
@@ -35,7 +36,14 @@ public class WorldSetup : SceneDict
                 water.Drop(true); //drop but raise
                 GameObject.Find(holeDict[name]).GetComponentInChildren<LevelTrigger>().gameObject.SetActive(false);
                 PlayerPrefs.SetInt(name, 2); //and set state to raised
+                resetToPoint = false;
             }
+        }
+        if (resetToPoint)
+        {
+            print("loading checkpoint");
+            FindFirstObjectByType<Oxygen>().LoadCheckpoint();
+
         }
     }
 

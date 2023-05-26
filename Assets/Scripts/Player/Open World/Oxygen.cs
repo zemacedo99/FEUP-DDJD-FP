@@ -26,7 +26,7 @@ public class Oxygen : MonoBehaviour
         controller = GetComponent<CharacterController>();
         lastPosition = transform.position;
         oxygenStationPosition = transform.position;
-        oxygenSlider.maxValue = oxygenValue;
+        oxygenSlider.maxValue = 300;
     }
 
     void Update()
@@ -45,6 +45,19 @@ public class Oxygen : MonoBehaviour
         }
         
         UpdateSlider(oxygenValue);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("OxygenStation"))
+        {
+            oxygenStationPosition = other.transform.parent.transform.position;
+            oxygenStationPosition += new Vector3(0, 1, 0);
+            StoreCheckpoint();
+            Debug.Log("saving checkpoint");
+            //GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerInventory>().inventory.Save();
+            Debug.Log(oxygenStationPosition);
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -76,6 +89,12 @@ public class Oxygen : MonoBehaviour
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("OxygenValue", valueForFMOD);
     }
 
+    public void SetOxygenValue(float oxygenValue)
+    {
+        this.oxygenValue = oxygenValue;
+        this.UpdateSlider(oxygenValue);
+    }
+
     void RefillOxygen()
     {
         if(oxygenValue < oxygenSlider.maxValue)
@@ -100,6 +119,22 @@ public class Oxygen : MonoBehaviour
         controller.enabled = true;
         oxygenValue = oxygenSlider.maxValue;
         UpdateSlider(oxygenValue);
+    }
+
+    void StoreCheckpoint()
+    {
+        print("Storing");
+        PlayerPrefs.SetFloat("CheckpointX", oxygenStationPosition.x);
+        PlayerPrefs.SetFloat("CheckpointY", oxygenStationPosition.y);
+        PlayerPrefs.SetFloat("CheckpointZ", oxygenStationPosition.z);
+    }
+
+    public void LoadCheckpoint()
+    {
+        if (!PlayerPrefs.HasKey("CheckpointX"))
+            return;
+        oxygenStationPosition = new Vector3(PlayerPrefs.GetFloat("CheckpointX"), PlayerPrefs.GetFloat("CheckpointY"), PlayerPrefs.GetFloat("CheckpointZ"));
+        Die();
     }
 
 }
