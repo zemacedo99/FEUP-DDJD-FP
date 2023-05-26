@@ -8,6 +8,7 @@ public class WorldSetup : SceneDict
 {
     public FMODUnity.EventReference oxygenStationEmptyEvent;
     private FMOD.Studio.EventInstance oxygenStationEmptyEventInstance;
+    List<FMOD.Studio.EventInstance> oxygenStationEmptyEventInstanceArray = new List<FMOD.Studio.EventInstance>();
 
     void Start()
     {
@@ -31,6 +32,8 @@ public class WorldSetup : SceneDict
                 oxygenStationEmptyEventInstance = FMODUnity.RuntimeManager.CreateInstance(oxygenStationEmptyEvent);
                 FMODUnity.RuntimeManager.AttachInstanceToGameObject(oxygenStationEmptyEventInstance, hole.transform);
                 oxygenStationEmptyEventInstance.start();
+
+                oxygenStationEmptyEventInstanceArray.Add(oxygenStationEmptyEventInstance);
             }
             else if (state == 1) {
                 water.Drop(true); //drop but raise
@@ -56,6 +59,7 @@ public class WorldSetup : SceneDict
 
     private void OnDestroy()
     {
-        oxygenStationEmptyEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        foreach (var instance in oxygenStationEmptyEventInstanceArray)
+            instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 }
