@@ -115,6 +115,10 @@ public class Oxygen : MonoBehaviour
         // Play FMOD event
         FMODUnity.RuntimeManager.PlayOneShotAttached(outOfOxygenEvent, gameObject);
 
+        ResetPos();
+    }
+
+    void ResetPos() {
         movement.ResetMovement();
 
         // Implement restart the level
@@ -138,7 +142,7 @@ public class Oxygen : MonoBehaviour
         if (!PlayerPrefs.HasKey("CheckpointX"))
             return;
         oxygenStationPosition = new Vector3(PlayerPrefs.GetFloat("CheckpointX"), PlayerPrefs.GetFloat("CheckpointY"), PlayerPrefs.GetFloat("CheckpointZ"));
-        Die();
+        ResetPos();
     }
 
 }
