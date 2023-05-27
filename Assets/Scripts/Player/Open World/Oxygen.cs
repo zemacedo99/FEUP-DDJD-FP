@@ -85,7 +85,7 @@ public class Oxygen : MonoBehaviour
         value = Mathf.Clamp(value, 0f, oxygenSlider.maxValue);
 
         oxygenSlider.value = value;
-        oxygenText.text = "Oxygen: " + value.ToString("F0");
+        oxygenText.text = "Water: " + value.ToString("F0");
 
         float valueForFMOD = value / oxygenSlider.maxValue;
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("OxygenValue", valueForFMOD);
