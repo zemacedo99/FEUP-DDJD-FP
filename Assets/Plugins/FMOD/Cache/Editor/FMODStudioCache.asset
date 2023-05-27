@@ -1,5 +1,80 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9153424071080787778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps/OxygenValue
+  m_EditorClassIdentifier: 
+  Name: OxygenValue
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 2461234842
+    data2: 1117265582
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-8953387304843519537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Wind/OxygenValue
+  m_EditorClassIdentifier: 
+  Name: OxygenValue
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 2461234842
+    data2: 1117265582
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-8841033596486642206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/Open World
+  m_EditorClassIdentifier: 
+  Path: snapshot:/Open World
+  Guid:
+    Data1: -103283849
+    Data2: 1167933545
+    Data3: -621593194
+    Data4: -869938895
+  Banks:
+  - {fileID: 4188570011741385112}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &-7875670477644458725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,10 +152,64 @@ MonoBehaviour:
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
-  Parameters: []
+  Parameters:
+  - {fileID: 472148859503715401}
+  - {fileID: -1762121204460961992}
   MinDistance: 1
   MaxDistance: 20
   Length: 1603
+--- !u!114 &-6158496479409556391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Jump_Landing/OxygenValue
+  m_EditorClassIdentifier: 
+  Name: OxygenValue
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 2461234842
+    data2: 1117265582
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-5919605042660799030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Heartbeat
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Heartbeat
+  Guid:
+    Data1: -2103552963
+    Data2: 1321129132
+    Data3: -2011723856
+    Data4: 1421991856
+  Banks:
+  - {fileID: 4188570011741385112}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -4459036248108712228}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1500
 --- !u!114 &-5880083477800252932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,11 +225,116 @@ MonoBehaviour:
   Path: Audio/FMOD project/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638207753378699065
+  lastModified: 638207765983332614
   FileSizes:
   - Name: Desktop
-    Value: 1244
+    Value: 2074
   Exists: 1
+--- !u!114 &-5828380475050570182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Back
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Back
+  Guid:
+    Data1: -2005726049
+    Data2: 1210993593
+    Data3: 2060084670
+    Data4: -914757006
+  Banks:
+  - {fileID: 4188570011741385112}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-5389578698067896603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/OutOfOxygen
+  m_EditorClassIdentifier: 
+  Path: event:/Player/OutOfOxygen
+  Guid:
+    Data1: 1864217345
+    Data2: 1183379605
+    Data3: 1433051295
+    Data4: -842067720
+  Banks:
+  - {fileID: 4188570011741385112}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-4459036248108712228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Heartbeat/OxygenValue
+  m_EditorClassIdentifier: 
+  Name: OxygenValue
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 2461234842
+    data2: 1117265582
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-2929817175174535957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Move
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Move
+  Guid:
+    Data1: 511404234
+    Data2: 1238536830
+    Data3: 593168514
+    Data4: -1102552173
+  Banks:
+  - {fileID: 4188570011741385112}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-2746890886541974044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,7 +356,134 @@ MonoBehaviour:
     data1: 2885673113
     data2: 2003869224
   Type: 0
-  IsGlobal: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-1967022612912191091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/OxygenValue
+  m_EditorClassIdentifier: 
+  Name: OxygenValue
+  StudioPath: parameter:/OxygenValue
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 2461234842
+    data2: 1117265582
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-1762121204460961992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Jump/MoveSpeed
+  m_EditorClassIdentifier: 
+  Name: MoveSpeed
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2885673113
+    data2: 2003869224
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-1656476879028539585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Open World/OxygenStationEmpty
+  m_EditorClassIdentifier: 
+  Path: event:/Open World/OxygenStationEmpty
+  Guid:
+    Data1: 551815016
+    Data2: 1095965431
+    Data3: -1485223791
+    Data4: 2048249507
+  Banks:
+  - {fileID: 4188570011741385112}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -406837949354503019}
+  MinDistance: 1
+  MaxDistance: 80
+  Length: 64000
+--- !u!114 &-709892363199530961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Select
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Select
+  Guid:
+    Data1: -461254604
+    Data2: 1107750989
+    Data3: 134260381
+    Data4: 1238721926
+  Banks:
+  - {fileID: 4188570011741385112}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-406837949354503019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/OxygenStationEmpty/OxygenValue
+  m_EditorClassIdentifier: 
+  Name: OxygenValue
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 2461234842
+    data2: 1117265582
+  Type: 0
+  IsGlobal: 1
   Labels: []
   Exists: 1
 --- !u!114 &11400000
@@ -147,12 +508,24 @@ MonoBehaviour:
   - {fileID: -7055301423967131932}
   - {fileID: -7875670477644458725}
   - {fileID: 1365525912087220202}
-  EditorParameters: []
+  - {fileID: -5389578698067896603}
+  - {fileID: 6005426656148473837}
+  - {fileID: -709892363199530961}
+  - {fileID: -5919605042660799030}
+  - {fileID: 6988273142503116603}
+  - {fileID: -1656476879028539585}
+  - {fileID: -8841033596486642206}
+  - {fileID: -5828380475050570182}
+  - {fileID: -2929817175174535957}
+  EditorParameters:
+  - {fileID: 8888147954034774913}
+  - {fileID: 906607139560132849}
+  - {fileID: -1967022612912191091}
   MasterBanks:
   - {fileID: 4188570011741385112}
   StringsBanks:
   - {fileID: -5880083477800252932}
-  cacheTime: 638207753378699065
+  cacheTime: 638207765983332614
   cacheVersion: 131603
 --- !u!114 &64216338150607788
 MonoBehaviour:
@@ -179,6 +552,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters:
   - {fileID: 91166439199153110}
+  - {fileID: -6158496479409556391}
   MinDistance: 1
   MaxDistance: 20
   Length: 0
@@ -203,12 +577,60 @@ MonoBehaviour:
     data1: 3801529531
     data2: 4147410467
   Type: 2
-  IsGlobal: 0
+  IsGlobal: 1
   Labels:
   - Concrete
   - Grass
   - Water
   - Rock
+  Exists: 1
+--- !u!114 &472148859503715401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Jump/OxygenValue
+  m_EditorClassIdentifier: 
+  Name: OxygenValue
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 2461234842
+    data2: 1117265582
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &906607139560132849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MoveSpeed
+  m_EditorClassIdentifier: 
+  Name: MoveSpeed
+  StudioPath: parameter:/MoveSpeed
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2885673113
+    data2: 2003869224
+  Type: 0
+  IsGlobal: 1
+  Labels: []
   Exists: 1
 --- !u!114 &1365525912087220202
 MonoBehaviour:
@@ -236,6 +658,7 @@ MonoBehaviour:
   Parameters:
   - {fileID: -2746890886541974044}
   - {fileID: 9070448964012940329}
+  - {fileID: -9153424071080787778}
   MinDistance: 1
   MaxDistance: 20
   Length: 0
@@ -281,10 +704,93 @@ MonoBehaviour:
   Path: Audio/FMOD project/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638207753378689517
+  lastModified: 638207765983332614
   FileSizes:
   - Name: Desktop
-    Value: 427712
+    Value: 3687648
+  Exists: 1
+--- !u!114 &6005426656148473837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Item picked
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Item picked
+  Guid:
+    Data1: 782640647
+    Data2: 1160938323
+    Data3: 1137325199
+    Data4: -441023308
+  Banks:
+  - {fileID: 4188570011741385112}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6988273142503116603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Open World/Wind
+  m_EditorClassIdentifier: 
+  Path: event:/Open World/Wind
+  Guid:
+    Data1: -1654194329
+    Data2: 1208141380
+    Data3: 486920345
+    Data4: -19382908
+  Banks:
+  - {fileID: 4188570011741385112}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -8953387304843519537}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 36000
+--- !u!114 &8888147954034774913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Surface
+  m_EditorClassIdentifier: 
+  Name: Surface
+  StudioPath: parameter:/Surface
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 3801529531
+    data2: 4147410467
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - Concrete
+  - Grass
+  - Water
+  - Rock
   Exists: 1
 --- !u!114 &9070448964012940329
 MonoBehaviour:
@@ -307,7 +813,7 @@ MonoBehaviour:
     data1: 3801529531
     data2: 4147410467
   Type: 2
-  IsGlobal: 0
+  IsGlobal: 1
   Labels:
   - Concrete
   - Grass
