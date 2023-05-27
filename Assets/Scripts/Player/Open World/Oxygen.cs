@@ -18,12 +18,14 @@ public class Oxygen : MonoBehaviour
     private bool refilling = false;
 
     CharacterController controller;
+    PlayerMovement movement;
 
     public FMODUnity.EventReference outOfOxygenEvent;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        movement = GetComponent<PlayerMovement>();
         lastPosition = transform.position;
         oxygenStationPosition = transform.position;
         oxygenSlider.maxValue = 300;
@@ -112,6 +114,8 @@ public class Oxygen : MonoBehaviour
 
         // Play FMOD event
         FMODUnity.RuntimeManager.PlayOneShotAttached(outOfOxygenEvent, gameObject);
+
+        movement.ResetMovement();
 
         // Implement restart the level
         controller.enabled = false;
