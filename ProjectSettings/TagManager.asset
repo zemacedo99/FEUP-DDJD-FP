@@ -16,12 +16,12 @@ TagManager:
   - UI
   - Cubes
   - Cameras
-  - Water Particle
+  - Clones
+  - FogOfWar
+  - Water Particles
   - Player
-  - 
-  - 
-  - 
-  - 
+  - Doors
+  - Presence Detectors
   - 
   - 
   - 

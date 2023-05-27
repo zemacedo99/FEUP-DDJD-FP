@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelTrigger : SceneDict
 {
     public string scene;
+    private Image fade;
 
     private void Start()
     {
@@ -30,7 +32,16 @@ public class LevelTrigger : SceneDict
 
     private void LeavePuzzle()
     {
+        var pl = GameObject.Find("Player");
+        fade = pl.GetComponentInChildren<Camera>().gameObject.GetComponentInChildren<Canvas>().gameObject.GetComponentsInChildren<Image>()[1];
         PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, 1);
-        SceneManager.LoadScene("World");
+        InvokeRepeating(nameof(FadeOut), 0f, 0.05f);
+    }
+
+    private void FadeOut()
+    {
+        fade.color = new Color(1, 1, 1, 1.5f*fade.color.a + 0.01f);
+        if(fade.color.a >= 1)
+            SceneManager.LoadScene("World");
     }
 }
