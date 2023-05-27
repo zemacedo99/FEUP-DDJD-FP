@@ -19,6 +19,8 @@ public class Oxygen : MonoBehaviour
 
     CharacterController controller;
 
+    public FMODUnity.EventReference outOfOxygenEvent;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -41,7 +43,7 @@ public class Oxygen : MonoBehaviour
             oxygenValue = 0;
             Die();
         }
-       
+        
         UpdateSlider(oxygenValue);
     }
 
@@ -79,8 +81,12 @@ public class Oxygen : MonoBehaviour
     void UpdateSlider(float value)
     {
         value = Mathf.Clamp(value, 0f, oxygenSlider.maxValue);
+
         oxygenSlider.value = value;
         oxygenText.text = "Oxygen: " + value.ToString("F0");
+
+        float valueForFMOD = value / oxygenSlider.maxValue;
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("OxygenValue", valueForFMOD);
     }
 
     public void SetOxygenValue(float oxygenValue)
@@ -103,6 +109,10 @@ public class Oxygen : MonoBehaviour
     void Die()
     {
         Debug.Log("Player has run out of oxygen");
+
+        // Play FMOD event
+        FMODUnity.RuntimeManager.PlayOneShotAttached(outOfOxygenEvent, gameObject);
+
         // Implement restart the level
         controller.enabled = false;
         transform.position = oxygenStationPosition;

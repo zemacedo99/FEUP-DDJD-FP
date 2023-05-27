@@ -12,12 +12,12 @@ public class RaiseWater : MonoBehaviour
     public void Drop(bool raise)
     {
         waterLevel = water.transform.position.y;
-        water.transform.position = new Vector3(water.transform.position.x, waterLevel - 10, water.transform.position.z);
+        water.transform.position = new Vector3(water.transform.position.x, waterLevel - 7, water.transform.position.z);
         enabled = raise;
         if(raise)
         {
             print("raising water");
-            FindFirstObjectByType<PlayerMovement>().gameObject.transform.position = new Vector3(water.transform.position.x, waterLevel - 9, water.transform.position.z);
+            FindFirstObjectByType<PlayerMovement>().gameObject.transform.position = new Vector3(water.transform.position.x, waterLevel - 6, water.transform.position.z);
         }
     }
 

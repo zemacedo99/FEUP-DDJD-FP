@@ -8,6 +8,11 @@ public class PlayerMovement : MonoBehaviour
 {
     const double DOUBLE_MINIMUM_VALUE = 0.01;
 
+    [SerializeField]
+    [Range(0, 3)]
+    [Tooltip("0: Concrete, 1: Grass, 2: Water, 3: Rock")]
+    private int surfaceType;
+
     public Transform playerCamera;
     [SerializeField] bool cursorLock = true;
     [SerializeField] [Range(0.0f, 0.5f)] float mouseSmoothTime = 0.03f;
@@ -53,11 +58,10 @@ public class PlayerMovement : MonoBehaviour
     CanvasScript canvasScript;
 
     public FMODUnity.EventReference footstepsEvent;
-    private FMOD.Studio.EventInstance footstepsEventInstance;
     private float footstepTimer = 0f;
-    enum SurfaceType { Concrete, Grass, Water, Rock }
 
     public FMODUnity.EventReference jumpEvent;
+    public FMODUnity.EventReference landingEvent;
 
     void Start()
     {
@@ -90,6 +94,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Surface", surfaceType);
+
         if (gravity == 0)
             Debug.Log("GRAVITY IS ZEROOO");
 
@@ -113,7 +119,14 @@ public class PlayerMovement : MonoBehaviour
 
     void UpdateMove()
     {
+        var previousIsGrounded = isGrounded;
         isGrounded = Physics.CheckSphere(groundCheck.position, 0.35f, ground);
+
+        if (isGrounded && !previousIsGrounded)
+        {
+            // Play landing sound
+            FMODUnity.RuntimeManager.PlayOneShotAttached(landingEvent, gameObject);
+        }
 
         Vector2 newMoveInputValue;
 
@@ -134,6 +147,7 @@ public class PlayerMovement : MonoBehaviour
             footstepTimer = 0;
         }
         else footstepTimer += Time.deltaTime * (((float)currentHVelMag)/hVelMagMax);
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("MoveSpeed", (float)currentHVelMag / hVelMagMax);
 
         // JUMP
         if (jumpButton.WasPressedThisFrame() && (isGrounded || (!isGrounded && canJetpack)))
@@ -183,13 +197,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (isGrounded && currentHVelMag > DOUBLE_MINIMUM_VALUE)
         {
-            footstepsEventInstance = FMODUnity.RuntimeManager.CreateInstance(footstepsEvent);
-            FMODUnity.RuntimeManager.AttachInstanceToGameObject(footstepsEventInstance, GetComponent<Transform>(), GetComponent<Rigidbody>());
-            footstepsEventInstance.setParameterByName("MoveSpeed", (float)currentHVelMag/hVelMagMax);
-            footstepsEventInstance.setParameterByName("Surface", (float)SurfaceType.Rock);
+            FMODUnity.RuntimeManager.PlayOneShotAttached(footstepsEvent, gameObject);
 
-            Debug.Log(currentHVelMag);
-            footstepsEventInstance.start();
+            Debug.Log("Horizontal velocity: " + currentHVelMag);
 
             if (recorder.isRecording) recorder.eventArray.Add(new PlayerEvent(PlayerEvent.EventType.FootstepsSound, Time.time - recorder.GetRecordingStartTime()));
             // ToDo: save footsteps parameters (maybe using a dictionary is the best choice for this)

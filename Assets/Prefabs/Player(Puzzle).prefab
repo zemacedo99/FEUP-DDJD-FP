@@ -3582,6 +3582,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player(Puzzle)
       objectReference: {fileID: 0}
+    - target: {fileID: 4486743319888502759, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904841449534451288, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7852836038629847381, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: PickUpMessage
       value: 
