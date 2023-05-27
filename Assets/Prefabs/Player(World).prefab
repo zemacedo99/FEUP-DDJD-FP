@@ -3095,19 +3095,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4616699832579320999, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5
+      value: 0.86
       objectReference: {fileID: 0}
     - target: {fileID: 4616699832579320999, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4616699832579320999, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9848078
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4616699832579320999, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.17364816
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4616699832579320999, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_LocalRotation.y
@@ -3119,11 +3119,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4616699832579320999, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4904841449534451288, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168168333977639510, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168168333977639510, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: field of view
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168168333977639510, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168168333977639510, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168168333977639510, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6484459017631928240, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_Enabled
