@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerGroup" id="{11929f41-1ac6-40a3-bab6-db94b4dac657}">
+		<property name="name">
+			<value>Open World</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{e40d2e39-120a-49ba-9249-b4b1a33b0b17}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{1620dbbb-ebaa-4175-8ca7-b2f700303e67}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{12042c69-2f75-4ab6-bb0b-4023d02d8a25}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{e40d2e39-120a-49ba-9249-b4b1a33b0b17}">
+		<relationship name="effects">
+			<destination>{44e2a2c3-96cd-45e4-ac49-a507186b5fac}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{1620dbbb-ebaa-4175-8ca7-b2f700303e67}" />
+	<object class="MixerBusFader" id="{44e2a2c3-96cd-45e4-ac49-a507186b5fac}" />
+</objects>

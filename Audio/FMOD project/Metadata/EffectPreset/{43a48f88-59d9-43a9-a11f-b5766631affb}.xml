@@ -18,11 +18,14 @@
 		<property name="overrideRange">
 			<value>true</value>
 		</property>
+		<property name="extentMode">
+			<value>1</value>
+		</property>
 		<property name="soundSize">
-			<value>8000</value>
+			<value>30</value>
 		</property>
 		<property name="minimumExtent">
-			<value>280</value>
+			<value>90</value>
 		</property>
 	</object>
 </objects>

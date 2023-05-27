@@ -10,23 +10,27 @@ public class Cloning : MonoBehaviour
     public GameObject clonePrefab;
 
     public InputActionAsset actions;
-    public InputAction recordButton, playButton;
+    public InputAction playButton;
 
     List<PlayerSnapshot> snapshotArray;
     List<PlayerEvent> eventArray;
 
+    CanvasScript canvasScript;
+
     private void Start()
     {
-        recordButton = actions.FindActionMap("recorder", true).FindAction("record", true);
         playButton = actions.FindActionMap("recorder", true).FindAction("play", true);
         actions.FindActionMap("recorder").Enable();
 
         recorder = GameObject.FindGameObjectWithTag("Player").GetComponent<Recorder>();
+        canvasScript = GameObject.FindGameObjectWithTag("UI Canvas").GetComponent<CanvasScript>();
     }
 
     void Update()
     {
-        if ((playButton.WasPressedThisFrame() && !recorder.isRecording))
+        if (canvasScript.isPaused) return;
+
+        if (playButton.WasPressedThisFrame() && !recorder.isRecording)
         {
             if (recorder.snapshotArray.Count > 0)
                 SpawnClone();
