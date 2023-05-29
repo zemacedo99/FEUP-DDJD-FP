@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using static UnityEditor.Progress;
+using UnityEngine.InputSystem;
+using static UnityEngine.InputSystem.Editor.InputActionCodeGenerator;
 
 public class InventoryScreenScript : MonoBehaviour
 {
@@ -17,21 +19,64 @@ public class InventoryScreenScript : MonoBehaviour
     public float NUMBER_OF_COLUMNS;
     public float NUMBER_OF_ROWS;
 
+    public int currentSeleted = 0;
+
+    public InputActionAsset actions;
+
+    public InputAction upInput, downInput, rightInput, leftInput;
+
+
     Dictionary<InventorySlot, GameObject> itemsDisplayed = new Dictionary<InventorySlot, GameObject>();
     // Start is called before the first frame update
     void Start()
     {
+        initCommands();
         InitiateInventory();
         CreateDisplay();
+        UpdateSelectedItem(0);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdateDisplay();
+        UpdateSlotsDisplay();
+        UpdateScreenMovement();
+    }
+    private void UpdateScreenMovement()
+    {
+        if (downInput.WasPressedThisFrame() && (currentSeleted / (int)NUMBER_OF_COLUMNS) < NUMBER_OF_ROWS - 1)
+        {
+            UpdateSelectedItem(currentSeleted + (int)NUMBER_OF_COLUMNS);
+            return;
+        }
+        if (upInput.WasPressedThisFrame() && currentSeleted >= NUMBER_OF_COLUMNS)
+        {
+            UpdateSelectedItem(currentSeleted - (int)NUMBER_OF_COLUMNS);
+            return;
+        }
+        if (rightInput.WasPressedThisFrame() && currentSeleted < (NUMBER_OF_COLUMNS * NUMBER_OF_ROWS - 1))
+        {
+            UpdateSelectedItem(currentSeleted + 1);
+            return;
+        }
+        if (leftInput.WasPressedThisFrame() && currentSeleted > 0)
+        {
+            UpdateSelectedItem(currentSeleted - 1);
+            return;
+        }
     }
 
-    public void UpdateDisplay()
+    private void initCommands()
+    {
+        actions.FindActionMap("menu interactions").Enable();
+        downInput = actions.FindActionMap("menu interactions", true).FindAction("moveDown", true);
+        upInput = actions.FindActionMap("menu interactions", true).FindAction("moveUp", true);
+        rightInput = actions.FindActionMap("menu interactions", true).FindAction("moveRight", true);
+        leftInput = actions.FindActionMap("menu interactions", true).FindAction("moveLeft", true);
+    }
+
+    public void UpdateSlotsDisplay()
     {
         for (int i = 0; i < inventory.Container.Count; i++)
         {
@@ -46,6 +91,14 @@ public class InventoryScreenScript : MonoBehaviour
                 itemsDisplayed.Add(inventory.Container[i], item);
             }
         }
+    }
+
+    public void UpdateSelectedItem(int newPostionIndex)
+    {
+        gameObject.transform.GetChild(currentSeleted+2).transform.Find("SelectedCanvas").gameObject.SetActive(false);
+        gameObject.transform.GetChild(newPostionIndex + 2).transform.Find("SelectedCanvas").gameObject.SetActive(true);
+
+        currentSeleted = newPostionIndex;
     }
 
     public void CreateDisplay()

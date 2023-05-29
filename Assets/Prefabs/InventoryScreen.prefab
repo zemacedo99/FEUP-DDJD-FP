@@ -608,6 +608,44 @@ MonoBehaviour:
   Y_GAP: 143
   NUMBER_OF_COLUMNS: 3
   NUMBER_OF_ROWS: 6
+  currentSeleted: 0
+  actions: {fileID: -944628639613478452, guid: 107b800f03e150f4fb8e489f0f4a80b4, type: 3}
+  upInput:
+    m_Name: Up Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 958c3011-94ce-4d83-bee7-49517f95ed10
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  downInput:
+    m_Name: Down Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: ded14293-4c79-4f6d-abf4-4e9ee2b4a336
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  rightInput:
+    m_Name: Right Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 1e9be214-9663-4204-be64-31f6a0d3dedf
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  leftInput:
+    m_Name: Left Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 0ff6f152-46d1-48ec-9d47-fd416e39863a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!1 &8528630877172454045
 GameObject:
   m_ObjectHideFlags: 0
