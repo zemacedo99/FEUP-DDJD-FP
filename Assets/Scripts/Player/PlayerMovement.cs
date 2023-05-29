@@ -57,11 +57,12 @@ public class PlayerMovement : MonoBehaviour
 
     CanvasScript canvasScript;
 
-    public FMODUnity.EventReference footstepsEvent;
     private float footstepTimer = 0f;
 
     public FMODUnity.EventReference jumpEvent;
     public FMODUnity.EventReference landingEvent;
+
+    private FootSteps footstepsScript;
 
     void Start()
     {
@@ -87,6 +88,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         moveInputValue = new();
+
+        footstepsScript = GetComponent<FootSteps>();
 
         //Vector3 rot = transform.rotation.eulerAngles;
         //cameraRotY = rot.y;
@@ -197,9 +200,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (isGrounded && currentHVelMag > DOUBLE_MINIMUM_VALUE)
         {
-            FMODUnity.RuntimeManager.PlayOneShotAttached(footstepsEvent, gameObject);
+            footstepsScript.Step();
 
-            Debug.Log("Horizontal velocity: " + currentHVelMag);
+            //Debug.Log("Horizontal velocity: " + currentHVelMag);
 
             if (recorder.isRecording) recorder.eventArray.Add(new PlayerEvent(PlayerEvent.EventType.FootstepsSound, Time.time - recorder.GetRecordingStartTime()));
             // ToDo: save footsteps parameters (maybe using a dictionary is the best choice for this)
