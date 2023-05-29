@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PresenceDetectorScript : MonoBehaviour
 {
+    public int minimumPresences = 1;
     public GameObject door;
     DoorsScript doorsScript;
     List<Collider> colliders;
@@ -19,7 +20,7 @@ public class PresenceDetectorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (colliders.Count == 0)
+        if (colliders.Count < minimumPresences)
             doorsScript.Close();
         else
         {

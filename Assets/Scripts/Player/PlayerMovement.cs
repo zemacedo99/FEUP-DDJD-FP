@@ -199,8 +199,6 @@ public class PlayerMovement : MonoBehaviour
         {
             FMODUnity.RuntimeManager.PlayOneShotAttached(footstepsEvent, gameObject);
 
-            Debug.Log("Horizontal velocity: " + currentHVelMag);
-
             if (recorder.isRecording) recorder.eventArray.Add(new PlayerEvent(PlayerEvent.EventType.FootstepsSound, Time.time - recorder.GetRecordingStartTime()));
             // ToDo: save footsteps parameters (maybe using a dictionary is the best choice for this)
         }

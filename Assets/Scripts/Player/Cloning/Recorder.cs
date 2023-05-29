@@ -48,6 +48,7 @@ public class Recorder : MonoBehaviour
     public GameObject cube;
     GameObject newCube;
     List<GameObject> cubesStack;
+    public int cubesStackLimit = 2;
 
     public InputActionAsset actions;
     public InputAction recordButton;
@@ -86,11 +87,12 @@ public class Recorder : MonoBehaviour
         if (recordButton.WasPressedThisFrame())
         {
             // Record
-            if (!isRecording)
+            if (!isRecording && cubesStack.Count < cubesStackLimit)
             {
                 Debug.Log("Recording Started");
 
                 snapshotArray.Clear();
+                eventArray.Clear();
                 recordingStartTime = Time.time;
                 isRecording = true;
 
@@ -118,22 +120,26 @@ public class Recorder : MonoBehaviour
                 newCube.GetComponent<Cloning>().SetSnapshotArray(snapshotArray);
                 newCube.GetComponent<Cloning>().SetEventArray(eventArray);
 
-                // Get first position and rotation
-                Vector3 initialPosition = snapshotArray[0].position;
-                Quaternion initialRotation = snapshotArray[0].rotation;
+                //// Get first position and rotation
+                //Vector3 initialPosition = snapshotArray[0].position;
+                //Quaternion initialRotation = snapshotArray[0].rotation;
 
-                gameObject.transform.SetPositionAndRotation(initialPosition, initialRotation);
-                playerMovement.ResetMovement();
-                if ((playerGravitySignOnRecordStart < 0 && playerMovement.gravity > 0) ||
-                    (playerGravitySignOnRecordStart > 0 && playerMovement.gravity < 0))
-                    GetComponent<PlayerMovement>().gravity *= -1f;
+                //// Reset Player position and rotation to initial 
+                //gameObject.transform.SetPositionAndRotation(initialPosition, initialRotation);
+                //playerMovement.ResetMovement();
+                //if ((playerGravitySignOnRecordStart < 0 && playerMovement.gravity > 0) ||
+                //    (playerGravitySignOnRecordStart > 0 && playerMovement.gravity < 0))
+                //    GetComponent<PlayerMovement>().gravity *= -1f;
             }
         }
 
         if (cubePopButton.WasPressedThisFrame())
         {
-            Destroy(cubesStack[0]);
-            cubesStack.RemoveAt(0);
+            if (cubesStack.Count != 0)
+            {
+                Destroy(cubesStack[0]);
+                cubesStack.RemoveAt(0);
+            }
         }
     }
 

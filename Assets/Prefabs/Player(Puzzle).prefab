@@ -3590,6 +3590,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7106066949501403723, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: cubePopButton.m_Id
+      value: b62a3c55-4a62-4f20-a16e-ed153a06effe
+      objectReference: {fileID: 0}
     - target: {fileID: 7852836038629847381, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: PickUpMessage
       value: 
