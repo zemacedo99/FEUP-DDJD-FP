@@ -1941,6 +1941,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 116958383589185015, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
+      propertyPath: cubePopAction.m_Id
+      value: 926e1f94-e662-45b1-8abb-7b712dc899eb
+      objectReference: {fileID: 0}
+    - target: {fileID: 116958383589185015, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
+      propertyPath: cubePopAction.m_Name
+      value: Cube Pop
+      objectReference: {fileID: 0}
     - target: {fileID: 591597648120810149, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
       propertyPath: m_text
       value: Go to Main Menu
