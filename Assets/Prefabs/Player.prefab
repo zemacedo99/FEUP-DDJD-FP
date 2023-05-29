@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 897dc81d4c439be41902f78ca5098c78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oxygenValue: 300
+  oxygenValue: 3000000
   oxygenSlider: {fileID: 0}
   oxygenText: {fileID: 0}
   outOfOxygenEvent:

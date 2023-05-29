@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -63,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
     public FMODUnity.EventReference landingEvent;
 
     private FootSteps footstepsScript;
+    public FMODUnity.EventReference footstepsEvent;
 
     void Start()
     {
@@ -197,11 +199,17 @@ public class PlayerMovement : MonoBehaviour
     void CallFootsteps()
     {
         double currentHVelMag = Math.Sqrt(Math.Pow(controller.velocity.x, 2) + Math.Pow(controller.velocity.z, 2));
+        string currentSceneName = SceneManager.GetActiveScene().name;
 
         if (isGrounded && currentHVelMag > DOUBLE_MINIMUM_VALUE)
         {
-            footstepsScript.Step();
+            if (currentSceneName == "World"){
+                surfaceType = footstepsScript.Step();
+            }else{
+                surfaceType = 0;
+            }
 
+            FMODUnity.RuntimeManager.PlayOneShotAttached(footstepsEvent, gameObject);
             //Debug.Log("Horizontal velocity: " + currentHVelMag);
 
             if (recorder.isRecording) recorder.eventArray.Add(new PlayerEvent(PlayerEvent.EventType.FootstepsSound, Time.time - recorder.GetRecordingStartTime()));
