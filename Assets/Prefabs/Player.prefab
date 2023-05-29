@@ -234,6 +234,13 @@ MonoBehaviour:
       Data3: 162870688
       Data4: 1193836188
     Path: event:/Player/Jump_Landing
+  footstepsEvent:
+    Guid:
+      Data1: 1570676455
+      Data2: 1187908766
+      Data3: 431507127
+      Data4: 176202878
+    Path: event:/Player/Footsteps
 --- !u!114 &6484459017631928240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,55 +320,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b70eea5e335b074cb65f5130635e63e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footstepsEvent:
-    Guid:
-      Data1: 1570676455
-      Data2: 1187908766
-      Data3: 431507127
-      Data4: 176202878
-    Path: event:/Player/Footsteps
-  footstepsEvent1:
-    Guid:
-      Data1: 1570676455
-      Data2: 1187908766
-      Data3: 431507127
-      Data4: 176202878
-    Path: event:/Player/Footsteps
-  footstepsEvent2:
-    Guid:
-      Data1: 1570676455
-      Data2: 1187908766
-      Data3: 431507127
-      Data4: 176202878
-    Path: event:/Player/Footsteps
-  footstepsEvent3:
-    Guid:
-      Data1: 1570676455
-      Data2: 1187908766
-      Data3: 431507127
-      Data4: 176202878
-    Path: event:/Player/Footsteps
-  footstepsEvent4:
-    Guid:
-      Data1: 1570676455
-      Data2: 1187908766
-      Data3: 431507127
-      Data4: 176202878
-    Path: event:/Player/Footsteps
-  footstepsEvent5:
-    Guid:
-      Data1: 1570676455
-      Data2: 1187908766
-      Data3: 431507127
-      Data4: 176202878
-    Path: event:/Player/Footsteps
-  footstepsEvent6:
-    Guid:
-      Data1: 1570676455
-      Data2: 1187908766
-      Data3: 431507127
-      Data4: 176202878
-    Path: event:/Player/Footsteps
 --- !u!1 &1561321445208504883
 GameObject:
   m_ObjectHideFlags: 0
