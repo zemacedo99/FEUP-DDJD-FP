@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 334614373482436349}
   - component: {fileID: 8103691182413748835}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ItemDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -307,8 +307,8 @@ MonoBehaviour:
     and more recently with desktop publishing software like Aldus PageMaker including
     versions of Lorem Ipsum.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 413b8c2a82e294f9ba1eb5cfe0e7aa40, type: 2}
+  m_sharedMaterial: {fileID: 3860362806500422648, guid: 413b8c2a82e294f9ba1eb5cfe0e7aa40, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -386,7 +386,7 @@ GameObject:
   - component: {fileID: 6478248178771953434}
   - component: {fileID: 48725932874209554}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ItemName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -442,8 +442,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ITEM NAME
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 413b8c2a82e294f9ba1eb5cfe0e7aa40, type: 2}
+  m_sharedMaterial: {fileID: 3860362806500422648, guid: 413b8c2a82e294f9ba1eb5cfe0e7aa40, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -527,7 +527,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3020669052099713998
 RectTransform:
   m_ObjectHideFlags: 0

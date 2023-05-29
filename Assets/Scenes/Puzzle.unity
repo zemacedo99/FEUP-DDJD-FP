@@ -1910,6 +1910,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Go to Main Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 1022288818911713032, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5604573091237753291, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
       propertyPath: m_IsActive
       value: 0
