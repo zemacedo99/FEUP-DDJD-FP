@@ -30,11 +30,11 @@ public class InventoryScreenScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        initCommands();
+        InitCommands();
         InitiateInventory();
         CreateDisplay();
         UpdateSelectedItem(0);
-
+        UpdateInformationScreen();
     }
 
     // Update is called once per frame
@@ -48,26 +48,48 @@ public class InventoryScreenScript : MonoBehaviour
         if (downInput.WasPressedThisFrame() && (currentSeleted / (int)NUMBER_OF_COLUMNS) < NUMBER_OF_ROWS - 1)
         {
             UpdateSelectedItem(currentSeleted + (int)NUMBER_OF_COLUMNS);
+            UpdateInformationScreen();
+
             return;
         }
         if (upInput.WasPressedThisFrame() && currentSeleted >= NUMBER_OF_COLUMNS)
         {
             UpdateSelectedItem(currentSeleted - (int)NUMBER_OF_COLUMNS);
+            UpdateInformationScreen();
+
             return;
         }
         if (rightInput.WasPressedThisFrame() && currentSeleted < (NUMBER_OF_COLUMNS * NUMBER_OF_ROWS - 1))
         {
             UpdateSelectedItem(currentSeleted + 1);
+            UpdateInformationScreen();
+
             return;
         }
         if (leftInput.WasPressedThisFrame() && currentSeleted > 0)
         {
             UpdateSelectedItem(currentSeleted - 1);
+            UpdateInformationScreen();
+
             return;
         }
     }
 
-    private void initCommands()
+    private void UpdateInformationScreen()
+    {
+        if (inventory.Container.Count == 0 || currentSeleted >= inventory.Container.Count)
+        {
+            gameObject.transform.Find("InventoryInfoScreen").Find("ItemName").GetComponent<TextMeshProUGUI>().text = "???";
+            gameObject.transform.Find("InventoryInfoScreen").Find("ItemDescription").GetComponent<TextMeshProUGUI>().text = "???";
+            return;
+        }
+        //GameObject selectedItem = gameObject.transform.GetChild((int)(NUMBER_OF_COLUMNS* NUMBER_OF_ROWS) + currentSeleted).gameObject;
+        //selectedItem.
+        gameObject.transform.Find("InventoryInfoScreen").Find("ItemName").GetComponent<TextMeshProUGUI>().text = inventory.Container[currentSeleted].item.name;
+        gameObject.transform.Find("InventoryInfoScreen").Find("ItemDescription").GetComponent<TextMeshProUGUI>().text = inventory.Container[currentSeleted].item.description;
+    }
+
+    private void InitCommands()
     {
         actions.FindActionMap("menu interactions").Enable();
         downInput = actions.FindActionMap("menu interactions", true).FindAction("moveDown", true);

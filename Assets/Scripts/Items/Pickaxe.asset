@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 7541761315286362221, guid: e7a8d918503044307b8e1f03a50faa8d, type: 3}
   type: 3
-  description: 
+  description: It is a long established fact that a reader will be distracted by
+    the readable content of a page when looking at its layout. The point of using
+    Lorem Ipsum is that it has a more-or-less normal distribution of letters, as
+    opposed to using 'Content here, content here', making it look like readable English.

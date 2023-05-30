@@ -54,7 +54,6 @@ public class Oxygen : MonoBehaviour
             StoreCheckpoint();
             Debug.Log("saving checkpoint");
             //GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerInventory>().inventory.Save();
-            Debug.Log(oxygenStationPosition);
         }
     }
 

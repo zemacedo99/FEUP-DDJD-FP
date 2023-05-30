@@ -188,7 +188,6 @@ public class PlayerMovement : MonoBehaviour
             footstepsEventInstance.setParameterByName("MoveSpeed", (float)currentHVelMag/hVelMagMax);
             footstepsEventInstance.setParameterByName("Surface", (float)SurfaceType.Rock);
 
-            Debug.Log(currentHVelMag);
             footstepsEventInstance.start();
 
             if (recorder.isRecording) recorder.eventArray.Add(new PlayerEvent(PlayerEvent.EventType.FootstepsSound, Time.time - recorder.GetRecordingStartTime()));
