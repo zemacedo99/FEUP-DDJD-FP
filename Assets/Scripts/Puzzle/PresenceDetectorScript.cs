@@ -41,7 +41,8 @@ public class PresenceDetectorScript : MonoBehaviour
     {
         colliders.Add(other);
 
-        doorsScript.Open();
+        if (colliders.Count >= minimumPresences)
+            doorsScript.Open();
     }
 
     private void OnTriggerExit(Collider other)
