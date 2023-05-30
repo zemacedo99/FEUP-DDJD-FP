@@ -124,6 +124,7 @@ public class Recorder : MonoBehaviour
 
                 gameObject.transform.SetPositionAndRotation(initialPosition, initialRotation);
                 playerMovement.ResetMovement();
+                gameObject.transform.SetPositionAndRotation(initialPosition, initialRotation);
                 if ((playerGravitySignOnRecordStart < 0 && playerMovement.gravity > 0) ||
                     (playerGravitySignOnRecordStart > 0 && playerMovement.gravity < 0))
                     GetComponent<PlayerMovement>().gravity *= -1f;
