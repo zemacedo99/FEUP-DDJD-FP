@@ -123,8 +123,8 @@ public class Recorder : MonoBehaviour
                 //    (playerGravitySignOnRecordStart > 0 && newPlayer.GetComponent<PlayerMovement>().gravity < 0))
                 //    newPlayer.GetComponent<PlayerMovement>().gravity *= -1f;
 
-                gameObject.transform.SetPositionAndRotation(initialPosition, initialRotation);
                 playerMovement.ResetMovement();
+                gameObject.transform.SetPositionAndRotation(initialPosition, initialRotation);
                 if ((playerGravitySignOnRecordStart < 0 && playerMovement.gravity > 0) ||
                     (playerGravitySignOnRecordStart > 0 && playerMovement.gravity < 0))
                     GetComponent<PlayerMovement>().gravity *= -1f;
