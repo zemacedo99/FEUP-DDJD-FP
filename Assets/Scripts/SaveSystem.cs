@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
@@ -7,13 +9,13 @@ public static class SaveSystem
 {
     private const string FogOfWarDataFilePath = "FogOfWarData.dat";
 
-    public static void SaveFogOfWarData(Mesh mesh)
+    public static void SaveFogOfWarData(List<int>  indices, List<float>  alphas)
     {
 		BinaryFormatter formatter = new BinaryFormatter();
         string filePath = Path.Combine(Application.persistentDataPath, FogOfWarDataFilePath);
 		FileStream stream = new FileStream(filePath,FileMode.Create);
 
-        FogOfWarData data = new FogOfWarData(mesh);
+        FogOfWarData data = new FogOfWarData(indices,alphas);
 
 		formatter.Serialize(stream, data);
 		stream.Close();

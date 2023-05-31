@@ -23,14 +23,19 @@ public class Minimap : MonoBehaviour
 	private Mesh mesh;
 	private Vector3[] vertices;
 	private Color[] colors;
+
+	private List<int> updatedIndices  = new List<int>();
+	private List<float> updatedAlphas = new List<float>();
+
+
 	
 	void Start () {
 		mesh = fogOfWarPlane.GetComponent<MeshFilter>().mesh;
 		vertices = mesh.vertices;
 		colors = new Color[vertices.Length];
-		// for (int i=0; i < colors.Length; i++) {
-		// 	colors[i] = Color.black;
-		// }
+		for (int i=0; i < colors.Length; i++) {
+			colors[i] = Color.black;
+		}
 
 		LoadFogOfWarData(); // Load the fog of war data from file
 		UpdateColor();
@@ -45,7 +50,12 @@ public class Minimap : MonoBehaviour
 				float dist = Vector3.SqrMagnitude(v - hit.point);
 				if (dist < radiusSqr) {
 					float alpha = Mathf.Min(colors[i].a, dist/radiusSqr);
-					colors[i].a = alpha;
+					if (colors[i].a != alpha)
+					{
+						colors[i].a = alpha;
+						updatedIndices.Add(i);
+						updatedAlphas.Add(alpha);
+					}
 				}
 			}
 			UpdateColor();
@@ -61,25 +71,37 @@ public class Minimap : MonoBehaviour
         SaveFogOfWarData(); // Save the fog of war data to file when the game is closed or the scene is switched
     }
 
+	void Awake()
+	{
+		mesh = fogOfWarPlane.GetComponent<MeshFilter>().mesh;
+		vertices = mesh.vertices;
+		colors = new Color[vertices.Length];
+		for (int i=0; i < colors.Length; i++) {
+			colors[i] = Color.black;
+		}
+
+		LoadFogOfWarData(); // Load the fog of war data when the script is loaded (scene is returned to)
+		UpdateColor();
+	}
+
 
     void SaveFogOfWarData()
     {
-        SaveSystem.SaveFogOfWarData(mesh);
+		// Debug.Log("SaveFogOfWarData: " + updatedIndices.Count + " " + updatedAlphas.Count);
+        SaveSystem.SaveFogOfWarData(updatedIndices,updatedAlphas);
+
     }
 
     void LoadFogOfWarData()
     {
         FogOfWarData data = SaveSystem.LoadFogOfWarData();
 
-		for (int i = 0; i < mesh.colors.Length; i++)
-        {
-            int index = i * 4;
-			mesh.colors[i].r = data.colorData[index];
-			mesh.colors[i].g = data.colorData[index + 1];
-			mesh.colors[i].b = data.colorData[index + 2];
-			mesh.colors[i].a = data.colorData[index + 3];
-        }
+		// Debug.Log("LoadFogOfWarData: " + data.updatedIndices.Count + " " + data.updatedAlphas.Count);
 
+		for(int indice = 0; indice < data.updatedIndices.Count; indice++)
+		{
+			colors[data.updatedIndices[indice]].a = data.updatedAlphas[indice];
+		}
     }
 
 }
