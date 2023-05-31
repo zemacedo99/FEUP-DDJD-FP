@@ -80,19 +80,31 @@ public class InventoryScreenScript : MonoBehaviour
     {
         if (inventory.Container.Count == 0 || currentSeleted >= inventory.Container.Count)
         {
-            gameObject.transform.Find("InventoryInfoScreen").Find("ItemName").GetComponent<TextMeshProUGUI>().text = "";
-            gameObject.transform.Find("InventoryInfoScreen").Find("ItemLore").GetComponent<TextMeshProUGUI>().text = "";
-            gameObject.transform.Find("InventoryInfoScreen").Find("ItemInstruction").GetComponent<TextMeshProUGUI>().text = "";
-            gameObject.transform.Find("InventoryInfoScreen").Find("ItemImage").gameObject.SetActive(false);
+            SetInventoryInfoScreen(itemName: "", itemLore: "", itemInstruction: "", itemImage: null);
 
             return;
         }
-        gameObject.transform.Find("InventoryInfoScreen").Find("ItemName").GetComponent<TextMeshProUGUI>().text = inventory.Container[currentSeleted].item.name;
-        gameObject.transform.Find("InventoryInfoScreen").Find("ItemLore").GetComponent<TextMeshProUGUI>().text = inventory.Container[currentSeleted].item.lore;
-        gameObject.transform.Find("InventoryInfoScreen").Find("ItemInstruction").GetComponent<TextMeshProUGUI>().text = inventory.Container[currentSeleted].item.instruction;
 
-        gameObject.transform.Find("InventoryInfoScreen").Find("ItemImage").gameObject.SetActive(true);
-        gameObject.transform.Find("InventoryInfoScreen").Find("ItemImage").GetComponent<RawImage>().texture = inventory.Container[currentSeleted].item.prefab.GetComponent<RawImage>().texture;
+        ItemObject currentSelectedItem = inventory.Container[currentSeleted].item;
+        SetInventoryInfoScreen(itemName: currentSelectedItem.name, itemLore: currentSelectedItem.lore, itemInstruction: currentSelectedItem.instruction, itemImage: currentSelectedItem.prefab.GetComponent<RawImage>().texture);
+    }
+
+    public void SetInventoryInfoScreen(string itemName, string itemLore, string itemInstruction, Texture itemImage)
+    {
+        Transform inventoryInfoScreen = gameObject.transform.Find("InventoryInfoScreen");
+
+        inventoryInfoScreen.Find("ItemName").GetComponent<TextMeshProUGUI>().text = itemName;
+        inventoryInfoScreen.Find("ItemLore").GetComponent<TextMeshProUGUI>().text = itemLore;
+        inventoryInfoScreen.Find("ItemInstruction").GetComponent<TextMeshProUGUI>().text = itemInstruction;
+        if (!itemImage)
+        {
+            inventoryInfoScreen.Find("ItemImage").gameObject.SetActive(false);
+        }
+        else
+        {
+            inventoryInfoScreen.Find("ItemImage").gameObject.SetActive(true);
+            inventoryInfoScreen.Find("ItemImage").GetComponent<RawImage>().texture = itemImage;
+        }
     }
 
     private void InitCommands()
