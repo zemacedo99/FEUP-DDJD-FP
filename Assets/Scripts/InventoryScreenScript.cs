@@ -81,13 +81,16 @@ public class InventoryScreenScript : MonoBehaviour
         if (inventory.Container.Count == 0 || currentSeleted >= inventory.Container.Count)
         {
             gameObject.transform.Find("InventoryInfoScreen").Find("ItemName").GetComponent<TextMeshProUGUI>().text = "";
-            gameObject.transform.Find("InventoryInfoScreen").Find("ItemDescription").GetComponent<TextMeshProUGUI>().text = "";
+            gameObject.transform.Find("InventoryInfoScreen").Find("ItemLore").GetComponent<TextMeshProUGUI>().text = "";
+            gameObject.transform.Find("InventoryInfoScreen").Find("ItemInstruction").GetComponent<TextMeshProUGUI>().text = "";
             gameObject.transform.Find("InventoryInfoScreen").Find("ItemImage").gameObject.SetActive(false);
 
             return;
         }
         gameObject.transform.Find("InventoryInfoScreen").Find("ItemName").GetComponent<TextMeshProUGUI>().text = inventory.Container[currentSeleted].item.name;
-        gameObject.transform.Find("InventoryInfoScreen").Find("ItemDescription").GetComponent<TextMeshProUGUI>().text = inventory.Container[currentSeleted].item.description;
+        gameObject.transform.Find("InventoryInfoScreen").Find("ItemLore").GetComponent<TextMeshProUGUI>().text = inventory.Container[currentSeleted].item.lore;
+        gameObject.transform.Find("InventoryInfoScreen").Find("ItemInstruction").GetComponent<TextMeshProUGUI>().text = inventory.Container[currentSeleted].item.instruction;
+
         gameObject.transform.Find("InventoryInfoScreen").Find("ItemImage").gameObject.SetActive(true);
         gameObject.transform.Find("InventoryInfoScreen").Find("ItemImage").GetComponent<RawImage>().texture = inventory.Container[currentSeleted].item.prefab.GetComponent<RawImage>().texture;
     }
