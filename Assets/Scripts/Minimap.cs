@@ -28,9 +28,11 @@ public class Minimap : MonoBehaviour
 		mesh = fogOfWarPlane.GetComponent<MeshFilter>().mesh;
 		vertices = mesh.vertices;
 		colors = new Color[vertices.Length];
-		for (int i=0; i < colors.Length; i++) {
-			colors[i] = Color.black;
-		}
+		// for (int i=0; i < colors.Length; i++) {
+		// 	colors[i] = Color.black;
+		// }
+
+		LoadFogOfWarData(); // Load the fog of war data from file
 		UpdateColor();
 	}
 	
@@ -53,6 +55,32 @@ public class Minimap : MonoBehaviour
 	void UpdateColor() {
 		mesh.colors = colors;
 	}
+
+	void OnDestroy()
+    {
+        SaveFogOfWarData(); // Save the fog of war data to file when the game is closed or the scene is switched
+    }
+
+
+    void SaveFogOfWarData()
+    {
+        SaveSystem.SaveFogOfWarData(mesh);
+    }
+
+    void LoadFogOfWarData()
+    {
+        FogOfWarData data = SaveSystem.LoadFogOfWarData();
+
+		for (int i = 0; i < mesh.colors.Length; i++)
+        {
+            int index = i * 4;
+			mesh.colors[i].r = data.colorData[index];
+			mesh.colors[i].g = data.colorData[index + 1];
+			mesh.colors[i].b = data.colorData[index + 2];
+			mesh.colors[i].a = data.colorData[index + 3];
+        }
+
+    }
 
 }
 
