@@ -55,6 +55,7 @@ public class CanvasScript : MonoBehaviour
             Time.timeScale = 1;
             isPaused = false;
         }
+        
         this.GetChildByName("InventoryScreen").SetActive(isActive);
     }
 

@@ -54,6 +54,8 @@ public class PlayerInventory : MonoBehaviour
             Destroy(currentTouched.gameObject);
             currentTouched = null;
 
+            InventoryScreen.GetComponent<InventoryScreenScript>().UpdateInformationScreen();
+
             FMODUnity.RuntimeManager.PlayOneShot(itemPickup);
         }
 

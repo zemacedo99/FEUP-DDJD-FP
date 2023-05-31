@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 using static UnityEditor.Progress;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.Editor.InputActionCodeGenerator;
@@ -75,18 +76,20 @@ public class InventoryScreenScript : MonoBehaviour
         }
     }
 
-    private void UpdateInformationScreen()
+    public void UpdateInformationScreen()
     {
         if (inventory.Container.Count == 0 || currentSeleted >= inventory.Container.Count)
         {
-            gameObject.transform.Find("InventoryInfoScreen").Find("ItemName").GetComponent<TextMeshProUGUI>().text = "???";
-            gameObject.transform.Find("InventoryInfoScreen").Find("ItemDescription").GetComponent<TextMeshProUGUI>().text = "???";
+            gameObject.transform.Find("InventoryInfoScreen").Find("ItemName").GetComponent<TextMeshProUGUI>().text = "";
+            gameObject.transform.Find("InventoryInfoScreen").Find("ItemDescription").GetComponent<TextMeshProUGUI>().text = "";
+            gameObject.transform.Find("InventoryInfoScreen").Find("ItemImage").gameObject.SetActive(false);
+
             return;
         }
-        //GameObject selectedItem = gameObject.transform.GetChild((int)(NUMBER_OF_COLUMNS* NUMBER_OF_ROWS) + currentSeleted).gameObject;
-        //selectedItem.
         gameObject.transform.Find("InventoryInfoScreen").Find("ItemName").GetComponent<TextMeshProUGUI>().text = inventory.Container[currentSeleted].item.name;
         gameObject.transform.Find("InventoryInfoScreen").Find("ItemDescription").GetComponent<TextMeshProUGUI>().text = inventory.Container[currentSeleted].item.description;
+        gameObject.transform.Find("InventoryInfoScreen").Find("ItemImage").gameObject.SetActive(true);
+        gameObject.transform.Find("InventoryInfoScreen").Find("ItemImage").GetComponent<RawImage>().texture = inventory.Container[currentSeleted].item.prefab.GetComponent<RawImage>().texture;
     }
 
     private void InitCommands()
