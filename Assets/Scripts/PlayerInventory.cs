@@ -55,6 +55,16 @@ public class PlayerInventory : MonoBehaviour
         return inventory.HasItem(item.itemName);
     }
 
+    public void TriggerDoorOpen()
+    {
+        GameObject[] doors = GameObject.FindGameObjectsWithTag("Door");
+
+        foreach (GameObject door in doors)
+        {
+            door.GetComponent<DoorsScript>().OpenDoorIfHasAlItems();
+        }
+    }
+
     private void Update()
     {
         if (currentTouched && pickupInput.WasPressedThisFrame())
@@ -65,6 +75,7 @@ public class PlayerInventory : MonoBehaviour
             currentTouched = null;
 
             InventoryScreen.GetComponent<InventoryScreenScript>().UpdateInformationScreen();
+            TriggerDoorOpen(); // Opens all the doors that needs items in order for it to open
 
             FMODUnity.RuntimeManager.PlayOneShot(itemPickup);
         }

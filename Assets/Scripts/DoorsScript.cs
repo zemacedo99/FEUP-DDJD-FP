@@ -18,23 +18,23 @@ public class DoorsScript : MonoBehaviour
     {
     }
 
-    private bool CheckVerificationItemList()
+    public void OpenDoorIfHasAlItems()
     {
-        if (verificationItemList.Count == 0) return false;
+        if (verificationItemList.Count == 0) return;
         for (int i = 0; i < verificationItemList.Count; i++)
         {
             if (!GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventory>().HasItem(verificationItemList[i]))
             {
-                return false;
+                return;
             }
         }
-        return true;
+        Open();
+        return;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (CheckVerificationItemList()) Open();
         if (Input.GetKeyDown(KeyCode.O)) Open();
         if (Input.GetKeyDown(KeyCode.C)) Close();
     }
