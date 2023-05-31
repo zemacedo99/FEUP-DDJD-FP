@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0127d48dcc9f484d9c5839eb9efdc39, type: 3}
   m_Name: GravityBoot
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1509197551675769195, guid: 9237ef4eebc344a25aa6c8e384e25609, type: 3}
+  prefab: {fileID: 1574033683648906265, guid: 75caa371d83fe400b8551f299a7c7b44, type: 3}
+  itemName: Gravity Boot
   type: 3
-  description: Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-    when an unknown printer took a galley of type and scrambled it to make a type
-    specimen book. It has survived not only five centuries, but also the leap into
-    electronic typesetting, remaining essentially unchanged. It was popularised in
-    the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-    and more recently with desktop publishing software like Aldus PageMaker including
-    versions of Lorem Ipsum.
+  instruction: "Press 'G' to activate. \n(Cannot be activated outside the puzzle)"
+  lore: "\"In a small town, inventor Alex creates the legendary gravity boot\u2014a
+    sleek, anti-gravity marvel. Word spreads, and the world becomes captivated. Alex
+    showcases the boots, soaring through the skies, inspiring all who witness. The
+    gravity boot becomes a symbol of dreams realized, empowering others to reach
+    for the stars. Alex's invention leaves an indelible mark, reminding us to defy
+    gravity and believe in our own imagination...\""

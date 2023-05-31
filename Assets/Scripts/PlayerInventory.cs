@@ -45,6 +45,16 @@ public class PlayerInventory : MonoBehaviour
         //inventory.Load();
     }
 
+    public bool HasItem(string itemName)
+    {
+        return inventory.HasItem(itemName);
+    }
+
+    public bool HasItem(ItemObject item)
+    {
+        return inventory.HasItem(item.itemName);
+    }
+
     private void Update()
     {
         if (currentTouched && pickupInput.WasPressedThisFrame())

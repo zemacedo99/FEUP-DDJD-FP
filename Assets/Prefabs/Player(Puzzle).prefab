@@ -3492,7 +3492,7 @@ PrefabInstance:
     - target: {fileID: 7852836038629847381, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: InventoryScreen
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1022288818911713032}
     m_RemovedComponents:
     - {fileID: 6484459017631928240, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
@@ -3602,6 +3602,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f0ad140947c64ffa8425104747dd358, type: 3}
+--- !u!1 &1022288818911713032 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7349789566642698443, guid: 2f0ad140947c64ffa8425104747dd358, type: 3}
+  m_PrefabInstance: {fileID: 7768802713437614019}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &4772626584570000397 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3020669052099713998, guid: 2f0ad140947c64ffa8425104747dd358, type: 3}

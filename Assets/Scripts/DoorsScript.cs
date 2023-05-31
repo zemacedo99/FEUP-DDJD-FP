@@ -11,14 +11,30 @@ public class DoorsScript : MonoBehaviour
     public FMODUnity.EventReference doorClosingEvent;
     public FMODUnity.EventReference doorOpeningEvent;
 
+    public List<ItemObject> verificationItemList;
+
     // Start is called before the first frame update
     void Start()
     {
     }
 
+    private bool CheckVerificationItemList()
+    {
+        if (verificationItemList.Count == 0) return false;
+        for (int i = 0; i < verificationItemList.Count; i++)
+        {
+            if (!GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventory>().HasItem(verificationItemList[i]))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (CheckVerificationItemList()) Open();
         if (Input.GetKeyDown(KeyCode.O)) Open();
         if (Input.GetKeyDown(KeyCode.C)) Close();
     }
