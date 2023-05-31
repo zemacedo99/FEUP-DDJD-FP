@@ -675,7 +675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 36f15b4aaafda422cbf35e1e03c716c9, type: 2}
-  emptySlotPrefab: {fileID: 3198595232268162545, guid: 8df1b5a319f334a7980b7d5e08fd3cf6, type: 3}
+  emptySlotPrefab: {fileID: 7948666464115814069, guid: 16a89994583984222971f48d27d5de7c, type: 3}
   X_START: -429
   Y_START: 357.5
   X_GAP: 143
