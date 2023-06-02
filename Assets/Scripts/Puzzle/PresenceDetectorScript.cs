@@ -20,21 +20,19 @@ public class PresenceDetectorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Remove null entries
+        for (int i = 0; i < colliders.Count; ++i)
+        {
+            if (!colliders[i])
+            {
+                // Remove colliders that were destroyed
+                colliders.RemoveAt(i);
+            }
+
+        }
+
         if (colliders.Count < minimumPresences)
             doorsScript.Close();
-        else
-        {
-            for (int i = 0; i < colliders.Count; ++i)
-            {
-                if (!colliders[i])
-                {
-                    // Remove colliders that were destroyed
-                    colliders.RemoveAt(i);
-                    // If there are no colliders, close the door
-                }
-
-            }
-        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -42,7 +40,10 @@ public class PresenceDetectorScript : MonoBehaviour
         colliders.Add(other);
 
         if (colliders.Count >= minimumPresences)
+        {
+            Debug.Log("Opening " + door.name);
             doorsScript.Open();
+        }
     }
 
     private void OnTriggerExit(Collider other)

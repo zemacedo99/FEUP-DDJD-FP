@@ -6448,10 +6448,6 @@ PrefabInstance:
       propertyPath: door
       value: 
       objectReference: {fileID: 1020388437}
-    - target: {fileID: 1877293674893716091, guid: 9160f74474c244e04be8d47b86d1a1fd, type: 3}
-      propertyPath: minimumPresences
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9160f74474c244e04be8d47b86d1a1fd, type: 3}
 --- !u!1 &1993988596
