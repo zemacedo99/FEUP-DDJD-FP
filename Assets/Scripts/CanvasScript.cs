@@ -8,7 +8,7 @@ public class CanvasScript : MonoBehaviour
     public InputActionAsset actions;
     public InputAction pauseInput;
     public InputAction inventoryInput;
-    public bool pauseMenuIsDisplay, inventoryIsDisplay;
+    public bool pauseMenuIsDisplay, inventoryIsDisplay, narrativeIsDisplay;
     public bool isPaused = false;
 
     public FMODUnity.EventReference goBack;
@@ -26,9 +26,8 @@ public class CanvasScript : MonoBehaviour
         return this.transform.Find(name).gameObject;
     }
 
-    public void PauseMenuSetActive(bool isActive)
-    {   
-        pauseMenuIsDisplay = isActive;
+    public void SetPause(bool isActive)
+    {
         if (isActive)
         {
             Time.timeScale = 0;
@@ -39,24 +38,45 @@ public class CanvasScript : MonoBehaviour
             Time.timeScale = 1;
             isPaused = false;
         }
+    }
+
+    public void PauseMenuSetActive(bool isActive)
+    {   
+        pauseMenuIsDisplay = isActive;
+
+        SetPause(isActive);
+
         this.GetChildByName("PauseMenu").SetActive(isActive);
     }
 
     public void InventorySetActive(bool isActive)
     {
         inventoryIsDisplay = isActive;
+
+        SetPause(isActive);
+
+        this.GetChildByName("InventoryScreen").SetActive(isActive);
+    }
+
+    public void NarrativeSetSctive(bool isActive)
+    {
+        narrativeIsDisplay = isActive;
+
         if (isActive)
         {
-            Time.timeScale = 0;
             isPaused = true;
         }
         else
         {
-            Time.timeScale = 1;
             isPaused = false;
         }
-        
-        this.GetChildByName("InventoryScreen").SetActive(isActive);
+
+        this.GetChildByName("NarrativeScreen").SetActive(isActive);
+
+        if (isActive)
+        {
+            this.GetChildByName("NarrativeScreen").GetComponent<NarrativeScreenScript>().Init();
+        }
     }
 
     private void OnDestroy()
@@ -70,18 +90,21 @@ public class CanvasScript : MonoBehaviour
         {
             if (this.transform.Find("PauseMenu").GetComponent<PuzzlePauseMenuScript>() != null && this.transform.Find("PauseMenu").GetComponent<PuzzlePauseMenuScript>().isWarningScreen)
             {
-                print("yes");
                 this.transform.Find("PauseMenu").GetComponent<PuzzlePauseMenuScript>().DisableWarningScreen();
                 return;
             }
-            // Force close the inventory
+            // Force close the inventory and narrative
+
             inventoryIsDisplay = false;
             this.GetChildByName("InventoryScreen").SetActive(inventoryIsDisplay);
+            narrativeIsDisplay = false;
+            this.GetChildByName("NarrativeScreen").SetActive(narrativeIsDisplay);
 
             PauseMenuSetActive(!pauseMenuIsDisplay);
         }
-        if (inventoryInput.WasPressedThisFrame() && !pauseMenuIsDisplay)
+        if (inventoryInput.WasPressedThisFrame() && !pauseMenuIsDisplay && !narrativeIsDisplay)
         {
+            print("inventory preseed");
             InventorySetActive(!inventoryIsDisplay);
         }
 

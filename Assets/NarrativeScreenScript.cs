@@ -20,6 +20,10 @@ public class NarrativeScreenScript : MonoBehaviour
     public TextMeshProUGUI instructionTextComponent;
     private int chapter;
 
+    private Coroutine screenFlashRoutine;
+    private Coroutine typeLineRoutine;
+
+
     public InputAction selectInput;
     public InputActionAsset actions;
 
@@ -29,11 +33,16 @@ public class NarrativeScreenScript : MonoBehaviour
     {
         actions.FindActionMap("menu interactions").Enable();
         selectInput = actions.FindActionMap("menu interactions", true).FindAction("select", true);
-        textComponent.text = string.Empty;
         textSpeed = 1.0f / lettersPerSecond;
+        Reset();
+    }
+
+    private void Reset()
+    {
+        textComponent.text = string.Empty;
         gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0);
         instructionTextComponent.gameObject.SetActive(false);
-        Init();
+
     }
 
     // Update is called once per frame
@@ -41,14 +50,15 @@ public class NarrativeScreenScript : MonoBehaviour
     {
         if (selectInput.WasPressedThisFrame())
         {
-            print("space pressed");
             if (chapters[chapter] == textComponent.text)
             {
-                gameObject.SetActive(false);
+                Reset();
+                GetComponentInParent<CanvasScript>().NarrativeSetSctive(false);
             }
             else
             {
-                StopAllCoroutines();
+                StopCoroutine(screenFlashRoutine);
+                StopCoroutine(typeLineRoutine);
                 textComponent.text = chapters[chapter];
                 instructionTextComponent.gameObject.SetActive(true);
                 gameObject.GetComponent<Image>().color = new Color(0, 0, 0, finalScreenAlpha / 255.0f);
@@ -59,8 +69,8 @@ public class NarrativeScreenScript : MonoBehaviour
     public void Init(int _chapter = 0)
     {
         chapter = _chapter;
-        StartCoroutine(ScreenFlash());
-        StartCoroutine(TypeLine());
+        screenFlashRoutine = StartCoroutine(ScreenFlash());
+        typeLineRoutine = StartCoroutine(TypeLine());
     }
 
     IEnumerator WaitTime(float seconds)
@@ -79,10 +89,11 @@ public class NarrativeScreenScript : MonoBehaviour
 
     IEnumerator TypeLine()
     {
+
         char[] line = chapters[chapter].ToCharArray();
         for (int i = -1; i <= line.Length; i++)
         {
-            if(i == -1)
+            if (i == -1)
             {
                 yield return new WaitForSeconds((finalScreenAlpha - initialScreenAlpha) * screenFlashSpeed + 2.0f);
             }
