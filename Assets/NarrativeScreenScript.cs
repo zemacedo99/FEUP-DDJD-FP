@@ -4,21 +4,30 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.TextCore.Text;
+using UnityEngine.Windows;
+using UnityEngine.InputSystem;
 
 public class NarrativeScreenScript : MonoBehaviour
 {
-    public string[] lines;
+    [TextArea(2, 20)]
+    public string[] chapters;
     private float textSpeed;
     public int lettersPerSecond;
     public TextMeshProUGUI textComponent;
     public int initialScreenAlpha;
     public int finalScreenAlpha;
     public float screenFlashSpeed; 
-    private int index;
+    private int chapter;
+
+    public InputAction selectInput;
+    public InputActionAsset actions;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        actions.FindActionMap("menu interactions").Enable();
+        selectInput = actions.FindActionMap("menu interactions", true).FindAction("select", true);
         textComponent.text = string.Empty;
         textSpeed = 1.0f / lettersPerSecond;
         gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0);
@@ -28,12 +37,25 @@ public class NarrativeScreenScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (selectInput.WasPressedThisFrame())
+        {
+            print("space pressed");
+            if (chapters[chapter] == textComponent.text)
+            {
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                StopAllCoroutines();
+                textComponent.text = chapters[chapter];
+                gameObject.GetComponent<Image>().color = new Color(0, 0, 0, finalScreenAlpha / 255.0f);
+            }
+        }
     }
 
-    public void Init()
+    public void Init(int _chapter = 0)
     {
-        index = 0;
+        chapter = _chapter;
         StartCoroutine(ScreenFlash());
         StartCoroutine(TypeLine());
     }
@@ -54,7 +76,7 @@ public class NarrativeScreenScript : MonoBehaviour
 
     IEnumerator TypeLine()
     {
-        char[] line = lines[index].ToCharArray();
+        char[] line = chapters[chapter].ToCharArray();
         for (int i = -1; i < line.Length; i++)
         {
             if(i == -1)
@@ -66,18 +88,16 @@ public class NarrativeScreenScript : MonoBehaviour
                 textComponent.text += line[i];
                 yield return new WaitForSeconds(textSpeed);
             }
-
-
         }
     }
 
-    void NextLine()
-    {
-        if (index < lines.Length - 1)
-        {
-            index++;
-            textComponent.text = string.Empty;
-            StartCoroutine(TypeLine());
-        }
-    }
+    //void NextChapter()
+    //{
+    //    if (chapter < lines.Length - 1)
+    //    {
+    //        chapter++;
+    //        textComponent.text = string.Empty;
+    //        StartCoroutine(TypeLine());
+    //    }
+    //}
 }
