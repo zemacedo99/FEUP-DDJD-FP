@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class CanvasScript : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class CanvasScript : MonoBehaviour
 
     public GameObject GetChildByName(string name)
     {
+        Debug.Log(name);
         return this.transform.Find(name).gameObject;
     }
 
@@ -62,6 +64,8 @@ public class CanvasScript : MonoBehaviour
 
     public void MapSetActive(bool isActive)
     {
+        if (SceneManager.GetActiveScene().name != "World")
+            isActive = false;
         mapIsDisplay = isActive;
         if (isActive)
         {

@@ -388,10 +388,10 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   mapInput:
-    m_Name: 
+    m_Name: Map Input
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 
+    m_Id: 74d4898e-f1f4-4966-bf6e-f12dee8886be
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -3164,6 +3164,10 @@ PrefabInstance:
     - target: {fileID: 7106066949501403723, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106066949501403723, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: cubePopButton.m_Id
+      value: 86548775-c076-415e-8ddf-c14ab0f8f01d
       objectReference: {fileID: 0}
     - target: {fileID: 7852836038629847381, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: PickUpMessage
