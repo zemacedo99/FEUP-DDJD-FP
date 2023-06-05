@@ -124,12 +124,12 @@ public class Recorder : MonoBehaviour
                 //Vector3 initialPosition = snapshotArray[0].position;
                 //Quaternion initialRotation = snapshotArray[0].rotation;
 
-                gameObject.transform.SetPositionAndRotation(initialPosition, initialRotation);
-                playerMovement.ResetMovement();
-                gameObject.transform.SetPositionAndRotation(initialPosition, initialRotation);
-                if ((playerGravitySignOnRecordStart < 0 && playerMovement.gravity > 0) ||
-                    (playerGravitySignOnRecordStart > 0 && playerMovement.gravity < 0))
-                    GetComponent<PlayerMovement>().gravity *= -1f;
+                //gameObject.transform.SetPositionAndRotation(initialPosition, initialRotation);
+                //playerMovement.ResetMovement();
+                //gameObject.transform.SetPositionAndRotation(initialPosition, initialRotation);
+                //if ((playerGravitySignOnRecordStart < 0 && playerMovement.gravity > 0) ||
+                //    (playerGravitySignOnRecordStart > 0 && playerMovement.gravity < 0))
+                //    GetComponent<PlayerMovement>().gravity *= -1f;
             }
         }
 
