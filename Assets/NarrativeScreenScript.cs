@@ -16,7 +16,8 @@ public class NarrativeScreenScript : MonoBehaviour
     public TextMeshProUGUI textComponent;
     public int initialScreenAlpha;
     public int finalScreenAlpha;
-    public float screenFlashSpeed; 
+    public float screenFlashSpeed;
+    public TextMeshProUGUI instructionTextComponent;
     private int chapter;
 
     public InputAction selectInput;
@@ -31,6 +32,7 @@ public class NarrativeScreenScript : MonoBehaviour
         textComponent.text = string.Empty;
         textSpeed = 1.0f / lettersPerSecond;
         gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+        instructionTextComponent.gameObject.SetActive(false);
         Init();
     }
 
@@ -48,6 +50,7 @@ public class NarrativeScreenScript : MonoBehaviour
             {
                 StopAllCoroutines();
                 textComponent.text = chapters[chapter];
+                instructionTextComponent.gameObject.SetActive(true);
                 gameObject.GetComponent<Image>().color = new Color(0, 0, 0, finalScreenAlpha / 255.0f);
             }
         }
@@ -77,11 +80,16 @@ public class NarrativeScreenScript : MonoBehaviour
     IEnumerator TypeLine()
     {
         char[] line = chapters[chapter].ToCharArray();
-        for (int i = -1; i < line.Length; i++)
+        for (int i = -1; i <= line.Length; i++)
         {
             if(i == -1)
             {
                 yield return new WaitForSeconds((finalScreenAlpha - initialScreenAlpha) * screenFlashSpeed + 2.0f);
+            }
+            else if (i == line.Length)
+            {
+                instructionTextComponent.gameObject.SetActive(true);
+                yield return new WaitForSeconds(textSpeed);
             }
             else
             {
