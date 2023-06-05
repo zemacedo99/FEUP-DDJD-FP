@@ -212,6 +212,7 @@ public class PlayerMovement : MonoBehaviour
     {
         velocity = Vector3.zero;
         targetDir = Vector3.zero;
+        moveInputValue = Vector2.zero;
         velocityY = 0f;
     }
 }

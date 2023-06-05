@@ -23,6 +23,11 @@ public class Minimap : MonoBehaviour
 	private Mesh mesh;
 	private Vector3[] vertices;
 	private Color[] colors;
+
+	private List<int> updatedIndices  = new List<int>();
+	private List<float> updatedAlphas = new List<float>();
+
+
 	
 	void Start () {
 		mesh = fogOfWarPlane.GetComponent<MeshFilter>().mesh;
@@ -31,6 +36,8 @@ public class Minimap : MonoBehaviour
 		for (int i=0; i < colors.Length; i++) {
 			colors[i] = Color.black;
 		}
+
+		LoadFogOfWarData(); // Load the fog of war data from file
 		UpdateColor();
 	}
 	
@@ -43,7 +50,12 @@ public class Minimap : MonoBehaviour
 				float dist = Vector3.SqrMagnitude(v - hit.point);
 				if (dist < radiusSqr) {
 					float alpha = Mathf.Min(colors[i].a, dist/radiusSqr);
-					colors[i].a = alpha;
+					if (colors[i].a != alpha)
+					{
+						colors[i].a = alpha;
+						updatedIndices.Add(i);
+						updatedAlphas.Add(alpha);
+					}
 				}
 			}
 			UpdateColor();
@@ -53,6 +65,44 @@ public class Minimap : MonoBehaviour
 	void UpdateColor() {
 		mesh.colors = colors;
 	}
+
+	void OnDestroy()
+    {
+        SaveFogOfWarData(); // Save the fog of war data to file when the game is closed or the scene is switched
+    }
+
+	void Awake()
+	{
+		mesh = fogOfWarPlane.GetComponent<MeshFilter>().mesh;
+		vertices = mesh.vertices;
+		colors = new Color[vertices.Length];
+		for (int i=0; i < colors.Length; i++) {
+			colors[i] = Color.black;
+		}
+
+		LoadFogOfWarData(); // Load the fog of war data when the script is loaded (scene is returned to)
+		UpdateColor();
+	}
+
+
+    void SaveFogOfWarData()
+    {
+		// Debug.Log("SaveFogOfWarData: " + updatedIndices.Count + " " + updatedAlphas.Count);
+        SaveSystem.SaveFogOfWarData(updatedIndices,updatedAlphas);
+
+    }
+
+    void LoadFogOfWarData()
+    {
+        FogOfWarData data = SaveSystem.LoadFogOfWarData();
+
+		// Debug.Log("LoadFogOfWarData: " + data.updatedIndices.Count + " " + data.updatedAlphas.Count);
+
+		for(int indice = 0; indice < data.updatedIndices.Count; indice++)
+		{
+			colors[data.updatedIndices[indice]].a = data.updatedAlphas[indice];
+		}
+    }
 
 }
 
