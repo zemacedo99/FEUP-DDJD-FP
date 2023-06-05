@@ -92,15 +92,10 @@ public class PlayerMovement : MonoBehaviour
         moveInputValue = new();
 
         footstepsScript = GetComponent<FootSteps>();
-
-        //Vector3 rot = transform.rotation.eulerAngles;
-        //cameraRotY = rot.y;
     }
 
     void Update()
     {
-        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Surface", surfaceType);
-
         if (gravity == 0)
             Debug.Log("GRAVITY IS ZEROOO");
 
@@ -130,6 +125,7 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded && !previousIsGrounded)
         {
             // Play landing sound
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Surface", footstepsScript.GetSurfaceType(SceneManager.GetActiveScene().name));
             FMODUnity.RuntimeManager.PlayOneShotAttached(landingEvent, gameObject);
         }
 
@@ -142,7 +138,8 @@ public class PlayerMovement : MonoBehaviour
 
         targetDir = Vector2.SmoothDamp(targetDir, moveInputValue, ref targetDirVelocity, moveSmoothTime);
 
-        velocityY += gravity * Time.deltaTime;
+        if (!isGrounded)
+            velocityY += gravity * Time.deltaTime;
         velocity = (transform.forward * targetDir.y + transform.right * targetDir.x) * moveSpeed + Vector3.up * velocityY;
         controller.Move(velocity * Time.deltaTime);
         double currentHVelMag = Math.Sqrt(Math.Pow(controller.velocity.x, 2) + Math.Pow(controller.velocity.z, 2));
@@ -199,16 +196,10 @@ public class PlayerMovement : MonoBehaviour
     void CallFootsteps()
     {
         double currentHVelMag = Math.Sqrt(Math.Pow(controller.velocity.x, 2) + Math.Pow(controller.velocity.z, 2));
-        string currentSceneName = SceneManager.GetActiveScene().name;
 
         if (isGrounded && currentHVelMag > DOUBLE_MINIMUM_VALUE)
         {
-            if (currentSceneName == "World"){
-                surfaceType = footstepsScript.Step();
-            }else{
-                surfaceType = 0;
-            }
-
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Surface", footstepsScript.GetSurfaceType(SceneManager.GetActiveScene().name));
             FMODUnity.RuntimeManager.PlayOneShotAttached(footstepsEvent, gameObject);
             //Debug.Log("Horizontal velocity: " + currentHVelMag);
 
