@@ -109,7 +109,7 @@ RectTransform:
   - {fileID: 3506003620349616897}
   - {fileID: 6448981062757661594}
   m_Father: {fileID: 44617251930100315}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -279,8 +279,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 922750672447077001}
   - {fileID: 8069960255251487376}
+  - {fileID: 922750672447077001}
   - {fileID: 1592018009787670837}
   - {fileID: 2195123183319856999}
   - {fileID: 9123640422668001444}
@@ -388,6 +388,7 @@ MonoBehaviour:
     m_Flags: 0
   pauseMenuIsDisplay: 0
   inventoryIsDisplay: 0
+  narrativeIsDisplay: 0
   isPaused: 0
   goBack:
     Guid:
@@ -1655,7 +1656,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7874071231206942501
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1773,9 +1774,9 @@ MonoBehaviour:
     the fragile nature of existence and the indomitable spirit that yearns for connection."
   lettersPerSecond: 20
   textComponent: {fileID: 3245866786800291585}
-  initialScreenAlpha: 0
-  finalScreenAlpha: 0
-  screenFlashSpeed: 0
+  initialScreenAlpha: 170
+  finalScreenAlpha: 250
+  screenFlashSpeed: 0.02
   instructionTextComponent: {fileID: 2089714305663599667}
   selectInput:
     m_Name: Select Input
@@ -3276,7 +3277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3020669052099713998, guid: 2f0ad140947c64ffa8425104747dd358, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3020669052099713998, guid: 2f0ad140947c64ffa8425104747dd358, type: 3}
       propertyPath: m_AnchorMax.x

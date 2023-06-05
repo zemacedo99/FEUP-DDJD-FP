@@ -72,7 +72,7 @@ public class PlayerInventory : MonoBehaviour
             PickUpMessage.SetActive(false);
             inventory.AddItem(currentTouched.item, 1);
             Destroy(currentTouched.gameObject);
-            if (currentTouched.item.itemName == "Gravity Boot")
+            if (currentTouched.item.itemName == "Pickaxe")
             {
                 GameObject.FindGameObjectWithTag("UI Canvas").GetComponent<CanvasScript>().NarrativeSetSctive(true);
             }

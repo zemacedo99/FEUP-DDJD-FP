@@ -1406,6 +1406,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 8c5199fb84112468a9f3bcff0ecb65b5, type: 2}
+  degreesPerSecond: 45
+  amplitude: 0.25
+  frequency: 1
 --- !u!4 &274702888
 Transform:
   m_ObjectHideFlags: 0
@@ -1917,6 +1920,14 @@ PrefabInstance:
     - target: {fileID: 5604573091237753291, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6283970562167800907, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
+      propertyPath: finalScreenAlpha
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 6283970562167800907, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
+      propertyPath: initialScreenAlpha
+      value: 170
       objectReference: {fileID: 0}
     - target: {fileID: 7856395204743844951, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
       propertyPath: m_Name
