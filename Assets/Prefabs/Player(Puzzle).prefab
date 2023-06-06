@@ -3718,6 +3718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d4c2d350e7840f38e894a634805630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapCanvas: {fileID: 0}
   actions: {fileID: -944628639613478452, guid: 107b800f03e150f4fb8e489f0f4a80b4, type: 3}
   pauseInput:
     m_Name: Pause Input
@@ -3737,8 +3738,18 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  mapInput:
+    m_Name: Map Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 6f8e2245-2c5f-492a-9722-8bad7d03f032
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   pauseMenuIsDisplay: 0
   inventoryIsDisplay: 0
+  mapIsDisplay: 0
   narrativeIsDisplay: 0
   isPaused: 0
   goBack:
@@ -3925,6 +3936,14 @@ PrefabInstance:
     - target: {fileID: 4904841449534451288, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106066949501403723, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: cubePopButton.m_Id
+      value: c0d93473-6ae7-4f12-8933-d955edf6fb28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106066949501403723, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: cubePopButton.m_Name
+      value: Cube Pop Button
       objectReference: {fileID: 0}
     - target: {fileID: 7852836038629847381, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: PickUpMessage

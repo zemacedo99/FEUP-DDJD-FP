@@ -25,7 +25,15 @@ public class CanvasScript : MonoBehaviour
 
     public GameObject GetChildByName(string name)
     {
-        return this.transform.Find(name).gameObject;
+        print(name);
+
+        Transform objectTransform = this.transform.Find(name);
+        if (!objectTransform)
+        {
+            return null;
+        }
+
+        return objectTransform.gameObject;
     }
 
     public void SetPause(bool isActive)
@@ -83,6 +91,13 @@ public class CanvasScript : MonoBehaviour
 
     public void MapSetActive(bool isActive)
     {
+        GameObject mapWindowObject = this.GetChildByName("MapWindow");
+
+        if (!mapWindowObject)
+        {
+            return;
+        }
+
         mapIsDisplay = isActive;
         if (isActive)
         {
@@ -94,7 +109,8 @@ public class CanvasScript : MonoBehaviour
             Time.timeScale = 1;
             isPaused = false;
         }
-        this.GetChildByName("MapWindow").SetActive(isActive);
+
+        mapWindowObject.SetActive(isActive);
     }
 
     private void OnDestroy()
