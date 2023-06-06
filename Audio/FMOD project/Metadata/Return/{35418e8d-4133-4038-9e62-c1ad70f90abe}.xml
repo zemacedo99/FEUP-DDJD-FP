@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
 	<object class="MixerReturn" id="{35418e8d-4133-4038-9e62-c1ad70f90abe}">
-		<property name="volume">
-			<value>-80</value>
-		</property>
 		<property name="overridingInputFormat">
 			<value>2</value>
 		</property>
@@ -17,7 +14,7 @@
 			<destination>{1e8b9b5b-f630-44f8-8d77-d355f2933bc6}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{12042c69-2f75-4ab6-bb0b-4023d02d8a25}</destination>
+			<destination>{7d58a655-6063-4cf3-a8af-37ca4404b045}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{bf71a321-2ecf-4e6e-9a4f-a2a86e9044f5}">

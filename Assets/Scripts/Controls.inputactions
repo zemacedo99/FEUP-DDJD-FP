@@ -275,6 +275,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "cubePop",
+                    "type": "Button",
+                    "id": "8d31ad9b-6e84-431d-87aa-1dd827ae3b6c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -343,6 +352,17 @@
                     "action": "play",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ee2de261-b212-40f1-88af-6bc550291021",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "cubePop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -381,6 +401,15 @@
                     "name": "pause",
                     "type": "Button",
                     "id": "7b2d898b-2656-4533-95d8-1e23456460b3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "map",
+                    "type": "Button",
+                    "id": "2f6e250c-f08d-4015-9b9e-54426bd6c5ed",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -440,6 +469,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "df338a82-e3b4-48f1-912b-60381e7ebe3a",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "map",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
