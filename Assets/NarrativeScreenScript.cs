@@ -52,7 +52,7 @@ public class NarrativeScreenScript : MonoBehaviour
             if (toBeDisplayedContent == textComponent.text)
             {
                 Reset();
-                GetComponentInParent<CanvasScript>().NarrativeSetSctive(false, null);
+                GetComponentInParent<CanvasScript>().NarrativeSetSctive(false);
             }
             else
             {
@@ -67,8 +67,8 @@ public class NarrativeScreenScript : MonoBehaviour
 
     public void Init(ItemObject item)
     {
-        
 
+        Reset();
         toBeDisplayedContent = item.lore;
         screenFlashRoutine = StartCoroutine(ScreenFlash());
         typeLineRoutine = StartCoroutine(TypeLine());
