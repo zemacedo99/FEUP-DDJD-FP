@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cassette Player 4
   m_EditorClassIdentifier: 
   prefab: {fileID: 7332769740849212140, guid: 041e358dea557461fb5e3b2b8f0f84b2, type: 3}
-  itemName: Cassette Payer 4
+  itemName: Cassette Player 4
   type: 3
   instruction: 
   lore: "2157-06-19\n\nThe situation has become dire, and our hopes wane like the

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cassette Player 5
   m_EditorClassIdentifier: 
   prefab: {fileID: 7332769740849212140, guid: 041e358dea557461fb5e3b2b8f0f84b2, type: 3}
-  itemName: Cassette Payer 5
+  itemName: Cassette Player 5
   type: 3
   instruction: 
   lore: "2157-11-02\n\nOur relentless research reveals a tragic revelation. The toxic
