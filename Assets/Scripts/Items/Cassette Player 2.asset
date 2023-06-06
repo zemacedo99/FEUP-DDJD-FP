@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46bd4f72c474b449a8b4f8acb164cbca, type: 3}
   m_Name: Cassette Player 2
   m_EditorClassIdentifier: 
-  prefab: {fileID: 7332769740849212140, guid: 041e358dea557461fb5e3b2b8f0f84b2, type: 3}
+  prefab: {fileID: 7332769740849212140, guid: 1f2fde4a92b134e748d65cd9a0af5819, type: 3}
   itemName: Cassette Player 2
   type: 3
   instruction: 
-  lore: "2156-07-21\n\nMonths have passed since we set out on our mission to make
-    contact with the distant planet. We have labored tirelessly, developing advanced
-    technology to transmit our own messages across the vast cosmic expanse. The anticipation
-    builds within us as we send our signals into the depths, hoping they reach their
-    intended destination. \n\nWill the inhabitants of the distant planet receive
-    our messages? Will they respond to our call for connection? We await their reply,
-    filled with anticipation and wonder."
+  lore: "Chapter 2: Signals in the Abyss\n\n2156-07-21\n\nMonths have passed since
+    we set out on our mission to make contact with the distant planet. We have labored
+    tirelessly, developing advanced technology to transmit our own messages across
+    the vast cosmic expanse. The anticipation builds within us as we send our signals
+    into the depths, hoping they reach their intended destination. \n\nWill the inhabitants
+    of the distant planet receive our messages? Will they respond to our call for
+    connection? We await their reply, filled with anticipation and wonder."

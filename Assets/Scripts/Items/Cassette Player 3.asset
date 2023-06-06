@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46bd4f72c474b449a8b4f8acb164cbca, type: 3}
   m_Name: Cassette Player 3
   m_EditorClassIdentifier: 
-  prefab: {fileID: 7332769740849212140, guid: 041e358dea557461fb5e3b2b8f0f84b2, type: 3}
+  prefab: {fileID: 7332769740849212140, guid: 2c7f79a499c914fcfba79e299e7472a5, type: 3}
   itemName: Cassette Player 3
   type: 3
   instruction: 
-  lore: "2157-02-04\n\nAs we persist in our attempts at communication, a troubling
-    concern emerges. Disturbing reports reach us from our researchers: the once-crystalline
-    waters of Lumina are turning toxic. \n\nOur beautiful home, teeming with vibrant
-    life, is threatened by an invisible enemy. Panic grips our hearts as we witness
-    the devastation unfold. \n\nWill our species survive this encroaching menace?
-    Our efforts to make contact with the enigmatic planet now carry a sense of urgency
-    and a plea for assistance and understanding."
+  lore: "Chapter 3: A Dying Tide\n\n2157-02-04\n\nAs we persist in our attempts at
+    communication, a troubling concern emerges. Disturbing reports reach us from
+    our researchers: the once-crystalline waters of Lumina are turning toxic. \n\nOur
+    beautiful home, teeming with vibrant life, is threatened by an invisible enemy.
+    Panic grips our hearts as we witness the devastation unfold. \n\nWill our species
+    survive this encroaching menace? Our efforts to make contact with the enigmatic
+    planet now carry a sense of urgency and a plea for assistance and understanding."

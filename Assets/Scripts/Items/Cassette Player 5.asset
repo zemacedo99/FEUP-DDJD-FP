@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46bd4f72c474b449a8b4f8acb164cbca, type: 3}
   m_Name: Cassette Player 5
   m_EditorClassIdentifier: 
-  prefab: {fileID: 7332769740849212140, guid: 041e358dea557461fb5e3b2b8f0f84b2, type: 3}
+  prefab: {fileID: 7332769740849212140, guid: dfbaf2361daa748829873adcb0db6520, type: 3}
   itemName: Cassette Player 5
   type: 3
   instruction: 
-  lore: "2157-11-02\n\nOur relentless research reveals a tragic revelation. The toxic
-    transformation of our waters is not a result of natural forces but rather an
-    insidious cosmic storm of particles, unseen and misunderstood until now. These
-    particles infiltrate the very molecules of our water, altering their properties
-    and rendering them poisonous to our kind. \n\nOur hearts ache as we realize the
-    enormity of our fate. We send this message as a warning, not just for our own
-    world but for all others. The storm will traverse the cosmos, sparing no one
-    in its path. The fabric of existence itself seems threatened."
+  lore: "Chapter 5: The Tragedy Unveiled\n\n2157-11-02\n\nOur relentless research
+    reveals a tragic revelation. The toxic transformation of our waters is not a
+    result of natural forces but rather an insidious cosmic storm of particles, unseen
+    and misunderstood until now. These particles infiltrate the very molecules of
+    our water, altering their properties and rendering them poisonous to our kind.
+    \n\nOur hearts ache as we realize the enormity of our fate. We send this message
+    as a warning, not just for our own world but for all others. The storm will traverse
+    the cosmos, sparing no one in its path. The fabric of existence itself seems
+    threatened."

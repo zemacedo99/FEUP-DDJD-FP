@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46bd4f72c474b449a8b4f8acb164cbca, type: 3}
   m_Name: Cassette Player 1
   m_EditorClassIdentifier: 
-  prefab: {fileID: 7332769740849212140, guid: 041e358dea557461fb5e3b2b8f0f84b2, type: 3}
+  prefab: {fileID: 7332769740849212140, guid: dbda4a6f0126145d299dd71dd6fa8603, type: 3}
   itemName: Cassette Player 1
   type: 3
   instruction: 
-  lore: "Chapter 1\n\n2156-03-10\n\nToday is an extraordinary day for our species.
-    Our scientists have made a groundbreaking discovery: life exists beyond our world!
-    \n\nWe have explored the depths of our oceans and witnessed the wonders of our
-    own existence. \n\nFilled with awe and curiosity, we yearn to share our findings
-    with a distant planet, a realm unknown to us. With newfound hope, we embark on
-    a mission to establish contact with this mysterious civilization."
+  lore: "Chapter 1: A Glorious Discovery\n\n2156-03-10\n\nToday is an extraordinary
+    day for our species. Our scientists have made a groundbreaking discovery: life
+    exists beyond our world! \n\nWe have explored the depths of our oceans and witnessed
+    the wonders of our own existence. \n\nFilled with awe and curiosity, we yearn
+    to share our findings with a distant planet, a realm unknown to us. With newfound
+    hope, we embark on a mission to establish contact with this mysterious civilization."
