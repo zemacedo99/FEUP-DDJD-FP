@@ -25,8 +25,6 @@ public class CanvasScript : MonoBehaviour
 
     public GameObject GetChildByName(string name)
     {
-        print(name);
-
         Transform objectTransform = this.transform.Find(name);
         if (!objectTransform)
         {

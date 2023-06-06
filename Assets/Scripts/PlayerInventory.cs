@@ -74,7 +74,6 @@ public class PlayerInventory : MonoBehaviour
             Destroy(currentTouched.gameObject);
             if (currentTouched.item.type.ToString() == "CassettePlayer")
             {
-                print(currentTouched.gameObject.GetComponent<Item>().item.name);
                 GameObject.FindGameObjectWithTag("UI Canvas").GetComponent<CanvasScript>().NarrativeSetSctive(true, currentTouched.gameObject.GetComponent<Item>().item);
             }
             currentTouched = null;

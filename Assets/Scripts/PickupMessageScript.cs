@@ -17,7 +17,7 @@ public class PickupMessageScript : MonoBehaviour
 
     private void SetText(Item item)
     {
-        pickupText.text = item.item.name;
+        pickupText.text = item.item.itemName;
     }
     private void SetItemImage(Item item)
     {

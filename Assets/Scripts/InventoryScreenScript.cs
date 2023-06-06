@@ -86,7 +86,7 @@ public class InventoryScreenScript : MonoBehaviour
         }
 
         ItemObject currentSelectedItem = inventory.Container[currentSeleted].item;
-        SetInventoryInfoScreen(itemName: currentSelectedItem.name, itemLore: currentSelectedItem.lore, itemInstruction: currentSelectedItem.instruction, itemImage: currentSelectedItem.prefab.GetComponent<RawImage>().texture);
+        SetInventoryInfoScreen(itemName: currentSelectedItem.itemName, itemLore: currentSelectedItem.lore, itemInstruction: currentSelectedItem.instruction, itemImage: currentSelectedItem.prefab.GetComponent<RawImage>().texture);
     }
 
     public void SetInventoryInfoScreen(string itemName, string itemLore, string itemInstruction, Texture itemImage)
