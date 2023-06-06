@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0127d48dcc9f484d9c5839eb9efdc39, type: 3}
-  m_Name: GravityBoot
+  m_Name: Gravity Boot
   m_EditorClassIdentifier: 
   prefab: {fileID: 1574033683648906265, guid: 75caa371d83fe400b8551f299a7c7b44, type: 3}
   itemName: Gravity Boot
