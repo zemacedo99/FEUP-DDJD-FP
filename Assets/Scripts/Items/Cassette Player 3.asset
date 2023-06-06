@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cassette Player 3
   m_EditorClassIdentifier: 
   prefab: {fileID: 7332769740849212140, guid: 2c7f79a499c914fcfba79e299e7472a5, type: 3}
-  itemName: Cassette Player 3
+  itemName: Strange Tape III
   type: 3
   instruction: 
   lore: "Chapter 3: A Dying Tide\n\n2157-02-04\n\nAs we persist in our attempts at

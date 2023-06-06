@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cassette Player 1
   m_EditorClassIdentifier: 
   prefab: {fileID: 7332769740849212140, guid: dbda4a6f0126145d299dd71dd6fa8603, type: 3}
-  itemName: Cassette Player 1
+  itemName: Strange Tape I
   type: 3
   instruction: 
   lore: "Chapter 1: A Glorious Discovery\n\n2156-03-10\n\nToday is an extraordinary

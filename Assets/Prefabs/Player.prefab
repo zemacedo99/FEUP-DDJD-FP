@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 6484459017631928240}
   - component: {fileID: 1041068118347096609}
   - component: {fileID: 7852836038629847381}
+  - component: {fileID: -9153764388390311813}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -228,13 +229,6 @@ MonoBehaviour:
   canJetpack: 0
   jetCost: 30
   waterParticle: {fileID: 5042082143303038769, guid: f2d1b0ec878b0b54f8691363bdc37622, type: 3}
-  footstepsEvent:
-    Guid:
-      Data1: 1570676455
-      Data2: 1187908766
-      Data3: 431507127
-      Data4: 176202878
-    Path: event:/Player/Footsteps
   jumpEvent:
     Guid:
       Data1: -2005072877
@@ -249,6 +243,13 @@ MonoBehaviour:
       Data3: 162870688
       Data4: 1193836188
     Path: event:/Player/Jump_Landing
+  footstepsEvent:
+    Guid:
+      Data1: 1570676455
+      Data2: 1187908766
+      Data3: 431507127
+      Data4: 176202878
+    Path: event:/Player/Footsteps
 --- !u!114 &6484459017631928240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,7 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 897dc81d4c439be41902f78ca5098c78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oxygenValue: 300
+  oxygenValue: 3000000
   oxygenSlider: {fileID: 0}
   oxygenText: {fileID: 0}
   outOfOxygenEvent:
@@ -316,6 +317,18 @@ MonoBehaviour:
       Data3: 1137325199
       Data4: -441023308
     Path: event:/UI/Item picked
+--- !u!114 &-9153764388390311813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010445595383186411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b70eea5e335b074cb65f5130635e63e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1561321445208504883
 GameObject:
   m_ObjectHideFlags: 0

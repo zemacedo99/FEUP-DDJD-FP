@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cassette Player 6
   m_EditorClassIdentifier: 
   prefab: {fileID: 7332769740849212140, guid: 041e358dea557461fb5e3b2b8f0f84b2, type: 3}
-  itemName: Cassette Player 6
+  itemName: Strange Tape VI
   type: 3
   instruction: 
   lore: "Chapter 6: A Plea Echoing Across the Stars\n\n2158-01-27\n\nTo the one who
