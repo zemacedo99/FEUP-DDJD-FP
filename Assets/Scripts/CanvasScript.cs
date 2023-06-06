@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class CanvasScript : MonoBehaviour
 {
@@ -55,6 +56,12 @@ public class CanvasScript : MonoBehaviour
         SetPause(isActive);
 
         this.GetChildByName("PauseMenu").SetActive(isActive);
+
+        if (isActive && SceneManager.GetActiveScene().name == "World")
+        {
+             
+            this.GetChildByName("PauseMenu").GetComponent<PauseMenuScript>().UpdateCollectedTape();
+        }
     }
 
     public void InventorySetActive(bool isActive)
