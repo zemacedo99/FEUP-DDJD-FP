@@ -162,6 +162,13 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  recordingEvent:
+    Guid:
+      Data1: -1180432091
+      Data2: 1245640427
+      Data3: 1861625011
+      Data4: -455572269
+    Path: event:/Cloning/Recording
 --- !u!114 &1010445595383186401
 MonoBehaviour:
   m_ObjectHideFlags: 0
