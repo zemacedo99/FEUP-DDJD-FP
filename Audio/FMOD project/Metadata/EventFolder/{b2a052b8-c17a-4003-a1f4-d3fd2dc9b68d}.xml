@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EventFolder" id="{b2a052b8-c17a-4003-a1f4-d3fd2dc9b68d}">
+		<property name="name">
+			<value>Cloning</value>
+		</property>
+		<relationship name="folder">
+			<destination>{56e2f35d-8ffe-4849-8f1c-320cd4edc575}</destination>
+		</relationship>
+	</object>
+</objects>
