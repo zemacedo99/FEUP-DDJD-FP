@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -57,11 +58,13 @@ public class PlayerMovement : MonoBehaviour
 
     CanvasScript canvasScript;
 
-    public FMODUnity.EventReference footstepsEvent;
     private float footstepTimer = 0f;
 
     public FMODUnity.EventReference jumpEvent;
     public FMODUnity.EventReference landingEvent;
+
+    private FootSteps footstepsScript;
+    public FMODUnity.EventReference footstepsEvent;
 
     void Start()
     {
@@ -88,14 +91,11 @@ public class PlayerMovement : MonoBehaviour
 
         moveInputValue = new();
 
-        //Vector3 rot = transform.rotation.eulerAngles;
-        //cameraRotY = rot.y;
+        footstepsScript = GetComponent<FootSteps>();
     }
 
     void Update()
     {
-        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Surface", surfaceType);
-
         if (gravity == 0)
             Debug.Log("GRAVITY IS ZEROOO");
 
@@ -125,6 +125,7 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded && !previousIsGrounded)
         {
             // Play landing sound
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Surface", footstepsScript.GetSurfaceType(SceneManager.GetActiveScene().name));
             FMODUnity.RuntimeManager.PlayOneShotAttached(landingEvent, gameObject);
         }
 
@@ -137,7 +138,8 @@ public class PlayerMovement : MonoBehaviour
 
         targetDir = Vector2.SmoothDamp(targetDir, moveInputValue, ref targetDirVelocity, moveSmoothTime);
 
-        velocityY += gravity * Time.deltaTime;
+        if (!isGrounded)
+            velocityY += gravity * Time.deltaTime;
         velocity = (transform.forward * targetDir.y + transform.right * targetDir.x) * moveSpeed + Vector3.up * velocityY;
         controller.Move(velocity * Time.deltaTime);
         double currentHVelMag = Math.Sqrt(Math.Pow(controller.velocity.x, 2) + Math.Pow(controller.velocity.z, 2));
@@ -197,6 +199,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isGrounded && currentHVelMag > DOUBLE_MINIMUM_VALUE)
         {
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Surface", footstepsScript.GetSurfaceType(SceneManager.GetActiveScene().name));
             FMODUnity.RuntimeManager.PlayOneShotAttached(footstepsEvent, gameObject);
 
             if (recorder.isRecording) recorder.eventArray.Add(new PlayerEvent(PlayerEvent.EventType.FootstepsSound, Time.time - recorder.GetRecordingStartTime()));
