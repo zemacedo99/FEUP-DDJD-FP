@@ -18,10 +18,14 @@ public class Oxygen : MonoBehaviour
     private bool refilling = false;
 
     CharacterController controller;
+    PlayerMovement movement;
+
+    public FMODUnity.EventReference outOfOxygenEvent;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        movement = GetComponent<PlayerMovement>();
         lastPosition = transform.position;
         oxygenStationPosition = transform.position;
         oxygenSlider.maxValue = 300;
@@ -41,7 +45,7 @@ public class Oxygen : MonoBehaviour
             oxygenValue = 0;
             Die();
         }
-       
+        
         UpdateSlider(oxygenValue);
     }
 
@@ -78,8 +82,12 @@ public class Oxygen : MonoBehaviour
     void UpdateSlider(float value)
     {
         value = Mathf.Clamp(value, 0f, oxygenSlider.maxValue);
+
         oxygenSlider.value = value;
-        oxygenText.text = "Oxygen: " + value.ToString("F0");
+        oxygenText.text = "Water: " + value.ToString("F0");
+
+        float valueForFMOD = value / oxygenSlider.maxValue;
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("OxygenValue", valueForFMOD);
     }
 
     public void SetOxygenValue(float oxygenValue)
@@ -102,6 +110,16 @@ public class Oxygen : MonoBehaviour
     void Die()
     {
         Debug.Log("Player has run out of oxygen");
+
+        // Play FMOD event
+        FMODUnity.RuntimeManager.PlayOneShotAttached(outOfOxygenEvent, gameObject);
+
+        ResetPos();
+    }
+
+    void ResetPos() {
+        movement.ResetMovement();
+
         // Implement restart the level
         controller.enabled = false;
         transform.position = oxygenStationPosition;
@@ -123,7 +141,7 @@ public class Oxygen : MonoBehaviour
         if (!PlayerPrefs.HasKey("CheckpointX"))
             return;
         oxygenStationPosition = new Vector3(PlayerPrefs.GetFloat("CheckpointX"), PlayerPrefs.GetFloat("CheckpointY"), PlayerPrefs.GetFloat("CheckpointZ"));
-        Die();
+        ResetPos();
     }
 
 }

@@ -5,20 +5,22 @@ using UnityEngine.InputSystem;
 
 public class CanvasScript : MonoBehaviour
 {
+    public GameObject mapCanvas;
     public InputActionAsset actions;
     public InputAction pauseInput;
     public InputAction inventoryInput;
-    public bool pauseMenuIsDisplay, inventoryIsDisplay, narrativeIsDisplay;
+    public InputAction mapInput;
+    public bool pauseMenuIsDisplay, inventoryIsDisplay, mapIsDisplay, narrativeIsDisplay;
     public bool isPaused = false;
 
     public FMODUnity.EventReference goBack;
 
     void Start()
     {
-        pauseMenuIsDisplay = false;
         actions.FindActionMap("interactions").Enable();
         pauseInput = actions.FindActionMap("interactions", true).FindAction("pause", true);
         inventoryInput = actions.FindActionMap("interactions", true).FindAction("inventory", true);
+        mapInput = actions.FindActionMap("interactions", true).FindAction("map", true);
     }
 
     public GameObject GetChildByName(string name)
@@ -79,6 +81,22 @@ public class CanvasScript : MonoBehaviour
         }
     }
 
+    public void MapSetActive(bool isActive)
+    {
+        mapIsDisplay = isActive;
+        if (isActive)
+        {
+            Time.timeScale = 0;
+            isPaused = true;
+        }
+        else
+        {
+            Time.timeScale = 1;
+            isPaused = false;
+        }
+        this.GetChildByName("MapWindow").SetActive(isActive);
+    }
+
     private void OnDestroy()
     {
         Time.timeScale = 1;
@@ -94,9 +112,8 @@ public class CanvasScript : MonoBehaviour
                 return;
             }
             // Force close the inventory and narrative
-
-            inventoryIsDisplay = false;
-            this.GetChildByName("InventoryScreen").SetActive(inventoryIsDisplay);
+            InventorySetActive(false);
+            MapSetActive(false);
             narrativeIsDisplay = false;
             this.GetChildByName("NarrativeScreen").SetActive(narrativeIsDisplay);
 
@@ -104,8 +121,13 @@ public class CanvasScript : MonoBehaviour
         }
         if (inventoryInput.WasPressedThisFrame() && !pauseMenuIsDisplay && !narrativeIsDisplay)
         {
-            print("inventory preseed");
+            MapSetActive(false);
             InventorySetActive(!inventoryIsDisplay);
+        }
+        if (mapInput.WasPressedThisFrame() && !pauseMenuIsDisplay)
+        {
+            InventorySetActive(false);
+            MapSetActive(!mapIsDisplay);
         }
 
     }
