@@ -46,11 +46,12 @@ public class Recorder : MonoBehaviour
     public List<PlayerSnapshot> snapshotArray;
     public List<PlayerEvent> eventArray;
     public GameObject cube;
-    Vector3 cubeOffset = Vector3.up;
     GameObject newCube;
+    List<GameObject> cubesStack;
 
     public InputActionAsset actions;
     public InputAction recordButton;
+    public InputAction cubePopButton;
 
     CanvasScript canvasScript;
 
@@ -58,6 +59,7 @@ public class Recorder : MonoBehaviour
     void Start()
     {
         recordButton = actions.FindActionMap("recorder", true).FindAction("record", true);
+        cubePopButton = actions.FindActionMap("recorder", true).FindAction("cubePop", true);
         actions.FindActionMap("recorder").Enable();
 
         isRecording = false;
@@ -66,6 +68,8 @@ public class Recorder : MonoBehaviour
 
         playerMovement = gameObject.GetComponent<PlayerMovement>();
         canvasScript = GameObject.FindGameObjectWithTag("UI Canvas").GetComponent<CanvasScript>();
+
+        cubesStack = new List<GameObject>();
     }
 
     void FixedUpdate()
@@ -94,7 +98,8 @@ public class Recorder : MonoBehaviour
                 playerGravitySignOnRecordStart = Math.Sign(playerMovement.gravity);
 
                 // Instantiate cube
-                newCube = Instantiate(cube, transform.position, transform.rotation);
+                newCube = Instantiate(cube, transform.position - Vector3.up * 0.5f, transform.rotation);
+                cubesStack.Add(newCube);
             }
         }
         else if (recordButton.WasReleasedThisFrame())
@@ -117,20 +122,19 @@ public class Recorder : MonoBehaviour
                 Vector3 initialPosition = snapshotArray[0].position;
                 Quaternion initialRotation = snapshotArray[0].rotation;
 
-                //GameObject newPlayer = Instantiate(gameObject, initialPosition, initialRotation);
-                //newPlayer.name = "Player(Puzzle)";
-                //if ((playerGravitySignOnRecordStart < 0 && newPlayer.GetComponent<PlayerMovement>().gravity > 0) ||
-                //    (playerGravitySignOnRecordStart > 0 && newPlayer.GetComponent<PlayerMovement>().gravity < 0))
-                //    newPlayer.GetComponent<PlayerMovement>().gravity *= -1f;
-
+                gameObject.transform.SetPositionAndRotation(initialPosition, initialRotation);
                 playerMovement.ResetMovement();
                 gameObject.transform.SetPositionAndRotation(initialPosition, initialRotation);
                 if ((playerGravitySignOnRecordStart < 0 && playerMovement.gravity > 0) ||
                     (playerGravitySignOnRecordStart > 0 && playerMovement.gravity < 0))
                     GetComponent<PlayerMovement>().gravity *= -1f;
-
-                //Destroy(gameObject);
             }
+        }
+
+        if (cubePopButton.WasPressedThisFrame())
+        {
+            Destroy(cubesStack[0]);
+            cubesStack.RemoveAt(0);
         }
     }
 
