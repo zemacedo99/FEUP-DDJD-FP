@@ -72,10 +72,10 @@ public class PlayerInventory : MonoBehaviour
             PickUpMessage.SetActive(false);
             inventory.AddItem(currentTouched.item, 1);
             Destroy(currentTouched.gameObject);
-            print(currentTouched.item.itemName.Substring(0, currentTouched.item.itemName.Length - 2));
-            if (currentTouched.item.itemName.Substring(0, currentTouched.item.itemName.Length-2) == "Cassette Player")
+            if (currentTouched.item.type.ToString() == "CassettePlayer")
             {
-                GameObject.FindGameObjectWithTag("UI Canvas").GetComponent<CanvasScript>().NarrativeSetSctive(true);
+                print(currentTouched.gameObject.GetComponent<Item>().item.name);
+                GameObject.FindGameObjectWithTag("UI Canvas").GetComponent<CanvasScript>().NarrativeSetSctive(true, currentTouched.gameObject.GetComponent<Item>().item);
             }
             currentTouched = null;
 

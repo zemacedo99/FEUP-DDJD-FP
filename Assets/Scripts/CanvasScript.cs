@@ -68,7 +68,7 @@ public class CanvasScript : MonoBehaviour
         this.GetChildByName("InventoryScreen").SetActive(isActive);
     }
 
-    public void NarrativeSetSctive(bool isActive)
+    public void NarrativeSetSctive(bool isActive, ItemObject item = null)
     {
         narrativeIsDisplay = isActive;
 
@@ -85,7 +85,7 @@ public class CanvasScript : MonoBehaviour
 
         if (isActive)
         {
-            this.GetChildByName("NarrativeScreen").GetComponent<NarrativeScreenScript>().Init();
+            this.GetChildByName("NarrativeScreen").GetComponent<NarrativeScreenScript>().Init(item);
         }
     }
 

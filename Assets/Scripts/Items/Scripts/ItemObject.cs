@@ -7,6 +7,7 @@ public enum ItemType
     Weapon,
     Equipment,
     Consumeble,
+    CassettePlayer,
     Default
 }
 public abstract class ItemObject : ScriptableObject
