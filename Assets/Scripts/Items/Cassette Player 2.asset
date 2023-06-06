@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46bd4f72c474b449a8b4f8acb164cbca, type: 3}
   m_Name: Cassette Player 2
   m_EditorClassIdentifier: 
-  prefab: {fileID: 7332769740849212140, guid: 1f2fde4a92b134e748d65cd9a0af5819, type: 3}
+  prefab: {fileID: 3447228698730923694, guid: 991e8419dfd174be880c1c80caf94d4e, type: 3}
   itemName: Cassette Player 2
   type: 3
   instruction: 
