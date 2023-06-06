@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class CanvasScript : MonoBehaviour
 {
-    public GameObject mapCanvas;
+    public GameObject mapCamera;
     public InputActionAsset actions;
     public InputAction pauseInput;
     public InputAction inventoryInput;
@@ -74,6 +74,7 @@ public class CanvasScript : MonoBehaviour
             isPaused = false;
         }
         this.GetChildByName("MapWindow").SetActive(isActive);
+        this.mapCamera.SetActive(isActive);
     }
 
     private void OnDestroy()
