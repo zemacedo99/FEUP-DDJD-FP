@@ -53,21 +53,6 @@ public class MainMenuScript : MonoBehaviour
         FMODUnity.RuntimeManager.PlayOneShot(moveUpDown);
     }
 
-    //public void SetWarningText(int _type)
-    //{
-    //    if (_type == (int)warningType.RESET)
-    //    {
-    //        this.transform.GetChild(0).Find("WarningText").GetComponent<TextMeshProUGUI>().text = "Are you sure you want to reset the quest?";
-    //        this.type = warningType.RESET;
-
-    //    }
-    //    if (_type == (int)warningType.ADANDON)
-    //    {
-    //        this.transform.GetChild(0).Find("WarningText").GetComponent<TextMeshProUGUI>().text = "Are you sure you want to abandon the quest?";
-    //        this.type = warningType.ADANDON;
-    //    }
-    //}
-
     void DeleteInventoryFile()
     {
         string filename = ((InventoryObject)AssetDatabase.LoadAssetAtPath("Assets/Scripts/Inventory/PlayerInventory.asset", typeof(InventoryObject))).savePath;

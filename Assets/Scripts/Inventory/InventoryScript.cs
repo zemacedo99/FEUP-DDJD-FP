@@ -26,6 +26,11 @@ public class InventoryScript : MonoBehaviour
         inventory.Container.Clear();
     }
 
+    public bool HasItem(string itemName)
+    {
+        return inventory.HasItem(itemName);
+    }
+
     public void Save()
     {
         inventory.Save();

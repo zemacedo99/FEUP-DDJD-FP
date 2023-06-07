@@ -45,6 +45,26 @@ public class PlayerInventory : MonoBehaviour
         //inventory.Load();
     }
 
+    public bool HasItem(string itemName)
+    {
+        return inventory.HasItem(itemName);
+    }
+
+    public bool HasItem(ItemObject item)
+    {
+        return inventory.HasItem(item.itemName);
+    }
+
+    public void TriggerDoorOpen()
+    {
+        GameObject[] doors = GameObject.FindGameObjectsWithTag("Door");
+
+        foreach (GameObject door in doors)
+        {
+            door.GetComponent<DoorsScript>().OpenDoorIfHasAlItems();
+        }
+    }
+
     private void Update()
     {
         if (currentTouched && pickupInput.WasPressedThisFrame())
@@ -52,7 +72,14 @@ public class PlayerInventory : MonoBehaviour
             PickUpMessage.SetActive(false);
             inventory.AddItem(currentTouched.item, 1);
             Destroy(currentTouched.gameObject);
+            if (currentTouched.item.type.ToString() == "CassettePlayer")
+            {
+                GameObject.FindGameObjectWithTag("UI Canvas").GetComponent<CanvasScript>().NarrativeSetSctive(true, currentTouched.gameObject.GetComponent<Item>().item);
+            }
             currentTouched = null;
+
+            InventoryScreen.GetComponent<InventoryScreenScript>().UpdateInformationScreen();
+            TriggerDoorOpen(); // Opens all the doors that needs items in order for it to open
 
             FMODUnity.RuntimeManager.PlayOneShot(itemPickup);
         }

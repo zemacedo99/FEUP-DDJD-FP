@@ -14,6 +14,8 @@ public class PauseMenuScript : MonoBehaviour
     public string missionDescription;
     public InputAction upInput, downInput, selectInput;
     public InputActionAsset actions;
+    public TextMeshProUGUI missionDescriptionText;
+    private int collectedTapes;
 
     public FMODUnity.EventReference moveUpDown;
     public FMODUnity.EventReference select;
@@ -26,8 +28,9 @@ public class PauseMenuScript : MonoBehaviour
         downInput = actions.FindActionMap("menu interactions", true).FindAction("moveDown", true);
         upInput = actions.FindActionMap("menu interactions", true).FindAction("moveUp", true);
         selectInput = actions.FindActionMap("menu interactions", true).FindAction("select", true);
+        //collectedTapes = 0;
 
-        missionDescription = "Escape the planet\nCollect Spaceship Pieces(0 / 6)";
+        UpdateCollectedTape();
     }
 
     void PaintSelectedOption()
@@ -47,6 +50,26 @@ public class PauseMenuScript : MonoBehaviour
         FMODUnity.RuntimeManager.PlayOneShot(moveUpDown);
     }
 
+    public void UpdateCollectedTape()
+    {
+        if (collectedTapes == 6)
+        {
+            missionDescriptionText.text = "Escape from Luminar";
+            return;
+        }
+        string[] romanLetter = { "I", "II", "III", "IV", "V", "VI" };
+        int count = 0;
+        for (int i = 0; i < 6; i++)
+        {
+            if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventory>().inventory.HasItem("Strange Tape " + romanLetter[i]))
+            {
+                count+=1;
+            }
+        }
+        collectedTapes = count;
+        missionDescriptionText.text = "Escape from Luminar\nCollect all the Tapes(" + collectedTapes.ToString() + " / 6)";
+    }
+
     void ExecuteSelectedOption()
     {
         FMODUnity.RuntimeManager.PlayOneShot(select);
@@ -58,7 +81,6 @@ public class PauseMenuScript : MonoBehaviour
                 break;
             case options.SETTINGS:
                 this.GetComponentInParent<CanvasScript>().PauseMenuSetActive(false);
-                print("SETTINGS WAS PRESSED");
                 break;
             case options.GO_TO_MAINMENU:
                 SceneManager.LoadScene("MainMenu");
