@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEditor;
+using static UnityEditor.Progress;
 
 [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory System/Inventor")]
 public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
@@ -22,6 +23,18 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
             }
         }
         Container.Add(new InventorySlot(database.GetId[_item],_item, _amount));
+    }
+
+    public bool HasItem(string itemName)
+    {
+        for (int i = 0; i < Container.Count; i++)
+        {
+            if (Container[i].item.itemName == itemName)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void OnAfterDeserialize()

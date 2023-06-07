@@ -11,9 +11,25 @@ public class DoorsScript : MonoBehaviour
     public FMODUnity.EventReference doorClosingEvent;
     public FMODUnity.EventReference doorOpeningEvent;
 
+    public List<ItemObject> verificationItemList;
+
     // Start is called before the first frame update
     void Start()
     {
+    }
+
+    public void OpenDoorIfHasAlItems()
+    {
+        if (verificationItemList.Count == 0) return;
+        for (int i = 0; i < verificationItemList.Count; i++)
+        {
+            if (!GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventory>().HasItem(verificationItemList[i]))
+            {
+                return;
+            }
+        }
+        Open();
+        return;
     }
 
     // Update is called once per frame

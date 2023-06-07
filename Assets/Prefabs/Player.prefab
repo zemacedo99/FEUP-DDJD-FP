@@ -153,6 +153,15 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  cubePopButton:
+    m_Name: Cube Pop Button
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f578e72b-2d7e-43b2-8330-17dbfe5e7c2e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!114 &1010445595383186401
 MonoBehaviour:
   m_ObjectHideFlags: 0

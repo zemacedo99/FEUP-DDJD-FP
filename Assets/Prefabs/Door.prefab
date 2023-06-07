@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 294730829108203784}
   m_Layer: 0
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -234,6 +234,7 @@ MonoBehaviour:
       Data3: -381730675
       Data4: -608120351
     Path: event:/Puzzle Levels/Door/Door_Opening
+  verificationItemList: []
 --- !u!1 &5402825323971496542
 GameObject:
   m_ObjectHideFlags: 0

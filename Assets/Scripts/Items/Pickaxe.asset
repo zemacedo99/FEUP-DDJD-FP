@@ -12,6 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0127d48dcc9f484d9c5839eb9efdc39, type: 3}
   m_Name: Pickaxe
   m_EditorClassIdentifier: 
-  prefab: {fileID: 7541761315286362221, guid: e7a8d918503044307b8e1f03a50faa8d, type: 3}
+  prefab: {fileID: 3983857884779577021, guid: e65202a7d78e54d27b52b3362d406a86, type: 3}
+  itemName: Pickaxe
   type: 3
-  description: 
+  instruction: 
+  lore: '"In the depths of a forgotten mine, a diamond pickaxe lay dormant, covered
+    in layers of dust. For centuries, it had witnessed countless miners come and
+    go, seeking precious gems and ores. Each swing of its mighty head had echoed
+    through the caverns, carving a path of progress.
+
+
+    The pickaxe had been forged
+    in an era long past, crafted by skilled hands and imbued with ancient magic.
+    Its diamond tip shimmered with a brilliance unmatched by any other tool. It was
+    a relic of power, capable of delving into the hardest of rocks, revealing the
+    hidden treasures within..."'
