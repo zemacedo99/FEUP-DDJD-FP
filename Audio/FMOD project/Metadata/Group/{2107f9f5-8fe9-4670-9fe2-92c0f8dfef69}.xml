@@ -23,6 +23,9 @@
 	<object class="MixerBusPanner" id="{33bbed58-825e-4541-8041-c4db7f370bc0}" />
 	<object class="MixerBusFader" id="{3e940299-852c-49f7-b4a1-00864a2b4d40}" />
 	<object class="MixerSend" id="{37e48e7e-5437-4bcb-93a2-c240acaad683}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
 		<property name="level">
 			<value>0</value>
 		</property>
