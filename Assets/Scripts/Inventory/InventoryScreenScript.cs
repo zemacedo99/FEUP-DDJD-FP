@@ -25,7 +25,7 @@ public class InventoryScreenScript : MonoBehaviour
     public InputActionAsset actions;
 
     public InputAction upInput, downInput, rightInput, leftInput;
-
+    public FMODUnity.EventReference inventoryMove;
 
     Dictionary<InventorySlot, GameObject> itemsDisplayed = new Dictionary<InventorySlot, GameObject>();
     // Start is called before the first frame update
@@ -51,6 +51,7 @@ public class InventoryScreenScript : MonoBehaviour
             UpdateSelectedItem(currentSeleted + (int)NUMBER_OF_COLUMNS);
             UpdateInformationScreen();
 
+            FMODUnity.RuntimeManager.PlayOneShotAttached(inventoryMove, gameObject);
             return;
         }
         if (upInput.WasPressedThisFrame() && currentSeleted >= NUMBER_OF_COLUMNS)
@@ -58,6 +59,7 @@ public class InventoryScreenScript : MonoBehaviour
             UpdateSelectedItem(currentSeleted - (int)NUMBER_OF_COLUMNS);
             UpdateInformationScreen();
 
+            FMODUnity.RuntimeManager.PlayOneShotAttached(inventoryMove, gameObject);
             return;
         }
         if (rightInput.WasPressedThisFrame() && currentSeleted < (NUMBER_OF_COLUMNS * NUMBER_OF_ROWS - 1))
@@ -65,6 +67,7 @@ public class InventoryScreenScript : MonoBehaviour
             UpdateSelectedItem(currentSeleted + 1);
             UpdateInformationScreen();
 
+            FMODUnity.RuntimeManager.PlayOneShotAttached(inventoryMove, gameObject);
             return;
         }
         if (leftInput.WasPressedThisFrame() && currentSeleted > 0)
@@ -72,6 +75,7 @@ public class InventoryScreenScript : MonoBehaviour
             UpdateSelectedItem(currentSeleted - 1);
             UpdateInformationScreen();
 
+            FMODUnity.RuntimeManager.PlayOneShotAttached(inventoryMove, gameObject);
             return;
         }
     }
@@ -146,6 +150,8 @@ public class InventoryScreenScript : MonoBehaviour
         gameObject.transform.GetChild(newPostionIndex + 2).transform.Find("SelectedCanvas").gameObject.SetActive(true);
 
         currentSeleted = newPostionIndex;
+
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("UI_inventory_move_param", currentSeleted/(NUMBER_OF_COLUMNS*NUMBER_OF_ROWS));
     }
 
     public void CreateDisplay()
