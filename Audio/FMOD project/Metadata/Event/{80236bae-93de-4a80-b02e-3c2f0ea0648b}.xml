@@ -122,7 +122,10 @@
 	</object>
 	<object class="SingleSound" id="{577c5f58-063a-4848-8c50-be82a4e07f6d}">
 		<property name="length">
-			<value>0.35000000000000003</value>
+			<value>0.34000000000000002</value>
+		</property>
+		<property name="timelockedOffset">
+			<value>0.01</value>
 		</property>
 		<relationship name="automators">
 			<destination>{71546877-8830-4c48-9e17-fdd3eceee5a0}</destination>
@@ -243,7 +246,7 @@
 	</object>
 	<object class="AutomationPoint" id="{65bfc55c-6ee3-4bf6-828d-b65bd16bb211}">
 		<property name="position">
-			<value>0.20000000000000001</value>
+			<value>0.19</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -254,7 +257,7 @@
 	</object>
 	<object class="AutomationPoint" id="{beb54a24-2be1-4513-9b0c-d6c5940a0839}">
 		<property name="position">
-			<value>0.35000000000000003</value>
+			<value>0.34000000000000002</value>
 		</property>
 		<property name="value">
 			<value>0</value>
@@ -302,7 +305,7 @@
 			<value>0.0013020833333333333</value>
 		</property>
 		<property name="value">
-			<value>-1.5</value>
+			<value>-0.400000006</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{21b097f3-ebfb-4fae-87fe-0d22e7a30305}">
