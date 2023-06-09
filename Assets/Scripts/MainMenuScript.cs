@@ -81,7 +81,7 @@ public class MainMenuScript : MonoBehaviour
     {
         DeleteInventoryFile();
         PlayerPrefs.DeleteAll();
-        SceneManager.LoadScene("World");
+        SceneManager.LoadScene("Intro");
     }
 
     void ExecuteSelectedOption()
