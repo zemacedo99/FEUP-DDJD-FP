@@ -158,6 +158,9 @@
 			<destination>{9bba19da-a203-4eb3-8708-0d2210e0fcf7}</destination>
 			<destination>{9f9c5a49-f309-4401-8907-3be804e5faca}</destination>
 			<destination>{18d0cf11-0be0-4a14-ae42-944d906024b7}</destination>
+			<destination>{07b6103e-69ac-4f3c-8a64-214dbf85d0e5}</destination>
+			<destination>{6d6d22ad-819c-4f3a-829e-0e6bc9282dce}</destination>
+			<destination>{54cafdd0-57ba-4e58-979b-f6f220adcccf}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{a6e8fc44-d655-4ea6-bafc-727acbca4ceb}">
@@ -234,7 +237,7 @@
 			<value>1</value>
 		</property>
 		<property name="frequencyA">
-			<value>52</value>
+			<value>56.355999</value>
 		</property>
 		<property name="frequencyC">
 			<value>800</value>
@@ -282,6 +285,24 @@
 			<value>-80</value>
 		</property>
 	</object>
+	<object class="GainEffect" id="{07b6103e-69ac-4f3c-8a64-214dbf85d0e5}">
+		<property name="gain">
+			<value>10</value>
+		</property>
+	</object>
+	<object class="GainEffect" id="{6d6d22ad-819c-4f3a-829e-0e6bc9282dce}">
+		<property name="gain">
+			<value>2</value>
+		</property>
+	</object>
+	<object class="ThreeEQEffect" id="{54cafdd0-57ba-4e58-979b-f6f220adcccf}">
+		<property name="lowGain">
+			<value>-1</value>
+		</property>
+		<property name="highCrossover">
+			<value>2000</value>
+		</property>
+	</object>
 	<object class="AutomationCurve" id="{b8d4321a-4de2-4308-b36e-99ac17c9246a}">
 		<relationship name="parameter">
 			<destination>{4f229a44-8cea-4529-a79c-c8f0efb75e47}</destination>
@@ -299,12 +320,12 @@
 			<value>0</value>
 		</property>
 		<property name="curveShape">
-			<value>-0.2547189</value>
+			<value>0.0758759603</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{2b16d91e-4edc-4483-8d3e-d288f020279a}">
 		<property name="position">
-			<value>0.059999999999999998</value>
+			<value>0.089999999999999997</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -478,12 +499,12 @@
 			<value>20</value>
 		</property>
 		<property name="curveShape">
-			<value>0.388933331</value>
+			<value>0.226659581</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{3eaaf837-eec1-41f7-9444-9204ee4ca10b}">
 		<property name="position">
-			<value>0.17000000000000001</value>
+			<value>0.14999999999999999</value>
 		</property>
 		<property name="value">
 			<value>350</value>

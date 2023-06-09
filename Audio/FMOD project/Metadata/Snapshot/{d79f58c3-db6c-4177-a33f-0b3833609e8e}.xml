@@ -38,7 +38,7 @@
 			<value>frequencyA</value>
 		</property>
 		<property name="value">
-			<value>660</value>
+			<value>140</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{ab4f5048-4985-42b0-962c-83f2763a57c2}</destination>
