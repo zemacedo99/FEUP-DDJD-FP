@@ -1255,49 +1255,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de4040e1bfb9e4946a3e03aa5a68a1cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chapters:
-  - "2156-03-10\n\nToday is an extraordinary day for our species. Our scientists
-    have made a groundbreaking discovery: life exists beyond our world! \n\n\nWe
-    have explored the depths of our oceans and witnessed the wonders of our own existence.
-    \n\n\nFilled with awe and curiosity, we yearn to share our findings with a distant
-    planet, a realm unknown to us. With newfound hope, we embark on a mission to
-    establish contact with this mysterious civilization."
-  - "2156-07-21\n\nMonths have passed since we set out on our mission to make contact
-    with the distant planet. We have labored tirelessly, developing advanced technology
-    to transmit our own messages across the vast cosmic expanse. The anticipation
-    builds within us as we send our signals into the depths, hoping they reach their
-    intended destination. \n\nWill the inhabitants of the distant planet receive
-    our messages? Will they respond to our call for connection? We await their reply,
-    filled with anticipation and wonder."
-  - "2157-02-04\n\nAs we persist in our attempts at communication, a troubling concern
-    emerges. Disturbing reports reach us from our researchers: the once-crystalline
-    waters of Lumina are turning toxic. \n\nOur beautiful home, teeming with vibrant
-    life, is threatened by an invisible enemy. Panic grips our hearts as we witness
-    the devastation unfold. \n\nWill our species survive this encroaching menace?
-    Our efforts to make contact with the enigmatic planet now carry a sense of urgency
-    and a plea for assistance and understanding."
-  - "2157-06-19\n\nThe situation has become dire, and our hopes wane like the fading
-    light in the deep sea. Our scientists have exhausted every known method to reverse
-    the toxic encroachment on our waters. \n\nWe face the grim reality that our survival
-    is at stake. In this time of desperation, we reach out to the inhabitants of
-    a distant planet, our unknown allies. We implore them to listen and comprehend
-    the urgency of our plea. We believe they hold the key to our salvation."
-  - "2157-11-02\n\nOur relentless research reveals a tragic revelation. The toxic
-    transformation of our waters is not a result of natural forces but rather an
-    insidious cosmic storm of particles, unseen and misunderstood until now. These
-    particles infiltrate the very molecules of our water, altering their properties
-    and rendering them poisonous to our kind. \n\nOur hearts ache as we realize the
-    enormity of our fate. We send this message as a warning, not just for our own
-    world but for all others. The storm will traverse the cosmos, sparing no one
-    in its path. The fabric of existence itself seems threatened."
-  - "2158-01-27\n\nTo the one who discovers these messages, we implore you to heed
-    our call! Transmit this knowledge and our desperate pleas to your home planet
-    with the utmost urgency. The storm that ravages our world will soon reach yours.
-    Time slips through our grasp, for once the storm arrives, the delicate balance
-    of life will be forever altered. \n\nOur civilization may perish, but the knowledge
-    we share with you may be the key to saving countless others. Do not let our voices
-    fade into the abyss. May our story be etched into the stars as a testament to
-    the fragile nature of existence and the indomitable spirit that yearns for connection."
   lettersPerSecond: 20
   textComponent: {fileID: 1450917509926558594}
   initialScreenAlpha: 170
@@ -3718,7 +3675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d4c2d350e7840f38e894a634805630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapCanvas: {fileID: 0}
+  mapCamera: {fileID: 0}
   actions: {fileID: -944628639613478452, guid: 107b800f03e150f4fb8e489f0f4a80b4, type: 3}
   pauseInput:
     m_Name: Pause Input
