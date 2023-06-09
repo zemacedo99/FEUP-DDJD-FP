@@ -80,9 +80,6 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{34cce3f0-b22c-4888-b379-fb296fa2fed9}">
-		<property name="volume">
-			<value>-2</value>
-		</property>
 		<relationship name="effectChain">
 			<destination>{7ba4c572-df94-4106-86bf-b4eaeca0327c}</destination>
 		</relationship>
@@ -160,6 +157,7 @@
 			<destination>{d6fb34c1-851b-4d9d-bb9e-de599173b7e9}</destination>
 			<destination>{9bba19da-a203-4eb3-8708-0d2210e0fcf7}</destination>
 			<destination>{9f9c5a49-f309-4401-8907-3be804e5faca}</destination>
+			<destination>{18d0cf11-0be0-4a14-ae42-944d906024b7}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{a6e8fc44-d655-4ea6-bafc-727acbca4ceb}">
@@ -236,7 +234,7 @@
 			<value>1</value>
 		</property>
 		<property name="frequencyA">
-			<value>25.64534</value>
+			<value>52</value>
 		</property>
 		<property name="frequencyC">
 			<value>800</value>
@@ -275,6 +273,14 @@
 		<relationship name="modulators">
 			<destination>{e1cf7d51-86e9-42c8-a393-53584451249d}</destination>
 		</relationship>
+	</object>
+	<object class="ChannelMixEffect" id="{18d0cf11-0be0-4a14-ae42-944d906024b7}">
+		<property name="outputGrouping">
+			<value>1</value>
+		</property>
+		<property name="gain01">
+			<value>-80</value>
+		</property>
 	</object>
 	<object class="AutomationCurve" id="{b8d4321a-4de2-4308-b36e-99ac17c9246a}">
 		<relationship name="parameter">
@@ -471,10 +477,13 @@
 		<property name="value">
 			<value>20</value>
 		</property>
+		<property name="curveShape">
+			<value>0.388933331</value>
+		</property>
 	</object>
 	<object class="AutomationPoint" id="{3eaaf837-eec1-41f7-9444-9204ee4ca10b}">
 		<property name="position">
-			<value>0.10000000000000001</value>
+			<value>0.17000000000000001</value>
 		</property>
 		<property name="value">
 			<value>350</value>
