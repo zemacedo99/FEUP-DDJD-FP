@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class CanvasScript : MonoBehaviour
 {
-    public GameObject mapCanvas;
+    public GameObject mapCamera;
     public InputActionAsset actions;
     public InputAction pauseInput;
     public InputAction inventoryInput;
     public InputAction mapInput;
-    public bool pauseMenuIsDisplay, inventoryIsDisplay, mapIsDisplay;
+    public bool pauseMenuIsDisplay, inventoryIsDisplay, mapIsDisplay, narrativeIsDisplay;
     public bool isPaused = false;
 
     public FMODUnity.EventReference goBack;
@@ -26,46 +26,83 @@ public class CanvasScript : MonoBehaviour
 
     public GameObject GetChildByName(string name)
     {
-        Debug.Log(name);
-        return this.transform.Find(name).gameObject;
+        Transform objectTransform = this.transform.Find(name);
+        if (!objectTransform)
+        {
+            return null;
+        }
+
+        return objectTransform.gameObject;
+    }
+
+    public void SetPause(bool isActive)
+    {
+        if (isActive)
+        {
+            Time.timeScale = 0;
+            isPaused = true;
+        }
+        else
+        {
+            Time.timeScale = 1;
+            isPaused = false;
+        }
     }
 
     public void PauseMenuSetActive(bool isActive)
     {   
         pauseMenuIsDisplay = isActive;
-        if (isActive)
-        {
-            Time.timeScale = 0;
-            isPaused = true;
-        }
-        else
-        {
-            Time.timeScale = 1;
-            isPaused = false;
-        }
+
+        SetPause(isActive);
+
         this.GetChildByName("PauseMenu").SetActive(isActive);
+
+        if (isActive && SceneManager.GetActiveScene().name == "World")
+        {
+             
+            this.GetChildByName("PauseMenu").GetComponent<PauseMenuScript>().UpdateCollectedTape();
+        }
     }
 
     public void InventorySetActive(bool isActive)
     {
         inventoryIsDisplay = isActive;
+
+        SetPause(isActive);
+
+        this.GetChildByName("InventoryScreen").SetActive(isActive);
+    }
+
+    public void NarrativeSetSctive(bool isActive, ItemObject item = null)
+    {
+        narrativeIsDisplay = isActive;
+
         if (isActive)
         {
-            Time.timeScale = 0;
             isPaused = true;
         }
         else
         {
-            Time.timeScale = 1;
             isPaused = false;
         }
-        this.GetChildByName("InventoryScreen").SetActive(isActive);
+
+        this.GetChildByName("NarrativeScreen").SetActive(isActive);
+
+        if (isActive)
+        {
+            this.GetChildByName("NarrativeScreen").GetComponent<NarrativeScreenScript>().Init(item);
+        }
     }
 
     public void MapSetActive(bool isActive)
     {
-        if (SceneManager.GetActiveScene().name != "World")
-            isActive = false;
+        GameObject mapWindowObject = this.GetChildByName("MapWindow");
+
+        if (!mapWindowObject)
+        {
+            return;
+        }
+
         mapIsDisplay = isActive;
         if (isActive)
         {
@@ -78,6 +115,7 @@ public class CanvasScript : MonoBehaviour
             isPaused = false;
         }
         this.GetChildByName("MapWindow").SetActive(isActive);
+        this.mapCamera.SetActive(isActive);
     }
 
     private void OnDestroy()
@@ -91,17 +129,18 @@ public class CanvasScript : MonoBehaviour
         {
             if (this.transform.Find("PauseMenu").GetComponent<PuzzlePauseMenuScript>() != null && this.transform.Find("PauseMenu").GetComponent<PuzzlePauseMenuScript>().isWarningScreen)
             {
-                print("yes");
                 this.transform.Find("PauseMenu").GetComponent<PuzzlePauseMenuScript>().DisableWarningScreen();
                 return;
             }
-            // Force close the inventory
+            // Force close the inventory and narrative
             InventorySetActive(false);
             MapSetActive(false);
+            narrativeIsDisplay = false;
+            this.GetChildByName("NarrativeScreen").SetActive(narrativeIsDisplay);
 
             PauseMenuSetActive(!pauseMenuIsDisplay);
         }
-        if (inventoryInput.WasPressedThisFrame() && !pauseMenuIsDisplay)
+        if (inventoryInput.WasPressedThisFrame() && !pauseMenuIsDisplay && !narrativeIsDisplay)
         {
             MapSetActive(false);
             InventorySetActive(!inventoryIsDisplay);
