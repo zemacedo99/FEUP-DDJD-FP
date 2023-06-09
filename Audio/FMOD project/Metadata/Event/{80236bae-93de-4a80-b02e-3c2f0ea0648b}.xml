@@ -132,6 +132,7 @@
 		</relationship>
 		<relationship name="modulators">
 			<destination>{c2b580cb-df48-4f82-9bff-119ea2e3f370}</destination>
+			<destination>{e63dc764-2271-4d92-82e6-224fc3c05543}</destination>
 		</relationship>
 		<relationship name="fadeOutCurve">
 			<destination>{74d74284-04d5-4fa4-837c-d2d8e403ebc0}</destination>
@@ -172,7 +173,18 @@
 			<value>pitch</value>
 		</property>
 		<property name="amount">
-			<value>0.5</value>
+			<value>1</value>
+		</property>
+	</object>
+	<object class="LFOModulator" id="{e63dc764-2271-4d92-82e6-224fc3c05543}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="shape">
+			<value>2</value>
+		</property>
+		<property name="depth">
+			<value>13.5</value>
 		</property>
 	</object>
 	<object class="FadeCurve" id="{74d74284-04d5-4fa4-837c-d2d8e403ebc0}">
@@ -227,12 +239,18 @@
 		</relationship>
 	</object>
 	<object class="ThreeEQEffect" id="{9f9c5a49-f309-4401-8907-3be804e5faca}">
+		<property name="highGain">
+			<value>1</value>
+		</property>
 		<property name="lowCrossover">
 			<value>360</value>
 		</property>
 		<relationship name="automators">
 			<destination>{b43eb8a1-f424-4b49-ac7e-4dadb2bd5e49}</destination>
 			<destination>{f5e9780f-a318-4975-b704-6e6ef6aedf60}</destination>
+		</relationship>
+		<relationship name="modulators">
+			<destination>{e1cf7d51-86e9-42c8-a393-53584451249d}</destination>
 		</relationship>
 	</object>
 	<object class="AutomationCurve" id="{b8d4321a-4de2-4308-b36e-99ac17c9246a}">
@@ -300,12 +318,20 @@
 			<destination>{56728121-99f5-4758-ba0b-8d81e8bf3362}</destination>
 		</relationship>
 	</object>
+	<object class="RandomizerModulator" id="{e1cf7d51-86e9-42c8-a393-53584451249d}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>highGain</value>
+		</property>
+		<property name="amount">
+			<value>2</value>
+		</property>
+	</object>
 	<object class="AutomationPoint" id="{b2f03981-3922-4051-aa32-e6d4c3bc2303}">
 		<property name="position">
 			<value>0.0013020833333333333</value>
 		</property>
 		<property name="value">
-			<value>-0.400000006</value>
+			<value>-0.800000012</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{21b097f3-ebfb-4fae-87fe-0d22e7a30305}">
@@ -313,7 +339,7 @@
 			<value>0.98697916666666663</value>
 		</property>
 		<property name="value">
-			<value>1.5</value>
+			<value>0.800000012</value>
 		</property>
 	</object>
 	<object class="AutomationCurve" id="{83d0279c-5955-4905-8902-69dd0d007a4c}">
