@@ -74,10 +74,11 @@
 	</object>
 	<object class="EventMixerMaster" id="{3661bd7c-686b-4f4f-af23-e00d9ddda29f}">
 		<property name="volume">
-			<value>-15</value>
+			<value>-19</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{8e9eb5ab-d904-425d-822b-c6aba1a569ef}</destination>
+			<destination>{8c373483-9a79-4516-befe-f93ea5c1ac3e}</destination>
 		</relationship>
 		<relationship name="effectChain">
 			<destination>{87945063-7c32-4ed3-8c87-581d82324fd6}</destination>
@@ -152,13 +153,26 @@
 			<value>3</value>
 		</property>
 	</object>
+	<object class="LFOModulator" id="{8c373483-9a79-4516-befe-f93ea5c1ac3e}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="rate">
+			<value>0.239999995</value>
+		</property>
+		<property name="depth">
+			<value>1</value>
+		</property>
+	</object>
 	<object class="MixerBusEffectChain" id="{87945063-7c32-4ed3-8c87-581d82324fd6}">
 		<relationship name="effects">
 			<destination>{40a8f45d-c91b-4563-b808-1521af2ad4e7}</destination>
+			<destination>{8602cd9d-9874-4014-9c13-ccfa3eb5039f}</destination>
 			<destination>{6678b5e3-e495-4581-bdb5-d9f0fb44af85}</destination>
 			<destination>{ea516073-51bc-4a65-b270-a1a9230bc0de}</destination>
 			<destination>{45d379b3-a0c6-442c-b641-d812aba0a2ee}</destination>
 			<destination>{72ff708a-7735-4eaf-ae0d-31a05eb0372d}</destination>
+			<destination>{ccd367d9-5b47-4d4b-90c5-ae75263a048d}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{f3a7f0d3-b5ee-4ddf-96fc-9bcb710e62bb}" />
@@ -172,18 +186,26 @@
 	</object>
 	<object class="MixerBusFader" id="{c9bd2e6a-3e57-4a71-8ac3-171b47dd13a2}" />
 	<object class="MixerBusFader" id="{40a8f45d-c91b-4563-b808-1521af2ad4e7}" />
+	<object class="PitchShifterEffect" id="{8602cd9d-9874-4014-9c13-ccfa3eb5039f}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
+		<property name="pitch">
+			<value>0.75</value>
+		</property>
+		<property name="maxChannels">
+			<value>0.100000001</value>
+		</property>
+	</object>
 	<object class="MultibandEqEffect" id="{6678b5e3-e495-4581-bdb5-d9f0fb44af85}">
+		<property name="filterTypeB">
+			<value>4</value>
+		</property>
 		<property name="frequencyA">
 			<value>440</value>
 		</property>
 		<property name="frequencyB">
-			<value>28.4445763</value>
-		</property>
-		<property name="qualityA">
-			<value>0.949999988</value>
-		</property>
-		<property name="qualityB">
-			<value>0.339380294</value>
+			<value>190</value>
 		</property>
 		<property name="gainB">
 			<value>30</value>
@@ -198,6 +220,9 @@
 		</relationship>
 	</object>
 	<object class="PannerEffect" id="{45d379b3-a0c6-442c-b641-d812aba0a2ee}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
 		<relationship name="modulators">
 			<destination>{81c3ce9c-05de-4ab3-8b94-05858481af9b}</destination>
 		</relationship>
@@ -205,6 +230,14 @@
 	<object class="CompressorEffect" id="{72ff708a-7735-4eaf-ae0d-31a05eb0372d}">
 		<property name="threshold">
 			<value>-11.5</value>
+		</property>
+	</object>
+	<object class="GainEffect" id="{ccd367d9-5b47-4d4b-90c5-ae75263a048d}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
+		<property name="gain">
+			<value>-17.5</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{60179f2f-9efa-4581-a140-eab6166e3365}">
@@ -276,7 +309,7 @@
 			<value>0</value>
 		</property>
 		<property name="value">
-			<value>153.75</value>
+			<value>292.8125</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{b6de726a-22d8-4b97-8bfa-c8bc50957701}">
@@ -284,7 +317,7 @@
 			<value>1</value>
 		</property>
 		<property name="value">
-			<value>700</value>
+			<value>1250</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{6211f85d-2f2b-4424-9a9b-b43704128e01}">

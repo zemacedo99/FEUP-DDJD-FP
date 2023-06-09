@@ -58,7 +58,6 @@ public class Recorder : MonoBehaviour
     public FMODUnity.EventReference recordingEvent;
     FMOD.Studio.EventInstance recordingEventInstance;
 
-
     // Start is called before the first frame update
     void Start()
     {
