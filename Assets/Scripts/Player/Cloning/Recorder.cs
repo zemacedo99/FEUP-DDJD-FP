@@ -57,6 +57,7 @@ public class Recorder : MonoBehaviour
 
     public FMODUnity.EventReference recordingEvent;
     FMOD.Studio.EventInstance recordingEventInstance;
+    public FMODUnity.EventReference cubePopEvent;
 
     // Start is called before the first frame update
     void Start()
@@ -144,6 +145,8 @@ public class Recorder : MonoBehaviour
             {
                 Destroy(cubesStack[0]);
                 cubesStack.RemoveAt(0);
+
+                FMODUnity.RuntimeManager.PlayOneShot(cubePopEvent);
             }
         }
     }

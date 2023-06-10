@@ -102,10 +102,10 @@
 	</object>
 	<object class="SingleSound" id="{2cb15c27-988b-4d7d-9d4c-766cab0f34ec}">
 		<property name="length">
-			<value>4.7016874999999985</value>
+			<value>4.6016874999999988</value>
 		</property>
 		<property name="timelockedOffset">
-			<value>1.4000000000000001</value>
+			<value>1.5000000000000002</value>
 		</property>
 		<relationship name="fadeInCurve">
 			<destination>{738bb22a-73fb-4c7e-8657-bf9303ac81d2}</destination>
@@ -116,7 +116,7 @@
 	</object>
 	<object class="SingleSound" id="{d4fb4a5b-8f57-4ec3-bebf-84c577b511c5}">
 		<property name="start">
-			<value>4.7016874999999994</value>
+			<value>4.6016874999999997</value>
 		</property>
 		<property name="length">
 			<value>9.7682291666666661</value>
@@ -133,7 +133,7 @@
 	<object class="MixerBusPanner" id="{06300773-498b-4ab6-8e02-ad32c58836f1}" />
 	<object class="LoopRegion" id="{0350d9af-7303-46a1-82d4-82b8dc48569d}">
 		<property name="position">
-			<value>4.7016874999999994</value>
+			<value>4.6016874999999997</value>
 		</property>
 		<property name="length">
 			<value>9.7682291666666643</value>
@@ -150,7 +150,7 @@
 			<value>pitch</value>
 		</property>
 		<property name="amount">
-			<value>3</value>
+			<value>2</value>
 		</property>
 	</object>
 	<object class="LFOModulator" id="{8c373483-9a79-4516-befe-f93ea5c1ac3e}">
@@ -253,7 +253,7 @@
 	</object>
 	<object class="AutomationPoint" id="{fee4a813-c3be-4b54-a856-8a937105da8e}">
 		<property name="position">
-			<value>0.20000000000000007</value>
+			<value>0.10000000000000001</value>
 		</property>
 		<property name="value">
 			<value>1</value>

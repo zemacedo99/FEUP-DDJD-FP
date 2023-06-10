@@ -169,6 +169,13 @@ MonoBehaviour:
       Data3: 1861625011
       Data4: -455572269
     Path: event:/Cloning/Recording
+  cubePopEvent:
+    Guid:
+      Data1: 2115741022
+      Data2: 1151824305
+      Data3: -498409294
+      Data4: 750930427
+    Path: event:/Cloning/Cube Deletion
 --- !u!114 &1010445595383186401
 MonoBehaviour:
   m_ObjectHideFlags: 0

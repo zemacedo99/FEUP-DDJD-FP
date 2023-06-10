@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{b7834aa6-35f4-43b7-873f-93e5d8008498}">
 		<property name="assetPath">
-			<value>Player/Cloning/Cloning_recording_part2.wav</value>
+			<value>Cloning/Cloning_recording_part2.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
