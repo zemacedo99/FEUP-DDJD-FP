@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &280167155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,8 +162,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'You are Luminaris. and to escape, you must explore the planet and regain
-    your memories. '
+  m_text: "You are Luminaris\n\nTo escape, you must explore the planet \n\nAnd regain
+    your memories"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -258,7 +258,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 3056.2563, y: 455.3124}
+  m_SizeDelta: {x: 2500, y: 455.3124}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &280167158
 Animator:
@@ -299,7 +299,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &536198074
 RectTransform:
   m_ObjectHideFlags: 0
@@ -317,8 +317,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 3056.2563, y: 455.3124}
+  m_AnchoredPosition: {x: 0, y: -20.411987}
+  m_SizeDelta: {x: 2500, y: 496.1364}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &536198075
 MonoBehaviour:
@@ -340,8 +340,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Alone and lost on an unknown planet. \n\nYou woke up with no memory of
-    how you got here.\n\n"
+  m_text: 'Alone and lost on an unknown planet
+
+
+    You woke up with no memory of
+    how you got here
+
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -589,7 +595,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1484661457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -610,8 +616,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "A palpable unease engulfs the mysterious planet. \n\nIts waters and plants
-    now toxic, concealing perilous secrets."
+  m_text: 'A palpable unease engulfs the mysterious planet
+
+
+    Its waters and plants
+    now toxic, concealing perilous secrets'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -706,7 +715,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 3056.2563, y: 455.3124}
+  m_SizeDelta: {x: 2842.921, y: 455.31}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1484661460
 Animator:
