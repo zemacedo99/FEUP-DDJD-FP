@@ -50,11 +50,13 @@ public class PlayerMovement : MonoBehaviour
     public InputActionAsset actions;
     public InputAction cameraInput, jumpButton, moveInput, gravButton;
 
-    public bool canGravJump;
-    public bool canJetpack;
     private Oxygen oxy;
     public float jetCost;
     public GameObject waterParticle;
+
+    private string sceneName;
+    private bool isWorld;
+    private PlayerInventory inv;
 
     CanvasScript canvasScript;
 
@@ -69,6 +71,10 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         Application.targetFrameRate = 90;
+
+        sceneName = SceneManager.GetActiveScene().name;
+        isWorld = sceneName == "World";
+        inv = GetComponent<PlayerInventory>();
 
         oxy = GetComponent<Oxygen>();
         cameraInput = actions.FindActionMap("movement", true).FindAction("camera", true);
@@ -125,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded && !previousIsGrounded)
         {
             // Play landing sound
-            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Surface", footstepsScript.GetSurfaceType(SceneManager.GetActiveScene().name));
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Surface", footstepsScript.GetSurfaceType(sceneName));
             FMODUnity.RuntimeManager.PlayOneShotAttached(landingEvent, gameObject);
         }
 
@@ -152,7 +158,7 @@ public class PlayerMovement : MonoBehaviour
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("MoveSpeed", (float)currentHVelMag / hVelMagMax);
 
         // JUMP
-        if (jumpButton.WasPressedThisFrame() && (isGrounded || (!isGrounded && canJetpack)))
+        if (jumpButton.WasPressedThisFrame() && (isGrounded || (!isGrounded && isWorld && inv.HasItem("Jetpack"))))
         {
             int mul = 1;
             if (!isGrounded)
@@ -164,7 +170,7 @@ public class PlayerMovement : MonoBehaviour
             velocityY = Jump(jumpHeight * mul);
         }
         // GRAVITY Switch
-        if (gravButton.WasPressedThisFrame() && canGravJump && isGrounded)
+        if (gravButton.WasPressedThisFrame() && !isWorld && inv.HasItem("Gravity Boot") && isGrounded)
         {
             gravity *= -1;
 
