@@ -11,6 +11,9 @@ public class PlayerHealth : MonoBehaviour
     private CharacterController charc;
     private Vector3 impact = Vector3.zero;
 
+    public FMODUnity.EventReference hurtEvent;
+    public FMODUnity.EventReference death;
+
     private void Start()
     {
         charc = GetComponent<CharacterController>();
@@ -38,11 +41,13 @@ public class PlayerHealth : MonoBehaviour
     void DoDamage()
     {
         health -= 0.33f;
+        FMODUnity.RuntimeManager.PlayOneShotAttached(hurtEvent, gameObject);
         //Debug.Log(Time.deltaTime);
         if (health <= 0)
         {
             //Debug.Log("ded");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            FMODUnity.RuntimeManager.PlayOneShotAttached(death, gameObject);
         }
     }
 
