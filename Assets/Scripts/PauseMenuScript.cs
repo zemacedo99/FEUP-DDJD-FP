@@ -67,7 +67,7 @@ public class PauseMenuScript : MonoBehaviour
             }
         }
         collectedTapes = count;
-        missionDescriptionText.text = "Collect all the Tapes (" + collectedTapes.ToString() + " / 6)";
+        missionDescriptionText.text = " Collect all the Tapes (" + collectedTapes.ToString() + " / 6)";
     }
 
     void ExecuteSelectedOption()
