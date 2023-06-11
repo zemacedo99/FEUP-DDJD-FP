@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: c92eceefb392bf740a67e531cfb04eae, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 31e9ce2c292e932448a8699280a92604, type: 2}
   m_LightingSettings: {fileID: 421481637}
 --- !u!196 &4
 NavMeshSettings:
@@ -10298,7 +10298,7 @@ LightingSettings:
   m_UsingShadowmask: 1
   m_BakeBackend: 1
   m_LightmapMaxSize: 1024
-  m_BakeResolution: 5
+  m_BakeResolution: 40
   m_Padding: 2
   m_LightmapCompression: 3
   m_AO: 0
