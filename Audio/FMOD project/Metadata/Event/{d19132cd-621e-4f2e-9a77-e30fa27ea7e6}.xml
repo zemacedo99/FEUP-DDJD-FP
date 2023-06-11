@@ -178,7 +178,14 @@
 	</object>
 	<object class="MixerBusPanner" id="{bd263aab-f6c1-4004-b72a-9cae913e45ca}" />
 	<object class="MixerBusFader" id="{1c3755c8-db87-41e4-8fcc-9a7a62098c72}" />
-	<object class="ThreeEQEffect" id="{746426d0-8d59-4ad0-a352-649f9acdfc1f}" />
+	<object class="ThreeEQEffect" id="{746426d0-8d59-4ad0-a352-649f9acdfc1f}">
+		<property name="lowGain">
+			<value>3</value>
+		</property>
+		<property name="highCrossover">
+			<value>1500</value>
+		</property>
+	</object>
 	<object class="AutomationPoint" id="{33e4b532-1e6b-46e8-99bf-f39cd55e99c1}">
 		<property name="position">
 			<value>0</value>
@@ -192,7 +199,7 @@
 	</object>
 	<object class="AutomationPoint" id="{e55cb0c4-7676-47cc-8053-5bf1c0dac6fe}">
 		<property name="position">
-			<value>0.16</value>
+			<value>0.23999999999999999</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -200,7 +207,7 @@
 	</object>
 	<object class="AutomationPoint" id="{9d7034b5-53ee-4c00-a5c9-078288b4d1ca}">
 		<property name="position">
-			<value>0.49999999999999978</value>
+			<value>0.49999999999999956</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -211,7 +218,7 @@
 	</object>
 	<object class="AutomationPoint" id="{d2ebfd53-9348-4b0e-9853-95e7e85adbbe}">
 		<property name="position">
-			<value>0.75999999999999979</value>
+			<value>0.75999999999999956</value>
 		</property>
 		<property name="value">
 			<value>0</value>
