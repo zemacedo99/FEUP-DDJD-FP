@@ -13,6 +13,7 @@ public class CanvasScript : MonoBehaviour
     public InputAction mapInput;
     public bool pauseMenuIsDisplay, inventoryIsDisplay, mapIsDisplay, narrativeIsDisplay;
     public bool isPaused = false;
+    public float eyeBlinkaAnimationTime = 10f;
 
     public FMODUnity.EventReference goBack;
 
@@ -22,6 +23,20 @@ public class CanvasScript : MonoBehaviour
         pauseInput = actions.FindActionMap("interactions", true).FindAction("pause", true);
         inventoryInput = actions.FindActionMap("interactions", true).FindAction("inventory", true);
         mapInput = actions.FindActionMap("interactions", true).FindAction("map", true);
+
+        PlayEyeBlink();
+    }
+
+    public void PlayEyeBlink()
+    {
+        if (PlayerPrefs.GetInt("IsFirstTapeCollected") != 1 && PlayerPrefs.GetInt("Puzzle") != 1)
+        {
+            // No Saved State
+            isPaused = true;
+            return;
+        }
+        eyeBlinkaAnimationTime = 0;
+        GameObject.Find("EyeBlink").SetActive(false);
     }
 
     public GameObject GetChildByName(string name)
@@ -125,6 +140,16 @@ public class CanvasScript : MonoBehaviour
 
     void Update()
     {
+        if (eyeBlinkaAnimationTime > 0)
+        {
+            eyeBlinkaAnimationTime = eyeBlinkaAnimationTime - Time.deltaTime;
+            if(eyeBlinkaAnimationTime <= 0)
+            {
+                isPaused = false;
+            }
+            return;
+        }
+
         if (pauseInput.WasPressedThisFrame())
         {
             if (this.transform.Find("PauseMenu").GetComponent<PuzzlePauseMenuScript>() != null && this.transform.Find("PauseMenu").GetComponent<PuzzlePauseMenuScript>().isWarningScreen)
