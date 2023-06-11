@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        Application.targetFrameRate = 90;
+        Application.targetFrameRate = 60;
 
         sceneName = SceneManager.GetActiveScene().name;
         isWorld = sceneName == "World";

@@ -811,6 +811,141 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &1898078115598609659
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8774576285902327395}
+  - component: {fileID: 5741580300793809063}
+  - component: {fileID: 6041322074197196580}
+  - component: {fileID: 3506350166532185956}
+  m_Layer: 5
+  m_Name: InventoryScreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &8774576285902327395
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898078115598609659}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2719576085612597812}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -2940, y: -1260}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &5741580300793809063
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898078115598609659}
+  m_CullTransparentMesh: 1
+--- !u!114 &6041322074197196580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898078115598609659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3506350166532185956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898078115598609659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ad4d0af88b8946b3889272e91121093, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 11400000, guid: 36f15b4aaafda422cbf35e1e03c716c9, type: 2}
+  emptySlotPrefab: {fileID: 3198595232268162545, guid: 8df1b5a319f334a7980b7d5e08fd3cf6, type: 3}
+  X_START: -357.5
+  Y_START: 357.5
+  X_GAP: 143
+  Y_GAP: 143
+  NUMBER_OF_COLUMNS: 6
+  NUMBER_OF_ROWS: 6
+  currentSeleted: 0
+  actions: {fileID: 0}
+  upInput:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  downInput:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  rightInput:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  leftInput:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!1 &2143585174342821578
 GameObject:
   m_ObjectHideFlags: 0
@@ -1198,7 +1333,7 @@ RectTransform:
   - {fileID: 1114644931201039993}
   - {fileID: 6496350584195248546}
   m_Father: {fileID: 2719576085612597812}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1255,49 +1390,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de4040e1bfb9e4946a3e03aa5a68a1cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chapters:
-  - "2156-03-10\n\nToday is an extraordinary day for our species. Our scientists
-    have made a groundbreaking discovery: life exists beyond our world! \n\n\nWe
-    have explored the depths of our oceans and witnessed the wonders of our own existence.
-    \n\n\nFilled with awe and curiosity, we yearn to share our findings with a distant
-    planet, a realm unknown to us. With newfound hope, we embark on a mission to
-    establish contact with this mysterious civilization."
-  - "2156-07-21\n\nMonths have passed since we set out on our mission to make contact
-    with the distant planet. We have labored tirelessly, developing advanced technology
-    to transmit our own messages across the vast cosmic expanse. The anticipation
-    builds within us as we send our signals into the depths, hoping they reach their
-    intended destination. \n\nWill the inhabitants of the distant planet receive
-    our messages? Will they respond to our call for connection? We await their reply,
-    filled with anticipation and wonder."
-  - "2157-02-04\n\nAs we persist in our attempts at communication, a troubling concern
-    emerges. Disturbing reports reach us from our researchers: the once-crystalline
-    waters of Lumina are turning toxic. \n\nOur beautiful home, teeming with vibrant
-    life, is threatened by an invisible enemy. Panic grips our hearts as we witness
-    the devastation unfold. \n\nWill our species survive this encroaching menace?
-    Our efforts to make contact with the enigmatic planet now carry a sense of urgency
-    and a plea for assistance and understanding."
-  - "2157-06-19\n\nThe situation has become dire, and our hopes wane like the fading
-    light in the deep sea. Our scientists have exhausted every known method to reverse
-    the toxic encroachment on our waters. \n\nWe face the grim reality that our survival
-    is at stake. In this time of desperation, we reach out to the inhabitants of
-    a distant planet, our unknown allies. We implore them to listen and comprehend
-    the urgency of our plea. We believe they hold the key to our salvation."
-  - "2157-11-02\n\nOur relentless research reveals a tragic revelation. The toxic
-    transformation of our waters is not a result of natural forces but rather an
-    insidious cosmic storm of particles, unseen and misunderstood until now. These
-    particles infiltrate the very molecules of our water, altering their properties
-    and rendering them poisonous to our kind. \n\nOur hearts ache as we realize the
-    enormity of our fate. We send this message as a warning, not just for our own
-    world but for all others. The storm will traverse the cosmos, sparing no one
-    in its path. The fabric of existence itself seems threatened."
-  - "2158-01-27\n\nTo the one who discovers these messages, we implore you to heed
-    our call! Transmit this knowledge and our desperate pleas to your home planet
-    with the utmost urgency. The storm that ravages our world will soon reach yours.
-    Time slips through our grasp, for once the storm arrives, the delicate balance
-    of life will be forever altered. \n\nOur civilization may perish, but the knowledge
-    we share with you may be the key to saving countless others. Do not let our voices
-    fade into the abyss. May our story be etched into the stars as a testament to
-    the fragile nature of existence and the indomitable spirit that yearns for connection."
   lettersPerSecond: 20
   textComponent: {fileID: 1450917509926558594}
   initialScreenAlpha: 170
@@ -2215,7 +2307,7 @@ RectTransform:
   - {fileID: 88220621795277072}
   - {fileID: 3138860445005544044}
   m_Father: {fileID: 2719576085612597812}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3635,6 +3727,7 @@ RectTransform:
   m_Children:
   - {fileID: 6574841406844598553}
   - {fileID: 4772626584570000397}
+  - {fileID: 8774576285902327395}
   - {fileID: 4960317574614172172}
   - {fileID: 3386509240267194861}
   m_Father: {fileID: 7856395204743844955}
@@ -3718,7 +3811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d4c2d350e7840f38e894a634805630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapCanvas: {fileID: 0}
+  mapCamera: {fileID: 0}
   actions: {fileID: -944628639613478452, guid: 107b800f03e150f4fb8e489f0f4a80b4, type: 3}
   pauseInput:
     m_Name: Pause Input
@@ -3939,11 +4032,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7106066949501403723, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: cubePopButton.m_Id
-      value: c0d93473-6ae7-4f12-8933-d955edf6fb28
-      objectReference: {fileID: 0}
-    - target: {fileID: 7106066949501403723, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
-      propertyPath: cubePopButton.m_Name
-      value: Cube Pop Button
+      value: b62a3c55-4a62-4f20-a16e-ed153a06effe
       objectReference: {fileID: 0}
     - target: {fileID: 7852836038629847381, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: PickUpMessage
