@@ -76,8 +76,10 @@
 		<property name="volume">
 			<value>-19</value>
 		</property>
+		<property name="pitch">
+			<value>-2</value>
+		</property>
 		<relationship name="modulators">
-			<destination>{8e9eb5ab-d904-425d-822b-c6aba1a569ef}</destination>
 			<destination>{8c373483-9a79-4516-befe-f93ea5c1ac3e}</destination>
 		</relationship>
 		<relationship name="effectChain">
@@ -144,14 +146,6 @@
 		<relationship name="markerTrack">
 			<destination>{b22d3730-8536-4cea-8f76-f35e2fc4c83e}</destination>
 		</relationship>
-	</object>
-	<object class="RandomizerModulator" id="{8e9eb5ab-d904-425d-822b-c6aba1a569ef}">
-		<property name="nameOfPropertyBeingModulated">
-			<value>pitch</value>
-		</property>
-		<property name="amount">
-			<value>2</value>
-		</property>
 	</object>
 	<object class="LFOModulator" id="{8c373483-9a79-4516-befe-f93ea5c1ac3e}">
 		<property name="nameOfPropertyBeingModulated">
