@@ -54,7 +54,7 @@ public class PauseMenuScript : MonoBehaviour
     {
         if (collectedTapes == 6)
         {
-            missionDescriptionText.text = "Escape from Luminar";
+            missionDescriptionText.text = "Return to the spacheschip to escape from Luminar";
             return;
         }
         string[] romanLetter = { "I", "II", "III", "IV", "V", "VI" };
@@ -67,7 +67,7 @@ public class PauseMenuScript : MonoBehaviour
             }
         }
         collectedTapes = count;
-        missionDescriptionText.text = "Escape from Luminar\nCollect all the Tapes(" + collectedTapes.ToString() + " / 6)";
+        missionDescriptionText.text = "Collect all the Tapes (" + collectedTapes.ToString() + " / 6)";
     }
 
     void ExecuteSelectedOption()
