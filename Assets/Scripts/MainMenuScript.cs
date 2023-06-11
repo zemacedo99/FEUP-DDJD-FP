@@ -20,6 +20,7 @@ public class MainMenuScript : MonoBehaviour
 
     public InputAction upInput, downInput, selectInput;
     private bool isWarningScreen = false;
+    private bool hasSavedData = true;
 
     public FMODUnity.EventReference moveUpDown;
     public FMODUnity.EventReference select;
@@ -33,14 +34,29 @@ public class MainMenuScript : MonoBehaviour
         selectInput = actions.FindActionMap("menu interactions", true).FindAction("select", true);
 
         selectedOption = options.CONTINUE;
+        CheckForSavedState();
     }
 
-
+    void CheckForSavedState()
+    {
+        if (PlayerPrefs.GetInt("IsFirstTapeCollected") != 1 && PlayerPrefs.GetInt("Puzzle") !=1)
+        {
+            selectedOption = options.NEWGAME;
+            hasSavedData = false;
+            PaintSelectedOption();
+        }
+    }
 
     void PaintSelectedOption()
     {
         for (int i = 0; i < (int)options.EXIT + 1; i++)
         {
+            if(i == (int)options.CONTINUE && !hasSavedData)
+            {
+                this.transform.Find("Buttons").GetChild(i).GetComponent<Image>().color = new Color(0, 0, 0, 100f / 255f);
+                this.transform.Find("Buttons").GetChild(i).GetChild(0).GetComponent<TextMeshProUGUI>().color = new Color(253f / 255f, 233f / 255f, 204f / 255f, 20f/255f);
+                continue;
+            }
             this.transform.Find("Buttons").GetChild(i).GetComponent<Image>().color = new Color(0, 0, 0, 100f / 255f);
             this.transform.Find("Buttons").GetChild(i).GetChild(0).GetComponent<TextMeshProUGUI>().color = new Color(253f / 255f, 233f / 255f, 204f / 255f, 1);
             if (i == (int)selectedOption)
@@ -94,6 +110,11 @@ public class MainMenuScript : MonoBehaviour
                 SceneManager.LoadScene("World");
                 break;
             case options.NEWGAME:
+                if (!hasSavedData)
+                {
+                    RestartNewGame();
+                    return;
+                }
                 EnableWarningScreen(2);
                 break;
             case options.OPTIONS:
@@ -125,6 +146,10 @@ public class MainMenuScript : MonoBehaviour
         }
         if (upInput.WasPressedThisFrame() && selectedOption > 0)
         {
+            if (!hasSavedData && selectedOption == options.NEWGAME)
+            {
+                return;
+            }
             selectedOption -= 1;
             PaintSelectedOption();
             return;
