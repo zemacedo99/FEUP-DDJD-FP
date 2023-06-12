@@ -332,6 +332,7 @@ MonoBehaviour:
     m_Flags: 0
   InventoryScreen: {fileID: 0}
   PickUpMessage: {fileID: 0}
+  firstTapeObject: {fileID: 11400000, guid: 103dc1eaf596a4ccb8d7a783de74c742, type: 2}
   itemPickup:
     Guid:
       Data1: 782640647
