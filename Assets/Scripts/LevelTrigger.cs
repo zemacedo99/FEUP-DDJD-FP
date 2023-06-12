@@ -38,6 +38,7 @@ public class LevelTrigger : SceneDict
         var pl = GameObject.FindGameObjectWithTag("Player");
         fade = pl.GetComponentInChildren<Camera>().gameObject.GetComponentInChildren<Canvas>().gameObject.GetComponentsInChildren<Image>()[1];
         PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, 1);
+        print(SceneManager.GetActiveScene().name);
         InvokeRepeating(nameof(FadeOut), 0f, 0.05f);
         pl.GetComponent<PlayerInventory>().inventory.Save(); // Saves Player Current 
     }
