@@ -8,7 +8,6 @@ public class FirstTapeScript : MonoBehaviour
     {
         if(PlayerPrefs.GetInt("IsFirstTapeCollected") == 1 || GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventory>().HasItem("Strange Tape I"))
         {
-            print("destroi");
             Destroy(gameObject);
         }
     }
