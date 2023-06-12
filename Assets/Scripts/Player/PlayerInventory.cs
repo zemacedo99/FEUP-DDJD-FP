@@ -11,6 +11,7 @@ public class PlayerInventory : MonoBehaviour
     public InputAction pickupInput;
     public GameObject InventoryScreen;
     public GameObject PickUpMessage;
+    public ItemObject firstTapeObject;
     private Item currentTouched = null;
     
     public FMODUnity.EventReference itemPickup; 
@@ -42,7 +43,10 @@ public class PlayerInventory : MonoBehaviour
     {
         actions.FindActionMap("interactions").Enable();
         pickupInput = actions.FindActionMap("interactions", true).FindAction("pickup", true);
-        //inventory.Load();
+        if(PlayerPrefs.GetInt("IsFirstTapeCollected") == 1 && !HasItem("Strange Tape I"))
+        {
+            inventory.AddItem(firstTapeObject, 1);
+        }
     }
 
     public bool HasItem(string itemName)
@@ -74,6 +78,10 @@ public class PlayerInventory : MonoBehaviour
             Destroy(currentTouched.gameObject);
             if (currentTouched.item.type.ToString() == "CassettePlayer")
             {
+                if (currentTouched.item.itemName == "Strange Tape I")
+                {
+                    PlayerPrefs.SetInt("IsFirstTapeCollected", 1);
+                }
                 GameObject.FindGameObjectWithTag("UI Canvas").GetComponent<CanvasScript>().NarrativeSetSctive(true, currentTouched.gameObject.GetComponent<Item>().item);
             }
             currentTouched = null;
