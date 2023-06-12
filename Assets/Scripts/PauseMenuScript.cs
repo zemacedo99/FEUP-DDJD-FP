@@ -50,12 +50,12 @@ public class PauseMenuScript : MonoBehaviour
         FMODUnity.RuntimeManager.PlayOneShot(moveUpDown);
     }
 
-    public void UpdateCollectedTape()
+    public int UpdateCollectedTape()
     {
         if (collectedTapes == 6)
         {
-            missionDescriptionText.text = "Return to the spacheschip to escape from Luminar";
-            return;
+            missionDescriptionText.text = "Return to the spaceship to escape from Luminar";
+            return collectedTapes;
         }
         string[] romanLetter = { "I", "II", "III", "IV", "V", "VI" };
         int count = 0;
@@ -68,6 +68,7 @@ public class PauseMenuScript : MonoBehaviour
         }
         collectedTapes = count;
         missionDescriptionText.text = " Collect all the Tapes (" + collectedTapes.ToString() + " / 6)";
+        return collectedTapes;
     }
 
     void ExecuteSelectedOption()
