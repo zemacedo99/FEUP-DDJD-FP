@@ -34,7 +34,7 @@ public class CanvasScript : MonoBehaviour
             eyeBlinkaAnimationTime = 0;
             return;
         }
-        if (PlayerPrefs.GetInt("IsFirstTapeCollected") != 1 && !PlayerPrefs.HasKey("CheckpointX"))
+        if (PlayerPrefs.GetInt("IsFirstTapeCollected") != 1 && !PlayerPrefs.HasKey("CheckpointX") && PlayerPrefs.GetInt("Puzzle") != 1)
         {
             // No Saved State
             isPaused = true;
