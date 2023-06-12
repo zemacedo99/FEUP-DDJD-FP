@@ -143,6 +143,7 @@ MonoBehaviour:
   playerCamera: {fileID: 5337838783731183409}
   snapshotArray: []
   cube: {fileID: 24189850991649997, guid: d27e2ecc029814369a9a4d07cb60758b, type: 3}
+  cubesStackLimit: 2
   actions: {fileID: -944628639613478452, guid: 107b800f03e150f4fb8e489f0f4a80b4, type: 3}
   recordButton:
     m_Name: Record Button
@@ -157,7 +158,7 @@ MonoBehaviour:
     m_Name: Cube Pop Button
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: f578e72b-2d7e-43b2-8330-17dbfe5e7c2e
+    m_Id: 8116ac27-69b0-4177-a287-91395eeb5064
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -177,7 +178,7 @@ MonoBehaviour:
   surfaceType: 0
   playerCamera: {fileID: 4616699832579320999}
   cursorLock: 1
-  mouseSmoothTime: 0.03
+  mouseSmoothTime: 0.01
   mouseSensitivity: 0.3
   moveSpeed: 7.5
   moveSmoothTime: 0.3
@@ -262,7 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 897dc81d4c439be41902f78ca5098c78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oxygenValue: 3000000
+  oxygenValue: 300
   oxygenSlider: {fileID: 0}
   oxygenText: {fileID: 0}
   outOfOxygenEvent:

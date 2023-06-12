@@ -8,6 +8,8 @@ public class Cloning : MonoBehaviour
     public Recorder recorder;
     
     public GameObject clonePrefab;
+    private float playTimer;
+    private float playCooldown = 1f;
 
     public InputActionAsset actions;
     public InputAction playButton;
@@ -24,13 +26,15 @@ public class Cloning : MonoBehaviour
 
         recorder = GameObject.FindGameObjectWithTag("Player").GetComponent<Recorder>();
         canvasScript = GameObject.FindGameObjectWithTag("UI Canvas").GetComponent<CanvasScript>();
+
+        playTimer = playCooldown;
     }
 
     void Update()
     {
         if (canvasScript.isPaused) return;
 
-        if (playButton.WasPressedThisFrame() && !recorder.isRecording)
+        if (playButton.WasPressedThisFrame() && !recorder.isRecording && playTimer >= playCooldown)
         {
             if (recorder.snapshotArray.Count > 0)
                 SpawnClone();
@@ -38,7 +42,12 @@ public class Cloning : MonoBehaviour
             {
                 Debug.Log("No snapshots to play");
             }
+
+            // Reset playTimer
+            playTimer = 0f;
         }
+
+        if (playTimer < playCooldown) playTimer += Time.deltaTime;
     }
 
     void SpawnClone()
