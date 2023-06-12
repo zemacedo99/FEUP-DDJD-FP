@@ -40,7 +40,6 @@ public class Recorder : MonoBehaviour
     public GameObject playerCamera;
     PlayerMovement playerMovement;
 
-    int playerGravitySignOnRecordStart;
     float recordingStartTime;
 
     public List<PlayerSnapshot> snapshotArray;
@@ -55,6 +54,10 @@ public class Recorder : MonoBehaviour
     public InputAction cubePopButton;
 
     CanvasScript canvasScript;
+
+    public FMODUnity.EventReference recordingEvent;
+    FMOD.Studio.EventInstance recordingEventInstance;
+    public FMODUnity.EventReference cubePopEvent;
 
     // Start is called before the first frame update
     void Start()
@@ -96,12 +99,13 @@ public class Recorder : MonoBehaviour
                 recordingStartTime = Time.time;
                 isRecording = true;
 
-                // Store playerGravitySign
-                playerGravitySignOnRecordStart = Math.Sign(playerMovement.gravity);
-
                 // Instantiate cube
                 newCube = Instantiate(cube, transform.position - Vector3.up * 0.5f, transform.rotation);
                 cubesStack.Add(newCube);
+
+                recordingEventInstance = FMODUnity.RuntimeManager.CreateInstance(recordingEvent);
+                FMODUnity.RuntimeManager.AttachInstanceToGameObject(recordingEventInstance, transform);
+                recordingEventInstance.start();
             }
         }
         else if (recordButton.WasReleasedThisFrame())
@@ -119,6 +123,8 @@ public class Recorder : MonoBehaviour
 
                 newCube.GetComponent<Cloning>().SetSnapshotArray(snapshotArray);
                 newCube.GetComponent<Cloning>().SetEventArray(eventArray);
+
+                recordingEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 
                 //// Get first position and rotation
                 //Vector3 initialPosition = snapshotArray[0].position;
@@ -139,6 +145,8 @@ public class Recorder : MonoBehaviour
             {
                 Destroy(cubesStack[0]);
                 cubesStack.RemoveAt(0);
+
+                FMODUnity.RuntimeManager.PlayOneShot(cubePopEvent);
             }
         }
     }
@@ -146,5 +154,10 @@ public class Recorder : MonoBehaviour
     public float GetRecordingStartTime()
     {
         return recordingStartTime;
+    }
+
+    private void OnDestroy()
+    {
+        recordingEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 }

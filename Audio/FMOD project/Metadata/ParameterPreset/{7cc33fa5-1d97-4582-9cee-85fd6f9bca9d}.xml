@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{7cc33fa5-1d97-4582-9cee-85fd6f9bca9d}">
+		<property name="name">
+			<value>UI Move Param</value>
+		</property>
+		<relationship name="folder">
+			<destination>{894b797d-4847-4bce-bfd4-e84168c37854}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{4f229a44-8cea-4529-a79c-c8f0efb75e47}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{4f229a44-8cea-4529-a79c-c8f0efb75e47}">
+		<property name="isGlobal">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>

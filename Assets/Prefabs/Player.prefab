@@ -163,6 +163,20 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  recordingEvent:
+    Guid:
+      Data1: -1180432091
+      Data2: 1245640427
+      Data3: 1861625011
+      Data4: -455572269
+    Path: event:/Cloning/Recording
+  cubePopEvent:
+    Guid:
+      Data1: 2115741022
+      Data2: 1151824305
+      Data3: -498409294
+      Data4: 750930427
+    Path: event:/Cloning/Cube Deletion
 --- !u!114 &1010445595383186401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,6 +300,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img: {fileID: 2030141653023575008}
+  laserDamageEvent:
+    Guid:
+      Data1: 885373744
+      Data2: 1314063099
+      Data3: 1696524195
+      Data4: 39358387
+    Path: event:/Puzzle Levels/Laser Damage
 --- !u!114 &7852836038629847381
 MonoBehaviour:
   m_ObjectHideFlags: 0

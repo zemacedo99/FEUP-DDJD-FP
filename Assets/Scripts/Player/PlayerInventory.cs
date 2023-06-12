@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerInventory : MonoBehaviour
 {
@@ -61,6 +62,9 @@ public class PlayerInventory : MonoBehaviour
 
     public void TriggerDoorOpen()
     {
+        if (SceneManager.GetActiveScene().name == "World")
+            return;
+
         GameObject[] doors = GameObject.FindGameObjectsWithTag("Door");
 
         foreach (GameObject door in doors)
