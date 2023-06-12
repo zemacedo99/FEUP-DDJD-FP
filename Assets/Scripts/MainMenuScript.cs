@@ -39,7 +39,7 @@ public class MainMenuScript : MonoBehaviour
 
     void CheckForSavedState()
     {
-        if (PlayerPrefs.GetInt("IsFirstTapeCollected") != 1 && PlayerPrefs.GetInt("Puzzle") !=1)
+        if (PlayerPrefs.GetInt("IsFirstTapeCollected") != 1 && !PlayerPrefs.HasKey("CheckpointX"))
         {
             selectedOption = options.NEWGAME;
             hasSavedData = false;
