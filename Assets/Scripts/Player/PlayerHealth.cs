@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour
 
     public FMODUnity.EventReference hurtEvent;
     public FMODUnity.EventReference death;
+    public FMODUnity.EventReference laserDamageEvent;
 
     private void Start()
     {
@@ -40,6 +41,7 @@ public class PlayerHealth : MonoBehaviour
 
     void DoDamage()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(laserDamageEvent);
         health -= 0.33f;
         FMODUnity.RuntimeManager.PlayOneShotAttached(hurtEvent, gameObject);
         //Debug.Log(Time.deltaTime);

@@ -19,6 +19,8 @@ public class Cloning : MonoBehaviour
 
     CanvasScript canvasScript;
 
+    public FMODUnity.EventReference playEvent;
+
     private void Start()
     {
         playButton = actions.FindActionMap("recorder", true).FindAction("play", true);
@@ -52,11 +54,13 @@ public class Cloning : MonoBehaviour
 
     void SpawnClone()
     {
+
         // Get first position and rotation
         Vector3 initialPosition = snapshotArray[0].position;
         Quaternion initialRotation = snapshotArray[0].rotation;
 
         GameObject clone = Instantiate(clonePrefab, initialPosition, initialRotation);
+        FMODUnity.RuntimeManager.PlayOneShotAttached(playEvent, clone);
 
         Clone cloneScript = clone.GetComponent<Clone>();
 
