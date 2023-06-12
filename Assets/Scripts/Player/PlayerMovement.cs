@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        Application.targetFrameRate = 90;
+        Application.targetFrameRate = 60;
 
         oxy = GetComponent<Oxygen>();
         cameraInput = actions.FindActionMap("movement", true).FindAction("camera", true);

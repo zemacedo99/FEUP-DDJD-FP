@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 24189850991649996}
   - component: {fileID: 2366533190038113335}
   - component: {fileID: 1437711932952817809}
-  - component: {fileID: 3206117070310904336}
   m_Layer: 6
   m_Name: CUBE
   m_TagString: Untagged
@@ -59,7 +58,6 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
-  canvas: {fileID: 0}
 --- !u!65 &1437711932952817809
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -69,32 +67,10 @@ BoxCollider:
   m_GameObject: {fileID: 24189850991649997}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5, z: 0.5}
   m_Center: {x: 0, y: 0, z: -0.01}
---- !u!114 &3206117070310904336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 24189850991649997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2715a69234d6b4cc1a92937dd563955d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actions: {fileID: -944628639613478452, guid: 107b800f03e150f4fb8e489f0f4a80b4, type: 3}
-  destroyCubeButton:
-    m_Name: Destroy Cube Button
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 2bb1a568-cc95-4e75-90f5-1145509c267f
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
 --- !u!1 &24189851312700563
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,7 +17,9 @@ public class RaiseWater : MonoBehaviour
         if(raise)
         {
             print("raising water");
-            FindFirstObjectByType<PlayerMovement>().gameObject.transform.position = new Vector3(water.transform.position.x, waterLevel - 6, water.transform.position.z);
+            GameObject player = FindFirstObjectByType<PlayerMovement>().gameObject;
+            var height = player.GetComponent<CharacterController>().bounds.extents.y;
+            player.transform.position = new Vector3(water.transform.position.x, water.transform.position.y+height, water.transform.position.z);
         }
     }
 
