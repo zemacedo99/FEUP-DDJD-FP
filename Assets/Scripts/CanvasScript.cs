@@ -29,6 +29,11 @@ public class CanvasScript : MonoBehaviour
 
     public void PlayEyeBlink()
     {
+        if (SceneManager.GetActiveScene().name != "World")
+        {
+            eyeBlinkaAnimationTime = 0;
+            return;
+        }
         if (PlayerPrefs.GetInt("IsFirstTapeCollected") != 1 && PlayerPrefs.GetInt("Puzzle") != 1)
         {
             // No Saved State
