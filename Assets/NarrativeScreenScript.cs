@@ -22,10 +22,10 @@ public class NarrativeScreenScript : MonoBehaviour
     private Coroutine screenFlashRoutine;
     private Coroutine typeLineRoutine;
 
-
     public InputAction selectInput;
     public InputActionAsset actions;
 
+    public FMODUnity.EventReference tapeStop;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +53,8 @@ public class NarrativeScreenScript : MonoBehaviour
             {
                 Reset();
                 GetComponentInParent<CanvasScript>().NarrativeSetSctive(false);
+
+                FMODUnity.RuntimeManager.PlayOneShot(tapeStop);
             }
             else
             {
