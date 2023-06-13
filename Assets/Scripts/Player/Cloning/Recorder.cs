@@ -125,17 +125,6 @@ public class Recorder : MonoBehaviour
                 newCube.GetComponent<Cloning>().SetEventArray(eventArray);
 
                 recordingEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-
-                //// Get first position and rotation
-                //Vector3 initialPosition = snapshotArray[0].position;
-                //Quaternion initialRotation = snapshotArray[0].rotation;
-
-                //gameObject.transform.SetPositionAndRotation(initialPosition, initialRotation);
-                //playerMovement.ResetMovement();
-                //gameObject.transform.SetPositionAndRotation(initialPosition, initialRotation);
-                //if ((playerGravitySignOnRecordStart < 0 && playerMovement.gravity > 0) ||
-                //    (playerGravitySignOnRecordStart > 0 && playerMovement.gravity < 0))
-                //    GetComponent<PlayerMovement>().gravity *= -1f;
             }
         }
 
@@ -144,9 +133,9 @@ public class Recorder : MonoBehaviour
             if (cubesStack.Count != 0)
             {
                 Destroy(cubesStack[0]);
+                FMODUnity.RuntimeManager.PlayOneShotAttached(cubePopEvent, cubesStack[0]);
                 cubesStack.RemoveAt(0);
 
-                FMODUnity.RuntimeManager.PlayOneShot(cubePopEvent);
             }
         }
     }
