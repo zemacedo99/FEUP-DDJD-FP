@@ -11,6 +11,8 @@ public class PlayerHealth : MonoBehaviour
     private CharacterController charc;
     private Vector3 impact = Vector3.zero;
 
+    public FMODUnity.EventReference laserDamageEvent;
+
     private void Start()
     {
         charc = GetComponent<CharacterController>();
@@ -37,6 +39,7 @@ public class PlayerHealth : MonoBehaviour
 
     void DoDamage()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(laserDamageEvent);
         health -= 0.33f;
         //Debug.Log(Time.deltaTime);
         if (health <= 0)

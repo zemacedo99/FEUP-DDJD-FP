@@ -58,6 +58,13 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  playEvent:
+    Guid:
+      Data1: -838023113
+      Data2: 1151092359
+      Data3: 709463954
+      Data4: 69988578
+    Path: event:/Cloning/Play
 --- !u!65 &1437711932952817809
 BoxCollider:
   m_ObjectHideFlags: 0
