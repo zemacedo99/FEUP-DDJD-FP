@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Puzzle.unity
     guid: a558956bd398d4aeabcbfb40be9e850c
-  - enabled: 0
-    path: Assets/Scenes/Prototyping Scene.unity
-    guid: 4f3f665fc0df6864d81f8a4397e7fde7
   - enabled: 1
     path: Assets/Scenes/Puzzle3.unity
     guid: 1cc872959cc73d342b9f1930ae8f4c23
