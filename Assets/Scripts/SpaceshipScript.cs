@@ -59,7 +59,7 @@ public class SpaceshipScript : MonoBehaviour
         player.SetActive(false);
         cam.SetActive(true);
         spaceshipAnim.SetTrigger("Play");
-        InvokeRepeating(nameof(ReduceLight), 2.2f, 0.1f);
+        InvokeRepeating(nameof(ReduceLight), 3.3f, 0.1f);
     }
 
     private void Update()
