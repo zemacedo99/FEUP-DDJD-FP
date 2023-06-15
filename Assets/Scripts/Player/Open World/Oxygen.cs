@@ -44,16 +44,16 @@ public class Oxygen : MonoBehaviour
         if (distanceMoved < 1 && !refilling)
         {
             oxygenValue -= distanceMoved * oxygenLostSpeed;
-            statusBar.GetComponent<StatusBarScript>().UpdateFilledAmount(oxygenValue / maxOxygen);
         }
 
         if (oxygenValue <= 0)
         {
             oxygenValue = 0;
-            statusBar.GetComponent<StatusBarScript>().UpdateFilledAmount(0f);
             Die();
         }
-        
+
+        statusBar.GetComponent<StatusBarScript>().UpdateFilledAmount(oxygenValue / maxOxygen);
+
         UpdateSlider(oxygenValue);
     }
 
@@ -102,6 +102,8 @@ public class Oxygen : MonoBehaviour
     {
         this.oxygenValue = oxygenValue;
         this.UpdateSlider(oxygenValue);
+        statusBar.GetComponent<StatusBarScript>().UpdateFilledAmount(oxygenValue / maxOxygen);
+
     }
 
     void RefillOxygen()
@@ -110,7 +112,9 @@ public class Oxygen : MonoBehaviour
         {
             refilling = true;
             oxygenValue += oxygenRefillSpeed * Time.deltaTime;
+            statusBar.GetComponent<StatusBarScript>().UpdateFilledAmount(oxygenValue / maxOxygen);
             UpdateSlider(oxygenValue);
+
         }
     }
 
@@ -133,6 +137,9 @@ public class Oxygen : MonoBehaviour
         transform.position = oxygenStationPosition;
         controller.enabled = true;
         oxygenValue = oxygenSlider.maxValue;
+
+        statusBar.GetComponent<StatusBarScript>().UpdateFilledAmount(oxygenValue / maxOxygen);
+
         UpdateSlider(oxygenValue);
     }
 
