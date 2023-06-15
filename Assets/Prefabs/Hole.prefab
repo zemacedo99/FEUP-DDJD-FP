@@ -1106,6 +1106,7 @@ MonoBehaviour:
   targetB: {x: 0, y: -0.2, z: 0}
   speed: 0.2
   switching: 0
+  moving: 1
 --- !u!64 &5644350715558143328
 MeshCollider:
   m_ObjectHideFlags: 0
