@@ -23,6 +23,8 @@ public class SpaceshipScript : MonoBehaviour
 
     public PauseMenuScript pms;
     public Light dirLight;
+    public GameObject notification;
+    private int flashCount;
 
     private void Start()
     {
@@ -31,6 +33,12 @@ public class SpaceshipScript : MonoBehaviour
         if(pms.UpdateCollectedTape() == 6)
         {
             gameObject.GetComponent<BoxCollider>().enabled = true;
+            if(PlayerPrefs.GetInt("MissionNotification") == 0)
+            {
+                PlayerPrefs.SetInt("MissionNotification", 1);
+                notification.SetActive(true);
+                InvokeRepeating(nameof(FlashNotif), 3f, 0.5f);
+            }
         }
     }
 
@@ -52,6 +60,14 @@ public class SpaceshipScript : MonoBehaviour
             pickup.SetActive(false);
             inCol = false;
         }
+    }
+
+    void FlashNotif()
+    {
+        notification.SetActive(!notification.activeSelf);
+        flashCount++;
+        if (flashCount == 7)
+            CancelInvoke(nameof(FlashNotif));
     }
 
     void PlayAnimation()
