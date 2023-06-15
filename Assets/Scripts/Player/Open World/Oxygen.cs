@@ -11,11 +11,15 @@ public class Oxygen : MonoBehaviour
     public Slider oxygenSlider;
     public TMP_Text oxygenText;
 
+    public GameObject statusBar;
+
     private Vector3 lastPosition;
     private Vector3 oxygenStationPosition;
     private float oxygenLostSpeed = 2f;
     private float oxygenRefillSpeed = 50f;
     private bool refilling = false;
+
+    public float maxOxygen;
 
     CharacterController controller;
     PlayerMovement movement;
@@ -29,6 +33,8 @@ public class Oxygen : MonoBehaviour
         lastPosition = transform.position;
         oxygenStationPosition = transform.position;
         oxygenSlider.maxValue = 300;
+
+        statusBar.GetComponent<StatusBarScript>().UpdateFilledAmount(oxygenValue / maxOxygen);
     }
 
     void Update()
@@ -38,11 +44,13 @@ public class Oxygen : MonoBehaviour
         if (distanceMoved < 1 && !refilling)
         {
             oxygenValue -= distanceMoved * oxygenLostSpeed;
+            statusBar.GetComponent<StatusBarScript>().UpdateFilledAmount(oxygenValue / maxOxygen);
         }
 
         if (oxygenValue <= 0)
         {
             oxygenValue = 0;
+            statusBar.GetComponent<StatusBarScript>().UpdateFilledAmount(0f);
             Die();
         }
         
