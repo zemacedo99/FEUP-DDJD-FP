@@ -3834,6 +3834,10 @@ PrefabInstance:
       propertyPath: m_BackGroundColor.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5743806966717618830, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: m_Name
+      value: fade overlay
+      objectReference: {fileID: 0}
     - target: {fileID: 6484459017631928240, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_Enabled
       value: 1
