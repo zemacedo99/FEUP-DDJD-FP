@@ -7,17 +7,27 @@ using UnityEngine.UI;
 public class LevelTrigger : SceneDict
 {
     public string scene;
+    public string requiredItem = "";
     private Image fade;
+    private PlayerInventory pInv;
 
     private void Start()
     {
         if (scene != "World" && !holeDict.ContainsKey(scene))
             holeDict.Add(scene, this.gameObject.transform.parent.gameObject.name);
+        pInv = FindObjectOfType<PlayerInventory>();
+    }
+
+    private bool HasItem()
+    {
+        if (requiredItem != null && requiredItem.Length > 0)
+            return pInv.HasItem(requiredItem);
+        return true;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player"))
+        if (!other.CompareTag("Player") || !HasItem())
             return;
         if (scene != "World")
         {
