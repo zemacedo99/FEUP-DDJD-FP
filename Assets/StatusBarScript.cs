@@ -38,16 +38,17 @@ public class StatusBarScript : MonoBehaviour
 
     public void UpdateStatusBarColor()
     {
-        Color color = healthyColor;
+        bool isHealthy = true;
 
         if (currentFilledPercentage < 0.21f)
         {
-            color = dangerColor;
+            isHealthy = false;
         }
-        GameObject.Find("UI").GetComponent<Image>().color = color;
-        StatusBar.transform.Find("Fill").GetComponent<Image>().color = color;
-        StatusBar.transform.Find("TextValue").GetComponent<TextMeshProUGUI>().color = color;
-        StatusBar.transform.Find("TextValue").GetComponent<TextMeshProUGUI>().outlineColor = color == healthyColor ? new Color (159, 234,227) : color;
+        GameObject.Find("UI").GetComponent<Image>().color = isHealthy? healthyColor: dangerColor;
+        StatusBar.GetComponent<Image>().color = isHealthy ? new Color(11f/255f, 3f/255f, 94f/255f) : new Color(0, 0, 0);
+        StatusBar.transform.Find("Fill").GetComponent<Image>().color = isHealthy ? healthyColor : dangerColor;
+        StatusBar.transform.Find("TextValue").GetComponent<TextMeshProUGUI>().color = isHealthy ? healthyColor : dangerColor;
+        StatusBar.transform.Find("TextValue").GetComponent<TextMeshProUGUI>().outlineColor = isHealthy ? new Color (159f/255f, 234f/255f,227f/255f) : dangerColor;
 
     }
 
