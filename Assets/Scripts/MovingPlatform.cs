@@ -6,24 +6,35 @@ public class MovingPlatform : MonoBehaviour
 {
     [SerializeField] private Vector3 targetA, targetB;
     [SerializeField] private float speed;
-    private bool switching = false;
+    [SerializeField] private bool changedDirection = false;
+    public bool moving = false;
+    private Vector3 initialPosition;
+
+    private void Start()
+    {
+        initialPosition = transform.localPosition;
+    }
+
     void FixedUpdate()
     {
-        if (!switching)
+        if (moving)
         {
-            transform.localPosition = Vector3.MoveTowards(transform.localPosition, targetB, speed * Time.deltaTime);
-        }
-        else if (switching)
-        {
-            transform.localPosition = Vector3.MoveTowards(transform.localPosition, targetA, speed * Time.deltaTime);
-        }
-        if (transform.localPosition == targetB)
-        {
-            switching = true;
-        }
-        else if (transform.localPosition == targetA)
-        {
-            switching = false;
+            if (!changedDirection)
+            {
+                transform.localPosition = Vector3.MoveTowards(transform.localPosition, initialPosition + targetB, speed * Time.deltaTime);
+            }
+            else if (changedDirection)
+            {
+                transform.localPosition = Vector3.MoveTowards(transform.localPosition, initialPosition + targetA, speed * Time.deltaTime);
+            }
+            if (transform.localPosition == initialPosition + targetB)
+            {
+                changedDirection = true;
+            }
+            else if (transform.localPosition == initialPosition + targetA)
+            {
+                changedDirection = false;
+            }
         }
     }
 
