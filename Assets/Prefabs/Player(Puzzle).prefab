@@ -3845,6 +3845,7 @@ MonoBehaviour:
   mapIsDisplay: 0
   narrativeIsDisplay: 0
   isPaused: 0
+  eyeBlinkaAnimationTime: 10
   goBack:
     Guid:
       Data1: -2005726049
@@ -4085,11 +4086,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -154277904
-      Data2: 1189333842
-      Data3: 1472297135
-      Data4: 1929323240
-    Path: event:/Puzzle Levels/Puzzle Music
+      Data1: -1936707046
+      Data2: 1102282587
+      Data3: -1014869092
+      Data4: -1180247514
+    Path: event:/Puzzle Levels/Sound Cloud
   Event: 
   PlayEvent: 1
   StopEvent: 2
