@@ -3,11 +3,16 @@ guid: 399b41d945022804088ae8be49e4a098
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GravBoots_shd.001
+    second: {fileID: 2100000, guid: 0d2614e597934b6409842f95f4299337, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
-    materialSearch: 1
+    materialSearch: 0
     materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
