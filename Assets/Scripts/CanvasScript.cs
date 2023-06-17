@@ -20,6 +20,8 @@ public class CanvasScript : MonoBehaviour
 
     void Start()
     {
+        SetPause(false);
+
         actions.FindActionMap("interactions").Enable();
         pauseInput = actions.FindActionMap("interactions", true).FindAction("pause", true);
         inventoryInput = actions.FindActionMap("interactions", true).FindAction("inventory", true);
@@ -58,7 +60,7 @@ public class CanvasScript : MonoBehaviour
 
     public void SetPause(bool isActive, bool stopTime = true)
     {
-        if (isActive && !isPaused)
+        if (isActive)
         {
             if (stopTime)
                 Time.timeScale = 0;
@@ -67,7 +69,7 @@ public class CanvasScript : MonoBehaviour
             pauseSnapshotInstance.start();
             print("Paused");
         }
-        else if (isPaused)
+        else
         {
             Time.timeScale = 1;
             isPaused = false;
