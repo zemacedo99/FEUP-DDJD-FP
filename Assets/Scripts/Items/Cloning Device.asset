@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 12550935021668254, guid: a8ab814a4e2764cfe922763d12b5a186, type: 3}
   itemName: Cloning Device
-  type: 4
-  instruction: 'Hold Right Mouse Button: Record
+  type: 2
+  instruction: "Record: Hold Right Mouse Button \nPlay: Q\nRecover: E"
+  lore: 'A mysterious device that allows cloning of one''s movements. Its size is
+    ridiculously small while in possession, but quickly return to their natural size
+    after being left alone.
 
-    Q: Play
 
-    E: Recover the
-    oldest cube'
-  lore: ' p'
+    More than one can be carried at once.'

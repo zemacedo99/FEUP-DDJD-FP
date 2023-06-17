@@ -99,5 +99,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: CloningDevice
       objectReference: {fileID: 0}
+    - target: {fileID: 6689963771143896292, guid: 1fd98a0cce2f1479591b093545f05e8b, type: 3}
+      propertyPath: m_text
+      value: '
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689963771143896292, guid: 1fd98a0cce2f1479591b093545f05e8b, type: 3}
+      propertyPath: m_fontSize
+      value: 42
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fd98a0cce2f1479591b093545f05e8b, type: 3}
