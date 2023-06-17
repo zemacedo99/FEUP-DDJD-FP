@@ -20,8 +20,6 @@ public class CanvasScript : MonoBehaviour
 
     void Start()
     {
-        SetPause(false);
-
         actions.FindActionMap("interactions").Enable();
         pauseInput = actions.FindActionMap("interactions", true).FindAction("pause", true);
         inventoryInput = actions.FindActionMap("interactions", true).FindAction("inventory", true);
