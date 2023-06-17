@@ -599,6 +599,7 @@ MonoBehaviour:
   mapIsDisplay: 0
   narrativeIsDisplay: 0
   isPaused: 0
+  eyeBlinkaAnimationTime: 10
   pauseSnapshot:
     Guid:
       Data1: -677422909
@@ -1896,7 +1897,6 @@ GameObject:
   - component: {fileID: 6422247260748368757}
   - component: {fileID: 6254205850685857066}
   - component: {fileID: 1731744042155306512}
-  - component: {fileID: 8642070791244999618}
   m_Layer: 5
   m_Name: EyeBlink
   m_TagString: Untagged
@@ -1964,18 +1964,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8642070791244999618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6349048004469431253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c01549721fe74c7fad36c63d71f52f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6842626816550059743
 GameObject:
   m_ObjectHideFlags: 0
@@ -2083,6 +2071,13 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   actions: {fileID: -944628639613478452, guid: 107b800f03e150f4fb8e489f0f4a80b4, type: 3}
+  tapeStop:
+    Guid:
+      Data1: 1755526340
+      Data2: 1181727222
+      Data3: -1125956455
+      Data4: 257974025
+    Path: event:/Puzzle Levels/Tape/Tape Stop
 --- !u!1 &7097718754829023259
 GameObject:
   m_ObjectHideFlags: 0
