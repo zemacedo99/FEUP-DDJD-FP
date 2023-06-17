@@ -68,6 +68,8 @@ public class PlayerMovement : MonoBehaviour
     private FootSteps footstepsScript;
     public FMODUnity.EventReference footstepsEvent;
 
+    private Animator anim;
+
     void Start()
     {
         Application.targetFrameRate = 60;
@@ -98,6 +100,8 @@ public class PlayerMovement : MonoBehaviour
         moveInputValue = new();
 
         footstepsScript = GetComponent<FootSteps>();
+
+        anim = this.GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -146,6 +150,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (!isGrounded)
             velocityY += gravity * Time.deltaTime;
+
         velocity = (transform.forward * targetDir.y + transform.right * targetDir.x) * moveSpeed + Vector3.up * velocityY;
         controller.Move(velocity * Time.deltaTime);
         double currentHVelMag = Math.Sqrt(Math.Pow(controller.velocity.x, 2) + Math.Pow(controller.velocity.z, 2));
@@ -156,6 +161,8 @@ public class PlayerMovement : MonoBehaviour
         }
         else footstepTimer += Time.deltaTime * (((float)currentHVelMag)/hVelMagMax);
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("MoveSpeed", (float)currentHVelMag / hVelMagMax);
+
+        anim.SetFloat("horspeed", (float)currentHVelMag);
 
         // JUMP
         if (jumpButton.WasPressedThisFrame() && (isGrounded || (!isGrounded && isWorld && inv.HasItem("Jetpack"))))
