@@ -149,7 +149,7 @@ public class CanvasScript : MonoBehaviour
             return;
         }
 
-        if (pauseInput.WasPressedThisFrame())
+        if (pauseInput.WasPressedThisFrame() && !narrativeIsDisplay)
         {
             if (this.transform.Find("PauseMenu").GetComponent<PuzzlePauseMenuScript>() != null && this.transform.Find("PauseMenu").GetComponent<PuzzlePauseMenuScript>().isWarningScreen)
             {
@@ -169,7 +169,7 @@ public class CanvasScript : MonoBehaviour
             MapSetActive(false);
             InventorySetActive(!inventoryIsDisplay);
         }
-        if (mapInput.WasPressedThisFrame() && !pauseMenuIsDisplay)
+        if (mapInput.WasPressedThisFrame() && !pauseMenuIsDisplay && !narrativeIsDisplay)
         {
             InventorySetActive(false);
             MapSetActive(!mapIsDisplay);
