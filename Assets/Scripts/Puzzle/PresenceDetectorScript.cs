@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class PresenceDetectorScript : MonoBehaviour
 {
-    public int minimumPresences = 1;
+    public int doorMinimumPresences = 1;
     public GameObject door;
     DoorsScript doorsScript;
+
+    public int movingPlatformMinimumPresences = 2;
+    public MovingPlatform movingPlatform;
+
     List<Collider> colliders;
 
     // Start is called before the first frame update
     void Start()
     {
-        doorsScript = door.GetComponent<DoorsScript>();
-
         colliders = new List<Collider>();
+
+        if (door)
+            doorsScript = door.GetComponent<DoorsScript>();
     }
 
     // Update is called once per frame
@@ -31,18 +36,23 @@ public class PresenceDetectorScript : MonoBehaviour
 
         }
 
-        if (colliders.Count < minimumPresences)
+        if (doorsScript && colliders.Count < doorMinimumPresences)
             doorsScript.Close();
+        if (movingPlatform && colliders.Count < movingPlatformMinimumPresences)
+            movingPlatform.moving = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         colliders.Add(other);
 
-        if (colliders.Count >= minimumPresences)
+        if (doorsScript && colliders.Count >= doorMinimumPresences)
         {
-            Debug.Log("Opening " + door.name);
             doorsScript.Open();
+        }
+        if (movingPlatform && colliders.Count >= movingPlatformMinimumPresences)
+        {
+            movingPlatform.moving = true;
         }
     }
 

@@ -13,9 +13,13 @@ public class DoorsScript : MonoBehaviour
 
     public List<ItemObject> verificationItemList;
 
+    public float closeDelay = 0;
+    private bool isOpen;
+
     // Start is called before the first frame update
     void Start()
     {
+        isOpen = doorFront.activeSelf;
     }
 
     public void OpenDoorIfHasAlItems()
@@ -41,6 +45,7 @@ public class DoorsScript : MonoBehaviour
 
     public void Open()
     {
+        isOpen = true;
         if (doorFront.activeInHierarchy || doorBack.activeInHierarchy)
             FMODUnity.RuntimeManager.PlayOneShot(doorOpeningEvent, audioSourceTransform.position);
         if (doorFront.activeInHierarchy)
@@ -49,6 +54,17 @@ public class DoorsScript : MonoBehaviour
             doorBack.SetActive(false);
     }
     public void Close()
+    {
+        if (!isOpen)
+            return;
+        isOpen = false;
+        if (closeDelay == 0)
+            ClosingAction();
+        else
+            Invoke(nameof(ClosingAction), closeDelay);
+    }
+
+    private void ClosingAction()
     {
         if (!doorFront.activeInHierarchy || !doorBack.activeInHierarchy)
             FMODUnity.RuntimeManager.PlayOneShot(doorClosingEvent, audioSourceTransform.position);
