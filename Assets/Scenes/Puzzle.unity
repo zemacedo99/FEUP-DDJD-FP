@@ -2395,16 +2395,8 @@ PrefabInstance:
       value: 926e1f94-e662-45b1-8abb-7b712dc899eb
       objectReference: {fileID: 0}
     - target: {fileID: 116958383589185015, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
-      propertyPath: cubePopButton.m_Id
-      value: c4cc8af7-be9e-4b84-b191-3274e5bc84b2
-      objectReference: {fileID: 0}
-    - target: {fileID: 116958383589185015, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
       propertyPath: cubePopAction.m_Name
       value: Cube Pop
-      objectReference: {fileID: 0}
-    - target: {fileID: 116958383589185015, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
-      propertyPath: cubePopButton.m_Name
-      value: Cube Pop Button
       objectReference: {fileID: 0}
     - target: {fileID: 591597648120810149, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
       propertyPath: m_text
@@ -2417,6 +2409,42 @@ PrefabInstance:
     - target: {fileID: 3138860445005544044, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.0029296875
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506350166532185956, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
+      propertyPath: upInput.m_Id
+      value: d3b1a16d-d9a2-4fe3-b7e6-4cd8270f532f
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506350166532185956, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
+      propertyPath: downInput.m_Id
+      value: 1149975c-f7f3-4a0f-b899-29523d925686
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506350166532185956, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
+      propertyPath: leftInput.m_Id
+      value: 0afc8508-a4af-41a9-b600-0ee5a34ea846
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506350166532185956, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
+      propertyPath: upInput.m_Name
+      value: Up Input
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506350166532185956, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
+      propertyPath: rightInput.m_Id
+      value: 5f1d981c-f3ed-4fd9-8d55-ee8ac8153735
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506350166532185956, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
+      propertyPath: downInput.m_Name
+      value: Down Input
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506350166532185956, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
+      propertyPath: leftInput.m_Name
+      value: Left Input
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506350166532185956, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
+      propertyPath: rightInput.m_Name
+      value: Right Input
+      objectReference: {fileID: 0}
+    - target: {fileID: 4612938932856295838, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4866092680239208660, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
       propertyPath: m_AnchoredPosition.y
