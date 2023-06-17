@@ -2,13 +2,13 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{f6cde7f0-cb52-46e3-af78-c157e822ff72}">
 		<property name="name">
-			<value>Puzzle Music</value>
+			<value>Menu Music</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{27354323-df2c-4993-b86e-33e50958286a}</destination>
+			<destination>{56e2f35d-8ffe-4849-8f1c-320cd4edc575}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{591540d1-b0d6-4ab7-9bfa-93e4e786d9ba}</destination>
@@ -143,6 +143,9 @@
 	<object class="MixerBusFader" id="{009d5eb2-c721-4e06-b8ba-32966202426a}" />
 	<object class="MixerBusFader" id="{73e24bea-ff0b-4f4a-bb5a-0f8bbfa05c79}" />
 	<object class="MultibandEqEffect" id="{e1124cf4-cd15-48ac-8683-099f107656fe}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
 		<property name="filterTypeA">
 			<value>0</value>
 		</property>

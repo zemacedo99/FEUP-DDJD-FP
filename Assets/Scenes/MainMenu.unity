@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2051,7 +2051,7 @@ MonoBehaviour:
       Data2: 1189333842
       Data3: 1472297135
       Data4: 1929323240
-    Path: event:/Puzzle Levels/Puzzle Music
+    Path: event:/Menu Music
   Event: 
   PlayEvent: 1
   StopEvent: 2
