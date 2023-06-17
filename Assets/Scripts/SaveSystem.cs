@@ -21,6 +21,15 @@ public static class SaveSystem
 		stream.Close();
     }
 
+    public static void DeleteFogOfWarData()
+    {
+        string filePath = Path.Combine(Application.persistentDataPath, FogOfWarDataFilePath);
+        if (File.Exists(filePath))
+        {
+            File.Delete(filePath);
+        }
+    }
+
     public static FogOfWarData LoadFogOfWarData()
     {
         string filePath = Path.Combine(Application.persistentDataPath, FogOfWarDataFilePath);
@@ -38,7 +47,6 @@ public static class SaveSystem
         }
 		else
 		{
-			Debug.LogError("Save file not found in " + filePath);
             return null;
 		}
     }
