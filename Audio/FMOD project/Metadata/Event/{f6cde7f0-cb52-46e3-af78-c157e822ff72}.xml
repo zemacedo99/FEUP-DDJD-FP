@@ -82,10 +82,10 @@
 	</object>
 	<object class="SingleSound" id="{7f441180-a7d7-4f58-a01e-0e6e0bb475b9}">
 		<property name="length">
-			<value>72</value>
+			<value>60.244897959183675</value>
 		</property>
 		<property name="timelockedOffset">
-			<value>2</value>
+			<value>1.6734693877551019</value>
 		</property>
 		<relationship name="fadeInCurve">
 			<destination>{1752edd1-9621-4b00-84d2-3872b2d60a5b}</destination>
@@ -180,7 +180,7 @@
 	</object>
 	<object class="AutomationPoint" id="{847d13db-6ee9-43c8-a3c3-861310abfbe6}">
 		<property name="position">
-			<value>71.875</value>
+			<value>60.119897959183675</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -191,7 +191,7 @@
 	</object>
 	<object class="AutomationPoint" id="{7e7e7697-cd81-43e9-b1d3-0d425bb9bb11}">
 		<property name="position">
-			<value>72</value>
+			<value>60.244897959183675</value>
 		</property>
 		<property name="value">
 			<value>0</value>
