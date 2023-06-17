@@ -77,7 +77,7 @@
 			<value>-11.5</value>
 		</property>
 		<property name="pitch">
-			<value>-2</value>
+			<value>-7</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{8c373483-9a79-4516-befe-f93ea5c1ac3e}</destination>
@@ -155,7 +155,7 @@
 			<value>0.239999995</value>
 		</property>
 		<property name="depth">
-			<value>1</value>
+			<value>0.208333343</value>
 		</property>
 	</object>
 	<object class="MixerBusEffectChain" id="{87945063-7c32-4ed3-8c87-581d82324fd6}">
@@ -207,6 +207,9 @@
 		<property name="frequencyC">
 			<value>379.241089</value>
 		</property>
+		<property name="qualityA">
+			<value>0.199999988</value>
+		</property>
 		<property name="qualityC">
 			<value>7.4000001</value>
 		</property>
@@ -221,6 +224,9 @@
 		</relationship>
 	</object>
 	<object class="DistortionEffect" id="{ea516073-51bc-4a65-b270-a1a9230bc0de}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
 		<relationship name="automators">
 			<destination>{b91933e4-2fdf-4286-882e-8bf9c9e4b4fb}</destination>
 		</relationship>
@@ -259,7 +265,7 @@
 	</object>
 	<object class="AutomationPoint" id="{0ca5be24-fa1f-442d-91c5-b3f4eded15ca}">
 		<property name="position">
-			<value>0.03125</value>
+			<value>0.059999999999999998</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -315,7 +321,7 @@
 			<value>0</value>
 		</property>
 		<property name="value">
-			<value>231.515198</value>
+			<value>646.680725</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{b6de726a-22d8-4b97-8bfa-c8bc50957701}">
@@ -323,7 +329,7 @@
 			<value>0.5</value>
 		</property>
 		<property name="value">
-			<value>600.000061</value>
+			<value>1800.00012</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{6211f85d-2f2b-4424-9a9b-b43704128e01}">
