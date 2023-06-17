@@ -779,6 +779,13 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  inventoryMove:
+    Guid:
+      Data1: -2145162322
+      Data2: 1249940446
+      Data3: 792473264
+      Data4: -1956339698
+    Path: event:/UI/InventoryMove
 --- !u!1 &8528630877172454045
 GameObject:
   m_ObjectHideFlags: 0
