@@ -23,12 +23,32 @@ public class Clone : MonoBehaviour
 
     float playTime;
 
+    private Animator animator;
+    private Vector3 lastPos;
+    private double lastVel = 0;
+
     void Start()
     {
         recorder = GameObject.FindGameObjectWithTag("Player").GetComponent<Recorder>();
 
         StartCoroutine(Playback());
         StartCoroutine(ProcessEvents());
+
+        animator = GetComponentInChildren<Animator>();
+        lastPos = this.transform.position;
+    }
+
+    void Update()
+    {
+        var velocity = (transform.position - lastPos) / Time.deltaTime;
+        double currentHVelMag = Math.Sqrt(Math.Pow(velocity.x, 2) + Math.Pow(velocity.z, 2));
+        lastPos = transform.position;
+        if (lastVel > 1 && currentHVelMag < 1) { //hack, when we switch keyframes vel drops to near 0 for a frame
+            lastVel = currentHVelMag;
+            return;
+        }
+        animator.SetFloat("horspeed", (float)currentHVelMag);
+        lastVel = currentHVelMag;
     }
 
     IEnumerator Playback()
