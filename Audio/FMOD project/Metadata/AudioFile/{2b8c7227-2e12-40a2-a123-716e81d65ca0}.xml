@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{2b8c7227-2e12-40a2-a123-716e81d65ca0}">
 		<property name="assetPath">
-			<value>Puzzle Levels/Puzzle Music (static).wav</value>
+			<value>Puzzle Levels/Menu Music.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>
