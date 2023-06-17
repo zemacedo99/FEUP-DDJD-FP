@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="ParameterPreset" id="{7cc33fa5-1d97-4582-9cee-85fd6f9bca9d}">
 		<property name="name">
-			<value>UI Move Param</value>
+			<value>UI_inventory_move_param</value>
 		</property>
 		<relationship name="folder">
 			<destination>{894b797d-4847-4bce-bfd4-e84168c37854}</destination>
@@ -16,7 +16,7 @@
 			<value>true</value>
 		</property>
 		<property name="initialValue">
-			<value>0</value>
+			<value>0.5</value>
 		</property>
 		<property name="isExposedRecursively">
 			<value>false</value>

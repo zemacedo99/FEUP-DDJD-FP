@@ -15,7 +15,8 @@ public class CanvasScript : MonoBehaviour
     public bool isPaused = false;
     public float eyeBlinkaAnimationTime = 10f;
 
-    public FMODUnity.EventReference goBack;
+    public FMODUnity.EventReference pauseSnapshot;
+    FMOD.Studio.EventInstance pauseSnapshotInstance;
 
     void Start()
     {
@@ -55,25 +56,30 @@ public class CanvasScript : MonoBehaviour
         return objectTransform.gameObject;
     }
 
-    public void SetPause(bool isActive)
+    public void SetPause(bool isActive, bool stopTime = true)
     {
-        if (isActive)
+        if (isActive && !isPaused)
         {
-            Time.timeScale = 0;
+            if (stopTime)
+                Time.timeScale = 0;
             isPaused = true;
+            pauseSnapshotInstance = FMODUnity.RuntimeManager.CreateInstance(pauseSnapshot);
+            pauseSnapshotInstance.start();
+            print("Paused");
         }
-        else
+        else if (isPaused)
         {
             Time.timeScale = 1;
             isPaused = false;
+            pauseSnapshotInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            print("UnPaused");
+
         }
     }
 
     public void PauseMenuSetActive(bool isActive)
     {   
         pauseMenuIsDisplay = isActive;
-
-        SetPause(isActive);
 
         this.GetChildByName("PauseMenu").SetActive(isActive);
 
@@ -82,29 +88,22 @@ public class CanvasScript : MonoBehaviour
              
             this.GetChildByName("PauseMenu").GetComponent<PauseMenuScript>().UpdateCollectedTape();
         }
+
+        SetPause(isActive);
     }
 
     public void InventorySetActive(bool isActive)
     {
         inventoryIsDisplay = isActive;
 
-        SetPause(isActive);
-
         this.GetChildByName("InventoryScreen").SetActive(isActive);
+
+        SetPause(isActive);
     }
 
     public void NarrativeSetSctive(bool isActive, ItemObject item = null)
     {
         narrativeIsDisplay = isActive;
-
-        if (isActive)
-        {
-            isPaused = true;
-        }
-        else
-        {
-            isPaused = false;
-        }
 
         this.GetChildByName("NarrativeScreen").SetActive(isActive);
 
@@ -112,6 +111,8 @@ public class CanvasScript : MonoBehaviour
         {
             this.GetChildByName("NarrativeScreen").GetComponent<NarrativeScreenScript>().Init(item);
         }
+
+        SetPause(isActive, false);
     }
 
     public void MapSetActive(bool isActive)
@@ -124,23 +125,16 @@ public class CanvasScript : MonoBehaviour
         }
 
         mapIsDisplay = isActive;
-        if (isActive)
-        {
-            Time.timeScale = 0;
-            isPaused = true;
-        }
-        else
-        {
-            Time.timeScale = 1;
-            isPaused = false;
-        }
+
         this.GetChildByName("MapWindow").SetActive(isActive);
         this.mapCamera.SetActive(isActive);
+
+        SetPause(isActive);
     }
 
     private void OnDestroy()
     {
-        Time.timeScale = 1;
+        SetPause(false);
     }
 
     void Update()
