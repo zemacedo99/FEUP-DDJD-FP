@@ -5,6 +5,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     public ItemObject item;
+    public bool uniqueItem = true;
     public float degreesPerSecond = 45.0f;
     public float amplitude = 0.25f; // amplitude of the up and down movement
     public float frequency = 1f; // frequency of the up and down movement
@@ -15,6 +16,8 @@ public class Item : MonoBehaviour
 
     void Start()
     {
+        if (uniqueItem && FindObjectOfType<PlayerInventory>().HasItem(item))
+            Destroy(this.gameObject);
         // Store the starting position & rotation of the object
         posOffset = transform.position;
     }
