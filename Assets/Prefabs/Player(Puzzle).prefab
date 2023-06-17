@@ -946,6 +946,13 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  inventoryMove:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &2143585174342821578
 GameObject:
   m_ObjectHideFlags: 0
@@ -3845,13 +3852,14 @@ MonoBehaviour:
   mapIsDisplay: 0
   narrativeIsDisplay: 0
   isPaused: 0
-  goBack:
+  eyeBlinkaAnimationTime: 10
+  pauseSnapshot:
     Guid:
-      Data1: -2005726049
-      Data2: 1210993593
-      Data3: 2060084670
-      Data4: -914757006
-    Path: event:/UI/Back
+      Data1: -677422909
+      Data2: 1098373996
+      Data3: 940261283
+      Data4: -1902223309
+    Path: snapshot:/Pause
 --- !u!1 &9160824450729310094
 GameObject:
   m_ObjectHideFlags: 0
@@ -4030,9 +4038,17 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5743806966717618830, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: m_Name
+      value: fade overlay
+      objectReference: {fileID: 0}
     - target: {fileID: 7106066949501403723, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: cubePopButton.m_Id
-      value: b62a3c55-4a62-4f20-a16e-ed153a06effe
+      value: c0d93473-6ae7-4f12-8933-d955edf6fb28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106066949501403723, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: cubePopButton.m_Name
+      value: Cube Pop Button
       objectReference: {fileID: 0}
     - target: {fileID: 7852836038629847381, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: PickUpMessage
@@ -4066,37 +4082,6 @@ MonoBehaviour:
   Parameter: OxygenValue
   TriggerEvent: 1
   Value: 1
---- !u!114 &3951291879733680156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7856395204743844951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -154277904
-      Data2: 1189333842
-      Data3: 1472297135
-      Data4: 1929323240
-    Path: event:/Puzzle Levels/Puzzle Music
-  Event: 
-  PlayEvent: 1
-  StopEvent: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  AllowNonRigidbodyDoppler: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!114 &6252925899466067531
 MonoBehaviour:
   m_ObjectHideFlags: 0
