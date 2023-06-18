@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuScript : MonoBehaviour
 {
-    enum options { CONTINUE, SETTINGS, GO_TO_MAINMENU }
+    enum options { CONTINUE, GO_TO_MAINMENU }
     private options selectedOption;
     public string missionDescription;
     public InputAction upInput, downInput, selectInput;
@@ -78,9 +78,6 @@ public class PauseMenuScript : MonoBehaviour
         switch (selectedOption)
         {
             case options.CONTINUE:
-                this.GetComponentInParent<CanvasScript>().PauseMenuSetActive(false);
-                break;
-            case options.SETTINGS:
                 this.GetComponentInParent<CanvasScript>().PauseMenuSetActive(false);
                 break;
             case options.GO_TO_MAINMENU:

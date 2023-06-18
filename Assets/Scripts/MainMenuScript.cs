@@ -11,7 +11,7 @@ using UnityEditor;
 
 public class MainMenuScript : MonoBehaviour
 {
-    enum options { CONTINUE, NEWGAME, OPTIONS, CREDITS, EXIT }
+    enum options { CONTINUE, NEWGAME, CREDITS, EXIT }
     enum warningType { RESET, ADANDON }
     private warningType type = warningType.RESET;
     private options selectedOption;
@@ -118,10 +118,6 @@ public class MainMenuScript : MonoBehaviour
                     return;
                 }
                 EnableWarningScreen(2);
-                break;
-            case options.OPTIONS:
-                print("OPTIONS SELECTED");
-                SceneManager.LoadScene("World");
                 break;
             case options.CREDITS:
                 print("OPTIONS SELECTED");

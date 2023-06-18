@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class PuzzlePauseMenuScript : MonoBehaviour
 {
-    enum options { CONTINUE, RESET_QUEST, ABANDON_QUEST, SETTINGS, GO_TO_MAINMENU }
+    enum options { CONTINUE, RESET_QUEST, ABANDON_QUEST, GO_TO_MAINMENU }
     enum warningType { RESET, ADANDON }
     private options selectedOption;
     public string missionDescription;
@@ -86,11 +86,6 @@ public class PuzzlePauseMenuScript : MonoBehaviour
                 break;
             case options.ABANDON_QUEST:
                 EnableWarningScreen((int)warningType.ADANDON);
-                break;
-
-            case options.SETTINGS:
-                this.GetComponentInParent<CanvasScript>().PauseMenuSetActive(false);
-                print("SETTINGS WAS PRESSED");
                 break;
             case options.GO_TO_MAINMENU:
                 SceneManager.LoadScene("MainMenu");

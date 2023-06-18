@@ -2411,6 +2411,14 @@ PrefabInstance:
       propertyPath: m_text
       value: Go to Main Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 776574513171382132, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 851653134385605837, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 1022288818911713032, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2475,9 +2483,17 @@ PrefabInstance:
       propertyPath: initialScreenAlpha
       value: 170
       objectReference: {fileID: 0}
+    - target: {fileID: 7856395204743844950, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7856395204743844951, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
       propertyPath: m_Name
       value: Player(Puzzle)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856395204743844953, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7856395204743844955, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
       propertyPath: m_RootOrder
@@ -2490,6 +2506,10 @@ PrefabInstance:
     - target: {fileID: 7856395204743844955, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
       propertyPath: m_LocalRotation.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856395204743844955, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7856395204743844955, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

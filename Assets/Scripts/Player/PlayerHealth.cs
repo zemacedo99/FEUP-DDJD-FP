@@ -52,7 +52,6 @@ public class PlayerHealth : MonoBehaviour
     public void Kill()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        FMODUnity.RuntimeManager.PlayOneShotAttached(death, gameObject);
     }
 
     private void Update()
