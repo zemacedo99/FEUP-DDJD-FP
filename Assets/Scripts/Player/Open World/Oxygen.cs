@@ -55,7 +55,7 @@ public class Oxygen : MonoBehaviour
         statusBar.GetComponent<StatusBarScript>().UpdateFilledAmount(oxygenValue / maxOxygen);
         float valueForFMOD = oxygenValue / maxOxygen;
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("OxygenValue", valueForFMOD);
-        print(valueForFMOD);
+        //print(valueForFMOD);
         //UpdateSlider(oxygenValue);
     }
 
