@@ -28,7 +28,7 @@ public class Oxygen : MonoBehaviour
         movement = GetComponent<PlayerMovement>();
         lastPosition = transform.position;
         oxygenStationPosition = transform.position;
-        oxygenSlider.maxValue = 300;
+        oxygenSlider.maxValue = oxygenValue;
     }
 
     void Update()
