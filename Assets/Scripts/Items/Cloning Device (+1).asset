@@ -12,13 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0127d48dcc9f484d9c5839eb9efdc39, type: 3}
   m_Name: Cloning Device (+1)
   m_EditorClassIdentifier: 
-  prefab: {fileID: 12550935021668254, guid: a8ab814a4e2764cfe922763d12b5a186, type: 3}
-  itemName: Cloning Device (+1)
+  prefab: {fileID: 12550935021668254, guid: c39e0dd777cfb8046b7f7bc99615a080, type: 3}
+  itemName: Secondary Device
   type: 4
   instruction: "Record: Hold Right Mouse Button \nPlay: Q\nRecover: E"
-  lore: 'A mysterious device that allows cloning of one''s movements. Its size is
-    ridiculously small while in possession, but quickly return to their natural size
-    after being left alone.
-
-
-    More than one can be carried at once.'
+  lore: With another device, the user can set two clones at the same time!
