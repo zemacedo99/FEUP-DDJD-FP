@@ -123,8 +123,7 @@ public class MainMenuScript : MonoBehaviour
                 SceneManager.LoadScene("World");
                 break;
             case options.CREDITS:
-                print("OPTIONS SELECTED");
-                SceneManager.LoadScene("World");
+                SceneManager.LoadScene("Credits");
                 break;
             case options.EXIT:
                 print("QUIT GAME SELECTED");
