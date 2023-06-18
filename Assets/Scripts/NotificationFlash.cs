@@ -6,10 +6,6 @@ public class NotificationFlash : MonoBehaviour
 {
     public int flashMax = 7;
     private int flashCount = 0;
-    private void Start()
-    {
-        this.gameObject.SetActive(false);
-    }
 
     public void Enable()
     {
@@ -24,5 +20,11 @@ public class NotificationFlash : MonoBehaviour
         flashCount++;
         if (flashCount == flashMax)
             CancelInvoke(nameof(FlashNotif));
+    }
+
+    public void Kill()
+    {
+        CancelInvoke(nameof(FlashNotif));
+        gameObject.SetActive(false);
     }
 }
