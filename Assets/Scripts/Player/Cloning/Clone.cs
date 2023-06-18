@@ -47,7 +47,7 @@ public class Clone : MonoBehaviour
             lastVel = currentHVelMag;
             return;
         }
-        animator.SetFloat("horspeed", (float)currentHVelMag);
+        animator.SetFloat("horspeed", (float)currentHVelMag/PlayerMovement.hVelMagMax, 0.1f, Time.deltaTime);
         lastVel = currentHVelMag;
     }
 
@@ -103,12 +103,17 @@ public class Clone : MonoBehaviour
                         FMODUnity.RuntimeManager.PlayOneShotAttached(jumpEvent, gameObject);
                         break;
                     case PlayerEvent.EventType.FootstepsSound:
-                        FMODUnity.RuntimeManager.PlayOneShotAttached(footstepsEvent, gameObject);
+                        //FMODUnity.RuntimeManager.PlayOneShotAttached(footstepsEvent, gameObject);
                         break;
                 }
                 nextEventIndex++;
             }
             yield return null;
         }
+    }
+
+    public void CloneCallFootsteps()
+    {
+        FMODUnity.RuntimeManager.PlayOneShotAttached(footstepsEvent, gameObject);
     }
 }

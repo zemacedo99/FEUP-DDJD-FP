@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight = 6f;
     Vector3 velocity;
     float velocityY;
-    float hVelMagMax = 7.5f;
+    public readonly static float hVelMagMax = 7.5f;
     bool isGrounded;
 
 
@@ -59,8 +59,6 @@ public class PlayerMovement : MonoBehaviour
     private PlayerInventory inv;
 
     CanvasScript canvasScript;
-
-    //private float footstepTimer = 0f;
 
     public FMODUnity.EventReference jumpEvent;
     public FMODUnity.EventReference landingEvent;
@@ -154,12 +152,6 @@ public class PlayerMovement : MonoBehaviour
         velocity = (transform.forward * targetDir.y + transform.right * targetDir.x) * moveSpeed + Vector3.up * velocityY;
         controller.Move(velocity * Time.deltaTime);
         double currentHVelMag = Math.Sqrt(Math.Pow(controller.velocity.x, 2) + Math.Pow(controller.velocity.z, 2));
-        //if (footstepTimer > 1/3f)
-        //{
-        //    CallFootsteps();
-        //    footstepTimer = 0;
-        //}
-        //else footstepTimer += Time.deltaTime * (((float)currentHVelMag)/hVelMagMax);
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("MoveSpeed", (float)currentHVelMag / hVelMagMax);
 
         if (currentHVelMag <= DOUBLE_MINIMUM_VALUE)
