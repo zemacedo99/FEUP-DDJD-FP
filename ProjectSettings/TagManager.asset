@@ -8,6 +8,7 @@ TagManager:
   - Hurt
   - WaterParticle
   - UI Canvas
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Player
   - Doors
   - Presence Detectors
-  - 
+  - Map Arrow
   - 
   - 
   - 
