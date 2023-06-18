@@ -3602,7 +3602,6 @@ MonoBehaviour:
   narrativeIsDisplay: 0
   isPaused: 0
   eyeBlinkaAnimationTime: 10
-  goBack:
   pauseSnapshot:
     Guid:
       Data1: -677422909
@@ -3791,14 +3790,6 @@ PrefabInstance:
     - target: {fileID: 5743806966717618830, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_Name
       value: fade overlay
-      objectReference: {fileID: 0}
-    - target: {fileID: 7106066949501403723, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
-      propertyPath: cubePopButton.m_Id
-      value: c0d93473-6ae7-4f12-8933-d955edf6fb28
-      objectReference: {fileID: 0}
-    - target: {fileID: 7106066949501403723, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
-      propertyPath: cubePopButton.m_Name
-      value: Cube Pop Button
       objectReference: {fileID: 0}
     - target: {fileID: 7852836038629847381, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: PickUpMessage

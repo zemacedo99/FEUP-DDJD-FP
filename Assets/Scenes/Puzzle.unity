@@ -304,6 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: fa9abe1bf764049e597651886d84e654, type: 2}
+  uniqueItem: 1
   degreesPerSecond: 45
   amplitude: 0.1
   frequency: 1
@@ -2394,10 +2395,6 @@ PrefabInstance:
     - target: {fileID: 88220621795277072, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -28.55371
-      objectReference: {fileID: 0}
-    - target: {fileID: 116958383589185015, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
-      propertyPath: cubesStackLimit
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 116958383589185015, guid: 0adf53a286a4e46c188d949798d7c673, type: 3}
       propertyPath: cubePopAction.m_Id

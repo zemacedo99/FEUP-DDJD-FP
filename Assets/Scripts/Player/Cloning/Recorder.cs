@@ -47,7 +47,9 @@ public class Recorder : MonoBehaviour
     public GameObject cube;
     GameObject newCube;
     List<GameObject> cubesStack;
-    public int cubesStackLimit = 2;
+    public int cubesStackLimit = 0;
+    public ItemObject cube1;
+    public ItemObject cube2;
 
     public InputActionAsset actions;
     public InputAction recordButton;
@@ -74,6 +76,9 @@ public class Recorder : MonoBehaviour
         canvasScript = GameObject.FindGameObjectWithTag("UI Canvas").GetComponent<CanvasScript>();
 
         cubesStack = new List<GameObject>();
+
+        cubesStackLimit = 0;
+
     }
 
     void FixedUpdate()
@@ -148,5 +153,14 @@ public class Recorder : MonoBehaviour
     private void OnDestroy()
     {
         recordingEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+    }
+
+    public void UpdateCubeStackLimit()
+    {
+        cubesStackLimit = 0;
+        if (GetComponent<PlayerInventory>().HasItem(cube1))
+            cubesStackLimit++;
+        if (GetComponent<PlayerInventory>().HasItem(cube2))
+            cubesStackLimit++;
     }
 }
