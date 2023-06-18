@@ -66,9 +66,6 @@ public class CanvasScript : MonoBehaviour
             pauseSnapshotInstance = FMODUnity.RuntimeManager.CreateInstance(pauseSnapshot);
             pauseSnapshotInstance.start();
             print("Paused");
-            var notifs = FindObjectsOfType<NotificationFlash>();
-            foreach (NotificationFlash notif in notifs)
-                notif.Kill();
         }
         else if (isPaused)
         {
