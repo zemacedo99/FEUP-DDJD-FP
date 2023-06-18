@@ -599,6 +599,7 @@ MonoBehaviour:
   mapIsDisplay: 0
   narrativeIsDisplay: 0
   isPaused: 0
+  eyeBlinkaAnimationTime: 10
   pauseSnapshot:
     Guid:
       Data1: -677422909
@@ -1896,7 +1897,6 @@ GameObject:
   - component: {fileID: 6422247260748368757}
   - component: {fileID: 6254205850685857066}
   - component: {fileID: 1731744042155306512}
-  - component: {fileID: 8642070791244999618}
   m_Layer: 5
   m_Name: EyeBlink
   m_TagString: Untagged
@@ -1964,18 +1964,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8642070791244999618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6349048004469431253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c01549721fe74c7fad36c63d71f52f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6842626816550059743
 GameObject:
   m_ObjectHideFlags: 0
@@ -3783,36 +3771,12 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4616699832579320999, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.86
-      objectReference: {fileID: 0}
-    - target: {fileID: 4616699832579320999, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4616699832579320999, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4616699832579320999, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4616699832579320999, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4616699832579320999, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4616699832579320999, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4904841449534451288, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5168168333977639510, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_ClearFlags
@@ -3857,14 +3821,6 @@ PrefabInstance:
     - target: {fileID: 7106066949501403723, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7106066949501403723, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
-      propertyPath: cubePopButton.m_Id
-      value: b445b6ee-66be-41b2-ba6c-5fca43cb7ade
-      objectReference: {fileID: 0}
-    - target: {fileID: 7106066949501403723, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
-      propertyPath: cubePopButton.m_Name
-      value: Cube Pop Button
       objectReference: {fileID: 0}
     - target: {fileID: 7852836038629847381, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: PickUpMessage
