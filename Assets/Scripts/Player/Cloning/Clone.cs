@@ -47,7 +47,7 @@ public class Clone : MonoBehaviour
             lastVel = currentHVelMag;
             return;
         }
-        animator.SetFloat("horspeed", (float)currentHVelMag/PlayerMovement.hVelMagMax, 0.1f, Time.deltaTime);
+        animator.SetFloat("horspeed", (float)currentHVelMag/PlayerMovement.hVelMagMax * 4/5, 0.1f, Time.deltaTime);
         lastVel = currentHVelMag;
     }
 
