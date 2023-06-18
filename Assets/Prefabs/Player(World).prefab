@@ -2489,6 +2489,13 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   actions: {fileID: -944628639613478452, guid: 107b800f03e150f4fb8e489f0f4a80b4, type: 3}
+  tapeStop:
+    Guid:
+      Data1: 1755526340
+      Data2: 1181727222
+      Data3: -1125956455
+      Data4: 257974025
+    Path: event:/Puzzle Levels/Tape/Tape Stop
 --- !u!1 &7097718754829023259
 GameObject:
   m_ObjectHideFlags: 0

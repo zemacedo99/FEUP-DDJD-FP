@@ -15,7 +15,8 @@ public class PlayerInventory : MonoBehaviour
     public ItemObject firstTapeObject;
     private Item currentTouched = null;
     
-    public FMODUnity.EventReference itemPickup; 
+    public FMODUnity.EventReference itemPickup;
+    public FMODUnity.EventReference tapeStart;
 
     public void OnTriggerEnter(Collider other)
     {
@@ -87,13 +88,16 @@ public class PlayerInventory : MonoBehaviour
                     PlayerPrefs.SetInt("IsFirstTapeCollected", 1);
                 }
                 GameObject.FindGameObjectWithTag("UI Canvas").GetComponent<CanvasScript>().NarrativeSetSctive(true, currentTouched.gameObject.GetComponent<Item>().item);
-            }
-            currentTouched = null;
 
+                FMODUnity.RuntimeManager.PlayOneShot(tapeStart);
+            }
             InventoryScreen.GetComponent<InventoryScreenScript>().UpdateInformationScreen();
             TriggerDoorOpen(); // Opens all the doors that needs items in order for it to open
 
-            FMODUnity.RuntimeManager.PlayOneShot(itemPickup);
+            if (currentTouched.item.type.ToString() != "CassettePlayer")
+                FMODUnity.RuntimeManager.PlayOneShot(itemPickup);
+
+            currentTouched = null;
         }
 
         return;

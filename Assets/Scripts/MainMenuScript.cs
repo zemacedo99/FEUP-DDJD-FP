@@ -96,6 +96,7 @@ public class MainMenuScript : MonoBehaviour
     public void RestartNewGame()
     {
         DeleteInventoryFile();
+        SaveSystem.DeleteFogOfWarData();
         PlayerPrefs.DeleteAll();
         SceneManager.LoadScene("Intro");
     }
