@@ -20,6 +20,7 @@ public class DoorsScript : MonoBehaviour
     void Start()
     {
         isOpen = doorFront.activeSelf;
+        OpenDoorIfHasAlItems();
     }
 
     public void OpenDoorIfHasAlItems()
