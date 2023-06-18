@@ -220,7 +220,9 @@ MonoBehaviour:
   playerCamera: {fileID: 5337838783731183409}
   snapshotArray: []
   cube: {fileID: 24189850991649997, guid: d27e2ecc029814369a9a4d07cb60758b, type: 3}
-  cubesStackLimit: 2
+  cubesStackLimit: 1
+  cube1: {fileID: 11400000, guid: 07d42f7cd010441cea4da094320017f3, type: 2}
+  cube2: {fileID: 11400000, guid: 531f1fbd3b03d4db583a156314653f8f, type: 2}
   actions: {fileID: -944628639613478452, guid: 107b800f03e150f4fb8e489f0f4a80b4, type: 3}
   recordButton:
     m_Name: Record Button
@@ -235,7 +237,7 @@ MonoBehaviour:
     m_Name: Cube Pop Button
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 8116ac27-69b0-4177-a287-91395eeb5064
+    m_Id: c0d93473-6ae7-4f12-8933-d955edf6fb28
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -375,20 +377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img: {fileID: 2030141653023575008}
-  hurtEvent:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  death:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+  impactIntensity: 20
   laserDamageEvent:
     Guid:
       Data1: 885373744

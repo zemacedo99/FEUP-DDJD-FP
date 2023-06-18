@@ -58,7 +58,7 @@ public class CanvasScript : MonoBehaviour
 
     public void SetPause(bool isActive, bool stopTime = true)
     {
-        if (isActive && !isPaused)
+        if (isActive)
         {
             if (stopTime)
                 Time.timeScale = 0;
@@ -67,7 +67,7 @@ public class CanvasScript : MonoBehaviour
             pauseSnapshotInstance.start();
             print("Paused");
         }
-        else if (isPaused)
+        else
         {
             Time.timeScale = 1;
             isPaused = false;
@@ -149,7 +149,7 @@ public class CanvasScript : MonoBehaviour
             return;
         }
 
-        if (pauseInput.WasPressedThisFrame())
+        if (pauseInput.WasPressedThisFrame() && !narrativeIsDisplay)
         {
             if (this.transform.Find("PauseMenu").GetComponent<PuzzlePauseMenuScript>() != null && this.transform.Find("PauseMenu").GetComponent<PuzzlePauseMenuScript>().isWarningScreen)
             {
@@ -169,7 +169,7 @@ public class CanvasScript : MonoBehaviour
             MapSetActive(false);
             InventorySetActive(!inventoryIsDisplay);
         }
-        if (mapInput.WasPressedThisFrame() && !pauseMenuIsDisplay)
+        if (mapInput.WasPressedThisFrame() && !pauseMenuIsDisplay && !narrativeIsDisplay)
         {
             InventorySetActive(false);
             MapSetActive(!mapIsDisplay);

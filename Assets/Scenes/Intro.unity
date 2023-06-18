@@ -162,8 +162,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "You are Luminaris\n\nTo escape, you must explore the planet \n\nAnd regain
-    your memories"
+  m_text: To escape, you must explore the planet
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c4ab13e6fc5ac4485ade0c42280c5cd1, type: 2}
   m_sharedMaterial: {fileID: -8374900339245251615, guid: c4ab13e6fc5ac4485ade0c42280c5cd1, type: 2}
@@ -682,8 +681,8 @@ MonoBehaviour:
   m_text: 'A palpable unease engulfs the mysterious planet
 
 
-    Its waters and plants
-    now toxic, concealing perilous secrets'
+    What perilous secrets
+    might it conceal?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c4ab13e6fc5ac4485ade0c42280c5cd1, type: 2}
   m_sharedMaterial: {fileID: -8374900339245251615, guid: c4ab13e6fc5ac4485ade0c42280c5cd1, type: 2}
