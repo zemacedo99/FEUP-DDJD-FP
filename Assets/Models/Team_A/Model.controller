@@ -41,13 +41,13 @@ AnimatorState:
   m_IKOnFeet: 1
   m_WriteDefaultValues: 1
   m_Mirror: 0
-  m_SpeedParameterActive: 0
+  m_SpeedParameterActive: 1
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7691617146400131780}
   m_Tag: 
-  m_SpeedParameter: 
+  m_SpeedParameter: horspeed
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
@@ -257,7 +257,7 @@ BlendTree:
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: da8a73f0864c0a743bccbf5e6d298440, type: 2}
-    m_Threshold: 0.8
+    m_Threshold: 0.35
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
@@ -266,7 +266,7 @@ BlendTree:
   m_BlendParameter: horspeed
   m_BlendParameterY: horspeed
   m_MinThreshold: 0.02
-  m_MaxThreshold: 0.8
+  m_MaxThreshold: 0.35
   m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0
   m_BlendType: 0
