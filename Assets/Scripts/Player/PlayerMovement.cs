@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
 
     CanvasScript canvasScript;
 
-    private float footstepTimer = 0f;
+    //private float footstepTimer = 0f;
 
     public FMODUnity.EventReference jumpEvent;
     public FMODUnity.EventReference landingEvent;
@@ -101,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
 
         footstepsScript = GetComponent<FootSteps>();
 
-        anim = this.GetComponentInChildren<Animator>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -154,15 +154,17 @@ public class PlayerMovement : MonoBehaviour
         velocity = (transform.forward * targetDir.y + transform.right * targetDir.x) * moveSpeed + Vector3.up * velocityY;
         controller.Move(velocity * Time.deltaTime);
         double currentHVelMag = Math.Sqrt(Math.Pow(controller.velocity.x, 2) + Math.Pow(controller.velocity.z, 2));
-        if (footstepTimer > 1/3f)
-        {
-            CallFootsteps();
-            footstepTimer = 0;
-        }
-        else footstepTimer += Time.deltaTime * (((float)currentHVelMag)/hVelMagMax);
+        //if (footstepTimer > 1/3f)
+        //{
+        //    CallFootsteps();
+        //    footstepTimer = 0;
+        //}
+        //else footstepTimer += Time.deltaTime * (((float)currentHVelMag)/hVelMagMax);
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("MoveSpeed", (float)currentHVelMag / hVelMagMax);
 
-        anim.SetFloat("horspeed", (float)currentHVelMag);
+        if (currentHVelMag <= DOUBLE_MINIMUM_VALUE)
+            anim.SetFloat("horspeed", 0.01f, 0.1f, Time.deltaTime);
+        else anim.SetFloat("horspeed", (float)currentHVelMag / hVelMagMax, 0.1f, Time.deltaTime);
 
         // JUMP
         if (jumpButton.WasPressedThisFrame() && (isGrounded || (!isGrounded && isWorld && inv.HasItem("Jetpack"))))
@@ -206,7 +208,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void CallFootsteps()
+    public void CallFootsteps()
     {
         double currentHVelMag = Math.Sqrt(Math.Pow(controller.velocity.x, 2) + Math.Pow(controller.velocity.z, 2));
 
