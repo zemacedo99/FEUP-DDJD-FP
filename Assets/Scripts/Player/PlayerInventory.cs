@@ -93,7 +93,6 @@ public class PlayerInventory : MonoBehaviour
             }
             InventoryScreen.GetComponent<InventoryScreenScript>().UpdateInformationScreen();
             TriggerDoorOpen(); // Opens all the doors that needs items in order for it to open
-            GetComponent<Recorder>().UpdateCubeStackLimit();
 
             if (currentTouched.item.type.ToString() != "CassettePlayer")
                 FMODUnity.RuntimeManager.PlayOneShot(itemPickup);

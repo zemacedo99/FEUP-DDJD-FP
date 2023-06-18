@@ -47,7 +47,6 @@ public class Recorder : MonoBehaviour
     public GameObject cube;
     GameObject newCube;
     List<GameObject> cubesStack;
-    public int cubesStackLimit = 0;
     public ItemObject cube1;
     public ItemObject cube2;
 
@@ -60,6 +59,8 @@ public class Recorder : MonoBehaviour
     public FMODUnity.EventReference recordingEvent;
     FMOD.Studio.EventInstance recordingEventInstance;
     public FMODUnity.EventReference cubePopEvent;
+
+    private PlayerInventory inv;
 
     // Start is called before the first frame update
     void Start()
@@ -77,8 +78,7 @@ public class Recorder : MonoBehaviour
 
         cubesStack = new List<GameObject>();
 
-        cubesStackLimit = 0;
-
+        inv = GetComponent<PlayerInventory>();
     }
 
     void FixedUpdate()
@@ -95,7 +95,7 @@ public class Recorder : MonoBehaviour
         if (recordButton.WasPressedThisFrame())
         {
             // Record
-            if (!isRecording && cubesStack.Count < cubesStackLimit)
+            if (!isRecording && canClone())
             {
                 Debug.Log("Recording Started");
 
@@ -155,12 +155,12 @@ public class Recorder : MonoBehaviour
         recordingEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
-    public void UpdateCubeStackLimit()
+    private bool canClone()
     {
-        cubesStackLimit = 0;
-        if (GetComponent<PlayerInventory>().HasItem(cube1))
-            cubesStackLimit++;
-        if (GetComponent<PlayerInventory>().HasItem(cube2))
-            cubesStackLimit++;
+        if (cubesStack.Count >= 2)
+            return false;
+        if (cubesStack.Count == 1)
+            return inv.HasItem(cube2) && inv.HasItem(cube1);
+        return inv.HasItem(cube1);
     }
 }
