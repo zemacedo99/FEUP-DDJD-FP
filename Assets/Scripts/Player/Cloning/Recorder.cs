@@ -100,7 +100,7 @@ public class Recorder : MonoBehaviour
                 isRecording = true;
 
                 // Instantiate cube
-                newCube = Instantiate(cube, transform.position - Vector3.up * 0.5f, transform.rotation);
+                newCube = Instantiate(cube, transform.position - Vector3.up * 0.3f, transform.rotation);
                 cubesStack.Add(newCube);
 
                 recordingEventInstance = FMODUnity.RuntimeManager.CreateInstance(recordingEvent);
