@@ -458,6 +458,7 @@ GameObject:
   - component: {fileID: 894955570}
   - component: {fileID: 894955569}
   - component: {fileID: 894955573}
+  - component: {fileID: 894955574}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -577,6 +578,29 @@ PlayableDirector:
     value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &894955574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894955568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c1a4c3b23a25448581264517750d5a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTimeline: {fileID: 894955573}
+  selectInput:
+    m_Name: Select Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: a865cb72-d149-4a1b-9c45-8a78709400a4
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  actions: {fileID: -944628639613478452, guid: 107b800f03e150f4fb8e489f0f4a80b4, type: 3}
 --- !u!1 &1292010493
 GameObject:
   m_ObjectHideFlags: 0
