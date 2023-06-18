@@ -59,6 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: Prototyping Scene
+  requiredItem: 
 --- !u!1 &687211194198071246
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,9 +1102,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 766013806ad53c946932bdd046affc57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetA: {x: 0, y: -0.8, z: 0}
-  targetB: {x: 0, y: -1.2, z: 0}
+  targetA: {x: 0, y: 0.2, z: 0}
+  targetB: {x: 0, y: -0.2, z: 0}
   speed: 0.2
+  switching: 0
+  moving: 1
 --- !u!64 &5644350715558143328
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -340,6 +340,13 @@ MonoBehaviour:
       Data3: 1137325199
       Data4: -441023308
     Path: event:/UI/Item picked
+  tapeStart:
+    Guid:
+      Data1: -1969663964
+      Data2: 1079008735
+      Data3: -633874299
+      Data4: -1464539261
+    Path: event:/Puzzle Levels/Tape/Tape Start
 --- !u!114 &-9153764388390311813
 MonoBehaviour:
   m_ObjectHideFlags: 0
