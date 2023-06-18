@@ -40,7 +40,7 @@ public class Minimap : MonoBehaviour
 		LoadFogOfWarData(); // Load the fog of war data from file
 		UpdateColor();
 	}
-	
+
 	void Update () {
 		Ray r = new Ray(transform.position, player.position - transform.position);
 		RaycastHit hit;
@@ -71,23 +71,10 @@ public class Minimap : MonoBehaviour
         SaveFogOfWarData(); // Save the fog of war data to file when the game is closed or the scene is switched
     }
 
-	void Awake()
-	{
-		mesh = fogOfWarPlane.GetComponent<MeshFilter>().mesh;
-		vertices = mesh.vertices;
-		colors = new Color[vertices.Length];
-		for (int i=0; i < colors.Length; i++) {
-			colors[i] = Color.black;
-		}
-
-		LoadFogOfWarData(); // Load the fog of war data when the script is loaded (scene is returned to)
-		UpdateColor();
-	}
-
 
     void SaveFogOfWarData()
     {
-		// Debug.Log("SaveFogOfWarData: " + updatedIndices.Count + " " + updatedAlphas.Count);
+		//Debug.Log("SaveFogOfWarData: " + updatedIndices.Count + " " + updatedAlphas.Count);
         SaveSystem.SaveFogOfWarData(updatedIndices,updatedAlphas);
 
     }
@@ -95,8 +82,13 @@ public class Minimap : MonoBehaviour
     void LoadFogOfWarData()
     {
         FogOfWarData data = SaveSystem.LoadFogOfWarData();
+		if (data == null)
+			return;
 
-		// Debug.Log("LoadFogOfWarData: " + data.updatedIndices.Count + " " + data.updatedAlphas.Count);
+		//Debug.Log("LoadFogOfWarData: " + data.updatedIndices.Count + " " + data.updatedAlphas.Count);
+
+		updatedIndices = data.updatedIndices;
+		updatedAlphas = data.updatedAlphas;
 
 		for(int indice = 0; indice < data.updatedIndices.Count; indice++)
 		{

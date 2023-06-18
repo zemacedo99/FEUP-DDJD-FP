@@ -45,9 +45,14 @@ public class PlayerHealth : MonoBehaviour
         //Debug.Log(Time.deltaTime);
         if (health <= 0)
         {
-            //Debug.Log("ded");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Kill();
         }
+    }
+
+    public void Kill()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        FMODUnity.RuntimeManager.PlayOneShotAttached(death, gameObject);
     }
 
     private void Update()
