@@ -361,8 +361,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   oxygenValue: 300
-  oxygenSlider: {fileID: 0}
-  oxygenText: {fileID: 0}
+  statusBar: {fileID: 0}
+  maxOxygen: 0
   outOfOxygenEvent:
     Guid:
       Data1: 1864217345
@@ -431,6 +431,7 @@ MonoBehaviour:
       Data3: -633874299
       Data4: -1464539261
     Path: event:/Puzzle Levels/Tape/Tape Start
+  notif: {fileID: 0}
 --- !u!114 &-9153764388390311813
 MonoBehaviour:
   m_ObjectHideFlags: 0

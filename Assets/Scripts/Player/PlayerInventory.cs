@@ -18,6 +18,8 @@ public class PlayerInventory : MonoBehaviour
     public FMODUnity.EventReference itemPickup;
     public FMODUnity.EventReference tapeStart;
 
+    public NotificationFlash notif;
+
     public void OnTriggerEnter(Collider other)
     {
         var item = other.GetComponent<Item>();
@@ -90,6 +92,9 @@ public class PlayerInventory : MonoBehaviour
                 GameObject.FindGameObjectWithTag("UI Canvas").GetComponent<CanvasScript>().NarrativeSetSctive(true, currentTouched.gameObject.GetComponent<Item>().item);
 
                 FMODUnity.RuntimeManager.PlayOneShot(tapeStart);
+            } else
+            {
+                notif.Enable();
             }
             InventoryScreen.GetComponent<InventoryScreenScript>().UpdateInformationScreen();
             TriggerDoorOpen(); // Opens all the doors that needs items in order for it to open

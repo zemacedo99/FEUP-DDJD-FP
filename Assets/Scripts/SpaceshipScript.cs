@@ -24,7 +24,6 @@ public class SpaceshipScript : MonoBehaviour
     public PauseMenuScript pms;
     public Light dirLight;
     public GameObject notification;
-    private int flashCount;
 
     public FMODUnity.EventReference spaceshipEvent;
 
@@ -38,8 +37,7 @@ public class SpaceshipScript : MonoBehaviour
             if(PlayerPrefs.GetInt("MissionNotification") == 0)
             {
                 PlayerPrefs.SetInt("MissionNotification", 1);
-                notification.SetActive(true);
-                InvokeRepeating(nameof(FlashNotif), 3f, 0.5f);
+                notification.GetComponent<NotificationFlash>().Enable();
             }
         }
     }
@@ -62,14 +60,6 @@ public class SpaceshipScript : MonoBehaviour
             pickup.SetActive(false);
             inCol = false;
         }
-    }
-
-    void FlashNotif()
-    {
-        notification.SetActive(!notification.activeSelf);
-        flashCount++;
-        if (flashCount == 7)
-            CancelInvoke(nameof(FlashNotif));
     }
 
     void PlayAnimation()
@@ -97,7 +87,7 @@ public class SpaceshipScript : MonoBehaviour
         dirLight.intensity -= 0.05f;
         if(dirLight.intensity <= 0.01f)
         {
-            SceneManager.LoadScene("MainMenu"); //change to credits
+            SceneManager.LoadScene("Credits");
         }
     }
 

@@ -8,14 +8,18 @@ using TMPro;
 public class Oxygen : MonoBehaviour
 {
     public float oxygenValue;
-    public Slider oxygenSlider;
-    public TMP_Text oxygenText;
+    //public Slider oxygenSlider;
+    //public TMP_Text oxygenText;
+
+    public GameObject statusBar;
 
     private Vector3 lastPosition;
     private Vector3 oxygenStationPosition;
     private float oxygenLostSpeed = 2f;
     private float oxygenRefillSpeed = 50f;
     private bool refilling = false;
+
+    public float maxOxygen;
 
     CharacterController controller;
     PlayerMovement movement;
@@ -28,7 +32,9 @@ public class Oxygen : MonoBehaviour
         movement = GetComponent<PlayerMovement>();
         lastPosition = transform.position;
         oxygenStationPosition = transform.position;
-        oxygenSlider.maxValue = oxygenValue;
+        //oxygenSlider.maxValue = 300;
+
+        statusBar.GetComponent<StatusBarScript>().UpdateFilledAmount(oxygenValue / maxOxygen);
     }
 
     void Update()
@@ -45,8 +51,12 @@ public class Oxygen : MonoBehaviour
             oxygenValue = 0;
             Die();
         }
-        
-        UpdateSlider(oxygenValue);
+
+        statusBar.GetComponent<StatusBarScript>().UpdateFilledAmount(oxygenValue / maxOxygen);
+        float valueForFMOD = oxygenValue / maxOxygen;
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("OxygenValue", valueForFMOD);
+        //print(valueForFMOD);
+        //UpdateSlider(oxygenValue);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -76,30 +86,34 @@ public class Oxygen : MonoBehaviour
         }
     }
 
-    void UpdateSlider(float value)
-    {
-        value = Mathf.Clamp(value, 0f, oxygenSlider.maxValue);
+    //void UpdateSlider(float value)
+    //{
+    //    value = Mathf.Clamp(value, 0f, oxygenSlider.maxValue);
 
-        oxygenSlider.value = value;
-        oxygenText.text = "Water: " + value.ToString("F0");
+    //    oxygenSlider.value = value;
+    //    oxygenText.text = "Water: " + value.ToString("F0");
 
-        float valueForFMOD = value / oxygenSlider.maxValue;
-        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("OxygenValue", valueForFMOD);
-    }
+    //    float valueForFMOD = value / oxygenSlider.maxValue;
+    //    FMODUnity.RuntimeManager.StudioSystem.setParameterByName("OxygenValue", valueForFMOD);
+    //}
 
     public void SetOxygenValue(float oxygenValue)
     {
         this.oxygenValue = oxygenValue;
-        this.UpdateSlider(oxygenValue);
+        //this.UpdateSlider(oxygenValue);
+        statusBar.GetComponent<StatusBarScript>().UpdateFilledAmount(oxygenValue / maxOxygen);
+
     }
 
     void RefillOxygen()
     {
-        if(oxygenValue < oxygenSlider.maxValue)
+        if(oxygenValue < maxOxygen)
         {
             refilling = true;
             oxygenValue += oxygenRefillSpeed * Time.deltaTime;
-            UpdateSlider(oxygenValue);
+            statusBar.GetComponent<StatusBarScript>().UpdateFilledAmount(oxygenValue / maxOxygen);
+            //UpdateSlider(oxygenValue);
+
         }
     }
 
@@ -121,8 +135,11 @@ public class Oxygen : MonoBehaviour
         controller.enabled = false;
         transform.position = oxygenStationPosition;
         controller.enabled = true;
-        oxygenValue = oxygenSlider.maxValue;
-        UpdateSlider(oxygenValue);
+        oxygenValue = maxOxygen;
+
+        statusBar.GetComponent<StatusBarScript>().UpdateFilledAmount(oxygenValue / maxOxygen);
+
+        //UpdateSlider(oxygenValue);
     }
 
     void StoreCheckpoint()
