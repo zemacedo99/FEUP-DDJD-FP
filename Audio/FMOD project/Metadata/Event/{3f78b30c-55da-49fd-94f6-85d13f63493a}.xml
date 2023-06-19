@@ -57,7 +57,6 @@
 	<object class="MarkerTrack" id="{d4e0ccd5-104c-4e04-8734-2b739349b1fa}" />
 	<object class="GroupTrack" id="{a1ddf0ec-58c2-4b18-ac7d-a5db98ca1f1d}">
 		<relationship name="modules">
-			<destination>{54a2ac66-2daa-46c4-b483-78a5cba210d8}</destination>
 			<destination>{c5c54475-0bf7-4c7b-8190-ca7e524b9d17}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
@@ -71,7 +70,6 @@
 	</object>
 	<object class="ParameterProxy" id="{64b67c0e-c713-49c1-9092-b01a82de9b24}">
 		<relationship name="modules">
-			<destination>{54a2ac66-2daa-46c4-b483-78a5cba210d8}</destination>
 			<destination>{c5c54475-0bf7-4c7b-8190-ca7e524b9d17}</destination>
 		</relationship>
 		<relationship name="preset">
@@ -95,21 +93,7 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{8fcb262a-1d0b-42c6-9f4b-0bca506c7d32}" />
-	<object class="EventSound" id="{54a2ac66-2daa-46c4-b483-78a5cba210d8}">
-		<property name="length">
-			<value>0.10000000000000001</value>
-		</property>
-		<relationship name="event">
-			<destination>{6873f396-c5ab-493b-b7b1-cf129e620f79}</destination>
-		</relationship>
-	</object>
 	<object class="EventSound" id="{c5c54475-0bf7-4c7b-8190-ca7e524b9d17}">
-		<property name="start">
-			<value>0.10000000000000001</value>
-		</property>
-		<property name="length">
-			<value>0.90000000000000013</value>
-		</property>
 		<relationship name="event">
 			<destination>{86293dbb-cdd1-4555-925b-4e924338682d}</destination>
 		</relationship>
@@ -142,6 +126,7 @@
 		<relationship name="effects">
 			<destination>{34e60b9e-7714-4527-aa61-42f2fc9f1277}</destination>
 			<destination>{8690350f-1987-4415-bcc4-e7750c34c77d}</destination>
+			<destination>{bad7f3b5-4d99-410e-99a4-b2c9f08664b1}</destination>
 			<destination>{9517d115-e99a-44ec-a4c7-ffd61065ebcf}</destination>
 		</relationship>
 	</object>
@@ -154,6 +139,20 @@
 		</property>
 		<property name="qualityA">
 			<value>0.276247025</value>
+		</property>
+	</object>
+	<object class="MultibandEqEffect" id="{bad7f3b5-4d99-410e-99a4-b2c9f08664b1}">
+		<property name="filterTypeA">
+			<value>9</value>
+		</property>
+		<property name="frequencyA">
+			<value>250</value>
+		</property>
+		<property name="qualityA">
+			<value>0.479999989</value>
+		</property>
+		<property name="gainA">
+			<value>12</value>
 		</property>
 	</object>
 	<object class="MultibandEqEffect" id="{9517d115-e99a-44ec-a4c7-ffd61065ebcf}">
