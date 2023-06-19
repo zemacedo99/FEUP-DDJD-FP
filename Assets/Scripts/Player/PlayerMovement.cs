@@ -136,6 +136,8 @@ public class PlayerMovement : MonoBehaviour
             // Play landing sound
             FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Surface", footstepsScript.GetSurfaceType(sceneName));
             FMODUnity.RuntimeManager.PlayOneShotAttached(landingEvent, gameObject);
+
+            if (recorder.isRecording) recorder.eventArray.Add(new PlayerEvent(PlayerEvent.EventType.JumpLanding, Time.time - recorder.GetRecordingStartTime()));
         }
 
         Vector2 newMoveInputValue;

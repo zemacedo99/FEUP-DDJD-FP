@@ -20,6 +20,7 @@ public class Clone : MonoBehaviour
 
     public FMODUnity.EventReference footstepsEvent;
     public FMODUnity.EventReference jumpEvent;
+    public FMODUnity.EventReference jumpLandingEvent;
 
     float playTime;
 
@@ -104,6 +105,9 @@ public class Clone : MonoBehaviour
                         break;
                     case PlayerEvent.EventType.FootstepsSound:
                         //FMODUnity.RuntimeManager.PlayOneShotAttached(footstepsEvent, gameObject);
+                        break;
+                    case PlayerEvent.EventType.JumpLanding:
+                        FMODUnity.RuntimeManager.PlayOneShotAttached(jumpLandingEvent, gameObject);
                         break;
                 }
                 nextEventIndex++;
