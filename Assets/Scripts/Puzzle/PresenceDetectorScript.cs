@@ -39,7 +39,7 @@ public class PresenceDetectorScript : MonoBehaviour
         if (doorsScript && colliders.Count < doorMinimumPresences)
             doorsScript.Close();
         if (movingPlatform && colliders.Count < movingPlatformMinimumPresences)
-            movingPlatform.moving = false;
+            movingPlatform.SetMoving(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -52,7 +52,7 @@ public class PresenceDetectorScript : MonoBehaviour
         }
         if (movingPlatform && colliders.Count >= movingPlatformMinimumPresences)
         {
-            movingPlatform.moving = true;
+            movingPlatform.SetMoving(true);
         }
     }
 

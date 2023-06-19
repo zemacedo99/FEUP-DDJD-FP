@@ -111,8 +111,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 545b6a977389d41c39b04707fe4fcb59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minimumPresences: 1
+  doorMinimumPresences: 1
   door: {fileID: 0}
+  movingPlatformMinimumPresences: 2
+  movingPlatform: {fileID: 0}
 --- !u!1 &5927396181279372979
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,7 +611,7 @@ MeshCollider:
   m_GameObject: {fileID: 9222009114609999804}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
