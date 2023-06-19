@@ -57,6 +57,7 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
 
     private void OnLoadDone(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<ItemDatabaseObject> obj)
     {
+        Debug.Log(obj.Result);
         database = obj.Result;
     }
 
