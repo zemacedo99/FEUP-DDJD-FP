@@ -1342,6 +1342,13 @@ MonoBehaviour:
       Data3: -1734618959
       Data4: -2061074798
     Path: event:/Player/Jump
+  jumpLandingEvent:
+    Guid:
+      Data1: 1250862157
+      Data2: 1282887311
+      Data3: 162870688
+      Data4: 1193836188
+    Path: event:/Player/Jump_Landing
 --- !u!54 &-8442827498092221705
 Rigidbody:
   m_ObjectHideFlags: 0
