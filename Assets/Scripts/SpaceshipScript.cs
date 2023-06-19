@@ -84,7 +84,7 @@ public class SpaceshipScript : MonoBehaviour
         dirLight.intensity -= 0.05f;
         if(dirLight.intensity <= 0.01f)
         {
-            SceneManager.LoadScene("MainMenu"); //change to credits
+            SceneManager.LoadScene("Credits");
         }
     }
 
