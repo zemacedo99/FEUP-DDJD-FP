@@ -57,7 +57,6 @@ public class Oxygen : MonoBehaviour
             oxygenStationPosition += new Vector3(0, 1, 0);
             StoreCheckpoint();
             Debug.Log("saving checkpoint");
-            //GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerInventory>().inventory.Save();
         }
     }
 
@@ -65,7 +64,6 @@ public class Oxygen : MonoBehaviour
     {
         if (other.CompareTag("OxygenStation"))
         {
-            oxygenStationPosition = other.transform.position;
             RefillOxygen(); 
         }
     }
@@ -75,7 +73,6 @@ public class Oxygen : MonoBehaviour
         if (other.CompareTag("OxygenStation"))
         {
             refilling = false;
-            //Debug.Log("Stopped refilling oxygen.");
         }
     }
 
