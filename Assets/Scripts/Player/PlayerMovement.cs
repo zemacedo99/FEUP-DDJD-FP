@@ -62,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
     public FMODUnity.EventReference jumpEvent;
     public FMODUnity.EventReference landingEvent;
+    public FMODUnity.EventReference jetpackEvent;
 
     private FootSteps footstepsScript;
     public FMODUnity.EventReference footstepsEvent;
@@ -166,6 +167,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 mul = 3;
                 oxy.oxygenValue -= jetCost;
+                FMODUnity.RuntimeManager.PlayOneShotAttached(jetpackEvent, gameObject);
                 JetPackParticles();
             }
             velocityY = Jump(jumpHeight * mul);
