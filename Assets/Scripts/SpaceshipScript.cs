@@ -42,8 +42,6 @@ public class SpaceshipScript : MonoBehaviour
                 InvokeRepeating(nameof(FlashNotif), 3f, 0.5f);
             }
         }
-        inCol = true;
-
     }
 
     private void OnTriggerEnter(Collider other)
