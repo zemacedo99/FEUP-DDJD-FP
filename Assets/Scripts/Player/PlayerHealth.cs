@@ -10,9 +10,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private Image img;
     private CharacterController charc;
     private Vector3 impact = Vector3.zero;
+    public int impactIntensity = 20;
 
-    public FMODUnity.EventReference hurtEvent;
-    public FMODUnity.EventReference death;
     public FMODUnity.EventReference laserDamageEvent;
 
     private void Start()
@@ -31,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if(hit.gameObject.CompareTag("Hurt"))
         {
-            impact = (this.gameObject.transform.position - hit.point)*30;
+            impact = (this.gameObject.transform.position - hit.point)*impactIntensity;
 
             //impact = new Vector3(-hit.moveDirection.x, -hit.moveDirection.y+1, -hit.moveDirection.z)*10;
             //Debug.Log(impact);
@@ -43,7 +42,6 @@ public class PlayerHealth : MonoBehaviour
     {
         FMODUnity.RuntimeManager.PlayOneShot(laserDamageEvent);
         health -= 0.33f;
-        FMODUnity.RuntimeManager.PlayOneShotAttached(hurtEvent, gameObject);
         //Debug.Log(Time.deltaTime);
         if (health <= 0)
         {
@@ -54,12 +52,11 @@ public class PlayerHealth : MonoBehaviour
     public void Kill()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        FMODUnity.RuntimeManager.PlayOneShotAttached(death, gameObject);
     }
 
     private void Update()
     {
-        health = Mathf.Clamp(health + Time.deltaTime, 0, 1);
+        health = Mathf.Clamp(health + Time.deltaTime/4, 0, 1);
         img.color = new Color(img.color.r, img.color.g, img.color.b, 1 - health);
 
         // apply the impact force:

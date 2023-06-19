@@ -47,7 +47,8 @@ public class Recorder : MonoBehaviour
     public GameObject cube;
     GameObject newCube;
     List<GameObject> cubesStack;
-    public int cubesStackLimit = 2;
+    public ItemObject cube1;
+    public ItemObject cube2;
 
     public InputActionAsset actions;
     public InputAction recordButton;
@@ -58,6 +59,8 @@ public class Recorder : MonoBehaviour
     public FMODUnity.EventReference recordingEvent;
     FMOD.Studio.EventInstance recordingEventInstance;
     public FMODUnity.EventReference cubePopEvent;
+
+    private PlayerInventory inv;
 
     // Start is called before the first frame update
     void Start()
@@ -74,6 +77,8 @@ public class Recorder : MonoBehaviour
         canvasScript = GameObject.FindGameObjectWithTag("UI Canvas").GetComponent<CanvasScript>();
 
         cubesStack = new List<GameObject>();
+
+        inv = GetComponent<PlayerInventory>();
     }
 
     void FixedUpdate()
@@ -90,7 +95,7 @@ public class Recorder : MonoBehaviour
         if (recordButton.WasPressedThisFrame())
         {
             // Record
-            if (!isRecording && cubesStack.Count < cubesStackLimit)
+            if (!isRecording && canClone())
             {
                 Debug.Log("Recording Started");
 
@@ -148,5 +153,14 @@ public class Recorder : MonoBehaviour
     private void OnDestroy()
     {
         recordingEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+    }
+
+    private bool canClone()
+    {
+        if (cubesStack.Count >= 2)
+            return false;
+        if (cubesStack.Count == 1)
+            return inv.HasItem(cube2) && inv.HasItem(cube1);
+        return inv.HasItem(cube1);
     }
 }

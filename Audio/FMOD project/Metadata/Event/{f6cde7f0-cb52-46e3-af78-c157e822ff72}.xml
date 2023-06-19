@@ -2,13 +2,13 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{f6cde7f0-cb52-46e3-af78-c157e822ff72}">
 		<property name="name">
-			<value>Puzzle Music</value>
+			<value>Menu Music</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{27354323-df2c-4993-b86e-33e50958286a}</destination>
+			<destination>{56e2f35d-8ffe-4849-8f1c-320cd4edc575}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{591540d1-b0d6-4ab7-9bfa-93e4e786d9ba}</destination>
@@ -53,7 +53,7 @@
 			<destination>{ae1a3603-eca5-441f-a7d1-b57dd4a39236}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{12042c69-2f75-4ab6-bb0b-4023d02d8a25}</destination>
+			<destination>{4a7e5ddb-8fc3-42d2-92fc-e33091679057}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{2b73d5cc-fe4a-43ac-904c-ebb1a8926815}" />
@@ -68,7 +68,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{6868f4b7-2d20-4364-b0ea-d5cad7744941}">
 		<property name="volume">
-			<value>-6</value>
+			<value>-9</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{dc1aed5a-f351-45a3-baa1-9083d2b29e4c}</destination>
@@ -85,7 +85,7 @@
 			<value>72</value>
 		</property>
 		<property name="timelockedOffset">
-			<value>2</value>
+			<value>1.9734693877551022</value>
 		</property>
 		<relationship name="fadeInCurve">
 			<destination>{1752edd1-9621-4b00-84d2-3872b2d60a5b}</destination>
@@ -143,6 +143,9 @@
 	<object class="MixerBusFader" id="{009d5eb2-c721-4e06-b8ba-32966202426a}" />
 	<object class="MixerBusFader" id="{73e24bea-ff0b-4f4a-bb5a-0f8bbfa05c79}" />
 	<object class="MultibandEqEffect" id="{e1124cf4-cd15-48ac-8683-099f107656fe}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
 		<property name="filterTypeA">
 			<value>0</value>
 		</property>
@@ -180,7 +183,7 @@
 	</object>
 	<object class="AutomationPoint" id="{847d13db-6ee9-43c8-a3c3-861310abfbe6}">
 		<property name="position">
-			<value>71.875</value>
+			<value>71.915102040816322</value>
 		</property>
 		<property name="value">
 			<value>1</value>

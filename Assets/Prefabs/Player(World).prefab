@@ -4558,6 +4558,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5168168333977639510, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: field of view
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168168333977639510, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: m_BackGroundColor.b
       value: 0
       objectReference: {fileID: 0}
@@ -4585,6 +4589,10 @@ PrefabInstance:
       propertyPath: oxygenText
       value: 
       objectReference: {fileID: 5368131844160724363}
+    - target: {fileID: 6484459017631928240, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
+      propertyPath: oxygenValue
+      value: 320
+      objectReference: {fileID: 0}
     - target: {fileID: 6484459017631928240, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: oxygenSlider
       value: 

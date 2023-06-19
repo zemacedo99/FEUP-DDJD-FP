@@ -3941,14 +3941,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: fade overlay
       objectReference: {fileID: 0}
-    - target: {fileID: 7106066949501403723, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
-      propertyPath: cubePopButton.m_Id
-      value: c0d93473-6ae7-4f12-8933-d955edf6fb28
-      objectReference: {fileID: 0}
-    - target: {fileID: 7106066949501403723, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
-      propertyPath: cubePopButton.m_Name
-      value: Cube Pop Button
-      objectReference: {fileID: 0}
     - target: {fileID: 7852836038629847381, guid: 33bf61c95c9ce443298626d420570a0f, type: 3}
       propertyPath: notif
       value: 
@@ -3985,6 +3977,37 @@ MonoBehaviour:
   Parameter: OxygenValue
   TriggerEvent: 1
   Value: 1
+--- !u!114 &3951291879733680156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7856395204743844951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1936707046
+      Data2: 1102282587
+      Data3: -1014869092
+      Data4: -1180247514
+    Path: event:/Puzzle Levels/Sound Cloud
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!114 &6252925899466067531
 MonoBehaviour:
   m_ObjectHideFlags: 0

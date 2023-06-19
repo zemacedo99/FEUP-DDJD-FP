@@ -43,11 +43,11 @@ public class MainMenuScript : MonoBehaviour
         {
             selectedOption = options.NEWGAME;
             hasSavedData = false;
-            PaintSelectedOption();
+            PaintSelectedOption(false);
         }
     }
 
-    void PaintSelectedOption()
+    void PaintSelectedOption(bool playSound = true)
     {
         for (int i = 0; i < (int)options.EXIT + 1; i++)
         {
@@ -66,7 +66,8 @@ public class MainMenuScript : MonoBehaviour
             }
         }
 
-        FMODUnity.RuntimeManager.PlayOneShot(moveUpDown);
+        if (playSound)
+            FMODUnity.RuntimeManager.PlayOneShot(moveUpDown);
     }
 
     void DeleteInventoryFile()

@@ -37,13 +37,6 @@ public class DoorsScript : MonoBehaviour
         return;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.O)) Open();
-        if (Input.GetKeyDown(KeyCode.C)) Close();
-    }
-
     public void Open()
     {
         isOpen = true;

@@ -39,6 +39,9 @@
 		<property name="HFDecayRatio">
 			<value>22</value>
 		</property>
+		<property name="lowShelfGain">
+			<value>-6</value>
+		</property>
 		<property name="highCut">
 			<value>500</value>
 		</property>
