@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Windows;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEditor;
+using System.IO;
 
 
 public class MainMenuScript : MonoBehaviour
@@ -72,7 +72,7 @@ public class MainMenuScript : MonoBehaviour
 
     void DeleteInventoryFile()
     {
-        string filename = ((InventoryObject)AssetDatabase.LoadAssetAtPath("Assets/Scripts/Inventory/PlayerInventory.asset", typeof(InventoryObject))).savePath;
+        string filename = "/inventory.Save"; //fuck it hardcode it
         if (File.Exists(string.Concat(Application.persistentDataPath, filename)))
         {
             File.Delete(string.Concat(Application.persistentDataPath, filename));
