@@ -10,6 +10,10 @@ public class MovingPlatform : MonoBehaviour
     public bool moving = false;
     private Vector3 initialPosition;
 
+    public FMODUnity.EventReference movingPlatformEvent;
+    FMOD.Studio.EventInstance movingPlatformEventInstance;
+    public FMODUnity.EventReference movingPlatformStopEvent;
+
     private void Start()
     {
         initialPosition = transform.localPosition;
@@ -48,5 +52,25 @@ public class MovingPlatform : MonoBehaviour
         other.transform.SetParent(null);
     }
 
+    public void SetMoving(bool newMoving)
+    {
+        if (!moving && newMoving)
+        {
+            // Start Moving
+            movingPlatformEventInstance = FMODUnity.RuntimeManager.CreateInstance(movingPlatformEvent);
+            FMODUnity.RuntimeManager.AttachInstanceToGameObject(movingPlatformEventInstance, gameObject.transform);
+            movingPlatformEventInstance.start();
+        }
+        else if (moving && !newMoving)
+        {
+            // Stop Moving
+            FMODUnity.RuntimeManager.PlayOneShotAttached(movingPlatformStopEvent, gameObject);
+        }
+        moving = newMoving;
+    }
 
+    private void OnDestroy()
+    {
+        movingPlatformEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+    }
 }
