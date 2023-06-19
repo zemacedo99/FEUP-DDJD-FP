@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using UnityEngine.AddressableAssets;
 
 [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory System/Inventor")]
 public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
@@ -50,8 +51,15 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
 
     private void OnEnable()
     {
-        database = Resources.Load<ItemDatabaseObject>("Database");
+        //database = Resources.Load<ItemDatabaseObject>("Database");
+        Addressables.LoadAssetAsync<ItemDatabaseObject>("Database").Completed += OnLoadDone;
     }
+
+    private void OnLoadDone(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<ItemDatabaseObject> obj)
+    {
+        database = obj.Result;
+    }
+
 
     public void Save()
     {
