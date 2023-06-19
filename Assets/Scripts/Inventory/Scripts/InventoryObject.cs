@@ -21,7 +21,7 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
                 return;
             }
         }
-        Container.Add(new InventorySlot(database.GetId[_item],_item, _amount));
+        Container.Add(new InventorySlot(database.GetIdFunc(_item),_item, _amount));
     }
 
     public bool HasItem(string itemName)
