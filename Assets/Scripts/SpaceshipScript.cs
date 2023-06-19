@@ -26,6 +26,8 @@ public class SpaceshipScript : MonoBehaviour
     public GameObject notification;
     private int flashCount;
 
+    public FMODUnity.EventReference spaceshipEvent;
+
     private void Start()
     {
         actions.FindActionMap("interactions").Enable();
@@ -82,6 +84,7 @@ public class SpaceshipScript : MonoBehaviour
     {
         if(pickupInput.WasPressedThisFrame() && inCol)
         {
+            FMODUnity.RuntimeManager.PlayOneShotAttached(spaceshipEvent, gameObject);
             InvokeRepeating(nameof(FadeOut), 0f, 0.05f);
             pickup.SetActive(false);
             inCol = false;
