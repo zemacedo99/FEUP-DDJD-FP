@@ -251,6 +251,17 @@
                     "action": "gravity",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4277cf4e-dfa6-447b-b1cf-837caf7e402c",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "gravity",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -290,7 +301,7 @@
                 {
                     "name": "",
                     "id": "f8cdaeab-74ae-412d-aa6b-86b201c07459",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

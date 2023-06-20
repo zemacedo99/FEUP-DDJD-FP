@@ -68,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
     public FMODUnity.EventReference footstepsEvent;
 
     [SerializeField] private Animator anim;
+    private bool hasGravved = false;
 
     void Start()
     {
@@ -136,6 +137,8 @@ public class PlayerMovement : MonoBehaviour
             FMODUnity.RuntimeManager.PlayOneShotAttached(landingEvent, gameObject);
 
             if (recorder.isRecording) recorder.eventArray.Add(new PlayerEvent(PlayerEvent.EventType.JumpLanding, Time.time - recorder.GetRecordingStartTime()));
+
+            hasGravved = false;
         }
 
         Vector2 newMoveInputValue;
@@ -173,8 +176,9 @@ public class PlayerMovement : MonoBehaviour
             velocityY = Jump(jumpHeight * mul);
         }
         // GRAVITY Switch
-        if (gravButton.WasPressedThisFrame() && !isWorld && inv.HasItem("Gravity Boot") && isGrounded)
+        if (gravButton.WasPressedThisFrame() && !isWorld && inv.HasItem("Gravity Boot") && !hasGravved)
         {
+            hasGravved = true;
             gravity *= -1;
 
             transform.Rotate(Vector3.forward, 180f);
