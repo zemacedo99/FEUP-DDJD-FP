@@ -137,14 +137,20 @@ public class Recorder : MonoBehaviour
         {
             if (cubesStack.Count != 0)
             {
+                ClonesMustDie();
                 Destroy(cubesStack[0]);
                 FMODUnity.RuntimeManager.PlayOneShotAttached(cubePopEvent, cubesStack[0]);
                 cubesStack.RemoveAt(0);
-
             }
         }
     }
 
+    private void ClonesMustDie()
+    {
+        var clones = FindObjectsOfType<Clone>();
+        foreach (var clone in clones)
+            Destroy(clone.gameObject);
+    }
     public float GetRecordingStartTime()
     {
         return recordingStartTime;
