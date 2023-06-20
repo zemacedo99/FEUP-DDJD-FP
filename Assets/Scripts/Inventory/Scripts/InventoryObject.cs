@@ -9,7 +9,7 @@ using UnityEngine.AddressableAssets;
 public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
 {
     public string savePath;
-    private ItemDatabaseObject database;
+    static private ItemDatabaseObject database;
     public List<InventorySlot> Container = new List<InventorySlot>();
     public void AddItem(ItemObject _item, int _amount)
     {
@@ -52,7 +52,8 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
     private void OnEnable()
     {
         //database = Resources.Load<ItemDatabaseObject>("Database");
-        Addressables.LoadAssetAsync<ItemDatabaseObject>("Database").Completed += OnLoadDone;
+        if(database == null)
+            Addressables.LoadAssetAsync<ItemDatabaseObject>("Database").Completed += OnLoadDone;
     }
 
     private void OnLoadDone(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<ItemDatabaseObject> obj)
