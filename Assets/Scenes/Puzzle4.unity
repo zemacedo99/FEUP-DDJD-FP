@@ -2393,6 +2393,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door (Ending) 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7090630685225265300, guid: ce25a77698b0e4fc5bc16db5b1b2e932, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a28bc46fe61ec46459b3c7963146ff11, type: 2}
+    - target: {fileID: 7090630685225265300, guid: ce25a77698b0e4fc5bc16db5b1b2e932, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: a28bc46fe61ec46459b3c7963146ff11, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce25a77698b0e4fc5bc16db5b1b2e932, type: 3}
 --- !u!1 &371343213 stripped
@@ -3930,6 +3938,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door (Ending) 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7090630685225265300, guid: ce25a77698b0e4fc5bc16db5b1b2e932, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a28bc46fe61ec46459b3c7963146ff11, type: 2}
+    - target: {fileID: 7090630685225265300, guid: ce25a77698b0e4fc5bc16db5b1b2e932, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: a28bc46fe61ec46459b3c7963146ff11, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce25a77698b0e4fc5bc16db5b1b2e932, type: 3}
 --- !u!1001 &719487266
@@ -6754,6 +6770,14 @@ PrefabInstance:
       propertyPath: closeDelay
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7090630685225265300, guid: ce25a77698b0e4fc5bc16db5b1b2e932, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a28bc46fe61ec46459b3c7963146ff11, type: 2}
+    - target: {fileID: 7090630685225265300, guid: ce25a77698b0e4fc5bc16db5b1b2e932, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: a28bc46fe61ec46459b3c7963146ff11, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce25a77698b0e4fc5bc16db5b1b2e932, type: 3}
 --- !u!1 &1235930620
