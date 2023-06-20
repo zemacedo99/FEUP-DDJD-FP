@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
     private FootSteps footstepsScript;
     public FMODUnity.EventReference footstepsEvent;
 
-    private Animator anim;
+    [SerializeField] private Animator anim;
 
     void Start()
     {
@@ -99,8 +99,6 @@ public class PlayerMovement : MonoBehaviour
         moveInputValue = new();
 
         footstepsScript = GetComponent<FootSteps>();
-
-        anim = GetComponentInChildren<Animator>();
     }
 
     void Update()
