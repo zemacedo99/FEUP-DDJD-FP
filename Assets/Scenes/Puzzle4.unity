@@ -210,6 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 171286dac6b0340aba78cbcbfa0a68c6, type: 2}
+  uniqueItem: 1
   degreesPerSecond: 45
   amplitude: 0.1
   frequency: 1
@@ -5430,7 +5431,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-149176
+  m_Name: pb_Mesh-1361368
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6344,6 +6345,10 @@ PrefabInstance:
     - target: {fileID: 293670722862035524, guid: ce25a77698b0e4fc5bc16db5b1b2e932, type: 3}
       propertyPath: m_Name
       value: Door (Ending) 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 294730829108203784, guid: ce25a77698b0e4fc5bc16db5b1b2e932, type: 3}
+      propertyPath: closeDelay
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce25a77698b0e4fc5bc16db5b1b2e932, type: 3}

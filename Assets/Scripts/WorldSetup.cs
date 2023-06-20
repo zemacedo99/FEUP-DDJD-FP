@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
-using System.Text.RegularExpressions;
 
 public class WorldSetup : SceneDict
 {
@@ -13,11 +11,9 @@ public class WorldSetup : SceneDict
     void Start()
     {
         bool resetToPoint = true;
-        foreach (EditorBuildSettingsScene scene in EditorBuildSettings.scenes)
+        string[] sceneNames = { "Puzzle", "Puzzle2", "Puzzle3", "Puzzle4", "Puzzle5" };
+        foreach (var name in sceneNames)
         {
-            var name = NameFromPath(scene.path);
-            if (name == "World" || name == "MainMenu" || name == "Intro")
-                continue;
             if (!PlayerPrefs.HasKey(name)) //check if scene hasnt been set yet
                 PlayerPrefs.SetInt(name, 0); //set state 0 (dropped)
             int state = PlayerPrefs.GetInt(name);
@@ -48,13 +44,6 @@ public class WorldSetup : SceneDict
             FindFirstObjectByType<Oxygen>().LoadCheckpoint();
 
         }
-    }
-
-    string NameFromPath(string path)
-    {
-        int header = "Assets/Scenes/".Length;
-        int drop = ".unity".Length;
-        return path.Substring(header, path.Length - header - drop);
     }
 
     private void OnDestroy()

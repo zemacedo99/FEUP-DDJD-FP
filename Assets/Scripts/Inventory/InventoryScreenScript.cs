@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 using UnityEngine.InputSystem;
-using static UnityEngine.InputSystem.Editor.InputActionCodeGenerator;
 
 public class InventoryScreenScript : MonoBehaviour
 {

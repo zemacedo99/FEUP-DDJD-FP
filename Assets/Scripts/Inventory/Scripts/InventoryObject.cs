@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
-using UnityEditor;
-using static UnityEditor.Progress;
+using UnityEngine.AddressableAssets;
 
 [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory System/Inventor")]
 public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
 {
     public string savePath;
-    private ItemDatabaseObject database;
+    static private ItemDatabaseObject database;
     public List<InventorySlot> Container = new List<InventorySlot>();
     public void AddItem(ItemObject _item, int _amount)
     {
@@ -22,7 +21,7 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
                 return;
             }
         }
-        Container.Add(new InventorySlot(database.GetId[_item],_item, _amount));
+        Container.Add(new InventorySlot(database.GetIdFunc(_item),_item, _amount));
     }
 
     public bool HasItem(string itemName)
@@ -52,12 +51,17 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
 
     private void OnEnable()
     {
-#if UNITY_EDITOR
-        database = (ItemDatabaseObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Database.asset", typeof(ItemDatabaseObject));
-#else
         database = Resources.Load<ItemDatabaseObject>("Database");
-#endif
+        //if(database == null)
+        //    Addressables.LoadAssetAsync<ItemDatabaseObject>("Database").Completed += OnLoadDone;
     }
+
+    private void OnLoadDone(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<ItemDatabaseObject> obj)
+    {
+        Debug.Log(obj.Result);
+        database = obj.Result;
+    }
+
 
     public void Save()
     {
