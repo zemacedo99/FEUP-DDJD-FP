@@ -15,5 +15,5 @@ MonoBehaviour:
   prefab: {fileID: 12550935021668254, guid: c39e0dd777cfb8046b7f7bc99615a080, type: 3}
   itemName: Secondary Device
   type: 4
-  instruction: "Record: Hold Right Mouse Button \nPlay: Q\nRecover: E"
+  instruction: "Record: Press and HOLD Right Mouse \nPlay: Q\nRecover: E"
   lore: With another device, the user can set two clones at the same time!
