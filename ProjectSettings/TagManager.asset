@@ -9,6 +9,7 @@ TagManager:
   - WaterParticle
   - UI Canvas
   - Door
+  - Alert
   layers:
   - Default
   - TransparentFX
