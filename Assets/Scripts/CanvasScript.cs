@@ -159,13 +159,15 @@ public class CanvasScript : MonoBehaviour
                 this.transform.Find("PauseMenu").GetComponent<PuzzlePauseMenuScript>().DisableWarningScreen();
                 return;
             }
+            bool something_open = inventoryIsDisplay || mapIsDisplay || narrativeIsDisplay;
             // Force close the inventory and narrative
             InventorySetActive(false);
             MapSetActive(false);
             narrativeIsDisplay = false;
             this.GetChildByName("NarrativeScreen").SetActive(narrativeIsDisplay);
 
-            PauseMenuSetActive(!pauseMenuIsDisplay);
+            if(!something_open)
+                PauseMenuSetActive(!pauseMenuIsDisplay);
         }
         if (inventoryInput.WasPressedThisFrame() && !pauseMenuIsDisplay && !narrativeIsDisplay)
         {
