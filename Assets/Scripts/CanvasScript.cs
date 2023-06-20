@@ -18,6 +18,8 @@ public class CanvasScript : MonoBehaviour
     public FMODUnity.EventReference pauseSnapshot;
     FMOD.Studio.EventInstance pauseSnapshotInstance;
 
+    public NotificationFlash missionNotif;
+
     void Start()
     {
         actions.FindActionMap("interactions").Enable();
@@ -144,10 +146,11 @@ public class CanvasScript : MonoBehaviour
     {
         if (eyeBlinkaAnimationTime > 0)
         {
-            eyeBlinkaAnimationTime = eyeBlinkaAnimationTime - Time.deltaTime;
+            eyeBlinkaAnimationTime -= Time.deltaTime;
             if(eyeBlinkaAnimationTime <= 0)
             {
                 isPaused = false;
+                missionNotif.Enable();
             }
             return;
         }
