@@ -51,9 +51,9 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
 
     private void OnEnable()
     {
-        //database = Resources.Load<ItemDatabaseObject>("Database");
-        if(database == null)
-            Addressables.LoadAssetAsync<ItemDatabaseObject>("Database").Completed += OnLoadDone;
+        database = Resources.Load<ItemDatabaseObject>("Database");
+        //if(database == null)
+        //    Addressables.LoadAssetAsync<ItemDatabaseObject>("Database").Completed += OnLoadDone;
     }
 
     private void OnLoadDone(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<ItemDatabaseObject> obj)
