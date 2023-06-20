@@ -517,6 +517,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "skip",
+                    "type": "Button",
+                    "id": "7fed3bdc-262f-4bf3-b554-5fd685d95640",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "moveRight",
                     "type": "Button",
                     "id": "89f6f961-9327-43fd-820e-39f3fc89e863",
@@ -742,6 +751,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "moveLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7694bf70-4083-4ebb-a601-b0b19cad9085",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "skip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0e7db8c9-4b45-4933-87a7-6d7741a13b06",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "skip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5136f95d-b2f8-433a-9232-e551d1c75802",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "skip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3c1cb3a2-6230-4397-8be5-dd41c8367b9f",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "skip",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

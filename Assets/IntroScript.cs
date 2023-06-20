@@ -14,7 +14,7 @@ public class IntroScript : MonoBehaviour
     void Start()
     {
         actions.FindActionMap("menu interactions").Enable();
-        selectInput = actions.FindActionMap("menu interactions", true).FindAction("select", true);
+        selectInput = actions.FindActionMap("menu interactions", true).FindAction("skip", true);
 
     }
 
