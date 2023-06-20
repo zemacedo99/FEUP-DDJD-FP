@@ -9,7 +9,7 @@ public class Cloning : MonoBehaviour
     
     public GameObject clonePrefab;
     private float playTimer;
-    private float playCooldown = 1f;
+    public float playCooldown = 0.5f;
 
     public InputActionAsset actions;
     public InputAction playButton;
