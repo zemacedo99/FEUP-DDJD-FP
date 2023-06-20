@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
 	<object class="MixerGroup" id="{2107f9f5-8fe9-4670-9fe2-92c0f8dfef69}">
+		<property name="volume">
+			<value>3</value>
+		</property>
 		<property name="name">
 			<value>Cloning</value>
 		</property>

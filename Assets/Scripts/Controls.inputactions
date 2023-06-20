@@ -251,6 +251,17 @@
                     "action": "gravity",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ed0f05a5-1096-41a5-9c5b-c55186364526",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "gravity",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
