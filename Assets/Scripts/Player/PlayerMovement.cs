@@ -67,7 +67,8 @@ public class PlayerMovement : MonoBehaviour
     private FootSteps footstepsScript;
     public FMODUnity.EventReference footstepsEvent;
 
-    public Animator anim;
+    [SerializeField] private Animator anim;
+    private bool hasGravved = false;
 
     void Start()
     {
@@ -99,8 +100,6 @@ public class PlayerMovement : MonoBehaviour
         moveInputValue = new();
 
         footstepsScript = GetComponent<FootSteps>();
-
-        //anim = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -129,7 +128,7 @@ public class PlayerMovement : MonoBehaviour
     void UpdateMove()
     {
         var previousIsGrounded = isGrounded;
-        isGrounded = Physics.CheckSphere(groundCheck.position, 0.35f, ground);
+        isGrounded = Physics.CheckSphere(groundCheck.position, 0.2f, ground);
 
         if (isGrounded && !previousIsGrounded)
         {
@@ -138,6 +137,8 @@ public class PlayerMovement : MonoBehaviour
             FMODUnity.RuntimeManager.PlayOneShotAttached(landingEvent, gameObject);
 
             if (recorder.isRecording) recorder.eventArray.Add(new PlayerEvent(PlayerEvent.EventType.JumpLanding, Time.time - recorder.GetRecordingStartTime()));
+
+            hasGravved = false;
         }
 
         Vector2 newMoveInputValue;
@@ -175,8 +176,9 @@ public class PlayerMovement : MonoBehaviour
             velocityY = Jump(jumpHeight * mul);
         }
         // GRAVITY Switch
-        if (gravButton.WasPressedThisFrame() && !isWorld && inv.HasItem("Gravity Boot") && isGrounded)
+        if (gravButton.WasPressedThisFrame() && !isWorld && inv.HasItem("Gravity Boot") && !hasGravved)
         {
+            hasGravved = true;
             gravity *= -1;
 
             transform.Rotate(Vector3.forward, 180f);

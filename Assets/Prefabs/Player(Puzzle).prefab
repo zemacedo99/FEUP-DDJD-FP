@@ -553,10 +553,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 150
-  m_fontSizeBase: 100
+  m_fontSize: 90
+  m_fontSizeBase: 90
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 100
   m_fontSizeMax: 150
   m_fontStyle: 0
@@ -3759,6 +3759,7 @@ MonoBehaviour:
       Data3: 940261283
       Data4: -1902223309
     Path: snapshot:/Pause
+  missionNotif: {fileID: 0}
 --- !u!1 &9160824450729310094
 GameObject:
   m_ObjectHideFlags: 0
