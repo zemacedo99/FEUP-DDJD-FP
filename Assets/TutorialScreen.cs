@@ -49,6 +49,10 @@ public class TutorialScreen : MonoBehaviour
 
         GameObject.Find("ImageContainer").transform.Find("Image").GetComponent<Image>().sprite = tutorials[currentTutorialIndex].tutorials[currentPage].image;
 
+        GameObject.Find("Label").transform.GetComponent<TextMeshProUGUI>().text = tutorials[currentTutorialIndex].tutorialPageName;
+
+        print(tutorials[currentTutorialIndex].tutorialPageName);
+
         UpdateArrows();
 
     }

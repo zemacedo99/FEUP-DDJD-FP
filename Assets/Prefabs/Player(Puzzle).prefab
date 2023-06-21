@@ -3985,6 +3985,10 @@ PrefabInstance:
       propertyPath: tutorials.Array.data[0].tutorialPageName
       value: Cloning Device Tutorial
       objectReference: {fileID: 0}
+    - target: {fileID: 3133996133600881589, guid: 51dc81e0c13c54cbcaf72cff81407e7e, type: 3}
+      propertyPath: tutorials.Array.data[1].tutorialPageName
+      value: Gravity Boots Tutorial
+      objectReference: {fileID: 0}
     - target: {fileID: 6607533560297068454, guid: 51dc81e0c13c54cbcaf72cff81407e7e, type: 3}
       propertyPath: m_Name
       value: Tutorial Screen
