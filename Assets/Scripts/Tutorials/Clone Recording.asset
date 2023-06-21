@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Clone Recording
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: e95b88968b4484d5a833fc673eb89d09, type: 3}
-  title: 'HOLD Left Mouse Button to Record
-
-'
-  description: 
+  title: Clone Recording
+  description: This device allows cloning of one's movements by HOLDING the Left
+    Mouse Button.

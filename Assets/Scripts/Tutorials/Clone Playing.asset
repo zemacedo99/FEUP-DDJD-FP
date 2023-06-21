@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Clone Playing
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 740affefd14ee42eaa6a355ae4e14a42, type: 3}
-  title: Press Q to Play
-  description: 
+  title: Clone Playing
+  description: Any movement previously recorded can be played back via a clone by
+    pressing Q.
