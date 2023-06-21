@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 45adb51f36570451aa4ea12784681ac0, type: 3}
   title: Right Click or G to use
-  description: Switch the way you are affected by gravity.
+  description: 'Switch the way you are affected by gravity.
+
+    You have to land
+    before doing it again.'
