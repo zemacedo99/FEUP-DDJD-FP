@@ -9,7 +9,7 @@ using UnityEngine.InputSystem;
 public class TutorialScreen : MonoBehaviour
 {
     public List<TutorialPages> tutorials = new List<TutorialPages>();
-    public int currentTutorialIndex;
+    public int currentTutorialIndex = 0;
     public int currentPage;
 
     public InputAction rightInput, leftInput, skipInput;
@@ -18,7 +18,6 @@ public class TutorialScreen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentTutorialIndex = 0;
         currentPage = 0;
 
         actions.FindActionMap("menu interactions").Enable();
@@ -33,7 +32,8 @@ public class TutorialScreen : MonoBehaviour
         {
             if (tutorials[i].tutorialPageName == tutorialName)
             {
-                currentTutorialIndex = i;
+                this.currentTutorialIndex = i;
+                print(currentTutorialIndex);
                 break;
             }
         }
@@ -89,7 +89,7 @@ public class TutorialScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((rightInput.WasPressedThisFrame() || skipInput.WasPressedThisFrame()) && (currentPage < tutorials[currentTutorialIndex].tutorials.Count-1) )
+        if (rightInput.WasPressedThisFrame() && (currentPage < tutorials[currentTutorialIndex].tutorials.Count-1) )
         {
             currentPage++;
             UpdateScreen();
