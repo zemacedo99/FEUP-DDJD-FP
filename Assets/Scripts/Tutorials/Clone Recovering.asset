@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Clone Recovering
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: bfca2bd336f754fad8e531aa7e57185d, type: 3}
-  title: Press E to Recover
-  description: 
+  title: Clone Recovering
+  description: The device can be retrieved at a distance by pressing E.
