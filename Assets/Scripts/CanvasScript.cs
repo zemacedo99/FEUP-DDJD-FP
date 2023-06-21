@@ -174,7 +174,9 @@ public class CanvasScript : MonoBehaviour
             TutorialSetActive(false);
             return;
         }
-        if (pauseInput.WasPressedThisFrame() && !narrativeIsDisplay )
+        if (narrativeIsDisplay || tutorialIsDisplay)
+            return;
+        if (pauseInput.WasPressedThisFrame())
         {
             
             if (this.transform.Find("PauseMenu").GetComponent<PuzzlePauseMenuScript>() != null && this.transform.Find("PauseMenu").GetComponent<PuzzlePauseMenuScript>().isWarningScreen)
@@ -192,12 +194,14 @@ public class CanvasScript : MonoBehaviour
             if(!something_open)
                 PauseMenuSetActive(!pauseMenuIsDisplay);
         }
-        if (inventoryInput.WasPressedThisFrame() && !pauseMenuIsDisplay && !narrativeIsDisplay)
+        if (pauseMenuIsDisplay)
+            return;
+        if (inventoryInput.WasPressedThisFrame())
         {
             MapSetActive(false);
             InventorySetActive(!inventoryIsDisplay);
         }
-        if (mapInput.WasPressedThisFrame() && !pauseMenuIsDisplay && !narrativeIsDisplay)
+        if (mapInput.WasPressedThisFrame())
         {
             InventorySetActive(false);
             MapSetActive(!mapIsDisplay);

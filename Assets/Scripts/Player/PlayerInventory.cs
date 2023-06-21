@@ -94,7 +94,7 @@ public class PlayerInventory : MonoBehaviour
 
     private void Update()
     {
-        if (currentTouched && pickupInput.WasPressedThisFrame())
+        if (currentTouched && pickupInput.WasPressedThisFrame() && Time.timeScale != 0)
         {
             PickUpMessage.SetActive(false);
             inventory.AddItem(currentTouched.item, 1);
