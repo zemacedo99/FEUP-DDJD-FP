@@ -728,11 +728,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorials:
-  - tutorialPageName: Initial Tutorial
+  - tutorialPageName: Cloning Device
     tutorials:
-    - {fileID: 11400000, guid: 1f25159c30d8a48a5900e7b2bb85dfdb, type: 2}
-    - {fileID: 11400000, guid: 1f25159c30d8a48a5900e7b2bb85dfdb, type: 2}
-    - {fileID: 11400000, guid: 1f25159c30d8a48a5900e7b2bb85dfdb, type: 2}
+    - {fileID: 11400000, guid: 4d7cd8ad80e3348b39944b53f4c91c48, type: 2}
+    - {fileID: 11400000, guid: f6fd0cd5e70ea441db920e9125555f3b, type: 2}
+    - {fileID: 11400000, guid: 22dda4b0e809946a9908c7eeb4de5f32, type: 2}
   currentTutorialIndex: 0
   currentPage: 0
   rightInput:
