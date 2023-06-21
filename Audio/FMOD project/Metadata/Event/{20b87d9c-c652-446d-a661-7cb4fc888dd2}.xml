@@ -68,7 +68,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{df45ba1c-6a7e-47dc-ac31-009366e778fc}">
 		<property name="volume">
-			<value>-24</value>
+			<value>-18</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{4b577768-9978-49f1-bc2e-217941b9ff3f}</destination>
@@ -115,9 +115,14 @@
 		<relationship name="effects">
 			<destination>{b31f5259-4872-4bc6-9527-0221a858668c}</destination>
 			<destination>{437d80a8-a89d-44ee-975e-11229c0e8583}</destination>
+			<destination>{47999b49-1e9b-43b6-9e20-fe6ec103e429}</destination>
 		</relationship>
 	</object>
-	<object class="MixerBusPanner" id="{d4129910-87a9-43db-9af1-10d6454d3a59}" />
+	<object class="MixerBusPanner" id="{d4129910-87a9-43db-9af1-10d6454d3a59}">
+		<property name="stereoPan">
+			<value>6</value>
+		</property>
+	</object>
 	<object class="FadeCurve" id="{39f7e613-00ca-4de4-9855-a266ccf62217}">
 		<relationship name="startPoint">
 			<destination>{19a132f0-be43-45ec-8bd5-d828c884e1a2}</destination>
@@ -132,8 +137,22 @@
 		<property name="filterTypeA">
 			<value>4</value>
 		</property>
+		<property name="filterTypeE">
+			<value>8</value>
+		</property>
 		<property name="frequencyA">
 			<value>640</value>
+		</property>
+		<property name="frequencyE">
+			<value>10500</value>
+		</property>
+		<property name="gainE">
+			<value>-13</value>
+		</property>
+	</object>
+	<object class="ChannelMixEffect" id="{47999b49-1e9b-43b6-9e20-fe6ec103e429}">
+		<property name="outputGrouping">
+			<value>2</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{19a132f0-be43-45ec-8bd5-d828c884e1a2}">
