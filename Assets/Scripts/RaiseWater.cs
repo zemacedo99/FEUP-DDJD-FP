@@ -9,7 +9,7 @@ public class RaiseWater : MonoBehaviour
     private float waterLevel;
     public float speed;
 
-    public void Drop(bool raise)
+    public Vector3 Drop(bool raise)
     {
         waterLevel = water.transform.position.y;
         water.transform.position = new Vector3(water.transform.position.x, waterLevel - 7, water.transform.position.z);
@@ -19,8 +19,9 @@ public class RaiseWater : MonoBehaviour
             print("raising water");
             GameObject player = FindFirstObjectByType<PlayerMovement>().gameObject;
             var height = player.GetComponent<CharacterController>().bounds.extents.y;
-            player.transform.position = new Vector3(water.transform.position.x, water.gameObject.transform.GetChild(0).position.y+height+0.6f, water.transform.position.z);
+            return new Vector3(water.transform.position.x, water.gameObject.transform.GetChild(0).position.y+height+0.6f, water.transform.position.z);
         }
+        return new Vector3();
     }
 
     void Update()

@@ -152,10 +152,19 @@ public class Oxygen : MonoBehaviour
 
     public void LoadCheckpoint()
     {
-        if (!PlayerPrefs.HasKey("CheckpointX"))
+        if (!HasCheckpoint())
             return;
-        oxygenStationPosition = new Vector3(PlayerPrefs.GetFloat("CheckpointX"), PlayerPrefs.GetFloat("CheckpointY"), PlayerPrefs.GetFloat("CheckpointZ"));
+        oxygenStationPosition = GetCheckpoint();
         ResetPos();
     }
 
+    public bool HasCheckpoint()
+    {
+        return PlayerPrefs.HasKey("CheckpointX");
+    }
+
+    public Vector3 GetCheckpoint()
+    {
+        return new Vector3(PlayerPrefs.GetFloat("CheckpointX"), PlayerPrefs.GetFloat("CheckpointY"), PlayerPrefs.GetFloat("CheckpointZ"));
+    }
 }
