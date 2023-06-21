@@ -492,7 +492,7 @@ RectTransform:
   m_Children:
   - {fileID: 8641291982948637004}
   m_Father: {fileID: 2719576085612597812}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -1355,7 +1355,7 @@ RectTransform:
   - {fileID: 1114644931201039993}
   - {fileID: 6496350584195248546}
   m_Father: {fileID: 2719576085612597812}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2411,7 +2411,7 @@ RectTransform:
   - {fileID: 88220621795277072}
   - {fileID: 3138860445005544044}
   m_Father: {fileID: 2719576085612597812}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3710,10 +3710,10 @@ RectTransform:
   - {fileID: 6574841406844598553}
   - {fileID: 4772626584570000397}
   - {fileID: 8774576285902327395}
-  - {fileID: 4960317574614172172}
   - {fileID: 3386509240267194861}
   - {fileID: 7119886721104129076}
   - {fileID: 5653750918396860724}
+  - {fileID: 4960317574614172172}
   m_Father: {fileID: 7856395204743844955}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3828,6 +3828,7 @@ MonoBehaviour:
   inventoryIsDisplay: 0
   mapIsDisplay: 0
   narrativeIsDisplay: 0
+  tutorialIsDisplay: 0
   isPaused: 0
   eyeBlinkaAnimationTime: 10
   pauseSnapshot:
@@ -3980,6 +3981,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2719576085612597812}
     m_Modifications:
+    - target: {fileID: 3133996133600881589, guid: 51dc81e0c13c54cbcaf72cff81407e7e, type: 3}
+      propertyPath: tutorials.Array.data[0].tutorialPageName
+      value: Cloning Device Tutorial
+      objectReference: {fileID: 0}
     - target: {fileID: 6607533560297068454, guid: 51dc81e0c13c54cbcaf72cff81407e7e, type: 3}
       propertyPath: m_Name
       value: Tutorial Screen
@@ -3994,7 +3999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8337957115117047425, guid: 51dc81e0c13c54cbcaf72cff81407e7e, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8337957115117047425, guid: 51dc81e0c13c54cbcaf72cff81407e7e, type: 3}
       propertyPath: m_AnchorMax.x
