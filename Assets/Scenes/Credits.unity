@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -652,7 +652,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "FEUP DDJD Team A\n\nFEUP DDJD Team A\n\nDuarte Sard\xE3o\nF\xE1bio Huang\nLu\xEDs
-    Guimar\xE3es\nJos\xE9 Macedo\nPedro Pereira\nEmanuel Trigo\n\nF\xE1bio Huang\n\nTeam
+    Guimar\xE3es\nJos\xE9 Macedo\nPedro Pereira\nEmanuel Trigo\n\nF\xE1bio Huang\n\nGeanzoka\n\nTeam
     5\n\nVasco Garcia"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -864,6 +864,9 @@ MonoBehaviour:
 
 
     UI Artist
+
+
+    Modeling
 
 
     Sound
