@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7af83214cc8514d4d9425a62e2e5813b, type: 3}
-  m_Name: Tutorial 1
+  m_Name: Cloning
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
-  title: 
+  image: {fileID: 21300000, guid: 0c6a2a64ca9f9c946a7dbbd1674cf5bd, type: 3}
+  title: Cloning Device
   description: 

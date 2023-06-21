@@ -22,7 +22,7 @@ public class NarrativeScreenScript : MonoBehaviour
     private Coroutine screenFlashRoutine;
     private Coroutine typeLineRoutine;
 
-    public InputAction selectInput;
+    public InputAction skipInput;
     public InputActionAsset actions;
 
     public FMODUnity.EventReference tapeStop;
@@ -31,7 +31,7 @@ public class NarrativeScreenScript : MonoBehaviour
     void Start()
     {
         actions.FindActionMap("menu interactions").Enable();
-        selectInput = actions.FindActionMap("menu interactions", true).FindAction("skip", true);
+        skipInput = actions.FindActionMap("menu interactions", true).FindAction("skip", true);
         textSpeed = 1.0f / lettersPerSecond;
         Reset();
     }
@@ -47,7 +47,7 @@ public class NarrativeScreenScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (selectInput.WasPressedThisFrame())
+        if (skipInput.WasPressedThisFrame())
         {
             if (toBeDisplayedContent == textComponent.text)
             {

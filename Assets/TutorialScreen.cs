@@ -12,7 +12,7 @@ public class TutorialScreen : MonoBehaviour
     public int currentTutorialIndex;
     public int currentPage;
 
-    public InputAction rightInput, leftInput;
+    public InputAction rightInput, leftInput, skipInput;
     public InputActionAsset actions;
 
     // Start is called before the first frame update
@@ -24,6 +24,7 @@ public class TutorialScreen : MonoBehaviour
         actions.FindActionMap("menu interactions").Enable();
         rightInput = actions.FindActionMap("menu interactions", true).FindAction("moveRight", true);
         leftInput = actions.FindActionMap("menu interactions", true).FindAction("moveLeft", true);
+        skipInput = actions.FindActionMap("menu interactions", true).FindAction("skip", true);
     }
 
     void UpdateScreen()
@@ -69,7 +70,7 @@ public class TutorialScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rightInput.WasPressedThisFrame() && (currentPage < tutorials[currentTutorialIndex].tutorials.Count-1) )
+        if ((rightInput.WasPressedThisFrame() || skipInput.WasPressedThisFrame()) && (currentPage < tutorials[currentTutorialIndex].tutorials.Count-1) )
         {
             currentPage++;
             UpdateScreen();
