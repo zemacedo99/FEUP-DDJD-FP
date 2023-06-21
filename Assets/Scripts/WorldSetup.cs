@@ -52,6 +52,7 @@ public class WorldSetup : SceneDict
 
         player.transform.position = playerSpawn;
         player.transform.rotation = Quaternion.Euler(0,playerRot,0);
+        Physics.SyncTransforms(); //inshallah?
     }
 
     private void OnDestroy()
