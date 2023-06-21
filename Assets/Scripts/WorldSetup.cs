@@ -13,8 +13,13 @@ public class WorldSetup : SceneDict
         var oxy = FindAnyObjectByType<Oxygen>();
         var player = oxy.gameObject;
         var playerSpawn = player.transform.position;
+        var playerRot = 0f;
+
         if (oxy.HasCheckpoint())
+        {
             playerSpawn = oxy.GetCheckpoint();
+            playerRot = oxy.GetRot();
+        }
 
 
         string[] sceneNames = { "Puzzle", "Puzzle2", "Puzzle3", "Puzzle4", "Puzzle5" };
@@ -39,12 +44,14 @@ public class WorldSetup : SceneDict
             }
             else if (state == 1) {
                 playerSpawn = water.Drop(true); //drop but raise
+                playerRot = water.y_Rot;
                 GameObject.Find(holeDict[name]).GetComponentInChildren<LevelTrigger>().gameObject.SetActive(false);
                 PlayerPrefs.SetInt(name, 2); //and set state to raised
             }
         }
 
         player.transform.position = playerSpawn;
+        player.transform.rotation = Quaternion.Euler(0,playerRot,0);
     }
 
     private void OnDestroy()

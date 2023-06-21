@@ -9,6 +9,8 @@ public class RaiseWater : MonoBehaviour
     private float waterLevel;
     public float speed;
 
+    public float y_Rot;
+
     public Vector3 Drop(bool raise)
     {
         waterLevel = water.transform.position.y;

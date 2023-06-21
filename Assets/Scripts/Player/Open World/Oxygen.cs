@@ -15,6 +15,7 @@ public class Oxygen : MonoBehaviour
 
     private Vector3 lastPosition;
     private Vector3 oxygenStationPosition;
+    private float oxygenStationRot;
     private float oxygenLostSpeed = 2f;
     private float oxygenRefillSpeed = 50f;
     private bool refilling = false;
@@ -65,6 +66,7 @@ public class Oxygen : MonoBehaviour
         {
             oxygenStationPosition = other.transform.parent.transform.position;
             oxygenStationPosition += new Vector3(0, 1, 0);
+            oxygenStationRot = other.GetComponentInParent<RaiseWater>().y_Rot;
             StoreCheckpoint();
             Debug.Log("saving checkpoint");
         }
@@ -134,6 +136,7 @@ public class Oxygen : MonoBehaviour
         // Implement restart the level
         controller.enabled = false;
         transform.position = oxygenStationPosition;
+        transform.rotation = Quaternion.Euler(0, oxygenStationRot, 0);
         controller.enabled = true;
         oxygenValue = maxOxygen;
 
@@ -148,6 +151,7 @@ public class Oxygen : MonoBehaviour
         PlayerPrefs.SetFloat("CheckpointX", oxygenStationPosition.x);
         PlayerPrefs.SetFloat("CheckpointY", oxygenStationPosition.y);
         PlayerPrefs.SetFloat("CheckpointZ", oxygenStationPosition.z);
+        PlayerPrefs.SetFloat("CheckpointRot", oxygenStationRot);
     }
 
     public void LoadCheckpoint()
@@ -155,6 +159,7 @@ public class Oxygen : MonoBehaviour
         if (!HasCheckpoint())
             return;
         oxygenStationPosition = GetCheckpoint();
+        oxygenStationRot = GetRot();
         ResetPos();
     }
 
@@ -166,5 +171,10 @@ public class Oxygen : MonoBehaviour
     public Vector3 GetCheckpoint()
     {
         return new Vector3(PlayerPrefs.GetFloat("CheckpointX"), PlayerPrefs.GetFloat("CheckpointY"), PlayerPrefs.GetFloat("CheckpointZ"));
+    }
+
+    public float GetRot()
+    {
+        return PlayerPrefs.GetFloat("CheckpointRot");
     }
 }
