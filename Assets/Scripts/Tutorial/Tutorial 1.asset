@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: OpenWorld
-  m_EditorClassIdentifier: Assembly-CSharp::Tutorial
-  image: {fileID: 2800000, guid: 6336164cba37c4ffaa5e15c9f2f0ebbf, type: 3}
-  title: Open World Tip
-  description: Explore the world and be ready
+  m_Script: {fileID: 11500000, guid: 7af83214cc8514d4d9425a62e2e5813b, type: 3}
+  m_Name: Tutorial 1
+  m_EditorClassIdentifier: 
+  image: {fileID: 0}
+  title: 
+  description: 
