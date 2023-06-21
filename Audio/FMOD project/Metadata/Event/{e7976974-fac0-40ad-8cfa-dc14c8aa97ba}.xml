@@ -248,11 +248,20 @@
 		<property name="filterTypeA">
 			<value>4</value>
 		</property>
+		<property name="filterTypeB">
+			<value>9</value>
+		</property>
 		<property name="frequencyA">
 			<value>191.352493</value>
 		</property>
+		<property name="frequencyB">
+			<value>123.843109</value>
+		</property>
 		<property name="qualityA">
 			<value>0.775642395</value>
+		</property>
+		<property name="gainB">
+			<value>-2</value>
 		</property>
 	</object>
 	<object class="GainEffect" id="{1f0c931b-a8d4-46e8-b9dd-57ea8ffb488f}">
