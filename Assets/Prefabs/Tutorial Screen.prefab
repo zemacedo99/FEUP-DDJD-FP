@@ -733,6 +733,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 4d7cd8ad80e3348b39944b53f4c91c48, type: 2}
     - {fileID: 11400000, guid: f6fd0cd5e70ea441db920e9125555f3b, type: 2}
     - {fileID: 11400000, guid: 22dda4b0e809946a9908c7eeb4de5f32, type: 2}
+  - tutorialPageName: Gravity Boots
+    tutorials:
+    - {fileID: 11400000, guid: baf49fba1cfcf4570aa3761cee3f5c15, type: 2}
   currentTutorialIndex: 0
   currentPage: 0
   rightInput:
