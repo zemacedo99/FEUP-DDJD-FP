@@ -554,10 +554,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 150
-  m_fontSizeBase: 100
+  m_fontSize: 90
+  m_fontSizeBase: 90
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 100
   m_fontSizeMax: 150
   m_fontStyle: 0
@@ -2334,8 +2334,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -771.00024, y: 54.999756}
-  m_SizeDelta: {x: 1586.5049, y: 1383.3854}
+  m_AnchoredPosition: {x: -875.6, y: 176.8}
+  m_SizeDelta: {x: 1150.7, y: 826.2}
   m_Pivot: {x: 0.2706716, y: 0.5}
 --- !u!222 &2686267613659246667
 CanvasRenderer:
@@ -3836,6 +3836,7 @@ MonoBehaviour:
       Data3: 940261283
       Data4: -1902223309
     Path: snapshot:/Pause
+  missionNotif: {fileID: 0}
 --- !u!1 &9160824450729310094
 GameObject:
   m_ObjectHideFlags: 0
@@ -4142,27 +4143,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3020669052099713998, guid: 2f0ad140947c64ffa8425104747dd358, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3020669052099713998, guid: 2f0ad140947c64ffa8425104747dd358, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3020669052099713998, guid: 2f0ad140947c64ffa8425104747dd358, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3020669052099713998, guid: 2f0ad140947c64ffa8425104747dd358, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3020669052099713998, guid: 2f0ad140947c64ffa8425104747dd358, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -2797
+      value: 1300
       objectReference: {fileID: 0}
     - target: {fileID: 3020669052099713998, guid: 2f0ad140947c64ffa8425104747dd358, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -1260
+      value: 900
       objectReference: {fileID: 0}
     - target: {fileID: 3020669052099713998, guid: 2f0ad140947c64ffa8425104747dd358, type: 3}
       propertyPath: m_LocalPosition.x

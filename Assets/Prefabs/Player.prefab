@@ -348,6 +348,7 @@ MonoBehaviour:
       Data3: 431507127
       Data4: 176202878
     Path: event:/Player/Footsteps
+  anim: {fileID: 4482161272340717835}
 --- !u!114 &6484459017631928240
 MonoBehaviour:
   m_ObjectHideFlags: 0

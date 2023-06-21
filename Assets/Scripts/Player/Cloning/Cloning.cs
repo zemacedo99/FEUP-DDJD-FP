@@ -9,7 +9,7 @@ public class Cloning : MonoBehaviour
     
     public GameObject clonePrefab;
     private float playTimer;
-    private float playCooldown = 1f;
+    public float playCooldown = 0.5f;
 
     public InputActionAsset actions;
     public InputAction playButton;
@@ -20,6 +20,8 @@ public class Cloning : MonoBehaviour
     CanvasScript canvasScript;
 
     public FMODUnity.EventReference playEvent;
+
+    private GameObject clone;
 
     private void Start()
     {
@@ -59,7 +61,10 @@ public class Cloning : MonoBehaviour
         Vector3 initialPosition = snapshotArray[0].position;
         Quaternion initialRotation = snapshotArray[0].rotation;
 
-        GameObject clone = Instantiate(clonePrefab, initialPosition, initialRotation);
+        if (clone != null)
+            Destroy(clone);
+
+        clone = Instantiate(clonePrefab, initialPosition, initialRotation);
         FMODUnity.RuntimeManager.PlayOneShotAttached(playEvent, clone);
 
         Clone cloneScript = clone.GetComponent<Clone>();

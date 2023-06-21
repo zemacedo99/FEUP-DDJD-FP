@@ -18,6 +18,8 @@ public class CanvasScript : MonoBehaviour
     public FMODUnity.EventReference pauseSnapshot;
     FMOD.Studio.EventInstance pauseSnapshotInstance;
 
+    public NotificationFlash missionNotif;
+
     void Start()
     {
         actions.FindActionMap("interactions").Enable();
@@ -144,10 +146,11 @@ public class CanvasScript : MonoBehaviour
     {
         if (eyeBlinkaAnimationTime > 0)
         {
-            eyeBlinkaAnimationTime = eyeBlinkaAnimationTime - Time.deltaTime;
+            eyeBlinkaAnimationTime -= Time.deltaTime;
             if(eyeBlinkaAnimationTime <= 0)
             {
                 isPaused = false;
+                missionNotif.Enable();
             }
             return;
         }
@@ -159,13 +162,15 @@ public class CanvasScript : MonoBehaviour
                 this.transform.Find("PauseMenu").GetComponent<PuzzlePauseMenuScript>().DisableWarningScreen();
                 return;
             }
+            bool something_open = inventoryIsDisplay || mapIsDisplay || narrativeIsDisplay;
             // Force close the inventory and narrative
             InventorySetActive(false);
             MapSetActive(false);
             narrativeIsDisplay = false;
             this.GetChildByName("NarrativeScreen").SetActive(narrativeIsDisplay);
 
-            PauseMenuSetActive(!pauseMenuIsDisplay);
+            if(!something_open)
+                PauseMenuSetActive(!pauseMenuIsDisplay);
         }
         if (inventoryInput.WasPressedThisFrame() && !pauseMenuIsDisplay && !narrativeIsDisplay)
         {

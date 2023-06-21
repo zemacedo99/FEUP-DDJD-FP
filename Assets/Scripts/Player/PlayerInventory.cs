@@ -88,6 +88,7 @@ public class PlayerInventory : MonoBehaviour
                 if (currentTouched.item.itemName == "Strange Tape I")
                 {
                     PlayerPrefs.SetInt("IsFirstTapeCollected", 1);
+                    inventory.Save();
                 }
                 GameObject.FindGameObjectWithTag("UI Canvas").GetComponent<CanvasScript>().NarrativeSetSctive(true, currentTouched.gameObject.GetComponent<Item>().item);
 

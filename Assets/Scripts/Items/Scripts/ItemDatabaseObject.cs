@@ -6,8 +6,16 @@ using UnityEngine;
 public class ItemDatabaseObject : ScriptableObject, ISerializationCallbackReceiver
 {
     public ItemObject[] Items;
-    public Dictionary<ItemObject, int> GetId = new Dictionary<ItemObject, int>();
+    private Dictionary<ItemObject, int> GetId = new Dictionary<ItemObject, int>();
     public Dictionary<int, ItemObject> GetItem = new Dictionary<int, ItemObject>();
+
+    public int GetIdFunc(ItemObject item)
+    {
+        foreach (var key in GetId.Keys)
+            if (key.itemName == item.itemName)
+                return GetId[key];
+        return 0;
+    }
 
 
     public void OnAfterDeserialize()
