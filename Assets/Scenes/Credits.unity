@@ -651,8 +651,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Duarte Sard\xE3o\nF\xE1bio Huang\nLu\xEDs Guimar\xE3es\nJos\xE9 Macedo\nP.
-    Pereira\nEmanuel Trigo\n\nF\xE1bio Huang\n\nTeam 5\n\n\nVasco Garcia\n\n\n"
+  m_text: "FEUP DDJD Team A\n\nFEUP DDJD Team A\n\nDuarte Sard\xE3o\nF\xE1bio Huang\nLu\xEDs
+    Guimar\xE3es\nJos\xE9 Macedo\nPedro Pereira\nEmanuel Trigo\n\nF\xE1bio Huang\n\nGeanzoka\n\nTeam
+    5\n\nVasco Garcia"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -848,7 +849,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Programming
+  m_text: 'Producer
+
+
+    Project Manager
+
+
+    Programming
+
+
 
 
 
@@ -857,8 +866,11 @@ MonoBehaviour:
     UI Artist
 
 
-    Sound Design
+    Modeling
 
+
+    Sound
+    Design
 
 
     Special Thanks'

@@ -76,9 +76,25 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
+    public void ShowTutorial(string itemName)
+    {
+        switch (itemName)
+        {
+            case "Cloning Device":
+                GameObject.FindGameObjectWithTag("UI Canvas").GetComponent<CanvasScript>().TutorialSetActive(true, "Cloning Device Tutorial");
+                return;
+            case "Gravity Boot":
+                GameObject.FindGameObjectWithTag("UI Canvas").GetComponent<CanvasScript>().TutorialSetActive(true, "Gravity Boots Tutorial");
+                return;
+            default:
+                return;
+
+        }
+    }
+
     private void Update()
     {
-        if (currentTouched && pickupInput.WasPressedThisFrame())
+        if (currentTouched && pickupInput.WasPressedThisFrame() && Time.timeScale != 0)
         {
             PickUpMessage.SetActive(false);
             inventory.AddItem(currentTouched.item, 1);
@@ -95,6 +111,7 @@ public class PlayerInventory : MonoBehaviour
                 FMODUnity.RuntimeManager.PlayOneShot(tapeStart);
             } else
             {
+                ShowTutorial(currentTouched.item.itemName);
                 notif.Enable();
             }
             InventoryScreen.GetComponent<InventoryScreenScript>().UpdateInformationScreen();

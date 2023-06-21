@@ -72,7 +72,7 @@ public class SpaceshipScript : MonoBehaviour
 
     private void Update()
     {
-        if(pickupInput.WasPressedThisFrame() && inCol)
+        if(pickupInput.WasPressedThisFrame() && inCol && Time.timeScale != 0)
         {
             FMODUnity.RuntimeManager.PlayOneShotAttached(spaceshipEvent, gameObject);
             InvokeRepeating(nameof(FadeOut), 0f, 0.05f);
