@@ -83,8 +83,8 @@ public class PlayerInventory : MonoBehaviour
             case "Cloning Device":
                 GameObject.FindGameObjectWithTag("UI Canvas").GetComponent<CanvasScript>().TutorialSetActive(true, "Cloning Device Tutorial");
                 return;
-            case "Initial Tutorial":
-                GameObject.FindGameObjectWithTag("UI Canvas").GetComponent<CanvasScript>().TutorialSetActive(true, "Initial Tutorial");
+            case "Gravity Boot":
+                GameObject.FindGameObjectWithTag("UI Canvas").GetComponent<CanvasScript>().TutorialSetActive(true, "Gravity Boots Tutorial");
                 return;
             default:
                 return;
