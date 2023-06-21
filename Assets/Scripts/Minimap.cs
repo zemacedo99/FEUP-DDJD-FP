@@ -27,6 +27,7 @@ public class Minimap : MonoBehaviour
 	private List<int> updatedIndices  = new List<int>();
 	private List<float> updatedAlphas = new List<float>();
 
+	private bool startUncovering = false;
 
 	
 	void Start () {
@@ -39,9 +40,12 @@ public class Minimap : MonoBehaviour
 
 		LoadFogOfWarData(); // Load the fog of war data from file
 		UpdateColor();
+		Invoke(nameof(doUncover), 0.5f);
 	}
 
 	void Update () {
+		if (!startUncovering)
+			return;
 		Ray r = new Ray(transform.position, player.position - transform.position);
 		RaycastHit hit;
 		if (Physics.Raycast(r, out hit, 1000, fogLayer, QueryTriggerInteraction.Collide)) {
@@ -65,6 +69,11 @@ public class Minimap : MonoBehaviour
 	void UpdateColor() {
 		mesh.colors = colors;
 	}
+
+	void doUncover()
+    {
+		startUncovering = true;
+    }
 
 	void OnDestroy()
     {
