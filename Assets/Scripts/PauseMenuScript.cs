@@ -54,7 +54,7 @@ public class PauseMenuScript : MonoBehaviour
     {
         if (collectedTapes == 6)
         {
-            missionDescriptionText.text = "Return to the spaceship to escape from Luminar";
+            missionDescriptionText.text = "Return to the spaceship to escape from Lumina";
             return collectedTapes;
         }
         string[] romanLetter = { "I", "II", "III", "IV", "V", "VI" };
