@@ -76,6 +76,22 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
+    public void ShowTutorial(string itemName)
+    {
+        switch (itemName)
+        {
+            case "Cloning Device":
+                GameObject.FindGameObjectWithTag("UI Canvas").GetComponent<CanvasScript>().TutorialSetActive(true, "Cloning Device Tutorial");
+                return;
+            case "Initial Tutorial":
+                GameObject.FindGameObjectWithTag("UI Canvas").GetComponent<CanvasScript>().TutorialSetActive(true, "Initial Tutorial");
+                return;
+            default:
+                return;
+
+        }
+    }
+
     private void Update()
     {
         if (currentTouched && pickupInput.WasPressedThisFrame())
@@ -95,6 +111,7 @@ public class PlayerInventory : MonoBehaviour
                 FMODUnity.RuntimeManager.PlayOneShot(tapeStart);
             } else
             {
+                ShowTutorial(currentTouched.item.itemName);
                 notif.Enable();
             }
             InventoryScreen.GetComponent<InventoryScreenScript>().UpdateInformationScreen();

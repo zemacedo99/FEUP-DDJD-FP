@@ -27,6 +27,21 @@ public class TutorialScreen : MonoBehaviour
         skipInput = actions.FindActionMap("menu interactions", true).FindAction("skip", true);
     }
 
+    public void UpdateTutorial(string tutorialName)
+    {
+        for (int i = 0; i < tutorials.Capacity; i++)
+        {
+            if (tutorials[i].tutorialPageName == tutorialName)
+            {
+                currentTutorialIndex = i;
+                break;
+            }
+        }
+        currentPage = 0;
+        UpdateScreen();
+        return;
+    }
+
     void UpdateScreen()
     {
         GameObject.Find("Title").GetComponent<TextMeshProUGUI>().text = tutorials[currentTutorialIndex].tutorials[currentPage].title;

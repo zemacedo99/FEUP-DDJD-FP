@@ -11,7 +11,7 @@ public class CanvasScript : MonoBehaviour
     public InputAction pauseInput;
     public InputAction inventoryInput;
     public InputAction mapInput;
-    public bool pauseMenuIsDisplay, inventoryIsDisplay, mapIsDisplay, narrativeIsDisplay;
+    public bool pauseMenuIsDisplay, inventoryIsDisplay, mapIsDisplay, narrativeIsDisplay, tutorialIsDisplay;
     public bool isPaused = false;
     public float eyeBlinkaAnimationTime = 10f;
 
@@ -120,6 +120,20 @@ public class CanvasScript : MonoBehaviour
         SetPause(isActive, false);
     }
 
+    public void TutorialSetActive(bool isActive, string tutorialName = "tutorialName" )
+    {
+        tutorialIsDisplay = isActive;
+
+        this.GetChildByName("Tutorial Screen").SetActive(isActive);
+
+        if (isActive)
+        {
+            this.GetChildByName("Tutorial Screen").GetComponent<TutorialScreen>().UpdateTutorial(tutorialName);
+        }
+
+        SetPause(isActive);
+    }
+
     public void MapSetActive(bool isActive)
     {
         GameObject mapWindowObject = this.GetChildByName("MapWindow");
@@ -155,8 +169,14 @@ public class CanvasScript : MonoBehaviour
             return;
         }
 
-        if (pauseInput.WasPressedThisFrame() && !narrativeIsDisplay)
+        if (pauseInput.WasPressedThisFrame() && tutorialIsDisplay)
         {
+            TutorialSetActive(false);
+            return;
+        }
+        if (pauseInput.WasPressedThisFrame() && !narrativeIsDisplay )
+        {
+            
             if (this.transform.Find("PauseMenu").GetComponent<PuzzlePauseMenuScript>() != null && this.transform.Find("PauseMenu").GetComponent<PuzzlePauseMenuScript>().isWarningScreen)
             {
                 this.transform.Find("PauseMenu").GetComponent<PuzzlePauseMenuScript>().DisableWarningScreen();
