@@ -15,6 +15,8 @@ public class TutorialScreen : MonoBehaviour
     public InputAction rightInput, leftInput, skipInput;
     public InputActionAsset actions;
 
+    public Image tutorialImage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +49,7 @@ public class TutorialScreen : MonoBehaviour
         GameObject.Find("Title").GetComponent<TextMeshProUGUI>().text = tutorials[currentTutorialIndex].tutorials[currentPage].title;
         GameObject.Find("Description").GetComponent<TextMeshProUGUI>().text = tutorials[currentTutorialIndex].tutorials[currentPage].description;
 
-        GameObject.Find("ImageContainer").transform.Find("Image").GetComponent<Image>().sprite = tutorials[currentTutorialIndex].tutorials[currentPage].image;
+        tutorialImage.sprite = tutorials[currentTutorialIndex].tutorials[currentPage].image;
 
         GameObject.Find("Label").transform.GetComponent<TextMeshProUGUI>().text = tutorials[currentTutorialIndex].tutorialPageName;
 
