@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0127d48dcc9f484d9c5839eb9efdc39, type: 3}
+  m_Name: Gravity Boot
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1574033683648906265, guid: 75caa371d83fe400b8551f299a7c7b44, type: 3}
+  itemName: Gravity Boot
+  type: 4
+  instruction: "Press 'G' or Right Mouse to activate. \nLand to use again.\n(Cannot
+    be activated outside the puzzle)"
+  lore: "\"In a small town, inventor Alex creates the legendary gravity boot\u2014a
+    sleek, anti-gravity marvel. Word spreads, and the world becomes captivated. Alex
+    showcases the boots, soaring through the skies, inspiring all who witness. The
+    gravity boot becomes a symbol of dreams realized, empowering others to reach
+    for the stars. Alex's invention leaves an indelible mark, reminding us to defy
+    gravity and believe in our own imagination...\""

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{0a7b4643-9c8f-4f7d-82d1-216ebc5696f1}">
+		<property name="assetPath">
+			<value>Player/FS_Player/Grass/FS_Grass-005.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.42562499999999998</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a1d0acbe-636d-4a2a-9860-056e3465eb10}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EffectPreset" id="{b7bb6703-665e-47fe-bd35-9449986a203e}">
+		<property name="name">
+			<value>LowOxygenFiltering</value>
+		</property>
+		<relationship name="folder">
+			<destination>{c265559d-6fe8-48b0-838b-8276dbaf5b54}</destination>
+		</relationship>
+		<relationship name="effect">
+			<destination>{d198fea4-39fd-48ed-b9e2-de2e5827e181}</destination>
+		</relationship>
+	</object>
+	<object class="EffectChain" id="{d198fea4-39fd-48ed-b9e2-de2e5827e181}" />
+</objects>

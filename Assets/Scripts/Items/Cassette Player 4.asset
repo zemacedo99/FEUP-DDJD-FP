@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46bd4f72c474b449a8b4f8acb164cbca, type: 3}
+  m_Name: Cassette Player 4
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 7332769740849212140, guid: e2993849c28e44ff6bba2df3bf4d8245, type: 3}
+  itemName: Strange Tape IV
+  type: 3
+  instruction: 
+  lore: "Chapter 4: A Desperate Call\n\n2157-06-19\n\nThe situation has become dire,
+    and our hopes wane like the fading light in the deep sea. Our scientists have
+    exhausted every known method to reverse the toxic encroachment on our waters.
+    \n\nWe face the grim reality that our survival is at stake. In this time of desperation,
+    we reach out to the inhabitants of a distant planet, our unknown allies. We implore
+    them to listen and comprehend the urgency of our plea. We believe they hold the
+    key to our salvation."

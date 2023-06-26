@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46bd4f72c474b449a8b4f8acb164cbca, type: 3}
+  m_Name: Cassette Player 3
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 7332769740849212140, guid: 2c7f79a499c914fcfba79e299e7472a5, type: 3}
+  itemName: Strange Tape III
+  type: 3
+  instruction: 
+  lore: "Chapter 3: A Dying Tide\n\n2157-02-04\n\nAs we persist in our attempts at
+    communication, a troubling concern emerges. Disturbing reports reach us from
+    our researchers: the once-crystalline waters of Lumina are turning toxic. \n\nOur
+    beautiful home, teeming with vibrant life, is threatened by an invisible enemy.
+    Panic grips our hearts as we witness the devastation unfold. \n\nWill our species
+    survive this encroaching menace? Our efforts to make contact with the enigmatic
+    planet now carry a sense of urgency and a plea for assistance and understanding."

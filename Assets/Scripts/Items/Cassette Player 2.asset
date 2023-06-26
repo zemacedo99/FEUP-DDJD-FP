@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46bd4f72c474b449a8b4f8acb164cbca, type: 3}
+  m_Name: Cassette Player 2
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 3447228698730923694, guid: 991e8419dfd174be880c1c80caf94d4e, type: 3}
+  itemName: Strange Tape II
+  type: 3
+  instruction: 
+  lore: "Chapter 2: Signals in the Abyss\n\n2156-07-21\n\nMonths have passed since
+    we set out on our mission to make contact with the distant planet. We have labored
+    tirelessly, developing advanced technology to transmit our own messages across
+    the vast cosmic expanse. The anticipation builds within us as we send our signals
+    into the depths, hoping they reach their intended destination. \n\nWill the inhabitants
+    of the distant planet receive our messages? Will they respond to our call for
+    connection? We await their reply, filled with anticipation and wonder."
