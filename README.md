@@ -1,5 +1,17 @@
 # Lost Depths
-It is a first-person open-world - puzzle game. The game starts with the main character crashing on another planet. The player takes on the role of a deep-sea fish species that finds itself alone and lost on this planet with no memory of how it got there. The player must explore the planet, collecting missing tapes by solving puzzles. As the player explores, they will gradually uncover the truth behind the planet and escape it.
+
+
+<p align="center">
+	<br>
+
+
+  <img height="200" src="https://github.com/FabioMiguel2000/Lost-Depths/assets/50105554/eaca1819-f96e-4d6b-9d04-368bd323a901">
+	<br>
+First-person open-world - puzzle game. The game starts with the main character crashing on another planet. The player takes on the role of a deep-sea fish species that finds itself alone and lost on this planet with no memory of how it got there. The player must explore the planet, collecting missing tapes by solving puzzles. As the player explores, they will gradually uncover the truth behind the planet and escape it.
+<p align="center">
+<a href="https://github.com/zemacedo99/FEUP-DDJD-FP"><img alt="GitHub" height="50" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/github_vector.svg"></a>
+<a href="https://pspereira.itch.io/lost-depths" target="itch"><img alt="CurseForge" height="50" src="https://github.com/luismrguimaraes/FEUPocalypse/assets/50105554/e1acb9f3-85a7-469c-8a56-dec5cf104f59"></a>
+</p>
 
 ## User Interface
 
